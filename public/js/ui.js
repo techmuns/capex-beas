@@ -23,6 +23,29 @@ export const fmtSignedCr = (n) =>
 
 export const fmtPct = (n) => (n == null ? '' : `${n > 0 ? '+' : ''}${n}%`);
 
+// External market context (approx). Market cap compacts to "L Cr" (lakh crore)
+// once it crosses ₹1,00,000 Cr so big caps stay readable.
+export const fmtMktCap = (n) => {
+  if (n == null || Number.isNaN(Number(n))) return '—';
+  const v = Number(n);
+  if (v >= 100000) return `₹${(v / 100000).toLocaleString('en-IN', { maximumFractionDigits: 2 })} L Cr`;
+  return `₹${v.toLocaleString('en-IN', { maximumFractionDigits: 0 })} Cr`;
+};
+export const fmtPE = (n) =>
+  (n == null || Number.isNaN(Number(n)) ? '—' : Number(n).toLocaleString('en-IN', { maximumFractionDigits: 1 }));
+
+// Canonical event-type tag -> chip style. Each label is visually distinct.
+export const EVENT_TYPE_STYLES = {
+  'New Project': { bg: '#EEF2FF', color: '#4F46E5', icon: 'sparkles' },
+  'Capacity Expansion': { bg: '#ECFEFF', color: '#0E7490', icon: 'factory' },
+  'Capex ↑': { bg: 'rgba(16,185,129,.12)', color: '#059669', icon: 'trending-up' },
+  'Capex ↓': { bg: 'rgba(244,63,94,.12)', color: '#E11D48', icon: 'trending-down' },
+  'Guidance revision': { bg: '#F5F3FF', color: '#7C3AED', icon: 'pencil-line' },
+  'Quarterly capex': { bg: '#EFF6FF', color: '#2563EB', icon: 'calendar-days' },
+  'Acquisition (M&A)': { bg: '#FFF7ED', color: '#C2410C', icon: 'handshake' },
+};
+export const eventTypeStyle = (t) => EVENT_TYPE_STYLES[t] || { bg: '#F1F5F9', color: '#475569', icon: 'tag' };
+
 export const fmtDate = (iso) => {
   if (!iso) return '—';
   const d = new Date(iso);
@@ -33,6 +56,30 @@ export const fmtDate = (iso) => {
 
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+// Week concept (Phase 4.1) — mirrors scripts/lib/util.mjs weekOf(): a Mon–Sun
+// label like "7–13 Sep 2026", derived deterministically from the UTC calendar
+// date. `key` is the Monday as YYYYMMDD (sortable). Returns null on a bad date.
+export const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const _pad2 = (n) => String(n).padStart(2, '0');
+const _ymd = (d) => `${d.getUTCFullYear()}${_pad2(d.getUTCMonth() + 1)}${_pad2(d.getUTCDate())}`;
+export function weekOf(input) {
+  const s = String(input ?? '');
+  let d;
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  else { const t = new Date(s); if (Number.isNaN(t.getTime())) return null; d = new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate())); }
+  const diffToMon = (d.getUTCDay() + 6) % 7;
+  const mon = new Date(d); mon.setUTCDate(d.getUTCDate() - diffToMon);
+  const sun = new Date(mon); sun.setUTCDate(mon.getUTCDate() + 6);
+  const dM = mon.getUTCDate(), dS = sun.getUTCDate();
+  const moM = MONTHS_SHORT[mon.getUTCMonth()], moS = MONTHS_SHORT[sun.getUTCMonth()];
+  const yM = mon.getUTCFullYear(), yS = sun.getUTCFullYear();
+  const label = (yM === yS && mon.getUTCMonth() === sun.getUTCMonth()) ? `${dM}–${dS} ${moM} ${yM}`
+    : (yM === yS) ? `${dM} ${moM} – ${dS} ${moS} ${yM}`
+      : `${dM} ${moM} ${yM} – ${dS} ${moS} ${yS}`;
+  return { key: _ymd(mon), label, startISO: mon.toISOString(), endISO: sun.toISOString() };
+}
 
 export const debounce = (fn, ms = 150) => {
   let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };

@@ -13,9 +13,11 @@
 
 import { callLLM, extractJSON } from './llm.mjs';
 import { getFilingText } from './pdf-text.mjs';
-import { normText, numericTokens, toCrore, log, parseArgs } from './lib/util.mjs';
+import { normText, numericTokens, toCrore, deriveEventType, log, parseArgs } from './lib/util.mjs';
 
-const VALID_TYPES = new Set(['guidance', 'actual', 'plan', 'cumulative']);
+// "acquisition" is recorded (so M&A capital still shows up as context) but is
+// NEVER treated as capex guidance — detect-changes only ever moves on "guidance".
+const VALID_TYPES = new Set(['guidance', 'actual', 'plan', 'cumulative', 'acquisition']);
 const VALID_DIRS = new Set(['up', 'down', 'flat', 'unclear']);
 
 // How much filing text to feed the model. We build a focused excerpt around
@@ -24,14 +26,24 @@ const TEXT_BUDGET = 16000;
 
 const SYSTEM_PROMPT = `You are a meticulous equity analyst. You extract CAPITAL EXPENDITURE (capex) figures from an Indian company's BSE filing text.
 
-Return ONLY a JSON array (no prose, no markdown fences). Each element describes ONE capex figure that is EXPLICITLY stated in the text:
+CAPEX means ONLY money the company spends on its OWN property, plant, equipment and productive capacity — greenfield or brownfield projects, new plants / lines / machinery, plant upgrades and modernisation, debottlenecking, and capacity expansion.
+
+The following are NOT capex. Do NOT report them as type "guidance"/"actual"/"plan"/"cumulative":
+- acquisitions or mergers (M&A) — buying another company or business;
+- buying a stake, shares or equity in another company; joint-venture capital contributions;
+- financial investments, treasury or mutual-fund investments;
+- loans, inter-corporate deposits (ICDs), or guarantees given;
+- share buybacks, dividends, debt repayment.
+If a capital figure is an ACQUISITION / M&A / stake purchase, STILL report it but set "type":"acquisition" so it is recorded as context and NEVER mistaken for organic capex.
+
+Return ONLY a JSON array (no prose, no markdown fences). Each element describes ONE capital figure that is EXPLICITLY stated in the text:
 {
   "fiscal_year": "FY27" | "H1FY27" | null,     // period the figure applies to; FY27 = Apr 2026-Mar 2027. null if not stated.
   "amount_text": "string",                       // the figure EXACTLY as written, e.g. "₹700 crore", "Rs. 1,200 cr", "$50 million"
   "amount_cr": number,                           // that figure normalized to Rupees crore (1 bn = 100 cr; 100 lakh = 1 cr; 10 mn = 1 cr)
   "amount_cr_low": number,                        // for a range, the low end (else = amount_cr)
   "amount_cr_high": number,                       // for a range, the high end (else = amount_cr)
-  "type": "guidance" | "actual" | "plan" | "cumulative",  // guidance=forward target for a year; actual=already incurred; plan=intention w/o firm year; cumulative=multi-year total
+  "type": "guidance" | "actual" | "plan" | "cumulative" | "acquisition",  // guidance=forward organic-capex target for a year; actual=organic capex already incurred; plan=organic-capex intention w/o firm year; cumulative=multi-year organic-capex total; acquisition=M&A / stake / JV capital (NOT organic capex)
   "segment_or_project": "string" | null,          // segment/project it is for, else null
   "direction": "up" | "down" | "flat" | "unclear",// how the filing frames it vs before
   "reason": "string" | null,                      // management's stated reason IN THEIR OWN WORDS copied from the text; null if none stated. NEVER infer.
@@ -39,10 +51,10 @@ Return ONLY a JSON array (no prose, no markdown fences). Each element describes 
 }
 
 Hard rules:
-- Only CAPITAL EXPENDITURE / capacity-expansion / plant & equipment investment figures. Ignore revenue, PAT, EBITDA, dividends, debt, market cap, order book, buyback, etc.
+- Only CAPITAL figures: organic capex (guidance/actual/plan/cumulative) OR an acquisition/M&A figure (type "acquisition"). Ignore revenue, PAT, EBITDA, dividends, debt, market cap, order book, buyback, etc.
 - "verbatim_quote" MUST be copied character-for-character from the provided text, including the number. If you cannot quote it verbatim, DO NOT include that item — it will be automatically rejected.
 - Do NOT invent, round, or estimate any number. Do NOT infer a reason that is not written.
-- If the text contains no capex figure, return exactly [].`;
+- If the text contains no capital figure, return exactly [].`;
 
 /** Build a focused excerpt: the head + windows around capex mentions. */
 function focusText(text, budget = TEXT_BUDGET) {
@@ -70,6 +82,30 @@ function focusText(text, budget = TEXT_BUDGET) {
     excerpt += '\n…\n' + text.slice(s, e);
   }
   return excerpt.slice(0, budget);
+}
+
+// ---------------------------------------------------------------------------
+// M&A / stake-purchase detector. A deterministic, code-side GUARD (on top of
+// the LLM's own "acquisition" tag) so a capital figure that is really an
+// acquisition can never be recorded as organic capex — and therefore can never
+// produce a capex guidance change. Conservative on purpose: it flips a figure
+// to "acquisition" only on strong M&A signals, or an acquire/purchase verb
+// aimed at a COMPANY-like target (not a plant/asset).
+// ---------------------------------------------------------------------------
+const ACQ_STRONG_RE = /\b(merger|amalgamat\w+|de-?merger|buyout|take[- ]?over|open offer|share purchase agreement|slump sale|scheme of arrangement|controlling (?:stake|interest)|majority (?:stake|interest)|equity stake|acquir\w* a stake|stake in|shares? of|equity shares? of|inter-?corporate deposit)\b/i;
+const ACQ_PCT_STAKE_RE = /\d+(?:\.\d+)?\s*%\s*(?:equity|stake|shareholding|shares)/i;
+const ACQ_VERB_RE = /\b(acquir\w+|acquisition of|purchase of|buying out|buy out)\b/i;
+const ACQ_TARGET_RE = /\b(holdings?|limited|ltd\.?|private limited|pvt\.?|inc\.?|corp\.?|corporation|compan(?:y|ies)|gmbh|plc|industries|technologies|pharma|labs|laborator\w+|enterprises|ventures|solutions|systems|group|llc|subsidiary|business(?:es)? of)\b/i;
+// Organic-capex objects — if the spend targets these it is capex even when the
+// verb is "acquire" (e.g. "acquire land to set up a new plant").
+const CAPEX_OBJECT_RE = /\b(land|plant|machinery|equipment|facilit\w+|capacity|line|greenfield|brownfield|building|property, plant|warehouse|factory|unit|works|infrastructure|solar|wind)\b/i;
+
+export function isAcquisition(text) {
+  const t = String(text || '');
+  if (!t) return false;
+  if (ACQ_STRONG_RE.test(t) || ACQ_PCT_STAKE_RE.test(t)) return true;
+  if (ACQ_VERB_RE.test(t) && ACQ_TARGET_RE.test(t) && !CAPEX_OBJECT_RE.test(t)) return true;
+  return false;
 }
 
 function normFY(fy) {
@@ -192,6 +228,14 @@ export async function extractCapexFromText(candidate, filingText) {
     let direction = String(raw.direction || '').toLowerCase();
     if (!VALID_DIRS.has(direction)) direction = 'unclear';
 
+    // Deterministic M&A guard: if the figure is really an acquisition / stake
+    // purchase, force type="acquisition" so it is recorded but NEVER counted as
+    // organic capex guidance (detect-changes only ever moves on "guidance").
+    if (type !== 'acquisition' &&
+        isAcquisition(`${quote} ${raw.segment_or_project || ''} ${amountText}`)) {
+      type = 'acquisition';
+    }
+
     // Change detection compares on the TOP of a stated range (the high end);
     // for a single value low == high. amount_cr is that comparison figure.
     const topCr = amt.comparable ? round2(amt.high) : null;
@@ -219,7 +263,7 @@ export async function extractCapexFromText(candidate, filingText) {
 const round2 = (n) => (n == null ? null : Math.round(n * 100) / 100);
 
 // Exported for unit tests (pure, no I/O).
-export const _internals = { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, focusText };
+export const _internals = { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, focusText, isAcquisition };
 
 /** Convenience for CLI / tests: download+extract text, then extract capex. */
 export async function extractCapexForCandidate(candidate) {

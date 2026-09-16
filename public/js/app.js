@@ -5,17 +5,18 @@
 // no data yet — it never invents numbers.
 
 import {
-  h, esc, fmtCr, fmtCrAxis, fmtSignedCr, fmtPct, fmtDate, debounce,
+  h, esc, fmtCr, fmtCrAxis, fmtSignedCr, fmtPct, fmtDate, fmtMktCap, fmtPE, weekOf, debounce,
   emptyState, newChart, disposeCharts, resizeCharts, icons,
-  CHART, SEMANTIC, PALETTE,
+  eventTypeStyle, CHART, SEMANTIC, PALETTE,
 } from './ui.js';
+import { downloadExcel } from './excel.js';
 
 // ?demo=1 loads a local, git-ignored fixture so the POPULATED layout can be
 // eyeballed. The shipped data files stay empty; nothing fake is ever committed.
 const DEMO = new URLSearchParams(location.search).has('demo');
 const BASE = DEMO ? './demo' : './data';
 
-const state = { changes: [], history: {}, metadata: null };
+const state = { changes: [], history: {}, metadata: null, enrichment: {} };
 
 // ---- data ----------------------------------------------------------------
 async function loadJSON(path, fallback) {
@@ -28,14 +29,28 @@ async function loadJSON(path, fallback) {
 }
 
 async function loadData() {
-  const [changes, history, metadata] = await Promise.all([
+  const [changes, history, metadata, enrichment] = await Promise.all([
     loadJSON(`${BASE}/capex-changes.json`, []),
     loadJSON(`${BASE}/capex-history.json`, {}),
     loadJSON(`${BASE}/metadata.json`, null),
+    loadJSON(`${BASE}/company-enrichment.json`, {}),
   ]);
   state.changes = Array.isArray(changes) ? changes : [];
   state.history = (history && typeof history === 'object') ? history : {};
   state.metadata = metadata;
+  state.enrichment = (enrichment && typeof enrichment === 'object') ? enrichment : {};
+}
+
+// External market context for a scrip (industry / market cap / P/E), or null.
+// This is auxiliary "approx" data — never confused with source-backed capex.
+const enrichOf = (scrip) => state.enrichment[String(scrip)] || null;
+
+// Tiny transient toast (used by the Excel download button).
+function toast(msg) {
+  const t = h('div', { style: 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#14152A;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.25);z-index:60;opacity:0;transition:opacity .2s;max-width:90vw;text-align:center' }, msg);
+  document.body.appendChild(t);
+  requestAnimationFrame(() => { t.style.opacity = '1'; });
+  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 250); }, 2800);
 }
 
 const realChanges = () => state.changes.filter((c) => !c.no_prior_on_record);
@@ -80,6 +95,35 @@ function filingLink(url, label = 'See the official filing') {
   return h('a', { class: 'btn-link', href: url, target: '_blank', rel: 'noopener' },
     h('i', { 'data-lucide': 'file-text', style: 'width:14px;height:14px' }), label,
     h('i', { 'data-lucide': 'arrow-up-right', style: 'width:13px;height:13px' }));
+}
+
+// Colored canonical "Type" chip (event_type). Distinct color per category.
+function typeChip(t) {
+  if (!t) return null;
+  const s = eventTypeStyle(t);
+  return h('span', { class: 'pill', style: `background:${s.bg};color:${s.color}` },
+    h('i', { 'data-lucide': s.icon, style: 'width:13px;height:13px' }), t);
+}
+
+// Neutral industry chip (external context, visually quieter than the capex data).
+function industryChip(ind) {
+  if (!ind) return null;
+  return h('span', { class: 'pill', style: 'background:#F8FAFC;color:#475569;border:1px solid var(--line)' },
+    h('i', { 'data-lucide': 'layers', style: 'width:12px;height:12px' }), ind);
+}
+
+// Market cap / P/E as small muted context. An "APPROX" badge + italic mono make
+// it unmistakably distinct from the bold, source-backed capex figures.
+function approxContext(e) {
+  if (!e || (e.market_cap_cr == null && e.pe == null)) return null;
+  const bits = [];
+  if (e.market_cap_cr != null) bits.push(`Mkt cap ${fmtMktCap(e.market_cap_cr)}`);
+  if (e.pe != null) bits.push(`P/E ${fmtPE(e.pe)}`);
+  if (e.as_of) bits.push(`as of ${fmtDate(e.as_of)}`);
+  return h('div', { class: 'mt-2 flex items-center gap-1.5', style: 'flex-wrap:wrap' },
+    h('span', { class: 'pill', style: 'background:#F1F5F9;color:#94A3B8;font-size:10px;font-weight:700;letter-spacing:.04em;padding:2px 8px' }, 'APPROX'),
+    h('span', { class: 'num', style: 'font-size:11.5px;color:var(--muted);font-style:italic' }, bits.join('  ·  ')),
+    e.source_url ? h('a', { href: e.source_url, target: '_blank', rel: 'noopener', style: 'font-size:11px;color:#A855F7' }, 'source') : null);
 }
 
 // ---- tab: OVERVIEW -------------------------------------------------------
@@ -205,17 +249,68 @@ function drawDonut(set) {
 }
 
 // ---- tab: CHANGES --------------------------------------------------------
-const changesUI = { window: 30, direction: 'all', q: '', view: 'cards', sort: { key: 'date', dir: 'desc' } };
+const changesUI = { window: 30, direction: 'all', industry: 'all', type: 'all', week: 'all', q: '', view: 'cards', sort: { key: 'date', dir: 'desc' } };
+
+const industryOf = (c) => enrichOf(c.scrip_cd)?.industry || '';
+// A change's week key (Monday YYYYMMDD) from its display date.
+const weekKeyOf = (c) => weekOf(c.new_date || c.detected_at)?.key || '';
 
 function filteredChanges() {
   const q = changesUI.q.trim().toLowerCase();
   return state.changes.filter((c) => {
-    if (!withinDays(c, changesUI.window)) return false;
+    // A specific week is authoritative — it overrides the rolling time window
+    // so "pick a week → see/download exactly that week" always works.
+    if (changesUI.week !== 'all') { if (weekKeyOf(c) !== changesUI.week) return false; }
+    else if (!withinDays(c, changesUI.window)) return false;
     if (changesUI.direction === 'up' && !(c.direction === 'up' && !c.no_prior_on_record)) return false;
     if (changesUI.direction === 'down' && !(c.direction === 'down' && !c.no_prior_on_record)) return false;
+    if (changesUI.industry !== 'all' && industryOf(c) !== changesUI.industry) return false;
+    if (changesUI.type !== 'all' && (c.event_type || '') !== changesUI.type) return false;
     if (q && !(c.company || '').toLowerCase().includes(q)) return false;
     return true;
   }).sort((a, b) => changeTime(b) - changeTime(a));
+}
+
+// Distinct dropdown option values present across all changes (so filters only
+// ever offer values that exist in the data).
+const distinctIndustries = () => [...new Set(state.changes.map(industryOf).filter(Boolean))].sort();
+const distinctTypes = () => [...new Set(state.changes.map((c) => c.event_type).filter(Boolean))].sort();
+// Available weeks, newest first, as { key, label }.
+function distinctWeeks() {
+  const seen = new Map();
+  for (const c of state.changes) {
+    const w = weekOf(c.new_date || c.detected_at);
+    if (w && !seen.has(w.key)) seen.set(w.key, w.label);
+  }
+  return [...seen.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1)).map(([key, label]) => ({ key, label }));
+}
+
+// Map a change row -> a flat, fully-resolved row for the Excel/CSV export.
+function toExportRow(c) {
+  const e = enrichOf(c.scrip_cd) || {};
+  const real = !c.no_prior_on_record;
+  const plain = (n) => (n == null ? '—' : `₹${Number(n).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`);
+  let summary;
+  if (c.reason) summary = c.reason;
+  else if (real) summary = `${c.direction === 'up' ? 'Raised' : 'Cut'} ${c.fiscal_year || ''} capex from ${plain(c.old_cr)} to ${plain(c.new_cr)} Cr`.replace(/\s+/g, ' ').trim();
+  else summary = `First ${c.fiscal_year || ''} capex reading: ${plain(c.new_cr)} Cr`.replace(/\s+/g, ' ').trim();
+  return {
+    company: c.company || '',
+    scrip_cd: c.scrip_cd ?? '',
+    date: c.new_date || null,
+    week: c.week || weekOf(c.new_date || c.detected_at)?.label || '',
+    event_type: c.event_type || '',
+    summary,
+    capex_cr: c.new_cr ?? null,
+    old_new: real ? `${plain(c.old_cr)} → ${plain(c.new_cr)}` : (c.new_cr != null ? `— → ${plain(c.new_cr)}` : '—'),
+    pct: (c.pct_change == null ? null : c.pct_change / 100), // fraction; Excel % format renders it
+    direction: real ? (c.direction || '') : 'first reading',
+    market_cap_cr: e.market_cap_cr ?? null,
+    pe: e.pe ?? null,
+    industry: e.industry || '',
+    source: c.new_pdf || '',
+    is_change: real,
+  };
 }
 
 function renderChanges() {
@@ -236,13 +331,20 @@ function renderChanges() {
     h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, label),
     h('select', { class: 'select', id }, ...opts.map((o) => h('option', { value: o.v, selected: o.sel }, o.t))));
 
+  const weeks = distinctWeeks();
   const controls = h('div', { class: 'card', style: 'padding:16px 18px' },
     h('div', { class: 'flex flex-wrap items-end gap-3' },
+      weeks.length ? sel('Week', 'f-week', [
+        { v: 'all', t: 'All time', sel: true }, ...weeks.map((w) => ({ v: w.key, t: w.label }))]) : null,
       sel('Time window', 'f-window', [
         { v: '1', t: 'Today' }, { v: '7', t: 'Last 7 days' },
         { v: '30', t: 'Last 30 days', sel: true }, { v: '90', t: 'Last 90 days' }, { v: 'all', t: 'All time' }]),
       sel('Direction', 'f-dir', [
         { v: 'all', t: 'All changes', sel: true }, { v: 'up', t: 'Increased' }, { v: 'down', t: 'Decreased' }]),
+      distinctTypes().length ? sel('Type', 'f-type', [
+        { v: 'all', t: 'All types', sel: true }, ...distinctTypes().map((t) => ({ v: t, t }))]) : null,
+      distinctIndustries().length ? sel('Industry', 'f-industry', [
+        { v: 'all', t: 'All industries', sel: true }, ...distinctIndustries().map((i) => ({ v: i, t: i }))]) : null,
       h('label', { class: 'flex flex-col gap-1 grow', style: 'min-width:180px' },
         h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, 'Search company'),
         h('input', { class: 'search', id: 'f-q', type: 'search', placeholder: 'e.g. ASK Automotive', value: changesUI.q })),
@@ -259,6 +361,12 @@ function renderChanges() {
   controls.querySelector('#f-dir').value = changesUI.direction;
   controls.querySelector('#f-window').addEventListener('change', (e) => { changesUI.window = e.target.value === 'all' ? Infinity : Number(e.target.value); drawFeed(); });
   controls.querySelector('#f-dir').addEventListener('change', (e) => { changesUI.direction = e.target.value; drawFeed(); });
+  const weekSel = controls.querySelector('#f-week');
+  if (weekSel) { weekSel.value = changesUI.week; weekSel.addEventListener('change', (e) => { changesUI.week = e.target.value; drawFeed(); }); }
+  const typeSel = controls.querySelector('#f-type');
+  if (typeSel) { typeSel.value = changesUI.type; typeSel.addEventListener('change', (e) => { changesUI.type = e.target.value; drawFeed(); }); }
+  const indSel = controls.querySelector('#f-industry');
+  if (indSel) { indSel.value = changesUI.industry; indSel.addEventListener('change', (e) => { changesUI.industry = e.target.value; drawFeed(); }); }
   controls.querySelector('#f-q').addEventListener('input', debounce((e) => { changesUI.q = e.target.value; drawFeed(); }, 180));
   for (const b of controls.querySelectorAll('.view-btn')) {
     b.style.cssText = 'padding:8px 14px;font-size:13px;font-weight:600;background:#fff;border:none;cursor:pointer;color:var(--muted)';
@@ -298,11 +406,14 @@ function cardsView(rows) {
 
 function changeCard(c) {
   const color = c.direction === 'up' ? SEMANTIC.up : SEMANTIC.down;
+  const e = enrichOf(c.scrip_cd);
   return h('div', { class: 'card card-hover', style: 'padding:20px 22px' },
     h('div', { class: 'flex items-start justify-between gap-3' },
       h('div', {}, h('div', { class: 'font-display font-bold text-lg leading-tight' }, esc(c.company)),
-        h('div', { class: 'mt-1.5 flex items-center gap-2' }, fyChip(c.fiscal_year), h('span', { class: 'num', style: 'font-size:11px;color:var(--muted)' }, `scrip ${c.scrip_cd}`))),
-      dirPill(c.direction, c.pct_change)),
+        h('div', { class: 'mt-1.5 flex items-center gap-2', style: 'flex-wrap:wrap' },
+          fyChip(c.fiscal_year), industryChip(e?.industry),
+          h('span', { class: 'num', style: 'font-size:11px;color:var(--muted)' }, `scrip ${c.scrip_cd}`))),
+      h('div', { class: 'flex flex-col items-end gap-1.5' }, dirPill(c.direction, c.pct_change), typeChip(c.event_type))),
     // Old plan -> New plan
     h('div', { class: 'mt-4 flex items-center flex-wrap gap-2', style: 'font-size:20px' },
       h('span', { class: 'num', style: 'color:var(--muted)' }, fmtCr(c.old_cr)),
@@ -311,6 +422,7 @@ function changeCard(c) {
       h('span', { class: 'num', style: `font-size:13px;color:${color}` }, `(${fmtSignedCr(c.delta_cr)})`)),
     h('div', { class: 'flex gap-4 mt-1', style: 'font-size:11px;color:var(--muted)' },
       h('span', {}, 'Old plan'), h('span', {}, 'New plan')),
+    approxContext(e),
     // Why
     h('div', { class: 'mt-4' },
       h('div', { style: 'font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)' }, 'Why'),
@@ -322,13 +434,17 @@ function changeCard(c) {
 }
 
 function baselineCard(c) {
+  const e = enrichOf(c.scrip_cd);
   return h('div', { class: 'card', style: 'padding:18px 20px;opacity:.96;border-style:dashed' },
     h('div', { class: 'flex items-start justify-between gap-3' },
       h('div', {}, h('div', { class: 'font-display font-bold leading-tight' }, esc(c.company)),
-        h('div', { class: 'mt-1.5 flex items-center gap-2' }, fyChip(c.fiscal_year))),
-      h('span', { class: 'pill', style: 'background:#F1F5F9;color:#64748B' }, h('i', { 'data-lucide': 'flag', style: 'width:13px;height:13px' }), 'First reading')),
+        h('div', { class: 'mt-1.5 flex items-center gap-2', style: 'flex-wrap:wrap' }, fyChip(c.fiscal_year), industryChip(e?.industry))),
+      h('div', { class: 'flex flex-col items-end gap-1.5' },
+        h('span', { class: 'pill', style: 'background:#F1F5F9;color:#64748B' }, h('i', { 'data-lucide': 'flag', style: 'width:13px;height:13px' }), 'First reading'),
+        typeChip(c.event_type))),
     h('div', { class: 'num mt-3', style: 'font-size:20px;font-weight:700' }, fmtCr(c.new_cr)),
     h('div', { style: 'font-size:12.5px;color:var(--muted);margin-top:2px' }, 'First time we saw a capex number for this company & year — nothing to compare against yet.'),
+    approxContext(e),
     quoteToggle([{ label: 'Filing', text: c.new_quote }]),
     h('div', { class: 'flex items-center justify-between mt-3 flex-wrap gap-2' },
       filingLink(c.new_pdf),
@@ -338,17 +454,21 @@ function baselineCard(c) {
 function tableView(rows) {
   const cols = [
     { k: 'company', t: 'Company', get: (c) => c.company },
+    { k: 'industry', t: 'Industry', get: (c) => industryOf(c) },
+    { k: 'event_type', t: 'Type', get: (c) => c.event_type || '' },
     { k: 'fiscal_year', t: 'Year', get: (c) => c.fiscal_year || '' },
     { k: 'old_cr', t: 'Old (₹Cr)', get: (c) => c.old_cr, num: true },
     { k: 'new_cr', t: 'New (₹Cr)', get: (c) => c.new_cr, num: true },
     { k: 'delta_cr', t: 'Change (₹Cr)', get: (c) => c.delta_cr, num: true },
     { k: 'pct_change', t: 'Change %', get: (c) => c.pct_change, num: true },
+    { k: 'market_cap_cr', t: 'Mkt Cap ~', get: (c) => enrichOf(c.scrip_cd)?.market_cap_cr ?? null, num: true },
+    { k: 'pe', t: 'P/E ~', get: (c) => enrichOf(c.scrip_cd)?.pe ?? null, num: true },
     { k: 'date', t: 'Date', get: (c) => changeTime(c), num: true },
     { k: 'filing', t: 'Filing', get: () => 0 },
   ];
   const { key, dir } = changesUI.sort;
   const sorted = [...rows].sort((a, b) => {
-    const col = cols.find((c) => c.k === key) || cols[6];
+    const col = cols.find((c) => c.k === key) || cols.find((c) => c.k === 'date');
     let av = col.get(a), bv = col.get(b);
     if (col.num) { av = av ?? -Infinity; bv = bv ?? -Infinity; return dir === 'asc' ? av - bv : bv - av; }
     av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
@@ -371,18 +491,28 @@ function tableView(rows) {
   const tbody = h('tbody');
   for (const c of sorted) {
     const color = c.direction === 'up' ? SEMANTIC.up : c.direction === 'down' ? SEMANTIC.down : 'var(--muted)';
+    const e = enrichOf(c.scrip_cd);
+    const approxNum = 'font-style:italic;color:var(--muted)';
     tbody.append(h('tr', {},
       h('td', {}, h('b', {}, esc(c.company)), c.no_prior_on_record ? h('span', { class: 'pill ml-1', style: 'background:#F1F5F9;color:#64748B;font-size:10px' }, 'first') : null),
+      h('td', { style: 'color:var(--muted);max-width:11rem' }, e?.industry ? esc(e.industry) : '—'),
+      h('td', {}, typeChip(c.event_type) || '—'),
       h('td', {}, c.fiscal_year || '—'),
       h('td', { class: 'num' }, c.old_cr == null ? '—' : fmtCr(c.old_cr)),
       h('td', { class: 'num', style: `color:${color};font-weight:700` }, fmtCr(c.new_cr)),
       h('td', { class: 'num' }, c.delta_cr == null ? '—' : fmtSignedCr(c.delta_cr)),
       h('td', { class: 'num', style: `color:${color}` }, c.pct_change == null ? '—' : fmtPct(c.pct_change)),
+      h('td', { class: 'num', style: approxNum }, e?.market_cap_cr != null ? fmtMktCap(e.market_cap_cr) : '—'),
+      h('td', { class: 'num', style: approxNum }, e?.pe != null ? fmtPE(e.pe) : '—'),
       h('td', { class: 'num', style: 'color:var(--muted)' }, fmtDate(c.new_date)),
       h('td', {}, c.new_pdf ? h('a', { class: 'btn-link', href: c.new_pdf, target: '_blank', rel: 'noopener', style: 'padding:5px 9px' }, h('i', { 'data-lucide': 'file-text', style: 'width:13px;height:13px' }), 'open') : '—')));
   }
   table.append(tbody);
-  return h('div', { class: 'card', style: 'padding:8px 6px;overflow-x:auto' }, table);
+  const note = Object.keys(state.enrichment).length
+    ? h('div', { style: 'padding:8px 12px 4px;font-size:11px;color:var(--muted);font-style:italic' },
+      'Industry, Mkt Cap (~) and P/E (~) are approximate market context from Screener — not from the filing. Capex figures stay source-backed.')
+    : null;
+  return h('div', { class: 'card', style: 'padding:8px 6px;overflow-x:auto' }, table, note);
 }
 
 // ---- tab: BY COMPANY -----------------------------------------------------
@@ -435,9 +565,19 @@ function drawCompany(scrip) {
   const obs = (state.history[scrip] || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
   const name = obs[0]?.company || `Scrip ${scrip}`;
 
+  const e = enrichOf(scrip);
+  const ctxBits = [];
+  if (e?.market_cap_cr != null) ctxBits.push(`Mkt cap ${fmtMktCap(e.market_cap_cr)}`);
+  if (e?.pe != null) ctxBits.push(`P/E ${fmtPE(e.pe)}`);
   const chartCard = h('div', { class: 'card', style: 'padding:20px 22px' },
-    h('div', { class: 'flex items-center justify-between mb-1 flex-wrap gap-2' },
-      h('h3', { class: 'font-display font-bold' }, `${esc(name)} — capex plan over time`),
+    h('div', { class: 'flex items-start justify-between mb-1 flex-wrap gap-2' },
+      h('div', {},
+        h('h3', { class: 'font-display font-bold' }, `${esc(name)} — capex plan over time`),
+        (e && (e.industry || ctxBits.length)) ? h('div', { class: 'mt-1.5 flex items-center gap-2', style: 'flex-wrap:wrap' },
+          industryChip(e?.industry),
+          ctxBits.length ? h('span', { class: 'pill', style: 'background:#F1F5F9;color:#94A3B8;font-size:10px;font-weight:700;letter-spacing:.04em;padding:2px 8px' }, 'APPROX') : null,
+          ctxBits.length ? h('span', { class: 'num', style: 'font-size:12px;color:var(--muted);font-style:italic' }, ctxBits.join('  ·  ')) : null,
+          e?.source_url ? h('a', { href: e.source_url, target: '_blank', rel: 'noopener', style: 'font-size:11px;color:#A855F7' }, 'source') : null) : null),
       h('span', { style: 'font-size:12px;color:var(--muted)' }, 'guidance figures, by fiscal year')),
     h('div', { class: 'chart-lg', id: 'chart-company' }));
   holder.append(chartCard);
@@ -455,7 +595,8 @@ function drawCompany(scrip) {
     tbody.append(h('tr', {},
       h('td', { class: 'num', style: 'color:var(--muted)' }, fmtDate(o.date)),
       h('td', {}, o.fiscal_year || '—'),
-      h('td', {}, h('span', { class: 'pill', style: 'background:#F1EEFE;color:#6D28D9;font-size:11px' }, o.type)),
+      h('td', {}, typeChip(o.event_type) || h('span', { class: 'pill', style: 'background:#F1EEFE;color:#6D28D9;font-size:11px' }, o.type),
+        h('div', { style: 'font-size:10px;color:var(--muted);margin-top:3px' }, o.type)),
       h('td', { class: 'num' }, esc(o.amount_text || '—')),
       h('td', { class: 'num font-bold' }, fmtCr(o.amount_cr)),
       h('td', { style: 'max-width:16rem' }, o.segment_or_project ? esc(o.segment_or_project) : '—'),
@@ -519,6 +660,25 @@ async function boot() {
   document.getElementById('tabs').addEventListener('click', (e) => {
     const b = e.target.closest('.tab'); if (b) activate(b.dataset.tab);
   });
+
+  // Download Excel — exports the CURRENTLY FILTERED changes (so pick a week →
+  // download gives exactly that week). Falls back to CSV if ExcelJS is missing.
+  const dlBtn = document.getElementById('downloadBtn');
+  if (dlBtn) dlBtn.addEventListener('click', async () => {
+    const rows = filteredChanges().map(toExportRow);
+    if (!rows.length) { toast('No changes match the current filters to export.'); return; }
+    dlBtn.disabled = true; dlBtn.style.opacity = '.6';
+    try {
+      const res = await downloadExcel(rows);
+      toast(res && res.format === 'csv'
+        ? `Excel wasn’t available — downloaded ${rows.length} row${rows.length === 1 ? '' : 's'} as CSV.`
+        : `Downloaded ${rows.length} row${rows.length === 1 ? '' : 's'} to Excel.`);
+    } catch (err) {
+      toast('Sorry — the export failed. Please try again.');
+      console.error(err);
+    } finally { dlBtn.disabled = false; dlBtn.style.opacity = ''; }
+  });
+
   activate('overview');
   icons();
 }

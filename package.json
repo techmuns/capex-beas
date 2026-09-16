@@ -10,7 +10,7 @@
     "backfill": "node scripts/run.mjs --mode=backfill",
     "daily": "node scripts/run.mjs --mode=daily",
     "preview-email": "node scripts/preview-email.mjs",
-    "test": "node scripts/test/logic-test.mjs"
+    "test": "node scripts/test/logic-test.mjs && node scripts/test/excel-test.mjs"
   },
   "comment": "No runtime dependencies are pinned here on purpose. The GitHub Actions workflows install what they need with `npm install <pkg> --no-save` (pdfjs-dist, plus optional email libs) so the frontend has nothing to build. For local dev run: `npm install pdfjs-dist --no-save`.",
   "engines": {

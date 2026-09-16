@@ -21,6 +21,9 @@ export const FILES = {
   processed: path.join(DATA_DIR, 'processed.json'),
   metadata: path.join(DATA_DIR, 'metadata.json'),
   cursor: path.join(DATA_DIR, 'backfill-cursor.json'),
+  // Phase 4: external market context (industry / market cap / P/E), cached
+  // SEPARATELY from the source-backed capex data and always labelled "approx".
+  enrichment: path.join(DATA_DIR, 'company-enrichment.json'),
 };
 
 // ---------------------------------------------------------------------------
@@ -130,6 +133,42 @@ export function dayRange(fromYmd, toYmd) {
 export const nowISO = () => new Date().toISOString();
 
 // ---------------------------------------------------------------------------
+// Week concept (Phase 4.1). A Mon–Sun week label derived from an event's date,
+// e.g. "7–13 Sep 2026". Kept deterministic (UTC calendar date only) so the same
+// label is produced in the pipeline and in the browser. Returns null on a bad
+// date. `key` is the Monday as YYYYMMDD (sortable, newest-first = descending).
+// ---------------------------------------------------------------------------
+export const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function toUTCDateOnly(input) {
+  const s = String(input ?? '');
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  const t = new Date(s);
+  if (Number.isNaN(t.getTime())) return null;
+  return new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()));
+}
+
+function fmtWeekRange(mon, sun) {
+  const dM = mon.getUTCDate(), dS = sun.getUTCDate();
+  const moM = MONTHS_SHORT[mon.getUTCMonth()], moS = MONTHS_SHORT[sun.getUTCMonth()];
+  const yM = mon.getUTCFullYear(), yS = sun.getUTCFullYear();
+  if (yM === yS && mon.getUTCMonth() === sun.getUTCMonth()) return `${dM}–${dS} ${moM} ${yM}`;
+  if (yM === yS) return `${dM} ${moM} – ${dS} ${moS} ${yM}`;
+  return `${dM} ${moM} ${yM} – ${dS} ${moS} ${yS}`;
+}
+
+/** @returns {{key:string,label:string,startISO:string,endISO:string}|null} */
+export function weekOf(input) {
+  const d = toUTCDateOnly(input);
+  if (!d) return null;
+  const diffToMon = (d.getUTCDay() + 6) % 7;   // 0=Sun..6=Sat -> days since Monday
+  const mon = new Date(d); mon.setUTCDate(d.getUTCDate() - diffToMon);
+  const sun = new Date(mon); sun.setUTCDate(mon.getUTCDate() + 6);
+  return { key: ymd(mon), label: fmtWeekRange(mon, sun), startISO: mon.toISOString(), endISO: sun.toISOString() };
+}
+
+// ---------------------------------------------------------------------------
 // Text / number normalization (used by anti-hallucination checks + amounts).
 // ---------------------------------------------------------------------------
 
@@ -188,6 +227,40 @@ export function parseAmountToCr(amountText) {
   const low = Math.min(...crs);
   const high = Math.max(...crs);
   return { low, high, midpoint: (low + high) / 2 };
+}
+
+// ---------------------------------------------------------------------------
+// Event "Type" tag (Phase 4). A plain-English, canonical label derived
+// DETERMINISTICALLY in code from an observation/change — never from the LLM.
+// Canonical set (exactly these strings):
+//   "New Project" | "Capacity Expansion" | "Capex ↑" | "Capex ↓" |
+//   "Guidance revision" | "Quarterly capex" | "Acquisition (M&A)"
+// ---------------------------------------------------------------------------
+export const EVENT_TYPES = [
+  'New Project', 'Capacity Expansion', 'Capex ↑', 'Capex ↓',
+  'Guidance revision', 'Quarterly capex', 'Acquisition (M&A)',
+];
+
+const NEW_PROJECT_RE =
+  /\bnew (?:project|plant|facilit|unit|line|factory|complex|campus|greenfield)|greenfield|setting up|set(?:ting)? up (?:a|an|the|new)|to set up|new manufacturing|foundation stone|breaking ground/;
+const CAPACITY_RE =
+  /capacity|expansion|expand|brownfield|debottleneck|de-bottleneck|\bmtpa\b|\bmw\b|\bgw\b|augment|additional (?:line|capacity|unit)|ramp[- ]?up|scale up|de-?bottlenecking/;
+
+/**
+ * Return one canonical event-type label. `is_change` picks the ↑/↓ labels for a
+ * detected guidance move; otherwise the label is derived from type + keywords.
+ */
+export function deriveEventType({ type, direction, segment_or_project, quote, headline, is_change } = {}) {
+  if (type === 'acquisition') return 'Acquisition (M&A)';
+  if (is_change) {
+    if (direction === 'up') return 'Capex ↑';
+    if (direction === 'down') return 'Capex ↓';
+  }
+  if (type === 'actual') return 'Quarterly capex';
+  const hay = normText(`${segment_or_project || ''} ${quote || ''} ${headline || ''}`);
+  if (NEW_PROJECT_RE.test(hay)) return 'New Project';
+  if (CAPACITY_RE.test(hay)) return 'Capacity Expansion';
+  return 'Guidance revision';
 }
 
 // ---------------------------------------------------------------------------

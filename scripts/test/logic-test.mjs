@@ -7,10 +7,11 @@
 // Run:  npm test   (or: node scripts/test/logic-test.mjs)
 
 import { _internals } from '../extract-capex.mjs';
-import { recomputeChanges } from '../detect-changes.mjs';
-import { numericTokens, toCrore, extractJSON } from '../lib/util.mjs';
+import { recomputeChanges, makeObservation, addObservationToHistory } from '../detect-changes.mjs';
+import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf } from '../lib/util.mjs';
+import { parseScreenerHtml, needsEnrichment } from '../enrich.mjs';
 
-const { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY } = _internals;
+const { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, isAcquisition } = _internals;
 
 let pass = 0, fail = 0;
 const eq = (name, got, want) => {
@@ -141,6 +142,90 @@ eq('select increases (1)', selectItems(digestChanges, { filter: 'increases' }).m
 eq('select decreases (1)', selectItems(digestChanges, { filter: 'decreases' }).map((i) => i.entity), ['B']);
 eq('select cutoff excludes older', selectItems(digestChanges, { cutoffISO: '2026-09-06T00:00:00' }).map((i) => i.entity), ['A']);
 eq('select order: real before baseline', selectItems(digestChanges, {}).map((i) => i.baseline), [false, false, true]);
+
+// --- Phase 4A: M&A / acquisition exclusion --------------------------------
+ok('isAcquisition: acquire a company for crores', isAcquisition('agreed to acquire Omnia Holdings for Rs 11,300 crore'));
+ok('isAcquisition: % stake purchase', isAcquisition('to acquire 51% stake in XYZ Pvt Ltd'));
+ok('isAcquisition: merger / scheme', isAcquisition('scheme of arrangement for merger with ABC Ltd'));
+ok('isAcquisition: JV stake', isAcquisition('acquire a stake in the joint venture'));
+ok('NOT acquisition: greenfield capex', !isAcquisition('capex of ₹700 crore for a new greenfield plant'));
+ok('NOT acquisition: acquire land for a plant', !isAcquisition('to acquire land to set up a new manufacturing plant'));
+ok('NOT acquisition: buy machinery', !isAcquisition('purchase of new machinery worth ₹120 crore'));
+
+// --- Phase 4C: event_type derivation --------------------------------------
+eq('eventType acquisition', deriveEventType({ type: 'acquisition' }), 'Acquisition (M&A)');
+eq('eventType capex up', deriveEventType({ type: 'guidance', direction: 'up', is_change: true }), 'Capex ↑');
+eq('eventType capex down', deriveEventType({ type: 'guidance', direction: 'down', is_change: true }), 'Capex ↓');
+eq('eventType new project', deriveEventType({ type: 'guidance', segment_or_project: 'new greenfield plant in Gujarat' }), 'New Project');
+eq('eventType capacity', deriveEventType({ type: 'plan', quote: 'expand capacity by 2 MTPA at the existing unit' }), 'Capacity Expansion');
+eq('eventType quarterly (actual)', deriveEventType({ type: 'actual', quote: 'capex incurred during the quarter was ₹120 crore' }), 'Quarterly capex');
+eq('eventType guidance fallback', deriveEventType({ type: 'guidance', quote: 'capex of ₹500 crore for FY27' }), 'Guidance revision');
+
+// End-to-end: an M&A figure the model mis-tags as "guidance" is FORCED to
+// "acquisition" by the code-side guard, recorded, but emits NO capex change.
+async function acquisitionExtractTests() {
+  process.env.BEDROCK_API_KEY = 'test-key';
+  process.env.AWS_REGION = 'us-east-1';
+  process.env.BEDROCK_RETRY_ROUNDS = '1';
+  process.env.BEDROCK_MODEL_IDS = 'modelA';
+  delete process.env.BEDROCK_MODEL;
+  delete process.env.MISTRAL_API_KEY;
+  const { extractCapexFromText } = await import('../extract-capex.mjs');
+
+  const realFetch = global.fetch;
+  const converseOK = (text) => ({ ok: true, status: 200, json: async () => ({ output: { message: { content: [{ text }] } } }), text: async () => '' });
+  const acqSrc = 'Solar Industries India Ltd has agreed to acquire Omnia Holdings for Rs 11,300 crore, expanding into mining chemicals.';
+  const modelItem = [{
+    fiscal_year: null, amount_text: 'Rs 11,300 crore', amount_cr: 11300, amount_cr_low: 11300, amount_cr_high: 11300,
+    type: 'guidance', // deliberately WRONG — the guard must flip it
+    segment_or_project: 'Omnia Holdings acquisition', direction: 'unclear', reason: null,
+    verbatim_quote: 'agreed to acquire Omnia Holdings for Rs 11,300 crore',
+  }];
+  global.fetch = async () => converseOK(JSON.stringify(modelItem));
+
+  const cand = { company: 'Solar Industries India Ltd', scrip_cd: 543525, news_id: 'acq1', news_dt: '2026-09-10T00:00:00', category: '', subcat: '', headline: 'Acquisition of Omnia Holdings' };
+  const res = await extractCapexFromText(cand, acqSrc);
+  eq('extract tags M&A as acquisition (not guidance)', res.items.map((i) => i.type), ['acquisition']);
+
+  const hist = {};
+  for (const it of res.items) addObservationToHistory(hist, makeObservation(it, cand, { source_pdf: 'http://pdf/acq' }));
+  eq('acquisition observation event_type', hist['543525'][0].event_type, 'Acquisition (M&A)');
+  eq('acquisition emits NO capex guidance change', recomputeChanges(hist, [], 2).length, 0);
+
+  global.fetch = realFetch;
+}
+await acquisitionExtractTests();
+
+// --- Phase 4B: Screener enrichment parse (mocked HTML) ---------------------
+const screenerHtml = `<html><head></head><body>
+<h1> Solar Industries India Ltd </h1>
+<ul id="top-ratios">
+ <li class="flex flex-space-between"><span class="name">Market Cap</span><span class="nowrap value">₹ <span class="number">1,11,300</span> Cr.</span></li>
+ <li class="flex flex-space-between"><span class="name">Current Price</span><span class="nowrap value">₹ <span class="number">12,300</span></span></li>
+ <li class="flex flex-space-between"><span class="name">Stock P/E</span><span class="nowrap value"><span class="number">78.5</span></span></li>
+ <li class="flex flex-space-between"><span class="name">Book Value</span><span class="nowrap value">₹ <span class="number">560</span></span></li>
+</ul>
+<p>Industry: Explosives &amp; Pyrotechnics</p>
+</body></html>`;
+const scr = parseScreenerHtml(screenerHtml);
+eq('screener: company name', scr.company, 'Solar Industries India Ltd');
+eq('screener: market cap (₹Cr)', scr.market_cap_cr, 111300);
+eq('screener: stock P/E', scr.pe, 78.5);
+eq('screener: industry', scr.industry, 'Explosives & Pyrotechnics');
+eq('screener: blank page => all null', parseScreenerHtml('<html></html>'),
+  { company: null, industry: null, sector: null, market_cap_cr: null, pe: null });
+ok('needsEnrichment: missing entry', needsEnrichment(undefined));
+ok('needsEnrichment: fresh entry false', !needsEnrichment({ as_of: new Date().toISOString() }));
+ok('needsEnrichment: stale entry true', needsEnrichment({ as_of: '2000-01-01T00:00:00.000Z' }));
+
+// --- Phase 4.1: Mon–Sun week concept --------------------------------------
+eq('weekOf mid-week label', weekOf('2026-09-16').label, '14–20 Sep 2026');    // Wed -> Mon 14 .. Sun 20
+eq('weekOf mid-week key (Monday)', weekOf('2026-09-16').key, '20260914');
+eq('weekOf cross-month', weekOf('2026-09-05').label, '31 Aug – 6 Sep 2026');  // Sat -> Mon 31 Aug .. Sun 6 Sep
+eq('weekOf cross-month key', weekOf('2026-09-05').key, '20260831');
+eq('weekOf cross-year', weekOf('2026-01-01').label, '29 Dec 2025 – 4 Jan 2026'); // Thu -> Mon 29 Dec .. Sun 4 Jan
+eq('weekOf datetime string same as date', weekOf('2026-09-16T10:00:00').key, weekOf('2026-09-16').key);
+eq('weekOf invalid -> null', weekOf('not-a-date'), null);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

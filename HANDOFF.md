@@ -21,10 +21,11 @@ backfill.yml / daily.yml                      public/data/capex-history.json
    ▼                                          public/data/processed.json
 scripts/run.mjs  ── orchestrates ──►          public/data/metadata.json
    ├─ fetch-announcements.mjs  (BSE feed + cheap prefilter)   public/data/backfill-cursor.json
-   ├─ pdf-text.mjs             (download PDF + pdfjs-dist text; VISION_OCR fallback) │
+   ├─ pdf-text.mjs             (download PDF + pdfjs-dist text; VISION_OCR fallback)  public/data/company-enrichment.json
    ├─ extract-capex.mjs        (LLM → strict JSON + anti-hallucination) │ commit back to repo
-   ├─ llm.mjs                  (Bedrock Converse chain, Mistral fallback) ▼
-   └─ detect-changes.mjs       (history + change detection)   Cloudflare Pages auto-deploys ./public
+   ├─ llm.mjs                  (Bedrock Converse chain, Mistral fallback) │
+   ├─ detect-changes.mjs       (history + change detection)   ▼
+   └─ enrich.mjs               (Screener market context: industry/mktcap/P·E — best-effort)   Cloudflare Pages auto-deploys ./public
 functions/api/* + functions/_lib/*  (email subscription API — §11)   → public/index.html + public/js/* (dashboard)
 ```
 
@@ -46,6 +47,17 @@ URL**. Enforced *in code* after the LLM answers:
    invent a previous figure.
 5. ₹-crore values are computed **deterministically from the verbatim text** (no LLM math trusted
    for INR figures); foreign-currency figures are kept but left un-converted rather than guessed.
+6. **Capex means organic spend only** (own plant, equipment, capacity — greenfield/brownfield,
+   new lines/machinery, debottlenecking, expansion). **Acquisitions / M&A / stake or equity
+   purchases / JV capital / ICDs / buybacks are NOT capex**: they're recorded as
+   `type: "acquisition"` (so they still show as context) but **never** produce a capex guidance
+   change. A deterministic code-side guard (`isAcquisition`, in `extract-capex.mjs`) flips any
+   M&A figure to `acquisition` even if the LLM mis-tagged it — see §13 (Phase 4).
+
+**External market context is separate and clearly labelled "approx".** Industry, market cap and
+P/E come from a company's public Screener page, are cached in `company-enrichment.json` (never
+mixed into the source-backed capex records), may be **blank** when not found, and are **never
+guessed**. An enrichment failure never blocks or corrupts the capex pipeline. See §13.
 
 If there's no real data yet, the files stay empty and the UI shows an honest empty state.
 
@@ -61,11 +73,13 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
   "544022": [                       // key = SCRIP_CD (string)
     {
       "date": "2026-08-10T10:00:00",// filing datetime (NEWS_DT)
+      "week": "10–16 Aug 2026",     // Mon–Sun week label of `date` (Phase 4.1)
       "news_id": "64dee966-…",      // BSE NEWSID (dedupe key)
       "company": "ASK Automotive Ltd",
       "scrip_cd": 544022,
       "fiscal_year": "FY27",        // normalized; null if not stated
-      "type": "guidance",           // guidance | actual | plan | cumulative
+      "type": "guidance",           // guidance | actual | plan | cumulative | acquisition
+      "event_type": "New Project",  // canonical tag (Phase 4): New Project | Capacity Expansion | Capex ↑ | Capex ↓ | Guidance revision | Quarterly capex | Acquisition (M&A)
       "amount_text": "Rs. 700 crore",// verbatim, as written in the filing
       "currency": "INR",            // INR | USD | EUR | GBP
       "amount_cr": 700,             // ₹ crore used for change detection = the TOP of a stated range
@@ -93,6 +107,7 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
     "scrip_cd": 544022,
     "fiscal_year": "FY27",
     "type": "guidance",
+    "event_type": "Capex ↑",       // canonical tag (Phase 4): a real move is Capex ↑/↓; a baseline is by nature (New Project / Capacity Expansion / Guidance revision)
     "old_cr": 500,                 // real prior observation's amount_cr (top of range, ₹ cr)
     "new_cr": 700,
     "delta_cr": 200,
@@ -106,6 +121,7 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
     "old_date": "2026-05-25T10:00:00",
     "new_date": "2026-08-10T10:00:00",
     "old_news_id": "…", "new_news_id": "…",
+    "week": "10–16 Aug 2026",      // Mon–Sun week label of new_date (Phase 4.1)
     "no_prior_on_record": false,   // true for a first-sighting baseline (then old_* are null)
     "detected_at": "2026-09-16T…Z" // stable across recomputes
   }
@@ -118,7 +134,7 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
 - The **first** guidance sighting for a `(company, FY)` is recorded as a baseline
   (`no_prior_on_record: true`, `old_cr: null`).
 - Only `type="guidance"` participates — a single-year guidance is never compared against an
-  `actual` or a multi-year `cumulative`.
+  `actual`, a multi-year `cumulative`, or an `acquisition` (M&A is recorded but never a capex change).
 
 ### `processed.json` — seen NEWSIDs (dedupe across runs)
 ```jsonc
@@ -143,7 +159,26 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
 }
 ```
 
-### `backfill-cursor.json` — resumable 180-day backfill state
+### `company-enrichment.json` — external market context, keyed by scrip (Phase 4)
+```jsonc
+{
+  "544022": {                       // key = SCRIP_CD (string)
+    "company": "ASK Automotive Ltd",
+    "industry": "Auto Ancillaries", // may be null (blank is fine — never guessed)
+    "sector": "Automobile",         // may be null
+    "market_cap_cr": 12500,         // ₹ crore; may be null
+    "pe": 34.2,                     // Stock P/E; may be null
+    "as_of": "2026-09-14T…Z",       // when fetched (drives the 7-day staleness re-fetch)
+    "source_url": "https://www.screener.in/company/544022/"
+  }
+}
+```
+- **Not** source-backed capex data — auxiliary market context read from the company's public
+  Screener page. Always shown as **"approx"** in the UI, cached separately, **blanks allowed**,
+  never fabricated. Filled incrementally by `enrich.mjs` (≤15 companies/run; re-fetched after 7
+  days). See §13.
+
+### `backfill-cursor.json` — resumable 90-day backfill state
 ```jsonc
 {
   "initialized": true,
@@ -192,7 +227,7 @@ subcat (max recall, much higher LLM cost).
 Results were kept broadly); a quiet day is ~30–80. Verified that the tight filter keeps exactly
 the capex-bearing ASK Automotive filings (both earnings-call transcripts + both investor
 presentations + analyst meets + press releases) and drops the AGM/ESG/newspaper/dividend noise.
-The 180-day backfill is therefore roughly 15–20k LLM calls total, drained across many capped
+The 90-day backfill is therefore roughly 7–10k LLM calls total, drained across many capped
 runs — tune `MAX_ANNOUNCEMENTS_PER_RUN` / cron cadence / `CAPEX_BROAD` to your budget.
 
 ---
@@ -219,11 +254,16 @@ node scripts/run.mjs --from=20260804 --to=20260804   # manual explicit window
 # Rebuild changes.json deterministically from history.json:
 node scripts/detect-changes.mjs
 
+# Enrich market context (Phase 4) — best-effort Screener fetch, blanks allowed:
+node scripts/enrich.mjs --scrip=544022 --company="ASK Automotive"   # print one company's context
+node scripts/enrich.mjs --all --cap=15                                # enrich uncached/stale companies
+
 # Preview the Munshot-newspaper email locally (writes email-preview*.html):
 npm run preview-email            # populated from the demo fixture (git-ignored)
 npm run preview-email -- --empty # the "Nothing new today" state
 node scripts/llm.mjs --selftest             # one tiny call; logs which provider+model answered
-npm test                                    # 46 logic unit tests (pipeline + Bedrock chain + digest mapping)
+npm install exceljs --no-save               # only needed for the Excel-builder smoke test
+npm test                                    # 78 logic tests + Excel smoke test (M&A, event_type, enrichment, week, xlsx)
 
 # Dashboard: it's static — open public/index.html via any static server, e.g.
 python3 -m http.server 8123 --directory public   # then visit http://localhost:8123/
@@ -280,7 +320,7 @@ time, and each commits with a **fetch + rebase + push retry loop** (4 attempts, 
 backoff — see `scripts/ci-commit.sh`).
 
 - **`.github/workflows/backfill.yml`** — `workflow_dispatch` + cron `9,39 * * * *` (twice hourly,
-  off the marks). Drains the 180-day baseline via the cursor, then no-ops. **Disable it once
+  off the marks). Drains the 90-day baseline via the cursor, then no-ops. **Disable it once
   `backfill-cursor.json` shows `"done": true`** (Actions → workflow → ⋯ → Disable). Dispatch
   inputs let you tune `days_per_run` / `max_per_run`.
 - **`.github/workflows/daily.yml`** — `workflow_dispatch` + cron `23 1 * * *` (01:23 UTC daily,
@@ -291,6 +331,8 @@ backoff — see `scripts/ci-commit.sh`).
 
 Env knobs (optional): `BACKFILL_DAYS` (90), `DAILY_LOOKBACK_DAYS` (2), `BACKFILL_DAYS_PER_RUN`
 (3), `MAX_ANNOUNCEMENTS_PER_RUN` (backfill 150), `DAILY_MAX` (400), `CAPEX_CHANGE_PCT` (2).
+Enrichment (Phase 4, all optional): `ENRICH_CAP` (15 companies/run), `ENRICH_STALE_DAYS` (7),
+`ENRICH_DELAY_MS` (1500), `ENRICH_DISABLE=1` (skip the Screener step entirely).
 
 ---
 
@@ -322,9 +364,13 @@ Validated live against BSE (see `docs/PHASE1-PROOF.md` for the full run):
   to Rs. 500 crore"* to *"Rs. 700 crore this year."* The verbatim quotes pass the real
   anti-hallucination gates, a fabricated figure is correctly rejected, and the change detector
   emits **FY27 guidance ₹500 Cr → ₹700 Cr (+40%, up)** with both source PDFs.
-- `npm test` — 46 logic unit tests pass (normalization incl. top-of-range, FY parsing, gates,
+- `npm test` — 78 logic unit tests pass (normalization incl. top-of-range, FY parsing, gates,
   change detection, JSON extractor, the Bedrock Converse model-chain fallback with fetch mocked,
-  and the digest mapping/selection for the email Brief).
+  the digest mapping/selection for the email Brief, and the Phase 4 additions: M&A/acquisition
+  detection + exclusion end-to-end, `event_type` derivation, Screener enrichment parsing, and the
+  Mon–Sun `weekOf` labels) — plus an Excel-builder smoke test (`scripts/test/excel-test.mjs`) that
+  builds the real workbook on a fixture and checks the title band, headers, hyperlink, freeze,
+  auto-filter, the 2nd sheet, and the CSV fallback.
 
 `capex-history.json` / `capex-changes.json` ship **empty** — they fill only with real results
 once the workflows run with an LLM key in Actions. No sample/demo data, ever.
@@ -339,12 +385,23 @@ every tab until real data lands (verified). Three tabs:
 
 - **Overview** — one hero sentence + two small stat chips (no KPI wall), a diverging bar of the
   biggest ₹ changes (green up / red down), an up-vs-down donut, and a “biggest mover” card.
-- **Changes** — the hero feed, newest first, with dropdown filters (time window, direction,
-  company search) and a **Cards ⇄ Table** toggle. Each card shows the plain-English
-  “Old plan → New plan”, the % badge, the reason, an expandable **exact quote from the filing**,
-  and a **See the official filing** link. Baselines render as a subtle “first reading” card.
-- **By Company** — a searchable company picker → a step chart of that company’s capex plan over
-  time (per fiscal year) + a table of all its observations with source links.
+- **Changes** — the hero feed, newest first, with dropdown filters (**Week**, time window,
+  direction, **Type**, **Industry**, company search) and a **Cards ⇄ Table** toggle. Picking a
+  **Week** (a Mon–Sun label, newest-first, or "All time") is authoritative — it overrides the
+  rolling time window and drives the **Download Excel** export too. Each card shows the
+  plain-English “Old plan → New plan”, the % badge, an **Industry** chip, a colored **Type** chip
+  (New Project / Capacity Expansion / Capex ↑↓ / …), the reason, small muted **APPROX** market
+  cap · P/E context, an expandable **exact quote from the filing**, and a **See the official
+  filing** link. The table view adds **Industry, Type, Mkt Cap (~), P/E (~)** columns. Baselines
+  render as a subtle “first reading” card.
+- **By Company** — a searchable company picker → the company header shows its **Industry ·
+  Market Cap · P/E** (approx), a step chart of that company’s capex plan over time (per fiscal
+  year, guidance only — acquisitions are excluded from the line), and a table of all its
+  observations with a **Type** column and source links.
+
+The market-context values (industry / market cap / P/E) are always rendered visually distinct —
+italic, muted, with an **APPROX** badge and a "source" link — so they can never be mistaken for
+the bold, filing-verified capex figures.
 
 `public/js/ui.js` holds the design system (colors, formatters, the ECharts registry);
 `public/js/app.js` holds data-loading, tabs and rendering. To preview the populated layout locally
@@ -416,7 +473,52 @@ the GitHub secret), `SITE_URL`, optional `MUNS_EMAIL_ENDPOINT` (default
 _Until steps 1–2 are done, the dashboard works normally and the Brief panel shows "not switched on
 yet." Nothing breaks._
 
-## 12. Phase 4 ideas (next)
+## 13. What shipped in Phase 4 (this update)
 
-- Wider prefilter / server-side subcategory filtering to cut backfill cost.
-- Per-company alerting, sector rollups, and a “needs review” queue for low-confidence extractions.
+Goal: match (and beat) a manual weekly "new project / capex tracker" spreadsheet
+(Company · Date · Type · Summary · Capex Value · Market Cap · P/E · Industry · Source), while
+keeping every capex figure source-backed and not breaking the tabs or the email Brief.
+
+- **Capex precision — M&A is not capex.** `extract-capex.mjs`'s prompt now defines capex as
+  organic spend on the company's own plant/equipment/capacity only, and explicitly excludes
+  acquisitions, stake/equity purchases, JV capital, financial investments, loans/ICDs and
+  buybacks. A new observation `type: "acquisition"` captures M&A capital, and a deterministic
+  code-side guard (`isAcquisition`) forces any M&A figure to `acquisition` even if the LLM
+  mis-tagged it. `detect-changes.mjs` only ever moves on `type="guidance"`, so **acquisitions are
+  recorded but never counted as a capex guidance change** (unit-tested end-to-end with a
+  Solar-Industries-style "acquire Omnia Holdings for Rs 11,300 crore").
+- **Company enrichment — Industry · Market Cap · P/E.** `scripts/enrich.mjs` reads each company's
+  **public Screener page** (`https://www.screener.in/company/<SCRIP_CD>/`, resolves by BSE scrip
+  code, no login) and caches `{ company, industry, sector, market_cap_cr, pe, as_of, source_url }`
+  in `public/data/company-enrichment.json`. Direct fetch → `SCRAPE_DO_API_KEY` → `FIRECRAWL_API_KEY`
+  fallback. Incremental + gentle: only un-cached / >7-day-stale companies, ≤15 per run, with a
+  delay. **Blanks are allowed and nothing is ever guessed.** Wired into `run.mjs` inside a
+  try/catch so an enrichment failure never blocks or corrupts the capex pipeline.
+- **Event `Type` tag.** Every observation and change carries a canonical `event_type` derived
+  **in code** (`deriveEventType` in `lib/util.mjs`) from type + direction + segment/keywords:
+  `New Project | Capacity Expansion | Capex ↑ | Capex ↓ | Guidance revision | Quarterly capex |
+  Acquisition (M&A)`.
+- **Dashboard (Part D).** Industry + colored Type chips and muted "approx" Market Cap / P/E on
+  every Changes card; Industry / Type / Mkt Cap / P/E columns + Industry & Type dropdown filters
+  in the table; Industry · Market Cap · P/E in the By-Company header and a Type column in its
+  observations table. Enrichment values are visually distinct (italic, muted, "APPROX" badge) so
+  they're never confused with the source-backed capex figures. The email Brief is unchanged.
+- **Week concept + filter (Part 4.1).** `weekOf()` (in `lib/util.mjs`, mirrored in `public/js/ui.js`)
+  derives a deterministic Mon–Sun label (e.g. "10–16 Aug 2026") from any date; every observation &
+  change carries `week`. The Changes tab gains a **Week** dropdown (available weeks newest-first +
+  "All time") that filters both the on-screen list and the Excel export.
+- **Download Excel (Part 4.2).** A top-bar **Download Excel** button exports the CURRENTLY FILTERED
+  rows to a polished, client-ready `.xlsx`, built entirely client-side with **ExcelJS** (loaded from
+  a CDN `<script>` in `index.html`; `public/js/excel.js` falls back to CSV if it can't load). Title
+  band + subtitle, brand-indigo frozen header with Excel auto-filter, per-column number formats,
+  category colour-coding + zebra striping + thin borders, a real "Open filing" **hyperlink** per row,
+  and an optional second **"Guidance Changes"** sheet (real ₹old→₹new revisions only). Filename
+  `capex_tracker_<from>_<to>.xlsx`. `buildWorkbook()` is pure and unit-tested (`scripts/test/excel-test.mjs`).
+
+## 14. Phase 5 ideas (next)
+
+- Server-side subcategory filtering to cut backfill cost; a "needs review" queue for
+  low-confidence extractions.
+- Enrichment: sector rollups on the Overview tab; refresh market caps more often than 7 days for
+  the most-active names.
+- Per-company alerting and a dedicated "Acquisitions (M&A)" view alongside capex changes.
