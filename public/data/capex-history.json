@@ -523,6 +523,31 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "506166": [
+    {
+      "date": "2026-06-24T18:57:51.26",
+      "week": "22–28 Jun 2026",
+      "news_id": "a1ddee39-fd11-4c4d-bbf1-2d0b6dacea0a",
+      "company": "Apis India Ltd",
+      "scrip_cd": 506166,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "₹1.66 crore",
+      "currency": "INR",
+      "amount_cr": 1.66,
+      "amount_cr_low": 1.66,
+      "amount_cr_high": 1.66,
+      "comparable": true,
+      "segment_or_project": "new 2,400-MT-per-annum jam manufacturing facility at Roorkee",
+      "direction": "unclear",
+      "reason": "government-approved subsidy",
+      "quote": "a government- approved subsidy of approximately ₹1.66 crore towards a new 2,400 - MT-per-annum jam manufacturing facility at Roorkee",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/eb06b4ee-88e8-4bc1-8c5e-b83b361e5a97.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "511196": [
     {
       "date": "2026-09-11T11:55:39.4",
@@ -642,6 +667,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/52166829-94b2-4d72-a65e-38bb5fb78b00.pdf",
       "category": "Company Update",
       "subcat": "Investor Presentation"
+    }
+  ],
+  "513683": [
+    {
+      "date": "2026-06-24T20:20:02.333",
+      "week": "22–28 Jun 2026",
+      "news_id": "90bd15a2-e3ed-4b90-9152-0ade695aa828",
+      "company": "NLC India Ltd",
+      "scrip_cd": 513683,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "1000 MW",
+      "currency": "INR",
+      "amount_cr": 1000,
+      "amount_cr_low": 1000,
+      "amount_cr_high": 1000,
+      "comparable": true,
+      "segment_or_project": "Green Energy Projects in Odisha - Joint Venture with OREDA Ltd.",
+      "direction": "unclear",
+      "reason": "strengthening India's clean energy transition and supporting the nation's vision of \"Viksit Bharat\" and Net Zero Carbon",
+      "quote": "NLC India Ren~wables Limited (NIRL), a Subsidiary Company of NLC India Limited has signed a Joint Venture Agreement (JVA) with OREDA Ltd. for Establishment, Operation & maintenance of 1000 MW Green Energy in the first phase",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/627e8d7f-296e-4127-8f31-cd3b776534f4.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "514211": [
@@ -1243,6 +1293,31 @@
       "subcat": "Analyst / Investor Meet"
     }
   ],
+  "531112": [
+    {
+      "date": "2026-06-24T18:40:12.983",
+      "week": "22–28 Jun 2026",
+      "news_id": "c72d47fd-643a-4758-94af-6d03cc4b6d81",
+      "company": "Balu Forge Industries Ltd",
+      "scrip_cd": 531112,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "46+ Acres",
+      "currency": "INR",
+      "amount_cr": 46,
+      "amount_cr_low": 46,
+      "amount_cr_high": 46,
+      "comparable": true,
+      "segment_or_project": "New Advanced Manufacturing Facilities - Hattargi",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "46+ Acres New Advanced Manufacturing Facilities",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/b911dfd0-ca32-43a9-99e9-6cc242293e0c.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "531512": [
     {
       "date": "2026-09-14T18:54:57.16",
@@ -1592,6 +1667,31 @@
       "reason": null,
       "quote": "this will be the third manufacturing plant in the country and will be spread across approximately 149,936 square metres with total investment amount of USD 150 million within the integrated industrial cluster.",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/dff7d350-02d4-41fb-9eb2-066867601f7e.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "532523": [
+    {
+      "date": "2026-06-24T08:34:14.663",
+      "week": "22–28 Jun 2026",
+      "news_id": "32d2c348-d5eb-49bf-a7c9-02a7277a66db",
+      "company": "Biocon Ltd",
+      "scrip_cd": 532523,
+      "fiscal_year": null,
+      "type": "cumulative",
+      "event_type": "Guidance revision",
+      "amount_text": "over USD 600 million",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "segment_or_project": "Biocon Sdn. Bhd. insulin facility in Malaysia",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Biocon has invested over USD 600 million in the facility since 2011 in this Center of Excellence for insulin manufacturing, representing one of the largest foreign direct investments (FDI) in Malaysia's biotechnology sector.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d637dea7-0778-446a-8164-2b895a76cbc9.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -2202,6 +2302,31 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "532832": [
+    {
+      "date": "2026-06-24T19:37:39.793",
+      "week": "22–28 Jun 2026",
+      "news_id": "1e410997-4b47-492f-8ba1-a9519aaeee3d",
+      "company": "Embassy Developments Ltd",
+      "scrip_cd": 532832,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "~₹1,500 crore",
+      "currency": "INR",
+      "amount_cr": 1500,
+      "amount_cr_low": 1500,
+      "amount_cr_high": 1500,
+      "comparable": true,
+      "segment_or_project": "Commercial Real Estate Development in Lucknow",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Embassy Developments Signs MoU with Government of Uttar Pradesh for Proposed ~₹1,500 crore Commercial Real Estate Development in Lucknow",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/ebbd8aac-9665-4411-9428-494ba343100f.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "532937": [
     {
       "date": "2026-06-18T17:34:07.01",
@@ -2223,6 +2348,54 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d28571d8-b101-440b-ad36-ddf13842cef9.pdf",
       "category": "Company Update",
       "subcat": "Investor Presentation"
+    }
+  ],
+  "533169": [
+    {
+      "date": "2026-06-24T12:43:13.417",
+      "week": "22–28 Jun 2026",
+      "news_id": "fc3f8c86-6f84-4668-8e75-2824bceb6bf6",
+      "company": "Man Infraconstruction Ltd",
+      "scrip_cd": 533169,
+      "fiscal_year": "FY27",
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "₹2,000 crores",
+      "currency": "INR",
+      "amount_cr": 2000,
+      "amount_cr_low": 2000,
+      "amount_cr_high": 2000,
+      "comparable": true,
+      "segment_or_project": "Tardeo 2.0 project",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "With an estimated Gross Development Value (GDV) exceeding ₹2,000 crores, the project is planned for launch in FY27.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/76612035-f51e-4c8f-b3df-2fcd512f3c96.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-24T12:43:13.417",
+      "week": "22–28 Jun 2026",
+      "news_id": "fc3f8c86-6f84-4668-8e75-2824bceb6bf6",
+      "company": "Man Infraconstruction Ltd",
+      "scrip_cd": 533169,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "₹8,000 crores",
+      "currency": "INR",
+      "amount_cr": 8000,
+      "amount_cr_low": 8000,
+      "amount_cr_high": 8000,
+      "comparable": true,
+      "segment_or_project": "South Mumbai developments (Aaradhya Avaan, Marine Lines project, and Tardeo 2.0)",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Together with Aaradhya Avaan and our Marine Lines project, these marquee South Mumbai developments represent cumulative GDV potential exceeding ₹8,000 crores and provide strong visibility for our growth pipeline over the coming years.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/76612035-f51e-4c8f-b3df-2fcd512f3c96.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "533259": [
@@ -2434,6 +2607,54 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/788f66ac-f235-4599-b441-73e8a13a1cb6.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "539636": [
+    {
+      "date": "2026-06-24T12:37:40.53",
+      "week": "22–28 Jun 2026",
+      "news_id": "01123fb1-6278-49db-94a3-aa1102369f25",
+      "company": "Precision Camshafts Ltd",
+      "scrip_cd": 539636,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "over INR100 crores",
+      "currency": "INR",
+      "amount_cr": 100,
+      "amount_cr_low": 100,
+      "amount_cr_high": 100,
+      "comparable": true,
+      "segment_or_project": "foundry and machine shop capacity expansion, advanced manufacturing technologies as well as automation",
+      "direction": "unclear",
+      "reason": "To support this growth",
+      "quote": "Over the next 3 years, PCL plans to invest over INR100 crores in foundry and machine shop capacity expansion, advanced manufacturing technologies as well as automation.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/acb02fd2-c7d2-4ade-82c4-d547e6322122.pdf",
+      "category": "Company Update",
+      "subcat": "Earnings Call Transcript"
+    },
+    {
+      "date": "2026-06-24T12:37:40.53",
+      "week": "22–28 Jun 2026",
+      "news_id": "01123fb1-6278-49db-94a3-aa1102369f25",
+      "company": "Precision Camshafts Ltd",
+      "scrip_cd": 539636,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "INR100 crores to INR120 crores",
+      "currency": "INR",
+      "amount_cr": 100,
+      "amount_cr_low": 100,
+      "amount_cr_high": 100,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "In any case, I think that like I mentioned in the call, we are investing about INR100 crores to INR120 crores in capex",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/acb02fd2-c7d2-4ade-82c4-d547e6322122.pdf",
+      "category": "Company Update",
+      "subcat": "Earnings Call Transcript"
     }
   ],
   "539837": [
@@ -3031,6 +3252,31 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "544119": [
+    {
+      "date": "2026-06-23T20:16:44.43",
+      "week": "22–28 Jun 2026",
+      "news_id": "6d1c41d4-d4c8-4c0d-906d-3e1f7a3c7224",
+      "company": "Rashi Peripherals Ltd",
+      "scrip_cd": 544119,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 3.68 Bn",
+      "currency": "INR",
+      "amount_cr": 368,
+      "amount_cr_low": 368,
+      "amount_cr_high": 368,
+      "comparable": true,
+      "segment_or_project": "67% stake in VDA Infosolutions Private Limited",
+      "direction": "unclear",
+      "reason": "RP tech had intended to acquire a business in the enterprise technology & digital infrastructure solutions space and leverage such a partnership to achieve accelerated growth in this space",
+      "quote": "RP tech has entered into a binding agreement to acquire upfront 67% stake for a cash consideration of INR 3.68 Bn.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/84d71536-fef8-4f97-9341-205825a23e54.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "544203": [
     {
       "date": "2026-09-11T17:03:20.017",
@@ -3578,6 +3824,31 @@
       "subcat": "Press Release / Media Release (Revised)"
     }
   ],
+  "544558": [
+    {
+      "date": "2026-06-23T20:11:29.887",
+      "week": "22–28 Jun 2026",
+      "news_id": "f792a8fc-b4c0-4047-b464-d09933186da5",
+      "company": "Fabtech Technologies Ltd",
+      "scrip_cd": 544558,
+      "fiscal_year": "FY27",
+      "type": "guidance",
+      "event_type": "Guidance revision",
+      "amount_text": "₹500 Cr",
+      "currency": "INR",
+      "amount_cr": 500,
+      "amount_cr_low": 500,
+      "amount_cr_high": 500,
+      "comparable": true,
+      "segment_or_project": "standalone revenue",
+      "direction": "up",
+      "reason": null,
+      "quote": "FY27 standalone revenue ₹500 Cr",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/bd23136b-709d-4356-9fe9-37b3a5e7eab5.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "544597": [
     {
       "date": "2026-09-11T17:31:59.377",
@@ -3697,6 +3968,31 @@
       "subcat": "Analyst / Investor Meet"
     }
   ],
+  "544699": [
+    {
+      "date": "2026-06-24T10:10:02.68",
+      "week": "22–28 Jun 2026",
+      "news_id": "443c288d-55ad-4307-aace-413f5f922fbb",
+      "company": "Aye Finance Ltd",
+      "scrip_cd": 544699,
+      "fiscal_year": "FY26",
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "INR 7044 crores",
+      "currency": "INR",
+      "amount_cr": 7044,
+      "amount_cr_low": 7044,
+      "amount_cr_high": 7044,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The lender ended the fiscal year 2026 with strong numbers reporting an AUM of INR 7044 crores on 31 March 2026.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/9f8c7595-d9c2-4dad-b300-91128aceda1a.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "544717": [
     {
       "date": "2026-09-08T08:37:10.683",
@@ -3743,6 +4039,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/072e52c3-c21a-4d15-9e06-a35e58f19f31.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "544726": [
+    {
+      "date": "2026-06-24T18:06:01.22",
+      "week": "22–28 Jun 2026",
+      "news_id": "ec1de648-3385-43a9-aab7-11393c6502ab",
+      "company": "Kotyark Industries Ltd",
+      "scrip_cd": 544726,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 250 – 300 crore",
+      "currency": "INR",
+      "amount_cr": 300,
+      "amount_cr_low": 250,
+      "amount_cr_high": 300,
+      "comparable": true,
+      "segment_or_project": "biodiesel manufacturing plants in India",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "If you look at the major biodiesel manufacturing plants in India, they may not be very large, and some are even smaller than ours, but their capacity is around 300 – 350 KL per day and they have invested at least Rs. 250 – 300 crore.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d99ee6e5-e557-42a8-bdf4-36f10b3feabd.pdf",
+      "category": "Company Update",
+      "subcat": "Earnings Call Transcript"
     }
   ],
   "544748": [

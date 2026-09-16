@@ -107,6 +107,15 @@
     "as_of": "2026-09-16T12:01:19.618Z",
     "source_url": "https://www.screener.in/company/501261/"
   },
+  "506166": {
+    "company": "Apis India Ltd",
+    "industry": "Other Food Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 674,
+    "pe": 27.8,
+    "as_of": "2026-09-16T22:12:43.312Z",
+    "source_url": "https://www.screener.in/company/506166/"
+  },
   "511196": {
     "company": "Can Fin Homes Ltd",
     "industry": "Housing Finance Company",
@@ -142,6 +151,15 @@
     "pe": 24.3,
     "as_of": "2026-09-16T19:12:26.532Z",
     "source_url": "https://www.screener.in/company/513119/"
+  },
+  "513683": {
+    "company": "NLC India Ltd",
+    "industry": "Power Generation",
+    "sector": "Power",
+    "market_cap_cr": 35408,
+    "pe": 14,
+    "as_of": "2026-09-16T22:12:45.265Z",
+    "source_url": "https://www.screener.in/company/513683/"
   },
   "514211": {
     "company": "Sumeet Industries Ltd",
@@ -260,6 +278,15 @@
     "as_of": "2026-09-16T19:12:32.331Z",
     "source_url": "https://www.screener.in/company/530745/"
   },
+  "531112": {
+    "company": "Balu Forge Industries Ltd",
+    "industry": "Castings & Forgings",
+    "sector": "Capital Goods",
+    "market_cap_cr": 5866,
+    "pe": 37.4,
+    "as_of": "2026-09-16T22:12:47.218Z",
+    "source_url": "https://www.screener.in/company/531112/"
+  },
   "531512": {
     "company": "Orient Tradelink Ltd",
     "industry": null,
@@ -304,6 +331,15 @@
     "pe": 36.8,
     "as_of": "2026-09-16T12:01:37.445Z",
     "source_url": "https://www.screener.in/company/532313/"
+  },
+  "532523": {
+    "company": "Biocon Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 61016,
+    "pe": 202,
+    "as_of": "2026-09-16T22:12:49.173Z",
+    "source_url": "https://www.screener.in/company/532523/"
   },
   "532539": {
     "company": "Uno Minda Ltd",
@@ -350,6 +386,15 @@
     "as_of": "2026-09-16T15:17:52.434Z",
     "source_url": "https://www.screener.in/company/532822/"
   },
+  "532832": {
+    "company": "Embassy Developments Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 7465,
+    "pe": 81.3,
+    "as_of": "2026-09-16T22:12:51.126Z",
+    "source_url": "https://www.screener.in/company/532832/"
+  },
   "532937": {
     "company": "Kuantum Papers Ltd",
     "industry": "Paper & Paper Products",
@@ -358,6 +403,15 @@
     "pe": 18.2,
     "as_of": "2026-09-16T15:17:54.446Z",
     "source_url": "https://www.screener.in/company/532937/"
+  },
+  "533169": {
+    "company": "Man Infraconstruction Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 5015,
+    "pe": 32.7,
+    "as_of": "2026-09-16T22:12:53.080Z",
+    "source_url": "https://www.screener.in/company/533169/"
   },
   "533259": {
     "company": "Health X Platform Ltd",
@@ -403,6 +457,15 @@
     "pe": 42.9,
     "as_of": "2026-09-16T15:18:04.683Z",
     "source_url": "https://www.screener.in/company/539607/"
+  },
+  "539636": {
+    "company": "Precision Camshafts Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 1072,
+    "pe": 29.7,
+    "as_of": "2026-09-16T22:12:55.035Z",
+    "source_url": "https://www.screener.in/company/539636/"
   },
   "539837": {
     "company": "Raghav Productivity Enhancers Ltd",
@@ -503,6 +566,15 @@
     "as_of": "2026-09-16T19:12:41.977Z",
     "source_url": "https://www.screener.in/company/544111/"
   },
+  "544119": {
+    "company": "Rashi Peripherals Ltd",
+    "industry": "Computers Hardware & Equipments",
+    "sector": "Information Technology",
+    "market_cap_cr": 5276,
+    "pe": 17.6,
+    "as_of": "2026-09-16T22:12:56.988Z",
+    "source_url": "https://www.screener.in/company/544119/"
+  },
   "544203": {
     "company": "Allied Blenders & Distillers Ltd",
     "industry": "Breweries & Distilleries",
@@ -538,5 +610,68 @@
     "pe": 275,
     "as_of": "2026-09-16T19:12:49.686Z",
     "source_url": "https://www.screener.in/company/544238/"
+  },
+  "544258": {
+    "company": "Western Carriers (India) Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 920,
+    "pe": 25,
+    "as_of": "2026-09-16T22:12:58.941Z",
+    "source_url": "https://www.screener.in/company/544258/"
+  },
+  "544261": {
+    "company": "Arkade Developers Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 2149,
+    "pe": 12.1,
+    "as_of": "2026-09-16T22:13:00.893Z",
+    "source_url": "https://www.screener.in/company/544261/"
+  },
+  "544425": {
+    "company": "AJC Jewel Manufacturers Ltd",
+    "industry": "Gems, Jewellery And Watches",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 181,
+    "pe": 18.1,
+    "as_of": "2026-09-16T22:13:02.846Z",
+    "source_url": "https://www.screener.in/company/544425/"
+  },
+  "544488": {
+    "company": "Vikram Solar Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 5938,
+    "pe": 16.6,
+    "as_of": "2026-09-16T22:13:04.799Z",
+    "source_url": "https://www.screener.in/company/544488/"
+  },
+  "544516": {
+    "company": "Airfloa Rail Technology Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 1272,
+    "pe": 32.5,
+    "as_of": "2026-09-16T22:13:06.752Z",
+    "source_url": "https://www.screener.in/company/544516/"
+  },
+  "544541": {
+    "company": "Systematic Industries Ltd",
+    "industry": "Cables - Electricals",
+    "sector": "Capital Goods",
+    "market_cap_cr": 605,
+    "pe": 28.2,
+    "as_of": "2026-09-16T22:13:08.707Z",
+    "source_url": "https://www.screener.in/company/544541/"
+  },
+  "544545": {
+    "company": "TruAlt Bioenergy Ltd",
+    "industry": "Other Agricultural Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 3625,
+    "pe": 25.4,
+    "as_of": "2026-09-16T22:13:10.772Z",
+    "source_url": "https://www.screener.in/company/544545/"
   }
 }
