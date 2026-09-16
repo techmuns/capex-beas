@@ -25,7 +25,7 @@ scripts/run.mjs  ── orchestrates ──►          public/data/metadata.jso
    ├─ extract-capex.mjs        (LLM → strict JSON + anti-hallucination) │ commit back to repo
    ├─ llm.mjs                  (Bedrock Converse chain, Mistral fallback) ▼
    └─ detect-changes.mjs       (history + change detection)   Cloudflare Pages auto-deploys ./public
-scripts/send-digest.mjs        (HTML email digest)              → public/index.html + public/js/* (dashboard)
+functions/api/* + functions/_lib/*  (email subscription API — §11)   → public/index.html + public/js/* (dashboard)
 ```
 
 - **Static site, no build step.** Everything the browser needs is in `./public` (the dashboard is
@@ -219,10 +219,11 @@ node scripts/run.mjs --from=20260804 --to=20260804   # manual explicit window
 # Rebuild changes.json deterministically from history.json:
 node scripts/detect-changes.mjs
 
-# Email digest (dry-run prints HTML unless email secrets are set):
-node scripts/send-digest.mjs --days=7
+# Preview the Munshot-newspaper email locally (writes email-preview*.html):
+npm run preview-email            # populated from the demo fixture (git-ignored)
+npm run preview-email -- --empty # the "Nothing new today" state
 node scripts/llm.mjs --selftest             # one tiny call; logs which provider+model answered
-npm test                                    # 29 logic unit tests (incl. Bedrock chain, mocked)
+npm test                                    # 46 logic unit tests (pipeline + Bedrock chain + digest mapping)
 
 # Dashboard: it's static — open public/index.html via any static server, e.g.
 python3 -m http.server 8123 --directory public   # then visit http://localhost:8123/
@@ -250,8 +251,10 @@ GitHub → Settings → **Variables** → Actions (the workflows read those as `
 | `MISTRAL_API_KEY` | backfill, daily | **Fallback** LLM (OpenAI-style), used only if every Bedrock model fails |
 | `FIRECRAWL_API_KEY` | backfill, daily | optional BSE fetch fallback |
 | `SCRAPE_DO_API_KEY` | backfill, daily | optional BSE fetch fallback |
-| `RESEND_API_KEY` **or** `SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASS`/`SMTP_SECURE` **or** `SENDGRID_API_KEY` | daily | email digest send — pick one provider |
-| `EMAIL_FROM`, `EMAIL_TO` | daily | digest sender + recipients (comma-separated) |
+| `DIGEST_KEY` | digests.yml **+** Pages env | shared secret locking `POST /api/run-digests` (`x-digest-key`). Set the SAME value as a GitHub secret and a Pages env var. |
+| `MUNS_TOKEN` | Pages env | Bearer token for the Munshot email API. Unset → nothing is sent (no crash). |
+
+(Email keys live on the **Cloudflare Pages** project — Settings → Environment variables — since the sending happens in the Function; see §11.)
 
 **Variables (non-secret config, all optional):**
 
@@ -261,10 +264,7 @@ GitHub → Settings → **Variables** → Actions (the workflows read those as `
 | `BEDROCK_MODEL` | — | a single id prepended to the chain (back-compat) — can be a Secret or Variable |
 | `BEDROCK_RETRY_ROUNDS` | 8 (backfill sets 12) | patient-retry rounds across the chain (60s wait between rounds when all models are busy) |
 | `MISTRAL_MODEL` | `mistral-large-latest` | fallback model id |
-| `EMAIL_PROVIDER` | auto | force `resend` \| `smtp` \| `sendgrid` \| `dryrun` |
-| `DIGEST_DAYS` | 7 | digest window |
-| `DIGEST_ALWAYS` | — | `1` = send even when there are zero changes |
-| `DASHBOARD_URL` | — | link target for the “Open the live dashboard” button in the email |
+| `SITE_URL` | — | the live site origin (e.g. `https://capex-beas.pages.dev`). Used by `digests.yml` to reach `/api/run-digests`, and by the Functions for links. |
 | `VISION_OCR` | — | `1` = enable the Claude-vision OCR fallback for scanned decks (also installs `@napi-rs/canvas`) |
 | `VISION_MAX_PAGES` / `VISION_SCALE` | 5 / 2.0 | OCR page cap and raster scale |
 
@@ -272,8 +272,8 @@ The LLM step uses the **Bedrock Converse** endpoint
 (`…/model/<id>/converse`, `Authorization: Bearer …`) and walks the model chain with patient retry
 (429/5xx → next model; 400/403/404 → skip that model; after a full busy round, wait 60s and retry).
 It runs with **either** Bedrock or Mistral; if neither is set, `run.mjs` exits cleanly without
-touching state (and `--prove` still validates fetch + PDF + text). **Email is dry-run** (logs the
-HTML, workflow stays green) until `EMAIL_FROM`/`EMAIL_TO` + a provider are set.
+touching state (and `--prove` still validates fetch + PDF + text). **Email** is handled entirely by
+the subscription system (§11), not by this pipeline.
 
 The two workflows share a `concurrency` group so they never commit to `public/data` at the same
 time, and each commits with a **fetch + rebase + push retry loop** (4 attempts, exponential
@@ -284,7 +284,10 @@ backoff — see `scripts/ci-commit.sh`).
   `backfill-cursor.json` shows `"done": true`** (Actions → workflow → ⋯ → Disable). Dispatch
   inputs let you tune `days_per_run` / `max_per_run`.
 - **`.github/workflows/daily.yml`** — `workflow_dispatch` + cron `23 1 * * *` (01:23 UTC daily,
-  off the marks). Forward run over the last ~2 days, commit, then compose + send the digest.
+  off the marks). Forward run over the last ~2 days, then commit. (No email here anymore.)
+- **`.github/workflows/digests.yml`** — `workflow_dispatch` + cron `5 * * * *` (hourly). POSTs
+  `SITE_URL/api/run-digests` with the `x-digest-key` header; the Function emails everyone due.
+  Skips cleanly if `SITE_URL`/`DIGEST_KEY` aren't set. See §11.
 
 Env knobs (optional): `BACKFILL_DAYS` (180), `DAILY_LOOKBACK_DAYS` (2), `BACKFILL_DAYS_PER_RUN`
 (3), `MAX_ANNOUNCEMENTS_PER_RUN` (backfill 150), `DAILY_MAX` (400), `CAPEX_CHANGE_PCT` (2).
@@ -319,8 +322,9 @@ Validated live against BSE (see `docs/PHASE1-PROOF.md` for the full run):
   to Rs. 500 crore"* to *"Rs. 700 crore this year."* The verbatim quotes pass the real
   anti-hallucination gates, a fabricated figure is correctly rejected, and the change detector
   emits **FY27 guidance ₹500 Cr → ₹700 Cr (+40%, up)** with both source PDFs.
-- `npm test` — 29 logic unit tests pass (normalization incl. top-of-range, FY parsing, gates,
-  change detection, JSON extractor, and the Bedrock Converse model-chain fallback with fetch mocked).
+- `npm test` — 46 logic unit tests pass (normalization incl. top-of-range, FY parsing, gates,
+  change detection, JSON extractor, the Bedrock Converse model-chain fallback with fetch mocked,
+  and the digest mapping/selection for the email Brief).
 
 `capex-history.json` / `capex-changes.json` ship **empty** — they fill only with real results
 once the workflows run with an LLM key in Actions. No sample/demo data, ever.
@@ -352,11 +356,67 @@ use `?demo=1` (loads the git-ignored `public/demo/` fixture) — see §4.
   (`BEDROCK_MODEL_IDS`) and patient retry — the pattern proven on the account. Vision (image)
   support added for OCR.
 - **Top-of-range comparison** — change detection compares on the high end of a stated range.
-- The **colorful dashboard** (§8) and the **live email digest** (§ Email — dry-run until secrets).
+- The **colorful dashboard** (§8).
 - **Vision/OCR fallback** for scanned decks (`VISION_OCR=1`): renders capex pages to JPEG, has
   Claude transcribe them, and runs that transcription through the **same** anti-hallucination gates.
 
-## 10. Phase 3 ideas (next)
+_(Phase 2's Resend/SMTP email transport has been **retired** and replaced by the subscription
+system in §11 — the Munshot API is now the only sender.)_
+
+## 10. What shipped in Phase 3 (this update) — the email Brief
+
+A self-serve **email subscription** system, served as **Cloudflare Pages Functions** on the same
+Pages project (one deploy, no new domain):
+
+- A **"Brief" button** in the dashboard top bar opens a slide-in panel: email, **Every weekday /
+  Every day**, a **time picker (IST)**, an **All / Increases / Decreases** filter, **Subscribe**
+  (double opt-in), and **Email me this now** (one-off). Fully additive — the dashboard is
+  unaffected and the panel says "not switched on yet" if the API/KV/token isn't configured.
+- **KV** (`SUBS`) holds only subscriptions; the digest reads change data at runtime by fetching
+  the site's own `/data/capex-changes.json`.
+- The email is the **Munshot newspaper** style (`functions/_lib/email-render.js`) — one pure
+  renderer used by both the Function and `npm run preview-email`. Category chips: Increased=green,
+  Decreased=rose, First reading=slate; status dots mirror direction; every item links its real BSE
+  filing PDF. On days with nothing new, nothing is sent (unless `SEND_EMPTY=true`).
+
+## 11. The email subscription system
+
+**Endpoints (Pages Functions, `functions/api/*`), all open (no login) except run-digests:**
+
+| Route | Method | Purpose |
+|---|---|---|
+| `/api/subscribe` | POST | `{email,cadence,time,filter}` → stores a **pending** sub + sends a double-opt-in confirm email. IP-capped (10/hr). |
+| `/api/confirm?token=` | GET | flips a pending sub to **active**. |
+| `/api/unsubscribe?token=` | GET | one-click unsubscribe (link in every email). |
+| `/api/send-now` | POST | `{email,filter}` → instant one-off digest (last 30 days). Rate-limited 3/email/hr. |
+| `/api/run-digests` | POST | **locked** by `x-digest-key` = `DIGEST_KEY`. Hourly cron target. Idempotent (once-per-day-per-person guard, IST). |
+
+**KV keys:** `sub:<sha256(email)>` → record; `unsub:<token>`/`confirm:<token>` → sub key; plus
+best-effort `rate:*` counters. Re-subscribe keeps the existing `unsubToken` + `lastSentDate`.
+
+**Env (all optional; unset → graceful):** on the **Cloudflare Pages** project (Settings →
+Environment variables): `MUNS_TOKEN` (Munshot Bearer; unset → no send), `DIGEST_KEY` (must equal
+the GitHub secret), `SITE_URL`, optional `MUNS_EMAIL_ENDPOINT` (default
+`https://devde.muns.io/email/send/raw`), `BRAND_LOGO_URL` (a logo swaps the MUNSHOT wordmark, 34px),
+`SEND_EMPTY=true` (send even with nothing new). On **GitHub**: secret `DIGEST_KEY` + variable
+`SITE_URL` (for `digests.yml`). KV binding `SUBS` (see `wrangler.jsonc`).
+
+### One-time setup checklist (done once, then automatic forever)
+
+1. **Create the KV namespace** and bind it as **`SUBS`** — either uncomment + paste its id in
+   `wrangler.jsonc`, or in the Pages dashboard → Settings → Functions → KV namespace bindings.
+2. On the **Pages project** → Settings → Environment variables (Production), set: `MUNS_TOKEN`,
+   `DIGEST_KEY` (pick any long random string), `SITE_URL` (e.g. `https://capex-beas.pages.dev`),
+   and optionally `BRAND_LOGO_URL` / `SEND_EMPTY`.
+3. On **GitHub** → Settings → Secrets and variables → Actions: add secret **`DIGEST_KEY`** (same
+   value as step 2) and variable **`SITE_URL`** (same as step 2).
+4. Push / redeploy once so the Functions ship. Done — the hourly `digests.yml` fires from then on,
+   and the dashboard's Brief panel is live.
+
+_Until steps 1–2 are done, the dashboard works normally and the Brief panel shows "not switched on
+yet." Nothing breaks._
+
+## 12. Phase 4 ideas (next)
 
 - Wider prefilter / server-side subcategory filtering to cut backfill cost.
 - Per-company alerting, sector rollups, and a “needs review” queue for low-confidence extractions.

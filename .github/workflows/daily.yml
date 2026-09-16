@@ -1,8 +1,8 @@
 name: Daily capex forward run
 
 # Forward run: pulls the last ~2 days of BSE filings, extracts capex, updates
-# history/changes, commits state, and composes the email digest (dry-run until
-# email secrets are added in Phase 2).
+# history/changes, and commits state. Email is NOT sent here — the Munshot
+# subscription system (functions/api/* + .github/workflows/digests.yml) owns it.
 #
 # Scheduled off the :00/:15/:30/:45 marks per the brief.
 
@@ -52,26 +52,5 @@ jobs:
 
       - name: Commit updated data (fetch + rebase retry)
         run: bash scripts/ci-commit.sh "daily"
-
-      - name: Compose + send email digest (dry-run until email secrets set)
-        continue-on-error: true
-        env:
-          # Email secrets — all harmless when unset: the digest runs dry (logs the HTML)
-          # and the step stays green. Recipient/provider are added in Cloudflare/GitHub later.
-          EMAIL_PROVIDER: ${{ secrets.EMAIL_PROVIDER }}
-          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
-          DIGEST_DAYS: ${{ vars.DIGEST_DAYS }}
-          DIGEST_ALWAYS: ${{ vars.DIGEST_ALWAYS }}
-          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
-        run: |
-          # Install nodemailer only if SMTP is configured.
-          if [ -n "${SMTP_HOST:-}" ]; then npm install nodemailer --no-save; fi
-          node scripts/send-digest.mjs
+        # Email is handled by the Munshot subscription system (functions/api + the
+        # digests.yml hourly workflow), not by this pipeline run.
