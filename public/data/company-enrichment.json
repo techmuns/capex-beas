@@ -8,6 +8,15 @@
     "as_of": "2026-09-16T15:17:48.411Z",
     "source_url": "https://www.screener.in/company/500038/"
   },
+  "500049": {
+    "company": "Bharat Electronics Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 283381,
+    "pe": 46.2,
+    "as_of": "2026-09-16T19:12:22.674Z",
+    "source_url": "https://www.screener.in/company/500049/"
+  },
   "500126": {
     "company": "Procter & Gamble Health Ltd",
     "industry": "Pharmaceuticals",
@@ -61,6 +70,15 @@
     "pe": 39.1,
     "as_of": "2026-09-16T12:03:46.132Z",
     "source_url": "https://www.screener.in/company/500510/"
+  },
+  "500570": {
+    "company": "Tata Motors Passenger Vehicles Ltd",
+    "industry": "Passenger Cars & Utility Vehicles",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 111075,
+    "pe": 176,
+    "as_of": "2026-09-16T19:12:24.603Z",
+    "source_url": "https://www.screener.in/company/500570/"
   },
   "500672": {
     "company": "Novartis India Ltd",
@@ -116,6 +134,15 @@
     "as_of": "2026-09-16T12:03:57.853Z",
     "source_url": "https://www.screener.in/company/512599/"
   },
+  "513119": {
+    "company": "Onix Solar Energy Ltd",
+    "industry": "Copper",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 1462,
+    "pe": 24.3,
+    "as_of": "2026-09-16T19:12:26.532Z",
+    "source_url": "https://www.screener.in/company/513119/"
+  },
   "514211": {
     "company": "Sumeet Industries Ltd",
     "industry": "Other Textile Products",
@@ -142,6 +169,15 @@
     "pe": 28.4,
     "as_of": "2026-09-16T12:04:04.326Z",
     "source_url": "https://www.screener.in/company/519287/"
+  },
+  "522004": {
+    "company": "Batliboi Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 387,
+    "pe": 53.2,
+    "as_of": "2026-09-16T19:12:28.461Z",
+    "source_url": "https://www.screener.in/company/522004/"
   },
   "522163": {
     "company": "Diamond Power Infrastructure Ltd",
@@ -197,6 +233,15 @@
     "as_of": "2026-09-16T12:01:25.556Z",
     "source_url": "https://www.screener.in/company/524558/"
   },
+  "524804": {
+    "company": "Aurobindo Pharma Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 94256,
+    "pe": 36.2,
+    "as_of": "2026-09-16T19:12:30.394Z",
+    "source_url": "https://www.screener.in/company/524804/"
+  },
   "526797": {
     "company": "Greenply Industries Ltd",
     "industry": null,
@@ -205,6 +250,15 @@
     "pe": 40.1,
     "as_of": "2026-09-16T12:01:27.533Z",
     "source_url": "https://www.screener.in/company/526797/"
+  },
+  "530745": {
+    "company": "ACS Technologies Ltd",
+    "industry": "IT Enabled Services",
+    "sector": "Information Technology",
+    "market_cap_cr": 414,
+    "pe": 42.8,
+    "as_of": "2026-09-16T19:12:32.331Z",
+    "source_url": "https://www.screener.in/company/530745/"
   },
   "531512": {
     "company": "Orient Tradelink Ltd",
@@ -368,6 +422,15 @@
     "as_of": "2026-09-16T15:18:08.711Z",
     "source_url": "https://www.screener.in/company/540047/"
   },
+  "540061": {
+    "company": "BIGBLOC Construction Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 555,
+    "pe": 3.39,
+    "as_of": "2026-09-16T19:12:34.268Z",
+    "source_url": "https://www.screener.in/company/540061/"
+  },
   "540153": {
     "company": "Endurance Technologies Ltd",
     "industry": "Auto Components & Equipments",
@@ -376,6 +439,24 @@
     "pe": 47.5,
     "as_of": "2026-09-16T15:18:10.726Z",
     "source_url": "https://www.screener.in/company/540153/"
+  },
+  "540361": {
+    "company": "Danube Industries Ltd",
+    "industry": "Trading & Distributors",
+    "sector": "Services",
+    "market_cap_cr": 46.4,
+    "pe": 35.2,
+    "as_of": "2026-09-16T19:12:36.193Z",
+    "source_url": "https://www.screener.in/company/540361/"
+  },
+  "540401": {
+    "company": "Maximus International Ltd",
+    "industry": "Trading & Distributors",
+    "sector": "Services",
+    "market_cap_cr": 198,
+    "pe": 59.8,
+    "as_of": "2026-09-16T19:12:38.120Z",
+    "source_url": "https://www.screener.in/company/540401/"
   },
   "540678": {
     "company": "Cochin Shipyard Ltd",
@@ -403,5 +484,59 @@
     "pe": 53.5,
     "as_of": "2026-09-16T15:18:16.764Z",
     "source_url": "https://www.screener.in/company/543960/"
+  },
+  "544014": {
+    "company": "Honasa Consumer Ltd",
+    "industry": "Personal Care",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 15279,
+    "pe": 64,
+    "as_of": "2026-09-16T19:12:40.050Z",
+    "source_url": "https://www.screener.in/company/544014/"
+  },
+  "544111": {
+    "company": "Apeejay Surrendra Park Hotels Ltd",
+    "industry": "Hotels & Resorts",
+    "sector": "Consumer Services",
+    "market_cap_cr": 2258,
+    "pe": 32.9,
+    "as_of": "2026-09-16T19:12:41.977Z",
+    "source_url": "https://www.screener.in/company/544111/"
+  },
+  "544203": {
+    "company": "Allied Blenders & Distillers Ltd",
+    "industry": "Breweries & Distilleries",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 18095,
+    "pe": 65.2,
+    "as_of": "2026-09-16T19:12:43.904Z",
+    "source_url": "https://www.screener.in/company/544203/"
+  },
+  "544223": {
+    "company": "Ceigall India Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 6737,
+    "pe": 20.7,
+    "as_of": "2026-09-16T19:12:45.833Z",
+    "source_url": "https://www.screener.in/company/544223/"
+  },
+  "544235": {
+    "company": "Orient Technologies Ltd",
+    "industry": "IT Enabled Services",
+    "sector": "Information Technology",
+    "market_cap_cr": 1070,
+    "pe": 51.1,
+    "as_of": "2026-09-16T19:12:47.759Z",
+    "source_url": "https://www.screener.in/company/544235/"
+  },
+  "544238": {
+    "company": "Premier Energies Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 40724,
+    "pe": 275,
+    "as_of": "2026-09-16T19:12:49.686Z",
+    "source_url": "https://www.screener.in/company/544238/"
   }
 }

@@ -24,6 +24,31 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "500049": [
+    {
+      "date": "2026-06-22T16:08:18.093",
+      "week": "22–28 Jun 2026",
+      "news_id": "30404d8d-356a-4d8d-9549-c7f778ff8253",
+      "company": "Bharat Electronics Ltd",
+      "scrip_cd": 500049,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "Rs. 1081 Crore",
+      "currency": "INR",
+      "amount_cr": 1081,
+      "amount_cr_low": 1081,
+      "amount_cr_high": 1081,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Bharat Electronics Limited ( BEL ) , has secured additional orders worth Rs. 1081 Crore since the last disclosure on 25 th May 2026",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/8309c487-bdb9-4100-9240-36960d264875.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "500126": [
     {
       "date": "2026-06-18T09:32:16.83",
@@ -375,6 +400,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "500570": [
+    {
+      "date": "2026-06-23T13:55:40.06",
+      "week": "22–28 Jun 2026",
+      "news_id": "298c74f6-04a4-42ca-a4f2-f1964eea1b2d",
+      "company": "Tata Motors Passenger Vehicles Ltd",
+      "scrip_cd": 500570,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "900k within 2 – 3 years",
+      "currency": "INR",
+      "amount_cr": 3,
+      "amount_cr_low": 2,
+      "amount_cr_high": 3,
+      "comparable": true,
+      "segment_or_project": "Manufacturing capacity expansion",
+      "direction": "up",
+      "reason": "Accelerated scale-up of manufacturing capacity in line with our aspirations",
+      "quote": "Current annual capacity 900k within 2 – 3 years",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/014847b7-57ec-4743-8aa6-9cc27be5d081.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "500672": [
     {
       "date": "2026-09-11T15:50:09.18",
@@ -546,6 +596,54 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "513119": [
+    {
+      "date": "2026-06-22T19:44:44.16",
+      "week": "22–28 Jun 2026",
+      "news_id": "3e800b35-43d2-406a-b366-b5be58e59a3a",
+      "company": "Onix Solar Energy Ltd",
+      "scrip_cd": 513119,
+      "fiscal_year": "FY27",
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "1200MW",
+      "currency": "INR",
+      "amount_cr": 1200,
+      "amount_cr_low": 1200,
+      "amount_cr_high": 1200,
+      "comparable": true,
+      "segment_or_project": "Module Manufacturing",
+      "direction": "up",
+      "reason": null,
+      "quote": "1200MW facility currently under development to support large-scale deployment.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/52166829-94b2-4d72-a65e-38bb5fb78b00.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-22T19:44:44.16",
+      "week": "22–28 Jun 2026",
+      "news_id": "3e800b35-43d2-406a-b366-b5be58e59a3a",
+      "company": "Onix Solar Energy Ltd",
+      "scrip_cd": 513119,
+      "fiscal_year": "FY27",
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "200 MW",
+      "currency": "INR",
+      "amount_cr": 200,
+      "amount_cr_low": 200,
+      "amount_cr_high": 200,
+      "comparable": true,
+      "segment_or_project": "Module Manufacturing Facility",
+      "direction": "up",
+      "reason": "significantly expanding production capacity to support large-scale demand",
+      "quote": "A new 200 MW facility is towards completion, significantly expanding production capacity to support large-scale demand.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/52166829-94b2-4d72-a65e-38bb5fb78b00.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "514211": [
     {
       "date": "2026-06-18T18:46:56.64",
@@ -707,6 +805,123 @@
       "reason": null,
       "quote": "Promoters and Promoter Group of Modern Dairies Limited has Converted the Fully Convertible Warrants for Rs. 43 Crores into Equity Shares of Rs. 10 each at a premium of Rs. 40 each",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d046abf1-540d-449b-8a4e-6d34021da936.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "522004": [
+    {
+      "date": "2026-06-23T17:28:20.56",
+      "week": "22–28 Jun 2026",
+      "news_id": "c088198d-a637-4b15-9824-706fb82627de",
+      "company": "Batliboi Ltd-$",
+      "scrip_cd": 522004,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 20 crore",
+      "currency": "INR",
+      "amount_cr": 20,
+      "amount_cr_low": 20,
+      "amount_cr_high": 20,
+      "comparable": true,
+      "segment_or_project": "Acquisition of Penta Automation Systems Private Limited and Pats Robotics Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "These acquisition, valued at INR 20 crore, marks an important step in Batliboi's growth journey and strengthens its presence in the rapidly expanding industrial automation and robotics segment.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8d6b2451-8f85-491e-b002-6ee089e03cff.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-23T17:28:20.56",
+      "week": "22–28 Jun 2026",
+      "news_id": "c088198d-a637-4b15-9824-706fb82627de",
+      "company": "Batliboi Ltd-$",
+      "scrip_cd": 522004,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 19.8 crore",
+      "currency": "INR",
+      "amount_cr": 19.8,
+      "amount_cr_low": 19.8,
+      "amount_cr_high": 19.8,
+      "comparable": true,
+      "segment_or_project": "Acquisition of Penta Automation Systems Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The acquisition of Penta is valued at INR 19.8 crore, implying a per-share value of INR 180.98 for shares with a face value of Rs. 10 each.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8d6b2451-8f85-491e-b002-6ee089e03cff.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-23T17:28:20.56",
+      "week": "22–28 Jun 2026",
+      "news_id": "c088198d-a637-4b15-9824-706fb82627de",
+      "company": "Batliboi Ltd-$",
+      "scrip_cd": 522004,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 15.84 crores",
+      "currency": "INR",
+      "amount_cr": 15.84,
+      "amount_cr_low": 15.84,
+      "amount_cr_high": 15.84,
+      "comparable": true,
+      "segment_or_project": "80% stake in Penta Automation Systems Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "At closing, Batliboi will acquire an 80% stake in Penta for an upfront cash consideration of INR 15.84 crores.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8d6b2451-8f85-491e-b002-6ee089e03cff.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-23T17:28:20.56",
+      "week": "22–28 Jun 2026",
+      "news_id": "c088198d-a637-4b15-9824-706fb82627de",
+      "company": "Batliboi Ltd-$",
+      "scrip_cd": 522004,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 3.96 crores",
+      "currency": "INR",
+      "amount_cr": 3.96,
+      "amount_cr_low": 3.96,
+      "amount_cr_high": 3.96,
+      "comparable": true,
+      "segment_or_project": "Remaining 20% stake in Penta Automation Systems Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The remaining 20% stake will be acquired through a deferred consideration mechanism of INR 3.96 crores, payable in five equal annual instalments beginning April 1, 2027.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8d6b2451-8f85-491e-b002-6ee089e03cff.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-23T17:28:20.56",
+      "week": "22–28 Jun 2026",
+      "news_id": "c088198d-a637-4b15-9824-706fb82627de",
+      "company": "Batliboi Ltd-$",
+      "scrip_cd": 522004,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 0.2 Cr",
+      "currency": "INR",
+      "amount_cr": 0.2,
+      "amount_cr_low": 0.2,
+      "amount_cr_high": 0.2,
+      "comparable": true,
+      "segment_or_project": "Acquisition of PAtS Robotics Private Limited through Penta",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "As part of the transaction, PAtS will become a wholly owned subsidiary of Penta before the acquisition is completed and INR 0.2 Cr will be funded by Batliboi to Penta for such acquisition on Closing.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8d6b2451-8f85-491e-b002-6ee089e03cff.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -953,6 +1168,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "524804": [
+    {
+      "date": "2026-06-22T07:27:51.25",
+      "week": "22–28 Jun 2026",
+      "news_id": "2709db18-0d88-4b99-99ad-443fc0bba35a",
+      "company": "Aurobindo Pharma Ltd",
+      "scrip_cd": 524804,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "$250 million",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "segment_or_project": "Acquisition of Lannett Company LLC",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The transaction, valued at $250 million on a cash-free, debt-free basis and inclusive of normalized working capital, is expected to close before the end of June 2026.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/5a392b02-2343-409f-b1a7-27e00059df1b.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "526797": [
     {
       "date": "2026-09-11T17:07:21.19",
@@ -976,6 +1216,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/e0478f1c-d35a-41a4-ad21-4e21ac57d849.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "530745": [
+    {
+      "date": "2026-06-23T18:15:57.223",
+      "week": "22–28 Jun 2026",
+      "news_id": "21042f29-370c-4814-9b28-e907611c6c96",
+      "company": "ACS Technologies Ltd",
+      "scrip_cd": 530745,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "₹6,000 Cr",
+      "currency": "INR",
+      "amount_cr": 6000,
+      "amount_cr_low": 6000,
+      "amount_cr_high": 6000,
+      "comparable": true,
+      "segment_or_project": "National Quantum Mission",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "India's National Quantum Mission has committed ₹6,000 Cr over 2023 –2031.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/f6441b5b-e1a8-4b8b-b2e4-dc02ade8c296.pdf",
+      "category": "Company Update",
+      "subcat": "Analyst / Investor Meet"
     }
   ],
   "531512": [
@@ -2267,6 +2532,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "540061": [
+    {
+      "date": "2026-06-23T11:36:54.783",
+      "week": "22–28 Jun 2026",
+      "news_id": "f361fdfa-2f37-4cdb-a004-385f2c7bb0c5",
+      "company": "Bigbloc Construction Ltd",
+      "scrip_cd": 540061,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "INR 891 Mn",
+      "currency": "INR",
+      "amount_cr": 89.1,
+      "amount_cr_low": 89.1,
+      "amount_cr_high": 89.1,
+      "comparable": true,
+      "segment_or_project": "JV with SCG - Ramosadi plant",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The JV has commenced it operations in FY24 with project value of INR 891 Mn and an installed capacity of 2,50,000 CBM with collaborative marketing expenses",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/ce96d5d7-06d9-47d1-8f5e-5e3fb8699ccf.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "540153": [
     {
       "date": "2026-06-18T18:57:05.13",
@@ -2288,6 +2578,79 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/e7995710-9255-40f9-8663-eebe20b040d4.pdf",
       "category": "Company Update",
       "subcat": "General"
+    }
+  ],
+  "540361": [
+    {
+      "date": "2026-06-22T15:34:35.493",
+      "week": "22–28 Jun 2026",
+      "news_id": "3f4a387a-8cc2-48ac-8115-4306712f3a15",
+      "company": "Danube Industries Ltd",
+      "scrip_cd": 540361,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "USD 50 million",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Fox Petroleum Group has announced a proposed investment of USD 50 million in Ahmedabad-based Danube Industries Limited as part of a strategic partnership aimed at supporting the company's expansion, technology development and business growth plans.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/23977b97-2c56-41e2-9a26-b3ad5d1990f6.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-22T15:34:35.493",
+      "week": "22–28 Jun 2026",
+      "news_id": "3f4a387a-8cc2-48ac-8115-4306712f3a15",
+      "company": "Danube Industries Ltd",
+      "scrip_cd": 540361,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "USD 25 million",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": "will be utilised to strengthen and expand existing operations",
+      "quote": "The first tranche of USD 25 million will be utilised to strengthen and expand existing operations, while the second tranche will be earmarked for the acquisition of businesses that align with the company's long- term growth strategy.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/23977b97-2c56-41e2-9a26-b3ad5d1990f6.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "540401": [
+    {
+      "date": "2026-06-23T14:30:35.437",
+      "week": "22–28 Jun 2026",
+      "news_id": "b495f078-8344-456e-b9bd-7855f21a8652",
+      "company": "Maximus International Ltd",
+      "scrip_cd": 540401,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 18.43 crore",
+      "currency": "INR",
+      "amount_cr": 18.43,
+      "amount_cr_low": 18.43,
+      "amount_cr_high": 18.43,
+      "comparable": true,
+      "segment_or_project": "40% equity stake in Quebec Petroleum Resources Limited",
+      "direction": "unclear",
+      "reason": "The investment in Quebec provides the Company with an established, on-the ground platform in India — a manufacturing base, a diversified product portfolio and a distribution network refined over more than two decades of serving industrial customers and contractors across the country",
+      "quote": "The transaction values the stake at Rs. 18.43 crore, to be settled through cash consideration, and represents the Company's first major step into India's domestic lubricant market.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/be22a4d8-abe8-45fe-9062-73c64f761112.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "540678": [
@@ -2593,6 +2956,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/3f50e803-a593-4028-85b3-a22cca0bdbf4.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
+    }
+  ],
+  "544014": [
+    {
+      "date": "2026-06-23T18:22:45.27",
+      "week": "22–28 Jun 2026",
+      "news_id": "5fd59f10-6bfd-443f-b562-b33f29551af4",
+      "company": "Honasa Consumer Ltd",
+      "scrip_cd": 544014,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "58%",
+      "currency": "INR",
+      "amount_cr": 58,
+      "amount_cr_low": 58,
+      "amount_cr_high": 58,
+      "comparable": true,
+      "segment_or_project": "Fluence Pharma - majority stake acquisition",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Honasa Consumer Limited, India's leading beauty and personal care company, today announced the acquisition of a majority stake of 58% in Fluence Pharma",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/d76d3076-e2ea-4658-893c-0516c96c592e.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "544111": [
@@ -2956,6 +3344,52 @@
   ],
   "544425": [
     {
+      "date": "2026-06-22T13:06:04.91",
+      "week": "22–28 Jun 2026",
+      "news_id": "14a3203c-958f-45d1-a9cd-c7665e7eb643",
+      "company": "AJC Jewel Manufacturers Ltd",
+      "scrip_cd": 544425,
+      "fiscal_year": "FY27",
+      "type": "guidance",
+      "event_type": "Guidance revision",
+      "amount_text": "₹450 Cr",
+      "currency": "INR",
+      "amount_cr": 450,
+      "amount_cr_low": 450,
+      "amount_cr_high": 450,
+      "comparable": true,
+      "segment_or_project": "standalone revenue",
+      "direction": "up",
+      "reason": null,
+      "quote": "Targeting a 50% consolidated revenue CAGR over the next three years , with FY27 standalone revenue expected at ~ ₹ 450 Cr .",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/556687e3-ed53-44cc-adcf-107bd906ee6f.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-22T13:06:04.91",
+      "week": "22–28 Jun 2026",
+      "news_id": "14a3203c-958f-45d1-a9cd-c7665e7eb643",
+      "company": "AJC Jewel Manufacturers Ltd",
+      "scrip_cd": 544425,
+      "fiscal_year": "FY27",
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "₹60 Cr",
+      "currency": "INR",
+      "amount_cr": 60,
+      "amount_cr_low": 60,
+      "amount_cr_high": 60,
+      "comparable": true,
+      "segment_or_project": "Sharjah acquisition",
+      "direction": "up",
+      "reason": "The proposed Sharjah acquisition, which is yet to be completed due to the ongoing geopolitical situation",
+      "quote": "The proposed Sharjah acquisition, which is yet to be completed due to the ongoing geopolitical situation, is expected to contribute an additional ~ ₹ 60 Cr revenue by end FY27 .",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/556687e3-ed53-44cc-adcf-107bd906ee6f.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
       "date": "2026-09-15T19:24:50.19",
       "week": "14–20 Sep 2026",
       "news_id": "133e2399-f85a-4fef-8911-3669b5512f51",
@@ -3238,6 +3672,31 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "544695": [
+    {
+      "date": "2026-06-22T18:03:29.497",
+      "week": "22–28 Jun 2026",
+      "news_id": "5c31e4c4-503f-4d45-af1a-e3f71cd30bbf",
+      "company": "Msafe Equipments Ltd",
+      "scrip_cd": 544695,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "₹6 crore",
+      "currency": "INR",
+      "amount_cr": 6,
+      "amount_cr_low": 6,
+      "amount_cr_high": 6,
+      "comparable": true,
+      "segment_or_project": "Rental equipment - 748 tonnes of specialized rental equipment",
+      "direction": "up",
+      "reason": null,
+      "quote": "Expanding rental business through ₹6 crore capex to build 748 tonnes of specialized rental equipment.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/181b713f-6e38-447c-9707-d365848e6301.pdf",
+      "category": "Company Update",
+      "subcat": "Analyst / Investor Meet"
+    }
+  ],
   "544717": [
     {
       "date": "2026-09-08T08:37:10.683",
@@ -3334,6 +3793,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/f54e9a92-ba7e-4e5f-9af7-83ccf74e252b.pdf",
       "category": "Company Update",
       "subcat": "General"
+    }
+  ],
+  "544793": [
+    {
+      "date": "2026-06-23T12:45:58.01",
+      "week": "22–28 Jun 2026",
+      "news_id": "d591891a-9c62-4f4e-8792-cecf082aa5b9",
+      "company": "Susan Electricals India Ltd",
+      "scrip_cd": 544793,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "₹ 1,029.49 lakh",
+      "currency": "INR",
+      "amount_cr": 10.29,
+      "amount_cr_low": 10.29,
+      "amount_cr_high": 10.29,
+      "comparable": true,
+      "segment_or_project": "Expansion of existing Manufacturing Facility situated at Plot No.18/31, Sahibabad, Ghaziabad, Uttar Pradesh",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Funding of Capital expenditure towards Expansion of existing Manufacturing Facility situated at Plot No.18/31, Sahibabad, Ghaziabad, Uttar Pradesh 1,029.49",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/7a5747ec-3604-4bbd-ac5b-8b28403056a5.pdf",
+      "category": "Company Update",
+      "subcat": "Analyst / Investor Meet"
     }
   ],
   "544866": [
