@@ -289,7 +289,7 @@ backoff — see `scripts/ci-commit.sh`).
   `SITE_URL/api/run-digests` with the `x-digest-key` header; the Function emails everyone due.
   Skips cleanly if `SITE_URL`/`DIGEST_KEY` aren't set. See §11.
 
-Env knobs (optional): `BACKFILL_DAYS` (180), `DAILY_LOOKBACK_DAYS` (2), `BACKFILL_DAYS_PER_RUN`
+Env knobs (optional): `BACKFILL_DAYS` (90), `DAILY_LOOKBACK_DAYS` (2), `BACKFILL_DAYS_PER_RUN`
 (3), `MAX_ANNOUNCEMENTS_PER_RUN` (backfill 150), `DAILY_MAX` (400), `CAPEX_CHANGE_PCT` (2).
 
 ---

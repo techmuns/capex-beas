@@ -27,7 +27,7 @@ import { ymd, todayUTC, addDays, parseYmd, dayRange, nowISO, log, parseArgs } fr
 const args = parseArgs();
 const MODE = args.from || args.to ? 'manual' : (args.mode || 'daily');
 
-const BACKFILL_DAYS = Number(process.env.BACKFILL_DAYS || 180);
+const BACKFILL_DAYS = Number(process.env.BACKFILL_DAYS || 90);
 const DAILY_LOOKBACK_DAYS = Number(process.env.DAILY_LOOKBACK_DAYS || 2);
 const BACKFILL_DAYS_PER_RUN = Number(process.env.BACKFILL_DAYS_PER_RUN || 3);
 const BACKFILL_MAX = Number(process.env.MAX_ANNOUNCEMENTS_PER_RUN || 150);

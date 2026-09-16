@@ -1,8 +1,8 @@
 {
-  "initialized": true,
+  "initialized": false,
   "done": false,
-  "start_date": "20260320",
-  "end_date": "20260916",
-  "cursor_date": "20260323",
-  "updated_at": "2026-09-16T09:15:17.288Z"
+  "start_date": null,
+  "end_date": null,
+  "cursor_date": null,
+  "updated_at": null
 }
