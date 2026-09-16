@@ -21,8 +21,7 @@
   // OR in the Pages dashboard (Settings → Functions → KV namespace bindings →
   // add binding `SUBS`). Until it's bound, the API returns 503 and the dashboard's
   // "Brief" panel shows "not switched on yet" — the dashboard itself is unaffected.
-  //
-  // "kv_namespaces": [
-  //   { "binding": "SUBS", "id": "PASTE_YOUR_KV_NAMESPACE_ID_HERE" }
-  // ]
+  "kv_namespaces": [
+    { "binding": "SUBS", "id": "81095b14a39143c191c08f8b72920d0d" }
+  ]
 }
