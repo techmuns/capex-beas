@@ -4,10 +4,24 @@ name: Daily capex forward run
 # history/changes, and commits state. Email is NOT sent here — the Munshot
 # subscription system (functions/api/* + .github/workflows/digests.yml) owns it.
 #
+# Manual date-window run: dispatch this workflow with BOTH `from` and `to`
+# (YYYYMMDD) to process any BSE date range on demand — it runs
+# `node scripts/run.mjs --from=<from> --to=<to>` with the same secrets/env and
+# commits the results the same way. Leave both empty for the normal daily run.
+#
 # Scheduled off the :00/:15/:30/:45 marks per the brief.
 
 on:
   workflow_dispatch:
+    inputs:
+      from:
+        description: "Start date YYYYMMDD (optional). Set BOTH from & to for a manual date-window run."
+        required: false
+        default: ""
+      to:
+        description: "End date YYYYMMDD (optional). Leave both empty for the normal daily forward run."
+        required: false
+        default: ""
   schedule:
     - cron: "23 1 * * *" # 01:23 UTC daily (~06:53 IST), off the marks
 
@@ -36,7 +50,7 @@ jobs:
           # @napi-rs/canvas is only needed for the vision/OCR fallback (VISION_OCR=1).
           if [ "${VISION_OCR:-}" = "1" ]; then npm install pdfjs-dist @napi-rs/canvas --no-save; else npm install pdfjs-dist --no-save; fi
 
-      - name: Run forward pipeline
+      - name: Run pipeline (daily, or a manual --from/--to window)
         env:
           BEDROCK_API_KEY: ${{ secrets.BEDROCK_API_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -48,9 +62,29 @@ jobs:
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
           SCRAPE_DO_API_KEY: ${{ secrets.SCRAPE_DO_API_KEY }}
           VISION_OCR: ${{ vars.VISION_OCR }}
-        run: node scripts/run.mjs --mode=daily
+          RUN_FROM: ${{ inputs.from }}
+          RUN_TO: ${{ inputs.to }}
+        run: |
+          if [ -n "${RUN_FROM:-}" ] && [ -n "${RUN_TO:-}" ]; then
+            echo "Manual date-window run: ${RUN_FROM}..${RUN_TO}"
+            node scripts/run.mjs --from="${RUN_FROM}" --to="${RUN_TO}"
+          elif [ -n "${RUN_FROM:-}" ] || [ -n "${RUN_TO:-}" ]; then
+            echo "::error::Set BOTH 'from' and 'to' (YYYYMMDD) for a manual window, or leave both empty for the daily run."
+            exit 1
+          else
+            echo "Daily forward run"
+            node scripts/run.mjs --mode=daily
+          fi
 
       - name: Commit updated data (fetch + rebase retry)
-        run: bash scripts/ci-commit.sh "daily"
+        env:
+          RUN_FROM: ${{ inputs.from }}
+          RUN_TO: ${{ inputs.to }}
+        run: |
+          if [ -n "${RUN_FROM:-}" ] && [ -n "${RUN_TO:-}" ]; then
+            bash scripts/ci-commit.sh "manual ${RUN_FROM}..${RUN_TO}"
+          else
+            bash scripts/ci-commit.sh "daily"
+          fi
         # Email is handled by the Munshot subscription system (functions/api + the
         # digests.yml hourly workflow), not by this pipeline run.
