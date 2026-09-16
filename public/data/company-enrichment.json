@@ -8,6 +8,15 @@
     "as_of": "2026-09-16T11:47:05.101Z",
     "source_url": "https://www.screener.in/company/500126/"
   },
+  "500183": {
+    "company": "HFCL Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 32656,
+    "pe": 68.8,
+    "as_of": "2026-09-16T12:01:17.636Z",
+    "source_url": "https://www.screener.in/company/500183/"
+  },
   "500186": {
     "company": "Hindustan Oil Exploration Company Ltd",
     "industry": null,
@@ -52,6 +61,15 @@
     "pe": 42.7,
     "as_of": "2026-09-16T11:47:15.605Z",
     "source_url": "https://www.screener.in/company/500696/"
+  },
+  "501261": {
+    "company": "Lords Mark Industries Limited",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 3584,
+    "pe": 42.2,
+    "as_of": "2026-09-16T12:01:19.618Z",
+    "source_url": "https://www.screener.in/company/501261/"
   },
   "511196": {
     "company": "Can Fin Homes Ltd",
@@ -133,5 +151,122 @@
     "pe": 17.3,
     "as_of": "2026-09-16T11:47:33.976Z",
     "source_url": "https://www.screener.in/company/524226/"
+  },
+  "524342": {
+    "company": "Indo Borax & Chemicals Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 1523,
+    "pe": 31.3,
+    "as_of": "2026-09-16T12:01:21.594Z",
+    "source_url": "https://www.screener.in/company/524342/"
+  },
+  "524542": {
+    "company": "Sukhjit Starch & Chemicals Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 499,
+    "pe": 14.7,
+    "as_of": "2026-09-16T12:01:23.571Z",
+    "source_url": "https://www.screener.in/company/524542/"
+  },
+  "524558": {
+    "company": "Neuland Laboratories Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 29221,
+    "pe": 58.8,
+    "as_of": "2026-09-16T12:01:25.556Z",
+    "source_url": "https://www.screener.in/company/524558/"
+  },
+  "526797": {
+    "company": "Greenply Industries Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 3530,
+    "pe": 40.1,
+    "as_of": "2026-09-16T12:01:27.533Z",
+    "source_url": "https://www.screener.in/company/526797/"
+  },
+  "531512": {
+    "company": "Orient Tradelink Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 16.6,
+    "pe": 17.5,
+    "as_of": "2026-09-16T12:01:29.511Z",
+    "source_url": "https://www.screener.in/company/531512/"
+  },
+  "531548": {
+    "company": "Somany Ceramics Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 2256,
+    "pe": 18.6,
+    "as_of": "2026-09-16T12:01:31.489Z",
+    "source_url": "https://www.screener.in/company/531548/"
+  },
+  "532155": {
+    "company": "GAIL (India) Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 112718,
+    "pe": 12,
+    "as_of": "2026-09-16T12:01:33.468Z",
+    "source_url": "https://www.screener.in/company/532155/"
+  },
+  "532234": {
+    "company": "National Aluminium Company Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 65180,
+    "pe": 9.65,
+    "as_of": "2026-09-16T12:01:35.446Z",
+    "source_url": "https://www.screener.in/company/532234/"
+  },
+  "532313": {
+    "company": "Mahindra Lifespace Developers Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 7338,
+    "pe": 36.8,
+    "as_of": "2026-09-16T12:01:37.445Z",
+    "source_url": "https://www.screener.in/company/532313/"
+  },
+  "532539": {
+    "company": "Uno Minda Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 67747,
+    "pe": 69.9,
+    "as_of": "2026-09-16T12:01:39.422Z",
+    "source_url": "https://www.screener.in/company/532539/"
+  },
+  "532605": {
+    "company": "JBM Auto Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 13845,
+    "pe": 90,
+    "as_of": "2026-09-16T12:01:41.400Z",
+    "source_url": "https://www.screener.in/company/532605/"
+  },
+  "532717": {
+    "company": "Indo Tech Transformers Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 3562,
+    "pe": 35.9,
+    "as_of": "2026-09-16T12:01:43.381Z",
+    "source_url": "https://www.screener.in/company/532717/"
+  },
+  "532779": {
+    "company": "Torrent Power Ltd",
+    "industry": null,
+    "sector": null,
+    "market_cap_cr": 65014,
+    "pe": 26.2,
+    "as_of": "2026-09-16T12:01:45.358Z",
+    "source_url": "https://www.screener.in/company/532779/"
   }
 }
