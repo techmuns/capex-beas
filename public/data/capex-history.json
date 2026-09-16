@@ -1,1 +1,25 @@
-{}
+{
+  "544124": [
+    {
+      "date": "2026-03-20T11:45:25.847",
+      "news_id": "ec57f273-79ff-4fe4-a7e9-1564d04cc507",
+      "company": "Vibhor Steel Tubes Ltd",
+      "scrip_cd": 544124,
+      "fiscal_year": null,
+      "type": "actual",
+      "amount_text": "Rs 119.83 crore",
+      "currency": "INR",
+      "amount_cr": 119.83,
+      "amount_cr_low": 119.83,
+      "amount_cr_high": 119.83,
+      "comparable": true,
+      "segment_or_project": "1.56 lakh MT greenfield project in Odisha",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The plant, which entailed a total investment of Rs 119.83 crore, offers several value-added steel products such as power transmission line towers, crash barriers, high mast lighting poles, octagonal poles and monopoles.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/a833c4a1-58fd-4a2c-8f39-277ef97980c4.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ]
+}
