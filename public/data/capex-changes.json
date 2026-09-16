@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "company": "Hindustan Oil Exploration Company Ltd",
+    "scrip_cd": 500186,
+    "fiscal_year": "FY27",
+    "type": "guidance",
+    "old_cr": null,
+    "new_cr": 11000,
+    "delta_cr": null,
+    "pct_change": null,
+    "direction": "up",
+    "reason": null,
+    "old_quote": null,
+    "new_quote": "Our target is to by 2027, we want to get to 10,000 to 11,000 barrels",
+    "old_pdf": null,
+    "new_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/62aecfd0-4402-4e0d-a8b3-59b2e7945c90.pdf",
+    "old_date": null,
+    "new_date": "2026-06-19T15:21:57.347",
+    "old_news_id": null,
+    "new_news_id": "b17194c9-527c-41c5-9a61-4a76d101c974",
+    "no_prior_on_record": true,
+    "detected_at": "2026-09-16T10:24:14.259Z"
+  },
+  {
+    "company": "Endurance Technologies Ltd",
+    "scrip_cd": 540153,
+    "fiscal_year": "FY27",
+    "type": "guidance",
+    "old_cr": null,
+    "new_cr": 62,
+    "delta_cr": null,
+    "pct_change": null,
+    "direction": "up",
+    "reason": "The Company has launched battery packs as a new product line for mobility, energy storage and other high potential applications, to meet the anticipated growth in those sectors. The Company has already started commercial production of battery packs for two-wheelers from 17th June, 2026. With this investment in capacity addition, the Company shall be in a position to expand into the manufacturing of battery packs for four-wheelers, thereby further strengthening its presence in the electric mobility market.",
+    "old_quote": null,
+    "new_quote": "Investment required ~Rs. 62 crore (net of GST Tax credit)",
+    "old_pdf": null,
+    "new_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/e7995710-9255-40f9-8663-eebe20b040d4.pdf",
+    "old_date": null,
+    "new_date": "2026-06-18T18:57:05.13",
+    "old_news_id": null,
+    "new_news_id": "951d582c-08b0-4c58-8c9f-1200342af0f4",
+    "no_prior_on_record": true,
+    "detected_at": "2026-09-16T10:24:14.259Z"
+  }
+]
