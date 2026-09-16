@@ -1,4 +1,13 @@
 {
+  "500038": {
+    "company": "Balrampur Chini Mills Ltd",
+    "industry": "Sugar",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 14438,
+    "pe": 42.1,
+    "as_of": "2026-09-16T15:17:48.411Z",
+    "source_url": "https://www.screener.in/company/500038/"
+  },
   "500126": {
     "company": "Procter & Gamble Health Ltd",
     "industry": "Pharmaceuticals",
@@ -16,6 +25,15 @@
     "pe": 68.8,
     "as_of": "2026-09-16T12:01:17.636Z",
     "source_url": "https://www.screener.in/company/500183/"
+  },
+  "500184": {
+    "company": "Himadri Speciality Chemical Ltd",
+    "industry": "Carbon Black",
+    "sector": "Chemicals",
+    "market_cap_cr": 32970,
+    "pe": 41.7,
+    "as_of": "2026-09-16T15:17:50.422Z",
+    "source_url": "https://www.screener.in/company/500184/"
   },
   "500186": {
     "company": "Hindustan Oil Exploration Company Ltd",
@@ -268,5 +286,122 @@
     "pe": 26.2,
     "as_of": "2026-09-16T12:01:45.358Z",
     "source_url": "https://www.screener.in/company/532779/"
+  },
+  "532822": {
+    "company": "Vodafone Idea Ltd",
+    "industry": "Telecom - Cellular & Fixed line services",
+    "sector": "Telecommunication",
+    "market_cap_cr": 154284,
+    "pe": 3.26,
+    "as_of": "2026-09-16T15:17:52.434Z",
+    "source_url": "https://www.screener.in/company/532822/"
+  },
+  "532937": {
+    "company": "Kuantum Papers Ltd",
+    "industry": "Paper & Paper Products",
+    "sector": "Forest Materials",
+    "market_cap_cr": 659,
+    "pe": 18.2,
+    "as_of": "2026-09-16T15:17:54.446Z",
+    "source_url": "https://www.screener.in/company/532937/"
+  },
+  "533259": {
+    "company": "Health X Platform Ltd",
+    "industry": "Healthcare Service Provider",
+    "sector": "Healthcare",
+    "market_cap_cr": 968,
+    "pe": 85.2,
+    "as_of": "2026-09-16T15:17:56.470Z",
+    "source_url": "https://www.screener.in/company/533259/"
+  },
+  "533263": {
+    "company": "Orient Green Power Company Ltd",
+    "industry": "Power Generation",
+    "sector": "Power",
+    "market_cap_cr": 1063,
+    "pe": 251,
+    "as_of": "2026-09-16T15:17:58.484Z",
+    "source_url": "https://www.screener.in/company/533263/"
+  },
+  "538772": {
+    "company": "Niyogin Fintech Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 581,
+    "pe": 109,
+    "as_of": "2026-09-16T15:18:00.657Z",
+    "source_url": "https://www.screener.in/company/538772/"
+  },
+  "539404": {
+    "company": "Satin Creditcare Network Ltd",
+    "industry": "Microfinance Institutions",
+    "sector": "Financial Services",
+    "market_cap_cr": 2408,
+    "pe": 6.34,
+    "as_of": "2026-09-16T15:18:02.672Z",
+    "source_url": "https://www.screener.in/company/539404/"
+  },
+  "539607": {
+    "company": "Blue Cloud Softech Solutions Ltd",
+    "industry": "Software Products",
+    "sector": "Information Technology",
+    "market_cap_cr": 1806,
+    "pe": 42.9,
+    "as_of": "2026-09-16T15:18:04.683Z",
+    "source_url": "https://www.screener.in/company/539607/"
+  },
+  "539837": {
+    "company": "Raghav Productivity Enhancers Ltd",
+    "industry": "Electrodes & Refractories",
+    "sector": "Capital Goods",
+    "market_cap_cr": 7111,
+    "pe": 204,
+    "as_of": "2026-09-16T15:18:06.695Z",
+    "source_url": "https://www.screener.in/company/539837/"
+  },
+  "540047": {
+    "company": "Dilip Buildcon Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 6625,
+    "pe": 32.7,
+    "as_of": "2026-09-16T15:18:08.711Z",
+    "source_url": "https://www.screener.in/company/540047/"
+  },
+  "540153": {
+    "company": "Endurance Technologies Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 36955,
+    "pe": 47.5,
+    "as_of": "2026-09-16T15:18:10.726Z",
+    "source_url": "https://www.screener.in/company/540153/"
+  },
+  "540678": {
+    "company": "Cochin Shipyard Ltd",
+    "industry": "Ship Building & Allied Services",
+    "sector": "Capital Goods",
+    "market_cap_cr": 34725,
+    "pe": 58.8,
+    "as_of": "2026-09-16T15:18:12.737Z",
+    "source_url": "https://www.screener.in/company/540678/"
+  },
+  "543273": {
+    "company": "Knowledge Marine & Engineering Works Ltd",
+    "industry": "Dredging",
+    "sector": "Services",
+    "market_cap_cr": 6858,
+    "pe": 52.1,
+    "as_of": "2026-09-16T15:18:14.748Z",
+    "source_url": "https://www.screener.in/company/543273/"
+  },
+  "543960": {
+    "company": "Concord Biotech Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 15225,
+    "pe": 53.5,
+    "as_of": "2026-09-16T15:18:16.764Z",
+    "source_url": "https://www.screener.in/company/543960/"
   }
 }
