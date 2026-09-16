@@ -1,0 +1,18 @@
+{
+  "name": "capex-beas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Capex Guidance Change Monitor for BSE-listed companies — Phase 1 data engine (source-backed, static site on Cloudflare Pages).",
+  "scripts": {
+    "fetch": "node scripts/fetch-announcements.mjs",
+    "run": "node scripts/run.mjs",
+    "backfill": "node scripts/run.mjs --mode=backfill",
+    "daily": "node scripts/run.mjs --mode=daily",
+    "digest": "node scripts/send-digest.mjs"
+  },
+  "comment": "No runtime dependencies are pinned here on purpose. The GitHub Actions workflows install what they need with `npm install <pkg> --no-save` (pdfjs-dist, plus optional email libs) so the frontend has nothing to build. For local dev run: `npm install pdfjs-dist --no-save`.",
+  "engines": {
+    "node": ">=22"
+  }
+}

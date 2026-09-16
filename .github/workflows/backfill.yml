@@ -1,0 +1,61 @@
+name: Backfill capex history
+
+# Drains a 180-day baseline of BSE filings using the resumable cursor in
+# public/data/backfill-cursor.json. Each run processes a chunk and commits state
+# back to the repo; once the cursor reaches the end of the window the run no-ops.
+#
+# Runs frequently until caught up — you can lower the cadence or disable this
+# workflow (Actions tab → this workflow → "..." → Disable) once the cursor shows
+# "done": true. Cron is off the :00/:15/:30/:45 marks to avoid the busy times.
+
+on:
+  workflow_dispatch:
+    inputs:
+      days_per_run:
+        description: "How many days to advance per run"
+        required: false
+        default: "2"
+      max_per_run:
+        description: "Max filings (PDF+LLM) to process per run"
+        required: false
+        default: "150"
+  schedule:
+    - cron: "9,39 * * * *" # twice hourly, off the marks
+
+# Never let two data-writing runs (backfill or daily) overlap — they both commit
+# to public/data. Queue them instead of clobbering.
+concurrency:
+  group: capex-data-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install runtime deps (no-save)
+        run: npm install pdfjs-dist --no-save
+
+      - name: Run backfill chunk
+        env:
+          BEDROCK_API_KEY: ${{ secrets.BEDROCK_API_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          BEDROCK_MODEL: ${{ secrets.BEDROCK_MODEL }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          SCRAPE_DO_API_KEY: ${{ secrets.SCRAPE_DO_API_KEY }}
+          BACKFILL_DAYS_PER_RUN: ${{ github.event.inputs.days_per_run || '3' }}
+          MAX_ANNOUNCEMENTS_PER_RUN: ${{ github.event.inputs.max_per_run || '150' }}
+        run: node scripts/run.mjs --mode=backfill
+
+      - name: Commit updated data (fetch + rebase retry)
+        run: bash scripts/ci-commit.sh "backfill"

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capex Change Monitor</title>
+  <meta name="description" content="Tracks capital-expenditure guidance changes across BSE-listed companies, straight from their filings." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --ink: #eaf0ff;
+      --muted: #9aa7ce;
+      --accent: #5b8cff;
+      --accent2: #2dd4bf;
+      --line: #223056;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(91,140,255,.25), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(45,212,191,.18), transparent 55%),
+        var(--bg);
+      color: var(--ink);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 720px;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 40px clamp(20px, 5vw, 44px);
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+    .badge {
+      display: inline-block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent2); border: 1px solid var(--line); border-radius: 999px;
+      padding: 6px 12px; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.15; margin: 0 0 12px; }
+    h1 .grad {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    p.lead { color: var(--muted); font-size: clamp(15px, 2.4vw, 18px); margin: 0 0 26px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 22px; }
+    .stat { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
+    .stat .n { font-size: 26px; font-weight: 700; }
+    .stat .l { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .status { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 0 rgba(45,212,191,.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(45,212,191,.5);} 70% { box-shadow: 0 0 0 10px rgba(45,212,191,0);} 100% { box-shadow: 0 0 0 0 rgba(45,212,191,0);} }
+    .foot { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    a { color: var(--accent); }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f6f8ff; --panel:#ffffff; --ink:#0c1330; --muted:#5a6488; --line:#e3e8f5; }
+      .card { box-shadow: 0 20px 50px rgba(20,30,80,.10); }
+      .stat { background: #f2f5ff; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">Phase 1 · Data engine</span>
+    <h1>Capex Guidance <span class="grad">Change Monitor</span></h1>
+    <p class="lead">
+      Watches filings from every BSE-listed company, reads out each capital-expenditure
+      guidance number, and flags whenever a company <em>changes</em> its capex plan —
+      every figure backed by the exact quote and the source filing PDF.
+    </p>
+
+    <div class="stats" id="stats" hidden>
+      <div class="stat"><div class="n" id="s-companies">–</div><div class="l">companies tracked</div></div>
+      <div class="stat"><div class="n" id="s-changes">–</div><div class="l">capex changes</div></div>
+      <div class="stat"><div class="n" id="s-obs">–</div><div class="l">observations</div></div>
+    </div>
+
+    <div class="status"><span class="dot"></span><span id="status">Data building… the engine backfills 180 days of filings and then runs daily.</span></div>
+
+    <div class="foot">
+      Source-backed only — no sample or estimated data. The colorful dashboard and email
+      digest arrive in <strong>Phase 2</strong>.
+    </div>
+  </main>
+
+  <script>
+    // Honest empty state: read the REAL committed data files. If nothing has been
+    // parsed yet, we say so plainly rather than showing invented numbers.
+    (async () => {
+      const statusEl = document.getElementById('status');
+      try {
+        const [meta, changes, history] = await Promise.all([
+          fetch('./data/metadata.json').then(r => r.ok ? r.json() : null).catch(() => null),
+          fetch('./data/capex-changes.json').then(r => r.ok ? r.json() : []).catch(() => []),
+          fetch('./data/capex-history.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+        ]);
+
+        const companies = Object.keys(history || {}).length;
+        const changeCount = Array.isArray(changes) ? changes.length : 0;
+        const obs = Object.values(history || {}).reduce((a, list) => a + (Array.isArray(list) ? list.length : 0), 0);
+
+        if (companies || changeCount || obs) {
+          document.getElementById('s-companies').textContent = companies;
+          document.getElementById('s-changes').textContent = changeCount;
+          document.getElementById('s-obs').textContent = obs;
+          document.getElementById('stats').hidden = false;
+        }
+
+        if (meta && meta.last_run) {
+          const when = new Date(meta.last_run).toLocaleString();
+          statusEl.textContent = (companies || obs)
+            ? `Last run ${when}. Tracking ${companies} companies from real filings.`
+            : `Last run ${when}. No capex guidance parsed yet — the engine keeps scanning.`;
+        }
+      } catch (e) {
+        // Leave the default "data building…" message; the page must never fabricate data.
+      }
+    })();
+  </script>
+</body>
+</html>

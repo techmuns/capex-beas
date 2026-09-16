@@ -1,0 +1,257 @@
+// scripts/lib/util.mjs
+// Shared, dependency-free helpers used across the pipeline: logging, retries,
+// JSON read/write, date math, whitespace/number normalization, and a defensive
+// JSON extractor for LLM output.
+
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// ---------------------------------------------------------------------------
+// Paths — everything the app reads long-term lives under public/data.
+// ---------------------------------------------------------------------------
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+export const ROOT = path.resolve(__dirname, '..', '..');
+export const DATA_DIR = path.join(ROOT, 'public', 'data');
+
+export const FILES = {
+  history: path.join(DATA_DIR, 'capex-history.json'),
+  changes: path.join(DATA_DIR, 'capex-changes.json'),
+  processed: path.join(DATA_DIR, 'processed.json'),
+  metadata: path.join(DATA_DIR, 'metadata.json'),
+  cursor: path.join(DATA_DIR, 'backfill-cursor.json'),
+};
+
+// ---------------------------------------------------------------------------
+// Logging — timestamped, prefixed. Everything goes to stderr except explicit
+// data output, so piping a script's JSON to a file stays clean.
+// ---------------------------------------------------------------------------
+export function log(...args) {
+  const t = new Date().toISOString().replace('T', ' ').slice(0, 19);
+  console.error(`[${t}]`, ...args);
+}
+
+// ---------------------------------------------------------------------------
+// Timing / retries
+// ---------------------------------------------------------------------------
+export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Run `fn` with exponential backoff. Retries on any thrown error unless
+ * `shouldRetry(err)` returns false. Delays: base, base*2, base*4, ...
+ */
+export async function withRetry(fn, { attempts = 4, baseDelay = 1500, label = 'op', shouldRetry = () => true } = {}) {
+  let lastErr;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await fn(i);
+    } catch (err) {
+      lastErr = err;
+      if (i === attempts - 1 || !shouldRetry(err)) break;
+      const delay = baseDelay * Math.pow(2, i);
+      log(`retry ${label}: attempt ${i + 1}/${attempts} failed (${err?.message || err}); waiting ${delay}ms`);
+      await sleep(delay);
+    }
+  }
+  throw lastErr;
+}
+
+// ---------------------------------------------------------------------------
+// JSON read / write. Writes are pretty-printed so committed data files produce
+// readable git diffs, and written via a temp file + rename to avoid a half
+// written file if a run is killed mid-write.
+// ---------------------------------------------------------------------------
+export async function readJSON(file, fallback = null) {
+  try {
+    if (!existsSync(file)) return fallback;
+    const txt = await readFile(file, 'utf8');
+    if (!txt.trim()) return fallback;
+    return JSON.parse(txt);
+  } catch (err) {
+    log(`readJSON: could not parse ${file} (${err.message}); using fallback`);
+    return fallback;
+  }
+}
+
+export async function writeJSON(file, obj) {
+  await mkdir(path.dirname(file), { recursive: true });
+  const txt = JSON.stringify(obj, null, 2) + '\n';
+  const tmp = `${file}.tmp-${process.pid}`;
+  await writeFile(tmp, txt, 'utf8');
+  // rename is atomic on the same filesystem
+  const { rename } = await import('node:fs/promises');
+  await rename(tmp, file);
+}
+
+// ---------------------------------------------------------------------------
+// Date helpers. The BSE API keys everything by calendar day (YYYYMMDD) and
+// requires strPrevDate === strToDate, so we work day-by-day in UTC.
+// ---------------------------------------------------------------------------
+export function ymd(date) {
+  const d = typeof date === 'string' ? new Date(date) : date;
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  return `${y}${m}${day}`;
+}
+
+export function parseYmd(s) {
+  // "YYYYMMDD" -> Date at UTC midnight
+  const y = Number(s.slice(0, 4));
+  const m = Number(s.slice(4, 6)) - 1;
+  const d = Number(s.slice(6, 8));
+  return new Date(Date.UTC(y, m, d));
+}
+
+export function addDays(date, n) {
+  const d = new Date(date);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d;
+}
+
+export function todayUTC() {
+  const now = new Date();
+  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+}
+
+/** Inclusive list of "YYYYMMDD" strings from `fromYmd` to `toYmd`. */
+export function dayRange(fromYmd, toYmd) {
+  const out = [];
+  let cur = parseYmd(fromYmd);
+  const end = parseYmd(toYmd);
+  while (cur <= end) {
+    out.push(ymd(cur));
+    cur = addDays(cur, 1);
+  }
+  return out;
+}
+
+export const nowISO = () => new Date().toISOString();
+
+// ---------------------------------------------------------------------------
+// Text / number normalization (used by anti-hallucination checks + amounts).
+// ---------------------------------------------------------------------------
+
+/** Collapse all whitespace to single spaces, trim, lowercase. */
+export function normText(s) {
+  return String(s ?? '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Pull the numeric tokens out of a string, ignoring thousands separators.
+ * "₹700 crore" -> ["700"]; "450-500" -> ["450","500"]; "1,234.5" -> ["1234.5"].
+ */
+export function numericTokens(s) {
+  const cleaned = String(s ?? '').replace(/(\d),(?=\d)/g, '$1'); // strip thousands commas
+  const matches = cleaned.match(/\d+(?:\.\d+)?/g);
+  return matches ? matches : [];
+}
+
+// Unit -> multiplier to convert into ₹ crore.
+const UNIT_TO_CR = {
+  crore: 1, crores: 1, cr: 1, 'cr.': 1, khokha: 1,
+  lakh: 0.01, lakhs: 0.01, lac: 0.01, lacs: 0.01, lakhrs: 0.01,
+  million: 0.1, millions: 0.1, mn: 0.1, mln: 0.1, mm: 0.1,
+  billion: 100, billions: 100, bn: 100, bln: 100,
+  trillion: 100000, trillions: 100000, tn: 100000,
+  thousand: 0.0001, thousands: 0.0001, k: 0.0001,
+};
+
+/** Convert a numeric value + unit word into ₹ crore. Unknown/absent unit => assume crore. */
+export function toCrore(value, unit) {
+  const v = Number(value);
+  if (!Number.isFinite(v)) return null;
+  const u = String(unit || '').trim().toLowerCase();
+  const mult = UNIT_TO_CR[u] ?? 1;
+  return v * mult;
+}
+
+/**
+ * Best-effort code-side parse of an amount string into ₹ crore. Used only as a
+ * cross-check / fallback for the LLM's normalized figure — never to invent one.
+ * Returns { low, high, midpoint } in crore, or null if no number is present.
+ */
+export function parseAmountToCr(amountText) {
+  if (!amountText) return null;
+  const text = String(amountText);
+  // Find a trailing unit word if present.
+  const unitMatch = text.toLowerCase().match(/(crores?|cr\.?|lakhs?|lacs?|millions?|mn|mln|billions?|bn|bln|trillions?|tn|thousands?|k)\b/);
+  const unit = unitMatch ? unitMatch[1] : '';
+  const nums = numericTokens(text).map(Number).filter(Number.isFinite);
+  if (!nums.length) return null;
+  const crs = nums.map((n) => toCrore(n, unit)).filter((n) => n != null);
+  if (!crs.length) return null;
+  const low = Math.min(...crs);
+  const high = Math.max(...crs);
+  return { low, high, midpoint: (low + high) / 2 };
+}
+
+// ---------------------------------------------------------------------------
+// Defensive JSON extractor for LLM output. Handles code fences, leading prose,
+// and trailing junk by balancing brackets while respecting string literals.
+// ---------------------------------------------------------------------------
+export function extractJSON(raw) {
+  if (raw == null) throw new Error('extractJSON: empty input');
+  let text = String(raw).trim();
+
+  // 1) Straight parse.
+  try { return JSON.parse(text); } catch { /* fall through */ }
+
+  // 2) Strip a ```json ... ``` (or plain ```) fence if present.
+  const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  if (fence) {
+    const inner = fence[1].trim();
+    try { return JSON.parse(inner); } catch { text = inner; }
+  }
+
+  // 3) Balance-match the first top-level array or object.
+  const start = firstOf(text, ['[', '{']);
+  if (start === -1) throw new Error('extractJSON: no JSON structure found');
+  const open = text[start];
+  const close = open === '[' ? ']' : '}';
+  let depth = 0, inStr = false, esc = false;
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (ch === '\\') esc = true;
+      else if (ch === '"') inStr = false;
+      continue;
+    }
+    if (ch === '"') inStr = true;
+    else if (ch === open) depth++;
+    else if (ch === close) {
+      depth--;
+      if (depth === 0) {
+        const candidate = text.slice(start, i + 1);
+        return JSON.parse(candidate);
+      }
+    }
+  }
+  throw new Error('extractJSON: unbalanced JSON structure');
+}
+
+function firstOf(text, chars) {
+  let idx = -1;
+  for (const c of chars) {
+    const i = text.indexOf(c);
+    if (i !== -1 && (idx === -1 || i < idx)) idx = i;
+  }
+  return idx;
+}
+
+// ---------------------------------------------------------------------------
+// Tiny CLI arg parser: --key=value and --flag. Returns { key: value|true }.
+// ---------------------------------------------------------------------------
+export function parseArgs(argv = process.argv.slice(2)) {
+  const out = {};
+  for (const a of argv) {
+    const m = a.match(/^--([^=]+)(?:=(.*))?$/);
+    if (m) out[m[1]] = m[2] === undefined ? true : m[2];
+  }
+  return out;
+}
