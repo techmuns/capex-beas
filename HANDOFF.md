@@ -398,14 +398,20 @@ every tab until real data lands (verified). Three tabs:
   cap · P/E context, an expandable **exact quote from the filing**, and a **See the official
   filing** link. The table view adds **Industry, Type, Mkt Cap (~), P/E (~)** columns. Baselines
   render as a subtle “first reading” card.
-- **By Company** — opens on a **searchable, browsable list** of every tracked company (compact
-  colorful cards: company · industry · #observations · latest capex · latest date; search by
-  company or industry). Nothing is auto-selected. Clicking a card drills into that company's
-  detail: an always-present header (**Industry · Market Cap · P/E**, approx) + observations table
-  (with a **Type** column and source links), and — **only when there are ≥2 forward-guidance
-  points (a real trend)** — a step chart of its capex plan over time (per fiscal year, guidance
-  only; acquisitions excluded from the line). With 0–1 guidance points there is no empty chart box,
-  just a one-line note. A "← All companies" link returns to the list.
+- **By Company** — opens on a **dense, sortable table** of every tracked company
+  (Company · Industry · #Obs · Latest capex ₹Cr · Latest date · View), with a search box and an
+  Industry filter above; sort by any column, and "Latest capex" ignores acquisitions. Nothing is
+  auto-selected. Clicking a row drills into that company's detail: an always-present header
+  (**Industry · Market Cap · P/E**, approx) + observations table (with a **Type** column and source
+  links), and — **only when there are ≥2 forward-guidance points (a real trend)** — a step chart of
+  its capex plan over time (per fiscal year, guidance only; acquisitions excluded from the line).
+  With 0–1 guidance points there is no empty chart box, just a one-line note. A "← All companies"
+  link returns to the list.
+- The **Changes** table leads with real capex-plan CHANGES and keeps first-readings (baselines)
+  behind a "show first readings" toggle (or, when there are no real changes yet, shows them as a
+  clearly-labelled list rather than a blank table). Columns that are empty for every visible row
+  are hidden, so a baseline-only view never shows a wall of "—". The layout spans the width
+  (~1600px) on large screens.
 
 The market-context values (industry / market cap / P/E) are always rendered visually distinct —
 italic, muted, with an **APPROX** badge and a "source" link — so they can never be mistaken for
@@ -495,7 +501,9 @@ keeping every capex figure source-backed and not breaking the tabs or the email 
   mis-tagged it. `detect-changes.mjs` only ever moves on `type="guidance"`, so **acquisitions are
   recorded but never counted as a capex guidance change** (unit-tested end-to-end with a
   Solar-Industries-style "acquire Omnia Holdings for Rs 11,300 crore").
-- **Company enrichment — Industry · Market Cap · P/E.** `scripts/enrich.mjs` reads each company's
+- **Company enrichment — Industry · Market Cap · P/E.** Industry & sector come from Screener's
+  classification breadcrumb (anchors with `title="Industry"/"Sector"/"Broad …"`); market cap & P/E
+  from the top-ratios block. `scripts/enrich.mjs` reads each company's
   **public Screener page** (`https://www.screener.in/company/<SCRIP_CD>/`, resolves by BSE scrip
   code, no login) and caches `{ company, industry, sector, market_cap_cr, pe, as_of, source_url }`
   in `public/data/company-enrichment.json`. Direct fetch → `SCRAPE_DO_API_KEY` → `FIRECRAWL_API_KEY`

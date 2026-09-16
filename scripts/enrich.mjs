@@ -111,15 +111,25 @@ export function parseScreenerHtml(html) {
     if (pe) out.pe = toNum(pe[1]);
   }
 
-  // Industry / sector — best effort. Prefer an explicit "Industry:" / "Sector:"
-  // label, then a Screener sector/industry compare-link's text.
-  const indLabel = flat.match(/\bindustry\s*[:>]\s*([A-Za-z][A-Za-z0-9 &/,'.\-]{2,60})/i);
-  if (indLabel) out.industry = cleanIndustry(indLabel[1]);
-  const secLabel = flat.match(/\bsector\s*[:>]\s*([A-Za-z][A-Za-z0-9 &/,'.\-]{2,60})/i);
-  if (secLabel) out.sector = cleanIndustry(secLabel[1]);
+  // Industry / sector from Screener's classification breadcrumb — a row of
+  // anchors carrying title="…", e.g.
+  //   <a title="Broad Sector">Energy</a> › <a title="Sector">Oil, Gas & …</a> ›
+  //   <a title="Broad Industry">Oil</a> › <a title="Industry">Oil Exploration & Production</a>
+  // We take the most specific (title="Industry"/"Sector"), then the broad ones.
+  const anchorTitle = (title) => {
+    const m = H.match(new RegExp(`<a[^>]*\\btitle=["']${title}["'][^>]*>([\\s\\S]*?)</a>`, 'i'));
+    return m ? cleanIndustry(stripTags(m[1])) : null;
+  };
+  out.industry = anchorTitle('Industry') || anchorTitle('Broad Industry') || null;
+  out.sector = anchorTitle('Sector') || anchorTitle('Broad Sector') || null;
+  // Fallback: an explicit "Industry:" / "Sector:" label if Screener's markup changes.
   if (!out.industry) {
-    const link = H.match(/<a[^>]+href=["'][^"']*\/company\/compare\/[^"']*["'][^>]*>([\s\S]*?)<\/a>/i);
-    if (link) out.industry = cleanIndustry(link[1]);
+    const m = flat.match(/\bindustry\s*[:>]\s*([A-Za-z][A-Za-z0-9 &/,'.\-]{2,60})/i);
+    if (m) out.industry = cleanIndustry(m[1]);
+  }
+  if (!out.sector) {
+    const m = flat.match(/\bsector\s*[:>]\s*([A-Za-z][A-Za-z0-9 &/,'.\-]{2,60})/i);
+    if (m) out.sector = cleanIndustry(m[1]);
   }
 
   // Sanitise numeric outliers (a negative or non-finite P/E / market cap is noise).
