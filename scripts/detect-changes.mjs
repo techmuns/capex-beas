@@ -7,8 +7,9 @@
 //   public/data/metadata.json      : last_run / window / counts
 //
 // A change fires when, for the SAME (company, fiscal_year, type="guidance"), a new
-// observation's midpoint differs from the most-recent PRIOR guidance midpoint by
-// more than a threshold (default 2%, to ignore rounding). If there is no real prior,
+// observation's amount_cr (the TOP of a stated range) differs from the most-recent
+// PRIOR guidance amount_cr by more than a threshold (default 2%, to ignore rounding).
+// If there is no real prior,
 // we record the new number with old_cr=null and no_prior_on_record=true — we NEVER
 // invent a previous figure.
 //
@@ -69,8 +70,9 @@ export function makeObservation(item, candidate, filing) {
     type: item.type,
     amount_text: item.amount_text,
     currency: item.currency,
-    amount_cr: item.amount_cr,
-    midpoint_cr: item.midpoint_cr,
+    amount_cr: item.amount_cr, // comparison value = top of a stated range
+    amount_cr_low: item.amount_cr_low,
+    amount_cr_high: item.amount_cr_high,
     comparable: item.comparable,
     segment_or_project: item.segment_or_project,
     direction: item.direction,
@@ -114,7 +116,8 @@ function changeKey(c) {
 
 /**
  * Rebuild the full changes list from history. Only guidance observations with a
- * fiscal_year and a comparable ₹-crore midpoint participate.
+ * fiscal_year and a comparable ₹-crore figure participate. The comparison uses
+ * amount_cr, which is the TOP of a stated range (low == high for a single value).
  * @param prevChanges previous changes.json (to carry forward detected_at)
  */
 export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAULT_THRESHOLD_PCT) {
@@ -123,7 +126,7 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
 
   for (const scrip of Object.keys(history)) {
     const guidance = history[scrip]
-      .filter((o) => o.type === 'guidance' && o.fiscal_year && o.midpoint_cr != null)
+      .filter((o) => o.type === 'guidance' && o.fiscal_year && o.amount_cr != null)
       .sort((a, b) => new Date(a.date) - new Date(b.date));
 
     // Group by fiscal year — a change is only meaningful within the same target year.
@@ -138,7 +141,7 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
           // First real sighting of guidance for this (company, FY): baseline, no invented prior.
           out.push(finalize({
             company: cur.company, scrip_cd: cur.scrip_cd, fiscal_year: fy, type: 'guidance',
-            old_cr: null, new_cr: cur.midpoint_cr, delta_cr: null, pct_change: null,
+            old_cr: null, new_cr: cur.amount_cr, delta_cr: null, pct_change: null,
             direction: cur.direction || 'unclear', reason: cur.reason,
             old_quote: null, new_quote: cur.quote, old_pdf: null, new_pdf: cur.source_pdf,
             old_date: null, new_date: cur.date, old_news_id: null, new_news_id: cur.news_id,
@@ -147,13 +150,13 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
           continue;
         }
         const prev = series[i - 1];
-        const pct = ((cur.midpoint_cr - prev.midpoint_cr) / prev.midpoint_cr) * 100;
+        const pct = ((cur.amount_cr - prev.amount_cr) / prev.amount_cr) * 100;
         if (Math.abs(pct) <= thresholdPct) continue; // within rounding noise — not a change
         out.push(finalize({
           company: cur.company, scrip_cd: cur.scrip_cd, fiscal_year: fy, type: 'guidance',
-          old_cr: prev.midpoint_cr, new_cr: cur.midpoint_cr,
-          delta_cr: round2(cur.midpoint_cr - prev.midpoint_cr), pct_change: round2(pct),
-          direction: cur.midpoint_cr > prev.midpoint_cr ? 'up' : 'down',
+          old_cr: prev.amount_cr, new_cr: cur.amount_cr,
+          delta_cr: round2(cur.amount_cr - prev.amount_cr), pct_change: round2(pct),
+          direction: cur.amount_cr > prev.amount_cr ? 'up' : 'down',
           reason: cur.reason,
           old_quote: prev.quote, new_quote: cur.quote,
           old_pdf: prev.source_pdf, new_pdf: cur.source_pdf,

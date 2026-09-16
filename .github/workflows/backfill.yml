@@ -43,16 +43,24 @@ jobs:
           node-version: "22"
 
       - name: Install runtime deps (no-save)
-        run: npm install pdfjs-dist --no-save
+        env:
+          VISION_OCR: ${{ vars.VISION_OCR }}
+        run: |
+          # @napi-rs/canvas is only needed for the vision/OCR fallback (VISION_OCR=1).
+          if [ "${VISION_OCR:-}" = "1" ]; then npm install pdfjs-dist @napi-rs/canvas --no-save; else npm install pdfjs-dist --no-save; fi
 
       - name: Run backfill chunk
         env:
           BEDROCK_API_KEY: ${{ secrets.BEDROCK_API_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           BEDROCK_MODEL: ${{ secrets.BEDROCK_MODEL }}
+          BEDROCK_MODEL_IDS: ${{ vars.BEDROCK_MODEL_IDS }}
+          BEDROCK_RETRY_ROUNDS: ${{ vars.BEDROCK_RETRY_ROUNDS || '12' }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          MISTRAL_MODEL: ${{ vars.MISTRAL_MODEL }}
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
           SCRAPE_DO_API_KEY: ${{ secrets.SCRAPE_DO_API_KEY }}
+          VISION_OCR: ${{ vars.VISION_OCR }}
           BACKFILL_DAYS_PER_RUN: ${{ github.event.inputs.days_per_run || '3' }}
           MAX_ANNOUNCEMENTS_PER_RUN: ${{ github.event.inputs.max_per_run || '150' }}
         run: node scripts/run.mjs --mode=backfill

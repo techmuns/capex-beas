@@ -12,6 +12,10 @@ tmp/
 *.tmp
 .DS_Store
 
+# Local, throwaway demo fixture for eyeballing the POPULATED dashboard (?demo=1).
+# Never committed — the shipped public/data/*.json stay empty until Actions fill them.
+public/demo/
+
 # Wrangler / Cloudflare local state
 .wrangler/
 
