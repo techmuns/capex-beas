@@ -516,15 +516,31 @@ function tableView(rows) {
 }
 
 // ---- tab: BY COMPANY -----------------------------------------------------
+// One row per tracked company with the bits the browse list shows.
 function companyList() {
   return Object.keys(state.history).map((scrip) => {
-    const obs = state.history[scrip] || [];
-    return { scrip, name: obs[0]?.company || `Scrip ${scrip}`, count: obs.length };
+    const obs = (state.history[scrip] || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date)); // newest first
+    const e = enrichOf(scrip) || {};
+    const latest = obs[0] || null;
+    // "Latest capex" is the most recent real capex figure — acquisitions/M&A are
+    // recorded but are not capex, so they don't set this number.
+    const latestCapex = obs.find((o) => o.amount_cr != null && o.type !== 'acquisition') || null;
+    return {
+      scrip,
+      name: latest?.company || `Scrip ${scrip}`,
+      count: obs.length,
+      industry: e.industry || '',
+      latestCapexCr: latestCapex?.amount_cr ?? null,
+      latestDate: (latestCapex || latest)?.date || null,
+    };
   }).sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Default view: a searchable, browsable list of every tracked company. Nothing
+// is auto-selected — the user clicks a card (or searches) to drill into detail.
 function renderCompany() {
   const el = document.getElementById('panel-company');
+  disposeCharts();
   el.innerHTML = '';
   const companies = companyList();
 
@@ -532,61 +548,101 @@ function renderCompany() {
     el.append(emptyState({
       icon: 'building-2',
       title: 'No company history yet',
-      msg: 'Once the engine has read a company’s filings, pick it here to see how its capex plan moved over time — each point backed by the exact quote and the source document.',
+      msg: 'Once the engine has read a company’s filings they’ll appear here — pick one to see how its capex plan moved over time, each point backed by the exact quote and the source document.',
     }));
     return;
   }
 
-  const picker = h('div', { class: 'card', style: 'padding:16px 18px' },
-    h('label', { class: 'flex flex-col gap-1', style: 'max-width:24rem' },
-      h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, 'Choose a company'),
-      h('input', { class: 'search', id: 'company-input', list: 'company-list', placeholder: 'Type to search…', autocomplete: 'off' })),
-    h('datalist', { id: 'company-list' }, ...companies.map((c) => h('option', { value: c.name }))));
-  el.append(picker);
-  const holder = h('div', { class: 'mt-5', id: 'company-holder' });
-  el.append(holder);
+  const controls = h('div', { class: 'card', style: 'padding:16px 18px' },
+    h('div', { class: 'flex items-center justify-between gap-3 flex-wrap' },
+      h('label', { class: 'flex flex-col gap-1 grow', style: 'min-width:220px' },
+        h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, 'Browse companies'),
+        h('input', { class: 'search', id: 'company-search', type: 'search', placeholder: 'Search by company or industry…', autocomplete: 'off' })),
+      h('span', { style: 'font-size:12px;color:var(--muted)' }, `${companies.length} ${companies.length === 1 ? 'company' : 'companies'} tracked`)));
+  el.append(controls);
+  const grid = h('div', { class: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5', id: 'company-grid' });
+  el.append(grid);
 
-  const input = picker.querySelector('#company-input');
-  input.addEventListener('change', () => {
-    const match = companies.find((c) => c.name.toLowerCase() === input.value.trim().toLowerCase());
-    if (match) drawCompany(match.scrip);
-  });
-
-  // auto-select the company with the most observations to show something useful
-  const initial = [...companies].sort((a, b) => b.count - a.count)[0];
-  input.value = initial.name;
-  drawCompany(initial.scrip);
+  const draw = (q) => {
+    const ql = q.trim().toLowerCase();
+    const rows = companies.filter((c) => !ql || c.name.toLowerCase().includes(ql) || c.industry.toLowerCase().includes(ql));
+    grid.innerHTML = '';
+    if (!rows.length) { grid.append(h('div', { class: 'card', style: 'padding:24px;text-align:center;color:var(--muted)' }, 'No companies match your search.')); return; }
+    for (const c of rows) grid.append(companyCard(c));
+    icons();
+  };
+  controls.querySelector('#company-search').addEventListener('input', debounce((ev) => draw(ev.target.value), 140));
+  draw('');
   icons();
 }
 
-function drawCompany(scrip) {
-  const holder = document.getElementById('company-holder');
-  holder.innerHTML = '';
-  const obs = (state.history[scrip] || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
-  const name = obs[0]?.company || `Scrip ${scrip}`;
+// Compact, colorful, clickable company card for the browse list.
+function companyCard(c) {
+  const card = h('div', { class: 'card card-hover', style: 'padding:16px 18px;cursor:pointer' },
+    h('div', { class: 'flex items-start justify-between gap-2' },
+      h('div', { class: 'font-display font-bold leading-tight', style: 'font-size:15px' }, esc(c.name)),
+      h('span', { class: 'pill', style: 'background:#F1EEFE;color:#6D28D9;font-size:10px' }, `${c.count} obs`)),
+    h('div', { class: 'mt-2 flex items-center gap-2', style: 'flex-wrap:wrap' },
+      c.industry ? industryChip(c.industry) : h('span', { style: 'font-size:11px;color:var(--muted)' }, 'Industry n/a'),
+      h('span', { class: 'num', style: 'font-size:11px;color:var(--muted)' }, `scrip ${c.scrip}`)),
+    h('div', { class: 'mt-3 flex items-end justify-between gap-2' },
+      h('div', {},
+        h('div', { style: 'font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)' }, 'Latest capex'),
+        h('div', { class: 'num font-bold', style: 'font-size:16px' }, c.latestCapexCr != null ? fmtCr(c.latestCapexCr) : '—')),
+      h('span', { class: 'num', style: 'font-size:11px;color:var(--muted)' }, fmtDate(c.latestDate))),
+    h('div', { class: 'mt-3 flex items-center gap-1', style: 'font-size:12px;font-weight:600;color:var(--i1)' },
+      'View detail', h('i', { 'data-lucide': 'arrow-right', style: 'width:14px;height:14px' })));
+  card.addEventListener('click', () => drawCompanyDetail(c.scrip));
+  return card;
+}
 
+// Company detail: always a header + observations table; the "capex plan over
+// time" chart appears ONLY when there are ≥2 forward-guidance points (a real
+// trend) — never an empty chart box.
+function drawCompanyDetail(scrip) {
+  const el = document.getElementById('panel-company');
+  disposeCharts();
+  el.innerHTML = '';
+  const obs = (state.history[scrip] || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+  const name = obs[obs.length - 1]?.company || obs[0]?.company || `Scrip ${scrip}`;
   const e = enrichOf(scrip);
+
+  const back = h('button', { class: 'btn-link', style: 'cursor:pointer;margin-bottom:16px' },
+    h('i', { 'data-lucide': 'arrow-left', style: 'width:14px;height:14px' }), 'All companies');
+  back.addEventListener('click', renderCompany);
+  el.append(back);
+
   const ctxBits = [];
   if (e?.market_cap_cr != null) ctxBits.push(`Mkt cap ${fmtMktCap(e.market_cap_cr)}`);
   if (e?.pe != null) ctxBits.push(`P/E ${fmtPE(e.pe)}`);
-  const chartCard = h('div', { class: 'card', style: 'padding:20px 22px' },
-    h('div', { class: 'flex items-start justify-between mb-1 flex-wrap gap-2' },
+  el.append(h('div', { class: 'card', style: 'padding:20px 22px' },
+    h('div', { class: 'flex items-start justify-between flex-wrap gap-2' },
       h('div', {},
-        h('h3', { class: 'font-display font-bold' }, `${esc(name)} — capex plan over time`),
+        h('h3', { class: 'font-display font-bold', style: 'font-size:18px' }, esc(name)),
         (e && (e.industry || ctxBits.length)) ? h('div', { class: 'mt-1.5 flex items-center gap-2', style: 'flex-wrap:wrap' },
           industryChip(e?.industry),
           ctxBits.length ? h('span', { class: 'pill', style: 'background:#F1F5F9;color:#94A3B8;font-size:10px;font-weight:700;letter-spacing:.04em;padding:2px 8px' }, 'APPROX') : null,
           ctxBits.length ? h('span', { class: 'num', style: 'font-size:12px;color:var(--muted);font-style:italic' }, ctxBits.join('  ·  ')) : null,
           e?.source_url ? h('a', { href: e.source_url, target: '_blank', rel: 'noopener', style: 'font-size:11px;color:#A855F7' }, 'source') : null) : null),
-      h('span', { style: 'font-size:12px;color:var(--muted)' }, 'guidance figures, by fiscal year')),
-    h('div', { class: 'chart-lg', id: 'chart-company' }));
-  holder.append(chartCard);
+      h('span', { class: 'pill', style: 'background:#F1EEFE;color:#6D28D9;font-size:11px' }, `${obs.length} observation${obs.length === 1 ? '' : 's'}`))));
 
-  const guidance = obs.filter((o) => o.type === 'guidance' && o.amount_cr != null);
-  if (guidance.length) drawCompanyChart(guidance);
-  else document.getElementById('chart-company').innerHTML = '<p style="color:var(--muted);font-size:13px;padding:16px">No forward guidance figures parsed for this company yet — see the observations below.</p>';
+  // Chart only for a real trend (≥2 forward-guidance points). No empty box.
+  const guidance = obs.filter((o) => o.type === 'guidance' && o.fiscal_year && o.amount_cr != null);
+  if (guidance.length >= 2) {
+    el.append(h('div', { class: 'card mt-5', style: 'padding:20px 22px' },
+      h('div', { class: 'flex items-center justify-between mb-1 flex-wrap gap-2' },
+        h('h4', { class: 'font-display font-bold' }, 'Capex plan over time'),
+        h('span', { style: 'font-size:12px;color:var(--muted)' }, 'guidance figures, by fiscal year')),
+      h('div', { class: 'chart-lg', id: 'chart-company' })));
+    drawCompanyChart(guidance);
+  } else {
+    el.append(h('div', { style: 'font-size:13px;color:var(--muted);margin-top:14px;padding:0 4px' },
+      guidance.length === 1
+        ? 'Only one forward-guidance figure on record so far — not enough to chart a trend yet.'
+        : 'No forward-guidance trend to chart yet.'));
+  }
 
-  // observations table
+  // Observations table (always).
   const table = h('table', { class: 'tbl' });
   table.append(h('thead', {}, h('tr', {},
     ...['Date', 'Year', 'Type', 'Amount', '₹ Cr', 'What for', 'Filing'].map((t) => h('th', {}, t)))));
@@ -603,7 +659,7 @@ function drawCompany(scrip) {
       h('td', {}, o.source_pdf ? h('a', { class: 'btn-link', href: o.source_pdf, target: '_blank', rel: 'noopener', style: 'padding:5px 9px' }, h('i', { 'data-lucide': 'file-text', style: 'width:13px;height:13px' }), 'open') : '—')));
   }
   table.append(tbody);
-  holder.append(h('div', { class: 'card mt-5', style: 'padding:8px 6px;overflow-x:auto' },
+  el.append(h('div', { class: 'card mt-5', style: 'padding:8px 6px;overflow-x:auto' },
     h('div', { class: 'font-display font-bold', style: 'padding:12px 12px 4px' }, 'All observations'), table));
   icons();
 }

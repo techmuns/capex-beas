@@ -325,6 +325,10 @@ backoff — see `scripts/ci-commit.sh`).
   inputs let you tune `days_per_run` / `max_per_run`.
 - **`.github/workflows/daily.yml`** — `workflow_dispatch` + cron `23 1 * * *` (01:23 UTC daily,
   off the marks). Forward run over the last ~2 days, then commit. (No email here anymore.)
+  **Manual date-window run:** dispatch it with BOTH `from` and `to` (YYYYMMDD) to process any BSE
+  date range on demand — it runs `node scripts/run.mjs --from=<from> --to=<to>` with the same
+  secrets/env and commits the results the same way (setting only one of the two fails fast). Leave
+  both empty for the normal daily run.
 - **`.github/workflows/digests.yml`** — `workflow_dispatch` + cron `5 * * * *` (hourly). POSTs
   `SITE_URL/api/run-digests` with the `x-digest-key` header; the Function emails everyone due.
   Skips cleanly if `SITE_URL`/`DIGEST_KEY` aren't set. See §11.
@@ -394,10 +398,14 @@ every tab until real data lands (verified). Three tabs:
   cap · P/E context, an expandable **exact quote from the filing**, and a **See the official
   filing** link. The table view adds **Industry, Type, Mkt Cap (~), P/E (~)** columns. Baselines
   render as a subtle “first reading” card.
-- **By Company** — a searchable company picker → the company header shows its **Industry ·
-  Market Cap · P/E** (approx), a step chart of that company’s capex plan over time (per fiscal
-  year, guidance only — acquisitions are excluded from the line), and a table of all its
-  observations with a **Type** column and source links.
+- **By Company** — opens on a **searchable, browsable list** of every tracked company (compact
+  colorful cards: company · industry · #observations · latest capex · latest date; search by
+  company or industry). Nothing is auto-selected. Clicking a card drills into that company's
+  detail: an always-present header (**Industry · Market Cap · P/E**, approx) + observations table
+  (with a **Type** column and source links), and — **only when there are ≥2 forward-guidance
+  points (a real trend)** — a step chart of its capex plan over time (per fiscal year, guidance
+  only; acquisitions excluded from the line). With 0–1 guidance points there is no empty chart box,
+  just a one-line note. A "← All companies" link returns to the list.
 
 The market-context values (industry / market cap / P/E) are always rendered visually distinct —
 italic, muted, with an **APPROX** badge and a "source" link — so they can never be mistaken for
