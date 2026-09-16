@@ -1,0 +1,17 @@
+{
+  // Cloudflare Pages configuration for the Capex Guidance Change Monitor.
+  //
+  // This is a fully static site with NO build step: everything the browser
+  // needs already lives in ./public (HTML + committed JSON under public/data).
+  // `pages_build_output_dir` tells Cloudflare Pages which folder to serve.
+  //
+  // One-time setup (see HANDOFF.md → "Cloudflare Pages setup"):
+  //   Connect this GitHub repo to Cloudflare Pages once. Leave the build
+  //   command EMPTY and set the output directory to `public`. After that,
+  //   every push to the default branch — including the automated data
+  //   commits made by the GitHub Actions workflows — auto-deploys. No
+  //   further manual steps, ever.
+  "name": "capex-beas",
+  "compatibility_date": "2025-09-16",
+  "pages_build_output_dir": "./public"
+}

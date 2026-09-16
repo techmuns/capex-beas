@@ -1,0 +1,64 @@
+name: Daily capex forward run
+
+# Forward run: pulls the last ~2 days of BSE filings, extracts capex, updates
+# history/changes, commits state, and composes the email digest (dry-run until
+# email secrets are added in Phase 2).
+#
+# Scheduled off the :00/:15/:30/:45 marks per the brief.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 1 * * *" # 01:23 UTC daily (~06:53 IST), off the marks
+
+concurrency:
+  group: capex-data-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install runtime deps (no-save)
+        run: npm install pdfjs-dist --no-save
+
+      - name: Run forward pipeline
+        env:
+          BEDROCK_API_KEY: ${{ secrets.BEDROCK_API_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          BEDROCK_MODEL: ${{ secrets.BEDROCK_MODEL }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          SCRAPE_DO_API_KEY: ${{ secrets.SCRAPE_DO_API_KEY }}
+        run: node scripts/run.mjs --mode=daily
+
+      - name: Commit updated data (fetch + rebase retry)
+        run: bash scripts/ci-commit.sh "daily"
+
+      - name: Compose email digest (dry-run until email secrets set)
+        continue-on-error: true
+        env:
+          # Phase 2 email secrets — harmless when unset (digest runs dry).
+          EMAIL_PROVIDER: ${{ secrets.EMAIL_PROVIDER }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          # Install nodemailer only if SMTP is configured.
+          if [ -n "${SMTP_HOST:-}" ]; then npm install nodemailer --no-save; fi
+          node scripts/send-digest.mjs --days=7

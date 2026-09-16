@@ -1,0 +1,20 @@
+# Dependencies (installed with --no-save in CI; never committed)
+node_modules/
+package-lock.json
+
+# Local env / secrets — NEVER commit
+.env
+.env.*
+.dev.vars
+
+# Scratch / temp
+tmp/
+*.tmp
+.DS_Store
+
+# Wrangler / Cloudflare local state
+.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
