@@ -8,11 +8,11 @@
     "done": false
   },
   "counts": {
-    "companies_tracked": 12,
-    "observations": 16,
+    "companies_tracked": 0,
+    "observations": 0,
     "changes": 0,
-    "baselines": 3,
-    "processed_news_ids": 160
+    "baselines": 0,
+    "processed_news_ids": 0
   },
   "provider_used": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
   "generated_at": "2026-09-16T09:15:17.289Z"
