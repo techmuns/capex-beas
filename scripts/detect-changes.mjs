@@ -19,7 +19,7 @@
 //
 // CLI:  node scripts/detect-changes.mjs   # rebuild capex-changes.json from history
 
-import { FILES, readJSON, writeJSON, nowISO, log } from './lib/util.mjs';
+import { FILES, readJSON, writeJSON, nowISO, deriveEventType, log } from './lib/util.mjs';
 
 const DEFAULT_THRESHOLD_PCT = Number(process.env.CAPEX_CHANGE_PCT || 2);
 
@@ -27,24 +27,26 @@ const DEFAULT_THRESHOLD_PCT = Number(process.env.CAPEX_CHANGE_PCT || 2);
 // State load / save
 // ---------------------------------------------------------------------------
 export async function loadState() {
-  const [history, changes, processed, metadata, cursor] = await Promise.all([
+  const [history, changes, processed, metadata, cursor, enrichment] = await Promise.all([
     readJSON(FILES.history, {}),
     readJSON(FILES.changes, []),
     readJSON(FILES.processed, { version: 1, processed: {} }),
     readJSON(FILES.metadata, {}),
     readJSON(FILES.cursor, { initialized: false }),
+    readJSON(FILES.enrichment, {}),
   ]);
   if (!processed.processed) processed.processed = {};
-  return { history, changes, processed, metadata, cursor };
+  return { history, changes, processed, metadata, cursor, enrichment };
 }
 
-export async function saveState({ history, changes, processed, metadata, cursor }) {
+export async function saveState({ history, changes, processed, metadata, cursor, enrichment }) {
   const tasks = [];
   if (history) tasks.push(writeJSON(FILES.history, sortHistory(history)));
   if (changes) tasks.push(writeJSON(FILES.changes, changes));
   if (processed) tasks.push(writeJSON(FILES.processed, processed));
   if (metadata) tasks.push(writeJSON(FILES.metadata, metadata));
   if (cursor) tasks.push(writeJSON(FILES.cursor, cursor));
+  if (enrichment) tasks.push(writeJSON(FILES.enrichment, enrichment));
   await Promise.all(tasks);
 }
 
@@ -68,6 +70,14 @@ export function makeObservation(item, candidate, filing) {
     scrip_cd: candidate.scrip_cd,
     fiscal_year: item.fiscal_year,
     type: item.type,
+    // Plain-English canonical tag, derived deterministically (never from the LLM).
+    event_type: deriveEventType({
+      type: item.type,
+      direction: item.direction,
+      segment_or_project: item.segment_or_project,
+      quote: item.verbatim_quote,
+      headline: candidate.headline,
+    }),
     amount_text: item.amount_text,
     currency: item.currency,
     amount_cr: item.amount_cr, // comparison value = top of a stated range
@@ -141,6 +151,10 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
           // First real sighting of guidance for this (company, FY): baseline, no invented prior.
           out.push(finalize({
             company: cur.company, scrip_cd: cur.scrip_cd, fiscal_year: fy, type: 'guidance',
+            // First reading is not a ↑/↓ move — tag by nature (project/capacity/revision).
+            event_type: cur.event_type || deriveEventType({
+              type: 'guidance', segment_or_project: cur.segment_or_project, quote: cur.quote,
+            }),
             old_cr: null, new_cr: cur.amount_cr, delta_cr: null, pct_change: null,
             direction: cur.direction || 'unclear', reason: cur.reason,
             old_quote: null, new_quote: cur.quote, old_pdf: null, new_pdf: cur.source_pdf,
@@ -152,11 +166,13 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
         const prev = series[i - 1];
         const pct = ((cur.amount_cr - prev.amount_cr) / prev.amount_cr) * 100;
         if (Math.abs(pct) <= thresholdPct) continue; // within rounding noise — not a change
+        const dir = cur.amount_cr > prev.amount_cr ? 'up' : 'down';
         out.push(finalize({
           company: cur.company, scrip_cd: cur.scrip_cd, fiscal_year: fy, type: 'guidance',
+          event_type: deriveEventType({ type: 'guidance', direction: dir, is_change: true }),
           old_cr: prev.amount_cr, new_cr: cur.amount_cr,
           delta_cr: round2(cur.amount_cr - prev.amount_cr), pct_change: round2(pct),
-          direction: cur.amount_cr > prev.amount_cr ? 'up' : 'down',
+          direction: dir,
           reason: cur.reason,
           old_quote: prev.quote, new_quote: cur.quote,
           old_pdf: prev.source_pdf, new_pdf: cur.source_pdf,

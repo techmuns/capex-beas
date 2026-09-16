@@ -5,15 +5,16 @@
 //
 // Modes:
 //   --mode=daily     (default) forward run over the last ~2 days
-//   --mode=backfill  drains a 180-day baseline using a resumable cursor
+//   --mode=backfill  drains a 90-day baseline using a resumable cursor
 //   --from=YYYYMMDD --to=YYYYMMDD   explicit window (manual)
 //   --prove[=N]      no-LLM proof: fetch + download + extract TEXT for N candidates,
 //                    print it, and WRITE NOTHING (used to validate locally without keys)
 //
 // Env knobs (all optional):
-//   BACKFILL_DAYS=180  DAILY_LOOKBACK_DAYS=2
-//   BACKFILL_DAYS_PER_RUN=2  MAX_ANNOUNCEMENTS_PER_RUN=60 (daily uses DAILY_MAX=250)
+//   BACKFILL_DAYS=90  DAILY_LOOKBACK_DAYS=2
+//   BACKFILL_DAYS_PER_RUN=3  MAX_ANNOUNCEMENTS_PER_RUN=150 (daily uses DAILY_MAX=400)
 //   CAPEX_CHANGE_PCT=2
+//   ENRICH_CAP=15  ENRICH_STALE_DAYS=7  ENRICH_DELAY_MS=1500  ENRICH_DISABLE=1
 
 import { fetchCandidates } from './fetch-announcements.mjs';
 import { getFilingText } from './pdf-text.mjs';
@@ -22,6 +23,7 @@ import {
   loadState, saveState, isProcessed, markProcessed,
   makeObservation, addObservationToHistory, recomputeChanges, buildMetadata,
 } from './detect-changes.mjs';
+import { enrichCompanies } from './enrich.mjs';
 import { ymd, todayUTC, addDays, parseYmd, dayRange, nowISO, log, parseArgs } from './lib/util.mjs';
 
 const args = parseArgs();
@@ -167,6 +169,16 @@ async function main() {
 
   // Recompute changes from the (now updated) history, then persist everything.
   state.changes = recomputeChanges(state.history, state.changes);
+
+  // Phase 4: best-effort external market context (industry / market cap / P/E).
+  // Isolated in try/catch — an enrichment failure must NEVER block or corrupt
+  // the source-backed capex pipeline.
+  try {
+    state.enrichment = await enrichCompanies(state.history, state.enrichment || {});
+  } catch (err) {
+    log(`enrichment step skipped (non-fatal): ${err?.message || err}`);
+  }
+
   state.metadata = buildMetadata({
     mode: MODE, window, history: state.history, changes: state.changes,
     processed: state.processed, provider,

@@ -23,6 +23,29 @@ export const fmtSignedCr = (n) =>
 
 export const fmtPct = (n) => (n == null ? '' : `${n > 0 ? '+' : ''}${n}%`);
 
+// External market context (approx). Market cap compacts to "L Cr" (lakh crore)
+// once it crosses ₹1,00,000 Cr so big caps stay readable.
+export const fmtMktCap = (n) => {
+  if (n == null || Number.isNaN(Number(n))) return '—';
+  const v = Number(n);
+  if (v >= 100000) return `₹${(v / 100000).toLocaleString('en-IN', { maximumFractionDigits: 2 })} L Cr`;
+  return `₹${v.toLocaleString('en-IN', { maximumFractionDigits: 0 })} Cr`;
+};
+export const fmtPE = (n) =>
+  (n == null || Number.isNaN(Number(n)) ? '—' : Number(n).toLocaleString('en-IN', { maximumFractionDigits: 1 }));
+
+// Canonical event-type tag -> chip style. Each label is visually distinct.
+export const EVENT_TYPE_STYLES = {
+  'New Project': { bg: '#EEF2FF', color: '#4F46E5', icon: 'sparkles' },
+  'Capacity Expansion': { bg: '#ECFEFF', color: '#0E7490', icon: 'factory' },
+  'Capex ↑': { bg: 'rgba(16,185,129,.12)', color: '#059669', icon: 'trending-up' },
+  'Capex ↓': { bg: 'rgba(244,63,94,.12)', color: '#E11D48', icon: 'trending-down' },
+  'Guidance revision': { bg: '#F5F3FF', color: '#7C3AED', icon: 'pencil-line' },
+  'Quarterly capex': { bg: '#EFF6FF', color: '#2563EB', icon: 'calendar-days' },
+  'Acquisition (M&A)': { bg: '#FFF7ED', color: '#C2410C', icon: 'handshake' },
+};
+export const eventTypeStyle = (t) => EVENT_TYPE_STYLES[t] || { bg: '#F1F5F9', color: '#475569', icon: 'tag' };
+
 export const fmtDate = (iso) => {
   if (!iso) return '—';
   const d = new Date(iso);
