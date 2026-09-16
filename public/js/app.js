@@ -5,11 +5,18 @@
 // no data yet — it never invents numbers.
 
 import {
-  h, esc, fmtCr, fmtCrAxis, fmtSignedCr, fmtPct, fmtDate, fmtMktCap, fmtPE, weekOf, debounce,
+  h, esc as escHtml, fmtCr, fmtCrAxis, fmtSignedCr, fmtPct, fmtDate, fmtMktCap, fmtPE, weekOf, debounce,
   emptyState, newChart, disposeCharts, resizeCharts, icons,
   eventTypeStyle, CHART, SEMANTIC, PALETTE,
 } from './ui.js';
 import { downloadExcel } from './excel.js';
+
+// h() inserts string children as TEXT NODES (already XSS-safe), which do NOT
+// decode HTML entities — so text-node content must NOT be HTML-escaped, or an
+// "&" in a name/industry shows as a literal "&amp;". `esc` here just stringifies
+// for text children; use `escHtml` only when building an HTML string (e.g. an
+// ECharts tooltip set via innerHTML).
+const esc = (s) => (s == null ? '' : String(s));
 
 // ?demo=1 loads a local, git-ignored fixture so the POPULATED layout can be
 // eyeballed. The shipped data files stay empty; nothing fake is ever committed.
@@ -147,24 +154,31 @@ function renderOverview() {
   const companies = new Set(set.map((c) => c.scrip_cd)).size;
   const tracked = state.metadata?.counts?.companies_tracked ?? Object.keys(state.history).length;
 
-  // Hero (one sentence) + a couple of small chips only — no KPI wall.
+  // Hero (one plain sentence) + two small chips only — no KPI wall.
+  const chip = (v, l) => h('div', { class: 'chip text-center' },
+    h('div', { class: 'num text-xl font-bold' }, v),
+    h('div', { style: 'font-size:11px;color:var(--muted)' }, l));
   const hero = h('div', { class: 'card', style: 'padding:26px 28px' },
     h('div', { class: 'flex flex-wrap items-start justify-between gap-4' },
-      h('h2', { class: 'font-display text-2xl sm:text-3xl font-bold leading-snug', style: 'max-width:44rem' },
+      h('h2', { class: 'font-display text-2xl sm:text-3xl font-bold leading-snug', style: 'max-width:52rem' },
         changes.length
           ? `${companies} ${companies === 1 ? 'company' : 'companies'} changed their capex plans (${windowLabel}).`
-          : 'We’re tracking capex plans — no changes yet.'),
+          : `Tracking capex plans across ${tracked} ${tracked === 1 ? 'company' : 'companies'} — no revisions yet.`),
       h('div', { class: 'flex gap-2.5' },
-        h('div', { class: 'chip text-center' }, h('div', { class: 'num text-xl font-bold' }, String(tracked)), h('div', { style: 'font-size:11px;color:var(--muted)' }, 'companies tracked')),
-        h('div', { class: 'chip text-center' }, h('div', { class: 'num text-xl font-bold' }, String(changes.length)), h('div', { style: 'font-size:11px;color:var(--muted)' }, 'capex changes')))));
+        chip(String(tracked), 'companies tracked'),
+        changes.length ? chip(String(changes.length), 'capex changes') : chip(String(baselines().length), 'first readings'))));
   el.append(hero);
 
   if (!changes.length) {
-    el.append(h('div', { class: 'mt-5' }, emptyState({
-      icon: 'bell',
-      title: 'No plan changes recorded yet',
-      msg: 'The engine has started reading filings. As soon as a company revises how much it plans to spend, the change will show up here.',
-    })));
+    // No revisions yet — don't show an empty card. Show the latest first-time
+    // capex readings so the page still answers "what have we seen so far?".
+    const recentBase = [...baselines()].sort((a, b) => changeTime(b) - changeTime(a)).slice(0, 10);
+    el.append(h('div', { class: 'mt-6 mb-2 flex items-center justify-between flex-wrap gap-2' },
+      h('h3', { class: 'font-display font-bold', style: 'font-size:16px' }, 'Latest capex readings'),
+      h('span', { style: 'font-size:12px;color:var(--muted)' }, 'the first capex figure we’ve seen for each — a change is flagged when it’s later revised')));
+    el.append(recentBase.length
+      ? miniReadingsTable(recentBase)
+      : h('div', { class: 'card', style: 'padding:24px;text-align:center;color:var(--muted)' }, 'Readings will appear here as companies file.'));
     icons();
     return;
   }
@@ -210,7 +224,7 @@ function drawMovers(set) {
       ...CHART.tooltip('#8B5CF6'),
       formatter: (p) => {
         const c = top[p.dataIndex];
-        return `<b>${esc(c.company)}</b> · ${esc(c.fiscal_year || '')}<br/>`
+        return `<b>${escHtml(c.company)}</b> · ${escHtml(c.fiscal_year || '')}<br/>`
           + `<span style="font-family:JetBrains Mono">${fmtCr(c.old_cr)} → ${fmtCr(c.new_cr)}</span><br/>`
           + `<span style="color:${c.direction === 'up' ? SEMANTIC.up : SEMANTIC.down};font-weight:700">${fmtSignedCr(c.delta_cr)} (${fmtPct(c.pct_change)})</span>`;
       },
@@ -248,8 +262,28 @@ function drawDonut(set) {
   });
 }
 
+// Compact, read-only table of first capex readings for the Overview zero-state.
+function miniReadingsTable(rows) {
+  const hasInd = rows.some((c) => industryOf(c));
+  const heads = ['Company', hasInd ? 'Industry' : null, 'Type', 'Capex (₹Cr)', 'Date', 'Filing'].filter(Boolean);
+  const table = h('table', { class: 'tbl' });
+  table.append(h('thead', {}, h('tr', {}, ...heads.map((t) => h('th', {}, t)))));
+  const tb = h('tbody');
+  for (const c of rows) {
+    tb.append(h('tr', {},
+      h('td', {}, h('b', {}, esc(c.company))),
+      hasInd ? h('td', { style: 'color:#475569' }, industryOf(c) ? esc(industryOf(c)) : '') : null,
+      h('td', {}, typeChip(c.event_type) || ''),
+      h('td', { class: 'num font-bold' }, fmtCr(c.new_cr)),
+      h('td', { class: 'num', style: 'color:var(--muted)' }, fmtDate(c.new_date)),
+      h('td', {}, c.new_pdf ? h('a', { class: 'btn-link', href: c.new_pdf, target: '_blank', rel: 'noopener', style: 'padding:5px 9px' }, h('i', { 'data-lucide': 'file-text', style: 'width:13px;height:13px' }), 'open') : '')));
+  }
+  table.append(tb);
+  return h('div', { class: 'card', style: 'padding:8px 6px;overflow-x:auto' }, table);
+}
+
 // ---- tab: CHANGES --------------------------------------------------------
-const changesUI = { window: 30, direction: 'all', industry: 'all', type: 'all', week: 'all', q: '', view: 'cards', sort: { key: 'date', dir: 'desc' } };
+const changesUI = { window: 30, direction: 'all', industry: 'all', type: 'all', week: 'all', q: '', view: 'table', sort: { key: 'date', dir: 'desc' } };
 
 const industryOf = (c) => enrichOf(c.scrip_cd)?.industry || '';
 // A change's week key (Monday YYYYMMDD) from its display date.
@@ -353,7 +387,9 @@ function renderChanges() {
         h('button', { class: 'view-btn', id: 'v-table', dataset: { view: 'table' } }, 'Table'))));
   el.append(controls);
 
-  const feed = h('div', { class: 'mt-5', id: 'changes-feed' });
+  const headline = h('div', { class: 'mt-5', id: 'changes-headline' });
+  el.append(headline);
+  const feed = h('div', { class: 'mt-3', id: 'changes-feed' });
   el.append(feed);
 
   // wire controls
@@ -387,15 +423,61 @@ function syncViewButtons(root) {
 
 function drawFeed() {
   const feed = document.getElementById('changes-feed');
+  const head = document.getElementById('changes-headline');
   if (!feed) return;
   const rows = filteredChanges();
+  const real = rows.filter((c) => !c.no_prior_on_record);
+  const base = rows.filter((c) => c.no_prior_on_record);
   feed.innerHTML = '';
+  if (head) head.innerHTML = '';
+
   if (!rows.length) {
-    feed.append(h('div', { class: 'card', style: 'padding:28px;text-align:center;color:var(--muted)' }, 'No changes match these filters. Try a wider time window or clearing the search.'));
+    if (head) head.append(sectionHeadline('No matches', 'Nothing matches these filters yet.'));
+    feed.append(h('div', { class: 'card', style: 'padding:28px;text-align:center;color:var(--muted)' },
+      'Try a wider time window, a different week, or clear the search.'));
     return;
   }
-  feed.append(changesUI.view === 'cards' ? cardsView(rows) : tableView(rows));
+
+  if (real.length) {
+    // Lead with the real capex-plan CHANGES.
+    const nCo = new Set(real.map((c) => c.scrip_cd)).size;
+    if (head) head.append(sectionHeadline(
+      `${nCo} ${nCo === 1 ? 'company' : 'companies'} changed their capex plans`,
+      'A change is flagged when a company revises how much it plans to spend. Newest first — every figure links its BSE filing.'));
+    feed.append(changesUI.view === 'cards' ? cardsView(real) : tableView(real));
+    if (base.length) feed.append(firstReadingsSection(base));
+  } else {
+    // No real changes in view — show a friendly line + the first readings as a
+    // simple list, never a blank table.
+    if (head) head.append(sectionHeadline(
+      'No capex plan changes in this view yet',
+      `Here ${base.length === 1 ? 'is' : 'are'} the ${base.length} first-time capex reading${base.length === 1 ? '' : 's'} we’ve recorded — the baseline we compare against when a company next revises its plan.`));
+    feed.append(changesUI.view === 'cards' ? cardsView(base) : tableView(base));
+  }
   icons();
+}
+
+// A plain-English section headline + one-line explainer.
+function sectionHeadline(title, sub) {
+  return h('div', {},
+    h('h2', { class: 'font-display', style: 'font-size:20px;font-weight:700;line-height:1.2' }, title),
+    sub ? h('p', { style: 'font-size:13px;color:var(--muted);margin-top:4px;max-width:52rem' }, sub) : null);
+}
+
+// Collapsible "first readings" section, kept out of the main changes list.
+function firstReadingsSection(base) {
+  const wrap = h('div', { class: 'mt-6' });
+  const label = () => `Show ${base.length} first reading${base.length === 1 ? '' : 's'}`;
+  const body = h('div', { class: 'mt-3 hidden' }, tableView(base));
+  const txt = h('span', {}, label());
+  const btn = h('button', { class: 'btn-quote' }, h('i', { 'data-lucide': 'flag', style: 'width:14px;height:14px' }), txt);
+  btn.addEventListener('click', () => {
+    const open = !body.classList.toggle('hidden');
+    txt.textContent = open ? 'Hide first readings' : label();
+    if (open) icons();
+  });
+  wrap.append(btn, body);
+  return wrap;
 }
 
 function cardsView(rows) {
@@ -451,34 +533,53 @@ function baselineCard(c) {
       h('span', { class: 'num', style: 'font-size:12px;color:var(--muted)' }, fmtDate(c.new_date))));
 }
 
+// Sortable table for change rows. Columns marked `always` are always shown;
+// the rest are DROPPED when every visible row is empty for them — so a table of
+// first-readings won't show empty "Was / Change / Change %" columns, and market
+// columns disappear when no visible row has enrichment. No wall of "—".
 function tableView(rows) {
+  const cellApprox = 'font-style:italic;color:var(--muted)';
+  const dirColor = (c) => (c.direction === 'up' ? SEMANTIC.up : c.direction === 'down' ? SEMANTIC.down : 'var(--muted)');
+  const openTd = (c) => h('td', {}, c.new_pdf ? h('a', { class: 'btn-link', href: c.new_pdf, target: '_blank', rel: 'noopener', style: 'padding:5px 9px' }, h('i', { 'data-lucide': 'file-text', style: 'width:13px;height:13px' }), 'open') : '');
   const cols = [
-    { k: 'company', t: 'Company', get: (c) => c.company },
-    { k: 'industry', t: 'Industry', get: (c) => industryOf(c) },
-    { k: 'event_type', t: 'Type', get: (c) => c.event_type || '' },
-    { k: 'fiscal_year', t: 'Year', get: (c) => c.fiscal_year || '' },
-    { k: 'old_cr', t: 'Old (₹Cr)', get: (c) => c.old_cr, num: true },
-    { k: 'new_cr', t: 'New (₹Cr)', get: (c) => c.new_cr, num: true },
-    { k: 'delta_cr', t: 'Change (₹Cr)', get: (c) => c.delta_cr, num: true },
-    { k: 'pct_change', t: 'Change %', get: (c) => c.pct_change, num: true },
-    { k: 'market_cap_cr', t: 'Mkt Cap ~', get: (c) => enrichOf(c.scrip_cd)?.market_cap_cr ?? null, num: true },
-    { k: 'pe', t: 'P/E ~', get: (c) => enrichOf(c.scrip_cd)?.pe ?? null, num: true },
-    { k: 'date', t: 'Date', get: (c) => changeTime(c), num: true },
-    { k: 'filing', t: 'Filing', get: () => 0 },
+    { k: 'company', t: 'Company', always: true, sortVal: (c) => c.company,
+      cell: (c) => h('td', {}, h('b', {}, esc(c.company)), c.no_prior_on_record ? h('span', { class: 'pill', style: 'background:#F1F5F9;color:#64748B;font-size:10px;margin-left:6px' }, 'first reading') : null) },
+    { k: 'industry', t: 'Industry', has: (c) => !!industryOf(c), sortVal: (c) => industryOf(c),
+      cell: (c) => h('td', { style: 'color:#475569;max-width:13rem' }, industryOf(c) ? esc(industryOf(c)) : '') },
+    { k: 'event_type', t: 'Type', has: (c) => !!c.event_type, sortVal: (c) => c.event_type || '',
+      cell: (c) => h('td', {}, typeChip(c.event_type) || '') },
+    { k: 'fiscal_year', t: 'Year', has: (c) => !!c.fiscal_year, sortVal: (c) => c.fiscal_year || '',
+      cell: (c) => h('td', {}, c.fiscal_year || '') },
+    { k: 'new_cr', t: 'Capex (₹Cr)', always: true, num: true, sortVal: (c) => c.new_cr,
+      cell: (c) => h('td', { class: 'num', style: `font-weight:700;color:${dirColor(c)}` }, fmtCr(c.new_cr)) },
+    { k: 'old_cr', t: 'Was (₹Cr)', num: true, has: (c) => c.old_cr != null, sortVal: (c) => c.old_cr,
+      cell: (c) => h('td', { class: 'num', style: 'color:var(--muted)' }, c.old_cr == null ? '' : fmtCr(c.old_cr)) },
+    { k: 'delta_cr', t: 'Change (₹Cr)', num: true, has: (c) => c.delta_cr != null, sortVal: (c) => c.delta_cr,
+      cell: (c) => h('td', { class: 'num' }, c.delta_cr == null ? '' : fmtSignedCr(c.delta_cr)) },
+    { k: 'pct_change', t: 'Change %', num: true, has: (c) => c.pct_change != null, sortVal: (c) => c.pct_change,
+      cell: (c) => h('td', { class: 'num', style: `color:${dirColor(c)}` }, c.pct_change == null ? '' : fmtPct(c.pct_change)) },
+    { k: 'market_cap_cr', t: 'Mkt Cap ~', num: true, has: (c) => enrichOf(c.scrip_cd)?.market_cap_cr != null, sortVal: (c) => enrichOf(c.scrip_cd)?.market_cap_cr ?? null,
+      cell: (c) => { const v = enrichOf(c.scrip_cd)?.market_cap_cr; return h('td', { class: 'num', style: cellApprox }, v != null ? fmtMktCap(v) : ''); } },
+    { k: 'pe', t: 'P/E ~', num: true, has: (c) => enrichOf(c.scrip_cd)?.pe != null, sortVal: (c) => enrichOf(c.scrip_cd)?.pe ?? null,
+      cell: (c) => { const v = enrichOf(c.scrip_cd)?.pe; return h('td', { class: 'num', style: cellApprox }, v != null ? fmtPE(v) : ''); } },
+    { k: 'date', t: 'Date', always: true, num: true, sortVal: (c) => changeTime(c),
+      cell: (c) => h('td', { class: 'num', style: 'color:var(--muted)' }, fmtDate(c.new_date)) },
+    { k: 'filing', t: 'Filing', always: true, sortVal: () => 0, cell: openTd },
   ];
+  const shown = cols.filter((col) => col.always || rows.some((c) => col.has && col.has(c)));
+
   const { key, dir } = changesUI.sort;
+  const sortCol = shown.find((c) => c.k === key) || shown.find((c) => c.k === 'date');
   const sorted = [...rows].sort((a, b) => {
-    const col = cols.find((c) => c.k === key) || cols.find((c) => c.k === 'date');
-    let av = col.get(a), bv = col.get(b);
-    if (col.num) { av = av ?? -Infinity; bv = bv ?? -Infinity; return dir === 'asc' ? av - bv : bv - av; }
+    let av = sortCol.sortVal(a), bv = sortCol.sortVal(b);
+    if (sortCol.num) { av = av ?? -Infinity; bv = bv ?? -Infinity; return dir === 'asc' ? av - bv : bv - av; }
     av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
     return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
   });
 
   const table = h('table', { class: 'tbl' });
-  const thead = h('thead');
   const tr = h('tr');
-  for (const col of cols) {
+  for (const col of shown) {
     const arrow = key === col.k ? (dir === 'asc' ? ' ▲' : ' ▼') : '';
     const th = h('th', {}, col.t + arrow);
     if (col.k !== 'filing') th.addEventListener('click', () => {
@@ -487,28 +588,13 @@ function tableView(rows) {
     });
     tr.append(th);
   }
-  thead.append(tr); table.append(thead);
+  table.append(h('thead', {}, tr));
   const tbody = h('tbody');
-  for (const c of sorted) {
-    const color = c.direction === 'up' ? SEMANTIC.up : c.direction === 'down' ? SEMANTIC.down : 'var(--muted)';
-    const e = enrichOf(c.scrip_cd);
-    const approxNum = 'font-style:italic;color:var(--muted)';
-    tbody.append(h('tr', {},
-      h('td', {}, h('b', {}, esc(c.company)), c.no_prior_on_record ? h('span', { class: 'pill ml-1', style: 'background:#F1F5F9;color:#64748B;font-size:10px' }, 'first') : null),
-      h('td', { style: 'color:var(--muted);max-width:11rem' }, e?.industry ? esc(e.industry) : '—'),
-      h('td', {}, typeChip(c.event_type) || '—'),
-      h('td', {}, c.fiscal_year || '—'),
-      h('td', { class: 'num' }, c.old_cr == null ? '—' : fmtCr(c.old_cr)),
-      h('td', { class: 'num', style: `color:${color};font-weight:700` }, fmtCr(c.new_cr)),
-      h('td', { class: 'num' }, c.delta_cr == null ? '—' : fmtSignedCr(c.delta_cr)),
-      h('td', { class: 'num', style: `color:${color}` }, c.pct_change == null ? '—' : fmtPct(c.pct_change)),
-      h('td', { class: 'num', style: approxNum }, e?.market_cap_cr != null ? fmtMktCap(e.market_cap_cr) : '—'),
-      h('td', { class: 'num', style: approxNum }, e?.pe != null ? fmtPE(e.pe) : '—'),
-      h('td', { class: 'num', style: 'color:var(--muted)' }, fmtDate(c.new_date)),
-      h('td', {}, c.new_pdf ? h('a', { class: 'btn-link', href: c.new_pdf, target: '_blank', rel: 'noopener', style: 'padding:5px 9px' }, h('i', { 'data-lucide': 'file-text', style: 'width:13px;height:13px' }), 'open') : '—')));
-  }
+  for (const c of sorted) tbody.append(h('tr', {}, ...shown.map((col) => col.cell(c))));
   table.append(tbody);
-  const note = Object.keys(state.enrichment).length
+
+  const hasApprox = shown.some((c) => c.k === 'market_cap_cr' || c.k === 'pe' || c.k === 'industry');
+  const note = hasApprox
     ? h('div', { style: 'padding:8px 12px 4px;font-size:11px;color:var(--muted);font-style:italic' },
       'Industry, Mkt Cap (~) and P/E (~) are approximate market context from Screener — not from the filing. Capex figures stay source-backed.')
     : null;
@@ -538,6 +624,10 @@ function companyList() {
 
 // Default view: a searchable, browsable list of every tracked company. Nothing
 // is auto-selected — the user clicks a card (or searches) to drill into detail.
+const companyUI = { q: '', industry: 'all', sort: { key: 'name', dir: 'asc' } };
+
+// The By Company tab opens on a dense, sortable TABLE of every tracked company
+// (search + industry filter above). Clicking a row opens that company's detail.
 function renderCompany() {
   const el = document.getElementById('panel-company');
   disposeCharts();
@@ -553,47 +643,80 @@ function renderCompany() {
     return;
   }
 
-  const controls = h('div', { class: 'card', style: 'padding:16px 18px' },
-    h('div', { class: 'flex items-center justify-between gap-3 flex-wrap' },
-      h('label', { class: 'flex flex-col gap-1 grow', style: 'min-width:220px' },
-        h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, 'Browse companies'),
-        h('input', { class: 'search', id: 'company-search', type: 'search', placeholder: 'Search by company or industry…', autocomplete: 'off' })),
-      h('span', { style: 'font-size:12px;color:var(--muted)' }, `${companies.length} ${companies.length === 1 ? 'company' : 'companies'} tracked`)));
-  el.append(controls);
-  const grid = h('div', { class: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5', id: 'company-grid' });
-  el.append(grid);
+  const industries = [...new Set(companies.map((c) => c.industry).filter(Boolean))].sort();
+  const sel = (label, id, opts) => h('label', { class: 'flex flex-col gap-1' },
+    h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, label),
+    h('select', { class: 'select', id }, ...opts.map((o) => h('option', { value: o.v, selected: o.sel }, o.t))));
 
-  const draw = (q) => {
-    const ql = q.trim().toLowerCase();
-    const rows = companies.filter((c) => !ql || c.name.toLowerCase().includes(ql) || c.industry.toLowerCase().includes(ql));
-    grid.innerHTML = '';
-    if (!rows.length) { grid.append(h('div', { class: 'card', style: 'padding:24px;text-align:center;color:var(--muted)' }, 'No companies match your search.')); return; }
-    for (const c of rows) grid.append(companyCard(c));
+  const controls = h('div', { class: 'card', style: 'padding:16px 18px' },
+    h('div', { class: 'flex items-end gap-3 flex-wrap' },
+      h('label', { class: 'flex flex-col gap-1 grow', style: 'min-width:220px' },
+        h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, 'Search company'),
+        h('input', { class: 'search', id: 'co-q', type: 'search', placeholder: 'Type a company name…', autocomplete: 'off', value: companyUI.q })),
+      industries.length ? sel('Industry', 'co-ind', [{ v: 'all', t: 'All industries', sel: true }, ...industries.map((i) => ({ v: i, t: i }))]) : null,
+      h('span', { style: 'font-size:12px;color:var(--muted);margin-left:auto' }, `${companies.length} ${companies.length === 1 ? 'company' : 'companies'} tracked`)));
+  el.append(controls);
+  const holder = h('div', { class: 'mt-5', id: 'company-holder' });
+  el.append(holder);
+
+  const drawTable = () => {
+    const ql = companyUI.q.trim().toLowerCase();
+    const rows = companies.filter((c) =>
+      (!ql || c.name.toLowerCase().includes(ql) || c.industry.toLowerCase().includes(ql)) &&
+      (companyUI.industry === 'all' || c.industry === companyUI.industry));
+    holder.innerHTML = '';
+    holder.append(companyTable(rows, drawTable));
     icons();
   };
-  controls.querySelector('#company-search').addEventListener('input', debounce((ev) => draw(ev.target.value), 140));
-  draw('');
+
+  controls.querySelector('#co-q').addEventListener('input', debounce((ev) => { companyUI.q = ev.target.value; drawTable(); }, 140));
+  const indSel = controls.querySelector('#co-ind');
+  if (indSel) { indSel.value = companyUI.industry; indSel.addEventListener('change', (ev) => { companyUI.industry = ev.target.value; drawTable(); }); }
+  drawTable();
   icons();
 }
 
-// Compact, colorful, clickable company card for the browse list.
-function companyCard(c) {
-  const card = h('div', { class: 'card card-hover', style: 'padding:16px 18px;cursor:pointer' },
-    h('div', { class: 'flex items-start justify-between gap-2' },
-      h('div', { class: 'font-display font-bold leading-tight', style: 'font-size:15px' }, esc(c.name)),
-      h('span', { class: 'pill', style: 'background:#F1EEFE;color:#6D28D9;font-size:10px' }, `${c.count} obs`)),
-    h('div', { class: 'mt-2 flex items-center gap-2', style: 'flex-wrap:wrap' },
-      c.industry ? industryChip(c.industry) : h('span', { style: 'font-size:11px;color:var(--muted)' }, 'Industry n/a'),
-      h('span', { class: 'num', style: 'font-size:11px;color:var(--muted)' }, `scrip ${c.scrip}`)),
-    h('div', { class: 'mt-3 flex items-end justify-between gap-2' },
-      h('div', {},
-        h('div', { style: 'font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)' }, 'Latest capex'),
-        h('div', { class: 'num font-bold', style: 'font-size:16px' }, c.latestCapexCr != null ? fmtCr(c.latestCapexCr) : '—')),
-      h('span', { class: 'num', style: 'font-size:11px;color:var(--muted)' }, fmtDate(c.latestDate))),
-    h('div', { class: 'mt-3 flex items-center gap-1', style: 'font-size:12px;font-weight:600;color:var(--i1)' },
-      'View detail', h('i', { 'data-lucide': 'arrow-right', style: 'width:14px;height:14px' })));
-  card.addEventListener('click', () => drawCompanyDetail(c.scrip));
-  return card;
+// Dense sortable company table. onSort re-renders just the table (keeps the
+// search box focused). Clicking a row opens the company detail.
+function companyTable(rows, onSort) {
+  if (!rows.length) return h('div', { class: 'card', style: 'padding:24px;text-align:center;color:var(--muted)' }, 'No companies match your search.');
+  const cols = [
+    { k: 'name', t: 'Company', get: (c) => c.name, cell: (c) => h('td', {}, h('b', {}, esc(c.name))) },
+    { k: 'industry', t: 'Industry', get: (c) => c.industry, cell: (c) => h('td', { style: 'max-width:16rem' }, c.industry ? esc(c.industry) : h('span', { style: 'color:var(--muted)' }, '—')) },
+    { k: 'count', t: '#Obs', num: true, get: (c) => c.count, cell: (c) => h('td', { class: 'num' }, String(c.count)) },
+    { k: 'latestCapexCr', t: 'Latest capex (₹Cr)', num: true, get: (c) => c.latestCapexCr, cell: (c) => h('td', { class: 'num font-bold' }, c.latestCapexCr != null ? fmtCr(c.latestCapexCr) : '—') },
+    { k: 'latestDate', t: 'Latest date', num: true, get: (c) => (c.latestDate ? new Date(c.latestDate).getTime() : -Infinity), cell: (c) => h('td', { class: 'num', style: 'color:var(--muted)' }, fmtDate(c.latestDate)) },
+    { k: 'view', t: '', get: () => 0, cell: () => h('td', {}, h('span', { class: 'btn-link', style: 'padding:5px 10px;pointer-events:none' }, 'View', h('i', { 'data-lucide': 'arrow-right', style: 'width:13px;height:13px' }))) },
+  ];
+  const { key, dir } = companyUI.sort;
+  const sortCol = cols.find((c) => c.k === key) || cols[0];
+  const sorted = [...rows].sort((a, b) => {
+    let av = sortCol.get(a), bv = sortCol.get(b);
+    if (sortCol.num) { av = av ?? -Infinity; bv = bv ?? -Infinity; return dir === 'asc' ? av - bv : bv - av; }
+    av = String(av || '').toLowerCase(); bv = String(bv || '').toLowerCase();
+    return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+  });
+
+  const table = h('table', { class: 'tbl' });
+  const tr = h('tr');
+  for (const col of cols) {
+    const arrow = key === col.k ? (dir === 'asc' ? ' ▲' : ' ▼') : '';
+    const th = h('th', {}, col.t + arrow);
+    if (col.k !== 'view') th.addEventListener('click', () => {
+      companyUI.sort = { key: col.k, dir: key === col.k && dir === 'desc' ? 'asc' : 'desc' };
+      onSort();
+    });
+    tr.append(th);
+  }
+  table.append(h('thead', {}, tr));
+  const tb = h('tbody');
+  for (const c of sorted) {
+    const row = h('tr', { style: 'cursor:pointer' }, ...cols.map((col) => col.cell(c)));
+    row.addEventListener('click', () => drawCompanyDetail(c.scrip));
+    tb.append(row);
+  }
+  table.append(tb);
+  return h('div', { class: 'card', style: 'padding:8px 6px;overflow-x:auto' }, table);
 }
 
 // Company detail: always a header + observations table; the "capex plan over
@@ -684,10 +807,10 @@ function drawCompanyChart(guidance) {
     tooltip: {
       ...CHART.tooltip('#6366F1'), trigger: 'item', confine: true,
       formatter: (p) => {
-        const q = p.data.quote ? `<div style="max-width:280px;white-space:normal;color:#6B7280;margin-top:6px;font-size:12px">“${esc(p.data.quote)}”</div>` : '';
+        const q = p.data.quote ? `<div style="max-width:280px;white-space:normal;color:#6B7280;margin-top:6px;font-size:12px">“${escHtml(p.data.quote)}”</div>` : '';
         return `<b>${p.seriesName}</b> · ${fmtDate(p.data.value[0])}<br/>`
           + `<span style="font-family:JetBrains Mono;font-weight:700">${fmtCr(p.data.value[1])}</span> `
-          + `<span style="color:#6B7280">${esc(p.data.amount_text || '')}</span>${q}`;
+          + `<span style="color:#6B7280">${escHtml(p.data.amount_text || '')}</span>${q}`;
       },
     },
     xAxis: { type: 'time', axisLabel: { ...CHART.axisLabel, fontFamily: 'Inter' }, axisLine: { lineStyle: { color: '#E3E0F2' } }, axisTick: { show: false } },

@@ -214,6 +214,23 @@ eq('screener: stock P/E', scr.pe, 78.5);
 eq('screener: industry', scr.industry, 'Explosives & Pyrotechnics');
 eq('screener: blank page => all null', parseScreenerHtml('<html></html>'),
   { company: null, industry: null, sector: null, market_cap_cr: null, pe: null });
+
+// Real Screener classification breadcrumb (title="…" anchors) — the structure
+// the live pages actually use. Industry/sector must come out non-null.
+const screenerBreadcrumb = `<html><body>
+<h1>Hindustan Oil Exploration Company Ltd</h1>
+<ul id="top-ratios"><li><span class="name">Market Cap</span><span class="value">₹ <span class="number">2,385</span> Cr.</span></li>
+<li><span class="name">Stock P/E</span><span class="value"><span class="number">32.3</span></span></li></ul>
+<p class="sub">
+  <a href="/market/IN03/" title="Broad Sector">Energy</a>
+  <a href="/market/IN03/IN0301/" title="Sector">Oil, Gas &amp; Consumable Fuels</a>
+  <a href="/market/IN03/IN0301/IN030102/" title="Broad Industry">Oil</a>
+  <a href="/market/IN03/IN0301/IN030102/IN030102001/" title="Industry">Oil Exploration &amp; Production</a>
+</p></body></html>`;
+const scr2 = parseScreenerHtml(screenerBreadcrumb);
+eq('screener breadcrumb: industry (most specific)', scr2.industry, 'Oil Exploration & Production');
+eq('screener breadcrumb: sector', scr2.sector, 'Oil, Gas & Consumable Fuels');
+eq('screener breadcrumb: market cap', scr2.market_cap_cr, 2385);
 ok('needsEnrichment: missing entry', needsEnrichment(undefined));
 ok('needsEnrichment: fresh entry false', !needsEnrichment({ as_of: new Date().toISOString() }));
 ok('needsEnrichment: stale entry true', needsEnrichment({ as_of: '2000-01-01T00:00:00.000Z' }));
