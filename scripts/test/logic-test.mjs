@@ -113,5 +113,34 @@ async function bedrockChainTests() {
 
 await bedrockChainTests();
 
+// --- digest mapping / selection (email feature) ---------------------------
+const { mapChange, selectItems, editionLabel, moneyCr } = await import('../../functions/_lib/digest.js');
+eq('moneyCr', moneyCr(1200), '₹1,200 Cr');
+eq('editionLabel increases', editionLabel('increases'), 'Increases');
+const up = mapChange({ company: 'ASK Automotive Ltd', fiscal_year: 'FY27', old_cr: 500, new_cr: 700, direction: 'up', reason: 'new plant', new_pdf: 'http://x/p.pdf', new_date: '2026-08-10T10:00:00' });
+eq('map up headline', up.headline, 'ASK Automotive Ltd raised FY27 capex ₹500 Cr → ₹700 Cr');
+eq('map up category+color', [up.category, up.categoryColor], ['Increased', '#10b981']);
+eq('map up status', up.status.label, 'Increased');
+eq('map up link is source pdf', up.link, 'http://x/p.pdf');
+const down = mapChange({ company: 'Meridian Chemicals Ltd', fiscal_year: 'FY26', old_cr: 900, new_cr: 650, direction: 'down', reason: null });
+eq('map down headline', down.headline, 'Meridian Chemicals Ltd cut FY26 capex ₹900 Cr → ₹650 Cr');
+eq('map down reason fallback', down.summary, 'Reason not stated in the filing');
+eq('map down category rose', down.categoryColor, '#f43f5e');
+const base = mapChange({ company: 'Surya Power Ltd', fiscal_year: 'FY26', new_cr: 1200, no_prior_on_record: true });
+eq('map baseline headline', base.headline, 'Surya Power Ltd — first FY26 capex reading: ₹1,200 Cr');
+eq('map baseline no status', base.status, null);
+eq('map baseline slate', base.categoryColor, '#64748b');
+
+const digestChanges = [
+  { company: 'A', fiscal_year: 'FY27', old_cr: 100, new_cr: 200, direction: 'up', new_date: '2026-09-10T00:00:00' },
+  { company: 'B', fiscal_year: 'FY27', old_cr: 300, new_cr: 200, direction: 'down', new_date: '2026-09-05T00:00:00' },
+  { company: 'C', fiscal_year: 'FY27', new_cr: 50, no_prior_on_record: true, new_date: '2026-09-01T00:00:00' },
+];
+eq('select all (3)', selectItems(digestChanges, { filter: 'all' }).length, 3);
+eq('select increases (1)', selectItems(digestChanges, { filter: 'increases' }).map((i) => i.entity), ['A']);
+eq('select decreases (1)', selectItems(digestChanges, { filter: 'decreases' }).map((i) => i.entity), ['B']);
+eq('select cutoff excludes older', selectItems(digestChanges, { cutoffISO: '2026-09-06T00:00:00' }).map((i) => i.entity), ['A']);
+eq('select order: real before baseline', selectItems(digestChanges, {}).map((i) => i.baseline), [false, false, true]);
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

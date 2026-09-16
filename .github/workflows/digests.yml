@@ -1,0 +1,47 @@
+name: Send capex-brief digests (hourly)
+
+# Once an hour, pokes the site's /api/run-digests endpoint (a Cloudflare Pages
+# Function) with the secret header. That endpoint emails every subscriber who is
+# due (day matches, their time has passed, not already sent today). It is
+# idempotent — the once-per-day-per-person guard makes a late or double run
+# harmless — so this cron just needs to fire reliably.
+#
+# Stays green until configured: if SITE_URL / DIGEST_KEY aren't set, it skips.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 * * * *" # every hour at :05
+
+concurrency:
+  group: capex-digests
+  cancel-in-progress: false
+
+permissions: {} # no repo access needed — just an outbound POST
+
+jobs:
+  digests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trigger run-digests
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          DIGEST_KEY: ${{ secrets.DIGEST_KEY }}
+        run: |
+          if [ -z "${SITE_URL:-}" ] || [ -z "${DIGEST_KEY:-}" ]; then
+            echo "SITE_URL (variable) or DIGEST_KEY (secret) not set — skipping. Configure both to enable digests."
+            exit 0
+          fi
+          code=$(curl -sS -o /tmp/out.txt -w "%{http_code}" \
+            -X POST "${SITE_URL%/}/api/run-digests" \
+            -H "x-digest-key: ${DIGEST_KEY}" \
+            -H "content-type: application/json" \
+            --max-time 120 || echo "000")
+          echo "run-digests -> HTTP ${code}"
+          cat /tmp/out.txt 2>/dev/null || true
+          echo ""
+          # A scheduled poke shouldn't turn the repo red on a transient blip — the
+          # status + body above are the record. Only a total curl failure is noted.
+          if [ "${code}" = "000" ]; then echo "::warning::run-digests could not be reached"; fi
+          exit 0

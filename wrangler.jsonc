@@ -13,5 +13,16 @@
   //   further manual steps, ever.
   "name": "capex-beas",
   "compatibility_date": "2025-09-16",
-  "pages_build_output_dir": "./public"
+  "pages_build_output_dir": "./public",
+
+  // Pages Functions live in ./functions (auto-detected). The email-subscription
+  // API (functions/api/*) needs ONE KV namespace bound as `SUBS` for subscriber
+  // records. Create it once and bind it, EITHER here (uncomment + paste the id)
+  // OR in the Pages dashboard (Settings → Functions → KV namespace bindings →
+  // add binding `SUBS`). Until it's bound, the API returns 503 and the dashboard's
+  // "Brief" panel shows "not switched on yet" — the dashboard itself is unaffected.
+  //
+  // "kv_namespaces": [
+  //   { "binding": "SUBS", "id": "PASTE_YOUR_KV_NAMESPACE_ID_HERE" }
+  // ]
 }

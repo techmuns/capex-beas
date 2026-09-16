@@ -142,7 +142,12 @@
           </p>
         </div>
       </div>
-      <div id="lastRun" class="text-xs sm:text-sm num" style="color:var(--muted)"></div>
+      <div class="flex items-center gap-3">
+        <button id="briefBtn" type="button" class="tab" style="color:#fff;border-color:transparent;background:linear-gradient(90deg,var(--i1),var(--i2) 55%,var(--pink));box-shadow:0 8px 20px rgba(139,92,246,.35)">
+          <i data-lucide="mail"></i> Brief
+        </button>
+        <div id="lastRun" class="text-xs sm:text-sm num" style="color:var(--muted)"></div>
+      </div>
     </header>
 
     <!-- Tabs -->
@@ -166,5 +171,6 @@
   </div>
 
   <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/brief.js"></script>
 </body>
 </html>
