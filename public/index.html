@@ -4,122 +4,167 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Capex Change Monitor</title>
-  <meta name="description" content="Tracks capital-expenditure guidance changes across BSE-listed companies, straight from their filings." />
+  <meta name="description" content="See, at a glance, which BSE-listed companies changed how much they plan to spend on new plants & machines — every number backed by the company's own filing." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366F1'/%3E%3Cstop offset='1' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E" />
+
+  <!-- CDN libs only — no build step -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'ui-sans-serif', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: #121933;
-      --ink: #eaf0ff;
-      --muted: #9aa7ce;
-      --accent: #5b8cff;
-      --accent2: #2dd4bf;
-      --line: #223056;
+      --bg: #FBFAFF; --card: #FFFFFF; --ink: #14152A; --muted: #6B7280; --line: #ECEAF6;
+      --up: #10B981; --down: #F43F5E; --flat: #94A3B8;
+      --i1: #6366F1; --i2: #8B5CF6; --i3: #A855F7; --pink: #EC4899;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
-      min-height: 100vh;
+      min-height: 100vh; color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
       background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(91,140,255,.25), transparent 60%),
-        radial-gradient(900px 500px at -10% 110%, rgba(45,212,191,.18), transparent 55%),
+        radial-gradient(55rem 45rem at 88% -12%, rgba(139,92,246,.16), transparent 60%),
+        radial-gradient(45rem 45rem at -8% 8%, rgba(236,72,153,.11), transparent 55%),
+        radial-gradient(48rem 48rem at 50% 122%, rgba(59,130,246,.11), transparent 55%),
         var(--bg);
-      color: var(--ink);
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      display: flex; align-items: center; justify-content: center;
-      padding: 24px;
+      background-attachment: fixed;
     }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .num { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; }
+
+    /* one reusable card everywhere */
     .card {
-      width: 100%; max-width: 720px;
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 40px clamp(20px, 5vw, 44px);
-      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      background: var(--card); border: 1px solid var(--line); border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(20,21,42,.05), 0 2px 6px rgba(20,21,42,.03);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .badge {
-      display: inline-block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent2); border: 1px solid var(--line); border-radius: 999px;
-      padding: 6px 12px; margin-bottom: 18px;
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(20,21,42,.10); }
+
+    /* pill tabs */
+    .tab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px;
+      color: var(--muted); background: rgba(255,255,255,.7); border: 1px solid var(--line);
+      cursor: pointer; transition: all .18s ease; white-space: nowrap;
     }
-    h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.15; margin: 0 0 12px; }
-    h1 .grad {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+    .tab:hover { color: var(--ink); transform: translateY(-1px); }
+    .tab.active {
+      color: #fff; border-color: transparent;
+      background: linear-gradient(90deg, var(--i1), var(--i2) 55%, var(--pink));
+      box-shadow: 0 8px 20px rgba(139,92,246,.35);
     }
-    p.lead { color: var(--muted); font-size: clamp(15px, 2.4vw, 18px); margin: 0 0 26px; }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 22px; }
-    .stat { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
-    .stat .n { font-size: 26px; font-weight: 700; }
-    .stat .l { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .status { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
-    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 0 rgba(45,212,191,.6); animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(45,212,191,.5);} 70% { box-shadow: 0 0 0 10px rgba(45,212,191,0);} 100% { box-shadow: 0 0 0 0 rgba(45,212,191,0);} }
-    .foot { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-    a { color: var(--accent); }
-    @media (prefers-color-scheme: light) {
-      :root { --bg:#f6f8ff; --panel:#ffffff; --ink:#0c1330; --muted:#5a6488; --line:#e3e8f5; }
-      .card { box-shadow: 0 20px 50px rgba(20,30,80,.10); }
-      .stat { background: #f2f5ff; }
+    .tab svg { width: 16px; height: 16px; }
+
+    /* chart heights as REAL css classes so ECharts sizes correctly at init */
+    .chart-sm { width: 100%; height: 260px; }
+    .chart-md { width: 100%; height: 340px; }
+    .chart-lg { width: 100%; height: 420px; }
+    @media (max-width: 640px) { .chart-md { height: 300px; } .chart-lg { height: 340px; } }
+
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .chip { background: rgba(255,255,255,.8); border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px; }
+
+    .select, .search {
+      background: #fff; border: 1px solid var(--line); border-radius: 12px;
+      padding: 9px 12px; font-size: 14px; color: var(--ink); font-family: inherit; outline: none;
     }
+    .select:focus, .search:focus { border-color: var(--i2); box-shadow: 0 0 0 3px rgba(139,92,246,.15); }
+
+    .btn-link {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+      color: var(--i1); text-decoration: none; padding: 7px 12px; border-radius: 10px;
+      border: 1px solid var(--line); background: #fff; transition: all .15s ease;
+    }
+    .btn-link:hover { background: #F5F3FF; border-color: var(--i2); }
+    .btn-quote {
+      font-size: 12.5px; font-weight: 600; color: var(--muted); cursor: pointer;
+      background: none; border: none; display: inline-flex; align-items: center; gap: 5px; padding: 0;
+    }
+    .btn-quote:hover { color: var(--ink); }
+
+    table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+    table.tbl th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 10px 12px; cursor: pointer; user-select: none; white-space: nowrap; }
+    table.tbl th:hover { color: var(--ink); }
+    table.tbl td { padding: 11px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+    table.tbl tbody tr:nth-child(even) { background: #FAF9FE; }
+
+    .quote { border-left: 3px solid var(--i2); background: #FAF9FE; border-radius: 0 10px 10px 0; padding: 10px 14px; color: #3d3f57; font-size: 13.5px; line-height: 1.55; }
+    .info-dot { position: relative; display: inline-flex; }
+    .info-dot .tip {
+      position: absolute; top: 130%; left: 50%; transform: translateX(-50%);
+      background: #14152A; color: #fff; font-size: 12px; font-weight: 500; line-height: 1.4;
+      padding: 8px 11px; border-radius: 10px; width: 240px; opacity: 0; pointer-events: none;
+      transition: opacity .15s ease; z-index: 30; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .info-dot:hover .tip { opacity: 1; }
+    ::-webkit-scrollbar { height: 10px; width: 10px; }
+    ::-webkit-scrollbar-thumb { background: #E3E0F2; border-radius: 10px; }
+
+    /* Own the panel show/hide so tab switching works even if the Tailwind CDN
+       is slow/unavailable (don't depend on Tailwind's .hidden utility). */
+    .tab-panel.hidden { display: none; }
   </style>
 </head>
 <body>
-  <main class="card">
-    <span class="badge">Phase 1 · Data engine</span>
-    <h1>Capex Guidance <span class="grad">Change Monitor</span></h1>
-    <p class="lead">
-      Watches filings from every BSE-listed company, reads out each capital-expenditure
-      guidance number, and flags whenever a company <em>changes</em> its capex plan —
-      every figure backed by the exact quote and the source filing PDF.
-    </p>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
 
-    <div class="stats" id="stats" hidden>
-      <div class="stat"><div class="n" id="s-companies">–</div><div class="l">companies tracked</div></div>
-      <div class="stat"><div class="n" id="s-changes">–</div><div class="l">capex changes</div></div>
-      <div class="stat"><div class="n" id="s-obs">–</div><div class="l">observations</div></div>
-    </div>
+    <!-- Header -->
+    <header class="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl grid place-items-center text-white shadow-lg" style="background:linear-gradient(135deg,var(--i1),var(--pink))">
+          <i data-lucide="radar"></i>
+        </div>
+        <div>
+          <h1 class="font-display text-xl sm:text-2xl font-bold leading-tight">Capex Change Monitor</h1>
+          <p class="text-sm" style="color:var(--muted)">
+            Who changed how much they plan to spend on new plants &amp; machines
+            <span class="info-dot align-middle ml-1" style="cursor:help">
+              <i data-lucide="info" style="width:15px;height:15px;color:var(--i2)"></i>
+              <span class="tip">“Capex” = money a company plans to spend on new plants &amp; machines. We read it from each company’s own BSE filing.</span>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div id="lastRun" class="text-xs sm:text-sm num" style="color:var(--muted)"></div>
+    </header>
 
-    <div class="status"><span class="dot"></span><span id="status">Data building… the engine backfills 180 days of filings and then runs daily.</span></div>
+    <!-- Tabs -->
+    <nav class="flex flex-wrap gap-2.5 mb-6" id="tabs">
+      <button class="tab active" data-tab="overview"><i data-lucide="sparkles"></i> Overview</button>
+      <button class="tab" data-tab="changes"><i data-lucide="bell"></i> Changes</button>
+      <button class="tab" data-tab="company"><i data-lucide="building-2"></i> By Company</button>
+    </nav>
 
-    <div class="foot">
-      Source-backed only — no sample or estimated data. The colorful dashboard and email
-      digest arrive in <strong>Phase 2</strong>.
-    </div>
-  </main>
+    <!-- Panels -->
+    <main>
+      <section id="panel-overview" class="tab-panel"></section>
+      <section id="panel-changes" class="tab-panel hidden"></section>
+      <section id="panel-company" class="tab-panel hidden"></section>
+    </main>
 
-  <script>
-    // Honest empty state: read the REAL committed data files. If nothing has been
-    // parsed yet, we say so plainly rather than showing invented numbers.
-    (async () => {
-      const statusEl = document.getElementById('status');
-      try {
-        const [meta, changes, history] = await Promise.all([
-          fetch('./data/metadata.json').then(r => r.ok ? r.json() : null).catch(() => null),
-          fetch('./data/capex-changes.json').then(r => r.ok ? r.json() : []).catch(() => []),
-          fetch('./data/capex-history.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
-        ]);
+    <footer class="mt-10 pt-5 text-xs" style="color:var(--muted);border-top:1px solid var(--line)">
+      <span class="inline-flex items-center gap-1.5"><i data-lucide="shield-check" style="width:14px;height:14px"></i>
+      Source-backed only — every figure comes from a real BSE filing, with the exact quote and a link to the original PDF. No sample or estimated data.</span>
+    </footer>
+  </div>
 
-        const companies = Object.keys(history || {}).length;
-        const changeCount = Array.isArray(changes) ? changes.length : 0;
-        const obs = Object.values(history || {}).reduce((a, list) => a + (Array.isArray(list) ? list.length : 0), 0);
-
-        if (companies || changeCount || obs) {
-          document.getElementById('s-companies').textContent = companies;
-          document.getElementById('s-changes').textContent = changeCount;
-          document.getElementById('s-obs').textContent = obs;
-          document.getElementById('stats').hidden = false;
-        }
-
-        if (meta && meta.last_run) {
-          const when = new Date(meta.last_run).toLocaleString();
-          statusEl.textContent = (companies || obs)
-            ? `Last run ${when}. Tracking ${companies} companies from real filings.`
-            : `Last run ${when}. No capex guidance parsed yet — the engine keeps scanning.`;
-        }
-      } catch (e) {
-        // Leave the default "data building…" message; the page must never fabricate data.
-      }
-    })();
-  </script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>

@@ -58,8 +58,8 @@ async function processCandidate(candidate, state) {
     status: res.items.length ? 'capex' : 'no_capex',
     capex_found: res.items.length,
   });
-  if (res.items.length) log(`  ✓ ${candidate.company}: ${res.items.length} capex figure(s) [${res.provider}]`);
-  return { added, provider: res.provider };
+  if (res.items.length) log(`  ✓ ${candidate.company}: ${res.items.length} capex figure(s) [${res.provider}/${res.model}]`);
+  return { added, provider: res.provider, model: res.model };
 }
 
 /** Process the pending candidates of a window up to `budget`. Returns work done. */
@@ -81,7 +81,7 @@ async function processWindow(from, to, state, budget) {
     consecutiveErrors = 0;
     processedCount++; budget--;
     added += r.added;
-    if (r.provider) provider = r.provider;
+    if (r.provider) provider = r.model ? `${r.provider}/${r.model}` : r.provider;
   }
   return { stats, processedCount, added, provider, candidates };
 }

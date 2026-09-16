@@ -21,18 +21,19 @@ backfill.yml / daily.yml                      public/data/capex-history.json
    ▼                                          public/data/processed.json
 scripts/run.mjs  ── orchestrates ──►          public/data/metadata.json
    ├─ fetch-announcements.mjs  (BSE feed + cheap prefilter)   public/data/backfill-cursor.json
-   ├─ pdf-text.mjs             (download PDF + pdfjs-dist text)         │
+   ├─ pdf-text.mjs             (download PDF + pdfjs-dist text; VISION_OCR fallback) │
    ├─ extract-capex.mjs        (LLM → strict JSON + anti-hallucination) │ commit back to repo
-   ├─ llm.mjs                  (Bedrock primary, Mistral fallback)      ▼
+   ├─ llm.mjs                  (Bedrock Converse chain, Mistral fallback) ▼
    └─ detect-changes.mjs       (history + change detection)   Cloudflare Pages auto-deploys ./public
-scripts/send-digest.mjs        (HTML email digest — dry-run until Phase 2)
+scripts/send-digest.mjs        (HTML email digest)              → public/index.html + public/js/* (dashboard)
 ```
 
-- **Static site, no build step.** Everything the browser needs is in `./public`.
+- **Static site, no build step.** Everything the browser needs is in `./public` (the dashboard is
+  `public/index.html` + `public/js/{ui,app}.js`, using CDN libs — Tailwind, ECharts 5, Lucide).
 - **Scripts are Node ES modules (`.mjs`)** run by GitHub Actions on Node 22.
 - **Committed JSON under `./public/data/`** is the app's memory across runs (Actions has no
   persistent disk, so state is committed back to the repo).
-- **No frontend install** — Phase 2 uses CDN libs (Tailwind, ECharts, Lucide).
+- **No frontend install** — the dashboard loads CDN libs at runtime; nothing to build.
 
 ### Source-backed, non-negotiable
 Every number/date/reason/change stored keeps a **`verbatim_quote`** and a **working source PDF
@@ -67,9 +68,11 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
       "type": "guidance",           // guidance | actual | plan | cumulative
       "amount_text": "Rs. 700 crore",// verbatim, as written in the filing
       "currency": "INR",            // INR | USD | EUR | GBP
-      "amount_cr": 700,             // ₹ crore (deterministic from amount_text); null if not comparable
-      "midpoint_cr": 700,           // midpoint used for change detection (= amount_cr, or range mid)
-      "comparable": true,           // false for foreign-currency (no FX guess)
+      "amount_cr": 700,             // ₹ crore used for change detection = the TOP of a stated range
+      "amount_cr_low": 700,         // low end of a stated range (== amount_cr for a single value)
+      "amount_cr_high": 700,        // high end of a stated range (== amount_cr)
+      "comparable": true,           // false for foreign-currency (no FX guess); then amount_cr is null
+      // "ocr": true                // present only when the text came from the vision/OCR fallback
       "segment_or_project": "new plant in South", // or null
       "direction": "up",            // up | down | flat | unclear (filing's own framing)
       "reason": null,               // management's own words, or null (never inferred)
@@ -90,7 +93,7 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
     "scrip_cd": 544022,
     "fiscal_year": "FY27",
     "type": "guidance",
-    "old_cr": 500,                 // real prior observation midpoint (₹ cr)
+    "old_cr": 500,                 // real prior observation's amount_cr (top of range, ₹ cr)
     "new_cr": 700,
     "delta_cr": 200,
     "pct_change": 40,
@@ -109,8 +112,9 @@ All live under `public/data/`. Written pretty-printed (2-space) for readable git
 ]
 ```
 - A change **fires** when, for the same `(scrip_cd, fiscal_year, type="guidance")`, a new
-  observation's `midpoint_cr` differs from the most-recent prior guidance midpoint by more than
-  `CAPEX_CHANGE_PCT`% (default **2%**, to ignore rounding).
+  observation's `amount_cr` differs from the most-recent prior guidance `amount_cr` by more than
+  `CAPEX_CHANGE_PCT`% (default **2%**, to ignore rounding). **The comparison uses the TOP of a
+  stated range** (e.g. "₹450–500 cr" compares as 500); a single value has low == high.
 - The **first** guidance sighting for a `(company, FY)` is recorded as a baseline
   (`no_prior_on_record: true`, `old_cr: null`).
 - Only `type="guidance"` participates — a single-year guidance is never compared against an
@@ -207,8 +211,8 @@ node scripts/fetch-announcements.mjs --from=20260810 --to=20260810   # prints ke
 node scripts/pdf-text.mjs <ATTACHMENTNAME.pdf>                        # prints extracted text
 node scripts/pdf-text.mjs --url=https://www.bseindia.com/xml-data/corpfiling/AttachLive/<uuid>.pdf
 
-# Full pipeline (needs an LLM key — see secrets below):
-BEDROCK_API_KEY=… AWS_REGION=us-east-1 BEDROCK_MODEL=… node scripts/run.mjs --mode=daily
+# Full pipeline (needs an LLM key — Bedrock Converse chain, see §5):
+BEDROCK_API_KEY=… AWS_REGION=us-east-1 node scripts/run.mjs --mode=daily
 node scripts/run.mjs --mode=backfill        # drains one backfill chunk, advances the cursor
 node scripts/run.mjs --from=20260804 --to=20260804   # manual explicit window
 
@@ -217,26 +221,59 @@ node scripts/detect-changes.mjs
 
 # Email digest (dry-run prints HTML unless email secrets are set):
 node scripts/send-digest.mjs --days=7
-node scripts/llm.mjs --selftest             # one tiny call; logs which provider answered
+node scripts/llm.mjs --selftest             # one tiny call; logs which provider+model answered
+npm test                                    # 29 logic unit tests (incl. Bedrock chain, mocked)
+
+# Dashboard: it's static — open public/index.html via any static server, e.g.
+python3 -m http.server 8123 --directory public   # then visit http://localhost:8123/
+#   ?demo=1 loads a local, git-ignored fixture (public/demo/*.json) to preview the POPULATED
+#   layout. The shipped public/data/*.json stay empty; nothing fake is ever committed.
+
+# Vision/OCR fallback for scanned decks (optional; costs vision tokens):
+npm install @napi-rs/canvas --no-save
+VISION_OCR=1 node scripts/run.mjs --mode=daily
 ```
 
 ---
 
-## 5. Secrets each workflow needs (GitHub → Settings → Secrets → Actions)
+## 5. Secrets & variables each workflow needs
+
+Put **keys** under GitHub → Settings → **Secrets** → Actions, and **non-secret config** under
+GitHub → Settings → **Variables** → Actions (the workflows read those as `vars.*`).
+
+**Secrets (keys):**
 
 | Secret | Used by | Purpose |
 |---|---|---|
 | `BEDROCK_API_KEY` | backfill, daily | Claude via Bedrock (**primary** LLM) — Bearer token |
-| `AWS_REGION` | backfill, daily | Bedrock region, e.g. `us-east-1` |
-| `BEDROCK_MODEL` | backfill, daily | Claude model / inference-profile id |
-| `MISTRAL_API_KEY` | backfill, daily | **Fallback** LLM (OpenAI-style) |
-| `MISTRAL_MODEL` | backfill, daily | optional (default `mistral-large-latest`) |
+| `AWS_REGION` | backfill, daily | Bedrock region (default `us-east-1` if unset) |
+| `MISTRAL_API_KEY` | backfill, daily | **Fallback** LLM (OpenAI-style), used only if every Bedrock model fails |
 | `FIRECRAWL_API_KEY` | backfill, daily | optional BSE fetch fallback |
 | `SCRAPE_DO_API_KEY` | backfill, daily | optional BSE fetch fallback |
-| `EMAIL_PROVIDER`, `EMAIL_FROM`, `EMAIL_TO`, `RESEND_API_KEY` / `SENDGRID_API_KEY` / `SMTP_*` | daily (Phase 2) | email digest send (dry-run until set) |
+| `RESEND_API_KEY` **or** `SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASS`/`SMTP_SECURE` **or** `SENDGRID_API_KEY` | daily | email digest send — pick one provider |
+| `EMAIL_FROM`, `EMAIL_TO` | daily | digest sender + recipients (comma-separated) |
 
-The pipeline runs with **either** Bedrock or Mistral; if neither is set, `run.mjs` exits cleanly
-without touching state (and `--prove` still validates fetch + PDF + text).
+**Variables (non-secret config, all optional):**
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `BEDROCK_MODEL_IDS` | `anthropic.claude-sonnet-5,us.anthropic.claude-sonnet-5,us.anthropic.claude-sonnet-4-5-20250929-v1:0` | comma-separated **model fallback chain** tried in order via the Bedrock **Converse** endpoint |
+| `BEDROCK_MODEL` | — | a single id prepended to the chain (back-compat) — can be a Secret or Variable |
+| `BEDROCK_RETRY_ROUNDS` | 8 (backfill sets 12) | patient-retry rounds across the chain (60s wait between rounds when all models are busy) |
+| `MISTRAL_MODEL` | `mistral-large-latest` | fallback model id |
+| `EMAIL_PROVIDER` | auto | force `resend` \| `smtp` \| `sendgrid` \| `dryrun` |
+| `DIGEST_DAYS` | 7 | digest window |
+| `DIGEST_ALWAYS` | — | `1` = send even when there are zero changes |
+| `DASHBOARD_URL` | — | link target for the “Open the live dashboard” button in the email |
+| `VISION_OCR` | — | `1` = enable the Claude-vision OCR fallback for scanned decks (also installs `@napi-rs/canvas`) |
+| `VISION_MAX_PAGES` / `VISION_SCALE` | 5 / 2.0 | OCR page cap and raster scale |
+
+The LLM step uses the **Bedrock Converse** endpoint
+(`…/model/<id>/converse`, `Authorization: Bearer …`) and walks the model chain with patient retry
+(429/5xx → next model; 400/403/404 → skip that model; after a full busy round, wait 60s and retry).
+It runs with **either** Bedrock or Mistral; if neither is set, `run.mjs` exits cleanly without
+touching state (and `--prove` still validates fetch + PDF + text). **Email is dry-run** (logs the
+HTML, workflow stays green) until `EMAIL_FROM`/`EMAIL_TO` + a provider are set.
 
 The two workflows share a `concurrency` group so they never commit to `public/data` at the same
 time, and each commits with a **fetch + rebase + push retry loop** (4 attempts, exponential
@@ -247,10 +284,10 @@ backoff — see `scripts/ci-commit.sh`).
   `backfill-cursor.json` shows `"done": true`** (Actions → workflow → ⋯ → Disable). Dispatch
   inputs let you tune `days_per_run` / `max_per_run`.
 - **`.github/workflows/daily.yml`** — `workflow_dispatch` + cron `23 1 * * *` (01:23 UTC daily,
-  off the marks). Forward run over the last ~2 days, then composes the digest (dry-run).
+  off the marks). Forward run over the last ~2 days, commit, then compose + send the digest.
 
 Env knobs (optional): `BACKFILL_DAYS` (180), `DAILY_LOOKBACK_DAYS` (2), `BACKFILL_DAYS_PER_RUN`
-(2), `MAX_ANNOUNCEMENTS_PER_RUN` (backfill 120), `DAILY_MAX` (250), `CAPEX_CHANGE_PCT` (2).
+(3), `MAX_ANNOUNCEMENTS_PER_RUN` (backfill 150), `DAILY_MAX` (400), `CAPEX_CHANGE_PCT` (2).
 
 ---
 
@@ -282,16 +319,44 @@ Validated live against BSE (see `docs/PHASE1-PROOF.md` for the full run):
   to Rs. 500 crore"* to *"Rs. 700 crore this year."* The verbatim quotes pass the real
   anti-hallucination gates, a fabricated figure is correctly rejected, and the change detector
   emits **FY27 guidance ₹500 Cr → ₹700 Cr (+40%, up)** with both source PDFs.
-- 34 logic unit tests pass (normalization, FY parsing, gates, change detection, JSON extractor).
+- `npm test` — 29 logic unit tests pass (normalization incl. top-of-range, FY parsing, gates,
+  change detection, JSON extractor, and the Bedrock Converse model-chain fallback with fetch mocked).
 
 `capex-history.json` / `capex-changes.json` ship **empty** — they fill only with real results
 once the workflows run with an LLM key in Actions. No sample/demo data, ever.
 
 ---
 
-## 8. Phase 2 (next)
+## 8. The dashboard (`public/index.html` + `public/js/*`)
 
-- The full **colorful dashboard** (`public/index.html`) — Tailwind + ECharts + Lucide via CDN,
-  reading the committed JSON: company cards, old→new change timelines, filters, source links.
-- Turn on the **email digest** send (provider + recipient supplied then).
-- OCR / Claude-vision fallback for scanned/thin PDF decks (hook already in `pdf-text.mjs`).
+Static, CDN-only (Tailwind + ECharts 5 + Lucide + Google Fonts) — no build step. It reads the
+committed JSON with `cache: "no-store"` and degrades to a friendly on-brand **empty state** on
+every tab until real data lands (verified). Three tabs:
+
+- **Overview** — one hero sentence + two small stat chips (no KPI wall), a diverging bar of the
+  biggest ₹ changes (green up / red down), an up-vs-down donut, and a “biggest mover” card.
+- **Changes** — the hero feed, newest first, with dropdown filters (time window, direction,
+  company search) and a **Cards ⇄ Table** toggle. Each card shows the plain-English
+  “Old plan → New plan”, the % badge, the reason, an expandable **exact quote from the filing**,
+  and a **See the official filing** link. Baselines render as a subtle “first reading” card.
+- **By Company** — a searchable company picker → a step chart of that company’s capex plan over
+  time (per fiscal year) + a table of all its observations with source links.
+
+`public/js/ui.js` holds the design system (colors, formatters, the ECharts registry);
+`public/js/app.js` holds data-loading, tabs and rendering. To preview the populated layout locally
+use `?demo=1` (loads the git-ignored `public/demo/` fixture) — see §4.
+
+## 9. What shipped in Phase 2 (this update)
+
+- **Bedrock via the Converse endpoint** with an env-driven **model fallback chain**
+  (`BEDROCK_MODEL_IDS`) and patient retry — the pattern proven on the account. Vision (image)
+  support added for OCR.
+- **Top-of-range comparison** — change detection compares on the high end of a stated range.
+- The **colorful dashboard** (§8) and the **live email digest** (§ Email — dry-run until secrets).
+- **Vision/OCR fallback** for scanned decks (`VISION_OCR=1`): renders capex pages to JPEG, has
+  Claude transcribe them, and runs that transcription through the **same** anti-hallucination gates.
+
+## 10. Phase 3 ideas (next)
+
+- Wider prefilter / server-side subcategory filtering to cut backfill cost.
+- Per-company alerting, sector rollups, and a “needs review” queue for low-confidence extractions.

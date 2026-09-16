@@ -131,7 +131,7 @@ function quoteInSource(quote, sourceText) {
 
 /**
  * Extract validated capex statements for a candidate given its filing text.
- * @returns {Promise<{items:object[], provider:string|null, dropped:object}>}
+ * @returns {Promise<{items:object[], provider:string|null, model:string|null, dropped:object}>}
  */
 export async function extractCapexFromText(candidate, filingText) {
   const dropped = { no_quote: 0, digits_mismatch: 0, quote_not_in_source: 0, no_amount: 0, not_capex: 0 };
@@ -144,7 +144,7 @@ export async function extractCapexFromText(candidate, filingText) {
     `--- FILING TEXT (verbatim, may be truncated) ---\n${excerpt}\n--- END ---\n\n` +
     `Return the JSON array now.`;
 
-  const { text, provider } = await callLLM({
+  const { text, provider, model } = await callLLM({
     system: SYSTEM_PROMPT,
     prompt: userPrompt,
     max_tokens: 3000,
@@ -160,7 +160,7 @@ export async function extractCapexFromText(candidate, filingText) {
           : (parsed && typeof parsed === 'object') ? [parsed] : [];
   } catch (err) {
     log(`  extract: could not parse LLM JSON for ${candidate.company}: ${err.message}`);
-    return { items: [], provider, dropped };
+    return { items: [], provider, model, dropped };
   }
 
   const items = [];
@@ -192,16 +192,18 @@ export async function extractCapexFromText(candidate, filingText) {
     let direction = String(raw.direction || '').toLowerCase();
     if (!VALID_DIRS.has(direction)) direction = 'unclear';
 
+    // Change detection compares on the TOP of a stated range (the high end);
+    // for a single value low == high. amount_cr is that comparison figure.
+    const topCr = amt.comparable ? round2(amt.high) : null;
     items.push({
       company: candidate.company,
       scrip_cd: candidate.scrip_cd,
       fiscal_year: normFY(raw.fiscal_year),
       amount_text: amountText,
       currency: amt.currency,
-      amount_cr: amt.comparable ? round2(amt.midpoint) : null,
+      amount_cr: topCr,                                      // headline + comparison value = top of range
       amount_cr_low: amt.comparable ? round2(amt.low) : null,
-      amount_cr_high: amt.comparable ? round2(amt.high) : null,
-      midpoint_cr: amt.comparable ? round2(amt.midpoint) : null,
+      amount_cr_high: topCr,
       comparable: amt.comparable,
       type,
       segment_or_project: raw.segment_or_project ? String(raw.segment_or_project).trim() : null,
@@ -211,7 +213,7 @@ export async function extractCapexFromText(candidate, filingText) {
     });
   }
 
-  return { items, provider, dropped };
+  return { items, provider, model, dropped };
 }
 
 const round2 = (n) => (n == null ? null : Math.round(n * 100) / 100);
@@ -241,7 +243,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     category: args.category || '', subcat: args.subcat || '',
     headline: args.headline || '', attachment: attach,
   };
-  const { items, provider, dropped, filing } = await extractCapexForCandidate(candidate);
-  log(`provider=${provider} | source=${filing?.source_pdf} | dropped=${JSON.stringify(dropped)}`);
+  const { items, provider, model, dropped, filing } = await extractCapexForCandidate(candidate);
+  log(`provider=${provider} model=${model} | source=${filing?.source_pdf} | dropped=${JSON.stringify(dropped)}`);
   process.stdout.write(JSON.stringify(items, null, 2) + '\n');
 }
