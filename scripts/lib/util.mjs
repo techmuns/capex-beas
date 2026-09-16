@@ -133,6 +133,42 @@ export function dayRange(fromYmd, toYmd) {
 export const nowISO = () => new Date().toISOString();
 
 // ---------------------------------------------------------------------------
+// Week concept (Phase 4.1). A Mon–Sun week label derived from an event's date,
+// e.g. "7–13 Sep 2026". Kept deterministic (UTC calendar date only) so the same
+// label is produced in the pipeline and in the browser. Returns null on a bad
+// date. `key` is the Monday as YYYYMMDD (sortable, newest-first = descending).
+// ---------------------------------------------------------------------------
+export const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function toUTCDateOnly(input) {
+  const s = String(input ?? '');
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  const t = new Date(s);
+  if (Number.isNaN(t.getTime())) return null;
+  return new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()));
+}
+
+function fmtWeekRange(mon, sun) {
+  const dM = mon.getUTCDate(), dS = sun.getUTCDate();
+  const moM = MONTHS_SHORT[mon.getUTCMonth()], moS = MONTHS_SHORT[sun.getUTCMonth()];
+  const yM = mon.getUTCFullYear(), yS = sun.getUTCFullYear();
+  if (yM === yS && mon.getUTCMonth() === sun.getUTCMonth()) return `${dM}–${dS} ${moM} ${yM}`;
+  if (yM === yS) return `${dM} ${moM} – ${dS} ${moS} ${yM}`;
+  return `${dM} ${moM} ${yM} – ${dS} ${moS} ${yS}`;
+}
+
+/** @returns {{key:string,label:string,startISO:string,endISO:string}|null} */
+export function weekOf(input) {
+  const d = toUTCDateOnly(input);
+  if (!d) return null;
+  const diffToMon = (d.getUTCDay() + 6) % 7;   // 0=Sun..6=Sat -> days since Monday
+  const mon = new Date(d); mon.setUTCDate(d.getUTCDate() - diffToMon);
+  const sun = new Date(mon); sun.setUTCDate(mon.getUTCDate() + 6);
+  return { key: ymd(mon), label: fmtWeekRange(mon, sun), startISO: mon.toISOString(), endISO: sun.toISOString() };
+}
+
+// ---------------------------------------------------------------------------
 // Text / number normalization (used by anti-hallucination checks + amounts).
 // ---------------------------------------------------------------------------
 

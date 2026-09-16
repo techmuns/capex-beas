@@ -8,7 +8,7 @@
 
 import { _internals } from '../extract-capex.mjs';
 import { recomputeChanges, makeObservation, addObservationToHistory } from '../detect-changes.mjs';
-import { numericTokens, toCrore, extractJSON, deriveEventType } from '../lib/util.mjs';
+import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf } from '../lib/util.mjs';
 import { parseScreenerHtml, needsEnrichment } from '../enrich.mjs';
 
 const { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, isAcquisition } = _internals;
@@ -217,6 +217,15 @@ eq('screener: blank page => all null', parseScreenerHtml('<html></html>'),
 ok('needsEnrichment: missing entry', needsEnrichment(undefined));
 ok('needsEnrichment: fresh entry false', !needsEnrichment({ as_of: new Date().toISOString() }));
 ok('needsEnrichment: stale entry true', needsEnrichment({ as_of: '2000-01-01T00:00:00.000Z' }));
+
+// --- Phase 4.1: Mon–Sun week concept --------------------------------------
+eq('weekOf mid-week label', weekOf('2026-09-16').label, '14–20 Sep 2026');    // Wed -> Mon 14 .. Sun 20
+eq('weekOf mid-week key (Monday)', weekOf('2026-09-16').key, '20260914');
+eq('weekOf cross-month', weekOf('2026-09-05').label, '31 Aug – 6 Sep 2026');  // Sat -> Mon 31 Aug .. Sun 6 Sep
+eq('weekOf cross-month key', weekOf('2026-09-05').key, '20260831');
+eq('weekOf cross-year', weekOf('2026-01-01').label, '29 Dec 2025 – 4 Jan 2026'); // Thu -> Mon 29 Dec .. Sun 4 Jan
+eq('weekOf datetime string same as date', weekOf('2026-09-16T10:00:00').key, weekOf('2026-09-16').key);
+eq('weekOf invalid -> null', weekOf('not-a-date'), null);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

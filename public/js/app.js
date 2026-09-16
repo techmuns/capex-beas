@@ -5,10 +5,11 @@
 // no data yet — it never invents numbers.
 
 import {
-  h, esc, fmtCr, fmtCrAxis, fmtSignedCr, fmtPct, fmtDate, fmtMktCap, fmtPE, debounce,
+  h, esc, fmtCr, fmtCrAxis, fmtSignedCr, fmtPct, fmtDate, fmtMktCap, fmtPE, weekOf, debounce,
   emptyState, newChart, disposeCharts, resizeCharts, icons,
   eventTypeStyle, CHART, SEMANTIC, PALETTE,
 } from './ui.js';
+import { downloadExcel } from './excel.js';
 
 // ?demo=1 loads a local, git-ignored fixture so the POPULATED layout can be
 // eyeballed. The shipped data files stay empty; nothing fake is ever committed.
@@ -43,6 +44,14 @@ async function loadData() {
 // External market context for a scrip (industry / market cap / P/E), or null.
 // This is auxiliary "approx" data — never confused with source-backed capex.
 const enrichOf = (scrip) => state.enrichment[String(scrip)] || null;
+
+// Tiny transient toast (used by the Excel download button).
+function toast(msg) {
+  const t = h('div', { style: 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#14152A;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.25);z-index:60;opacity:0;transition:opacity .2s;max-width:90vw;text-align:center' }, msg);
+  document.body.appendChild(t);
+  requestAnimationFrame(() => { t.style.opacity = '1'; });
+  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 250); }, 2800);
+}
 
 const realChanges = () => state.changes.filter((c) => !c.no_prior_on_record);
 const baselines = () => state.changes.filter((c) => c.no_prior_on_record);
@@ -240,14 +249,19 @@ function drawDonut(set) {
 }
 
 // ---- tab: CHANGES --------------------------------------------------------
-const changesUI = { window: 30, direction: 'all', industry: 'all', type: 'all', q: '', view: 'cards', sort: { key: 'date', dir: 'desc' } };
+const changesUI = { window: 30, direction: 'all', industry: 'all', type: 'all', week: 'all', q: '', view: 'cards', sort: { key: 'date', dir: 'desc' } };
 
 const industryOf = (c) => enrichOf(c.scrip_cd)?.industry || '';
+// A change's week key (Monday YYYYMMDD) from its display date.
+const weekKeyOf = (c) => weekOf(c.new_date || c.detected_at)?.key || '';
 
 function filteredChanges() {
   const q = changesUI.q.trim().toLowerCase();
   return state.changes.filter((c) => {
-    if (!withinDays(c, changesUI.window)) return false;
+    // A specific week is authoritative — it overrides the rolling time window
+    // so "pick a week → see/download exactly that week" always works.
+    if (changesUI.week !== 'all') { if (weekKeyOf(c) !== changesUI.week) return false; }
+    else if (!withinDays(c, changesUI.window)) return false;
     if (changesUI.direction === 'up' && !(c.direction === 'up' && !c.no_prior_on_record)) return false;
     if (changesUI.direction === 'down' && !(c.direction === 'down' && !c.no_prior_on_record)) return false;
     if (changesUI.industry !== 'all' && industryOf(c) !== changesUI.industry) return false;
@@ -261,6 +275,43 @@ function filteredChanges() {
 // ever offer values that exist in the data).
 const distinctIndustries = () => [...new Set(state.changes.map(industryOf).filter(Boolean))].sort();
 const distinctTypes = () => [...new Set(state.changes.map((c) => c.event_type).filter(Boolean))].sort();
+// Available weeks, newest first, as { key, label }.
+function distinctWeeks() {
+  const seen = new Map();
+  for (const c of state.changes) {
+    const w = weekOf(c.new_date || c.detected_at);
+    if (w && !seen.has(w.key)) seen.set(w.key, w.label);
+  }
+  return [...seen.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1)).map(([key, label]) => ({ key, label }));
+}
+
+// Map a change row -> a flat, fully-resolved row for the Excel/CSV export.
+function toExportRow(c) {
+  const e = enrichOf(c.scrip_cd) || {};
+  const real = !c.no_prior_on_record;
+  const plain = (n) => (n == null ? '—' : `₹${Number(n).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`);
+  let summary;
+  if (c.reason) summary = c.reason;
+  else if (real) summary = `${c.direction === 'up' ? 'Raised' : 'Cut'} ${c.fiscal_year || ''} capex from ${plain(c.old_cr)} to ${plain(c.new_cr)} Cr`.replace(/\s+/g, ' ').trim();
+  else summary = `First ${c.fiscal_year || ''} capex reading: ${plain(c.new_cr)} Cr`.replace(/\s+/g, ' ').trim();
+  return {
+    company: c.company || '',
+    scrip_cd: c.scrip_cd ?? '',
+    date: c.new_date || null,
+    week: c.week || weekOf(c.new_date || c.detected_at)?.label || '',
+    event_type: c.event_type || '',
+    summary,
+    capex_cr: c.new_cr ?? null,
+    old_new: real ? `${plain(c.old_cr)} → ${plain(c.new_cr)}` : (c.new_cr != null ? `— → ${plain(c.new_cr)}` : '—'),
+    pct: (c.pct_change == null ? null : c.pct_change / 100), // fraction; Excel % format renders it
+    direction: real ? (c.direction || '') : 'first reading',
+    market_cap_cr: e.market_cap_cr ?? null,
+    pe: e.pe ?? null,
+    industry: e.industry || '',
+    source: c.new_pdf || '',
+    is_change: real,
+  };
+}
 
 function renderChanges() {
   const el = document.getElementById('panel-changes');
@@ -280,8 +331,11 @@ function renderChanges() {
     h('span', { style: 'font-size:11px;font-weight:600;color:var(--muted)' }, label),
     h('select', { class: 'select', id }, ...opts.map((o) => h('option', { value: o.v, selected: o.sel }, o.t))));
 
+  const weeks = distinctWeeks();
   const controls = h('div', { class: 'card', style: 'padding:16px 18px' },
     h('div', { class: 'flex flex-wrap items-end gap-3' },
+      weeks.length ? sel('Week', 'f-week', [
+        { v: 'all', t: 'All time', sel: true }, ...weeks.map((w) => ({ v: w.key, t: w.label }))]) : null,
       sel('Time window', 'f-window', [
         { v: '1', t: 'Today' }, { v: '7', t: 'Last 7 days' },
         { v: '30', t: 'Last 30 days', sel: true }, { v: '90', t: 'Last 90 days' }, { v: 'all', t: 'All time' }]),
@@ -307,6 +361,8 @@ function renderChanges() {
   controls.querySelector('#f-dir').value = changesUI.direction;
   controls.querySelector('#f-window').addEventListener('change', (e) => { changesUI.window = e.target.value === 'all' ? Infinity : Number(e.target.value); drawFeed(); });
   controls.querySelector('#f-dir').addEventListener('change', (e) => { changesUI.direction = e.target.value; drawFeed(); });
+  const weekSel = controls.querySelector('#f-week');
+  if (weekSel) { weekSel.value = changesUI.week; weekSel.addEventListener('change', (e) => { changesUI.week = e.target.value; drawFeed(); }); }
   const typeSel = controls.querySelector('#f-type');
   if (typeSel) { typeSel.value = changesUI.type; typeSel.addEventListener('change', (e) => { changesUI.type = e.target.value; drawFeed(); }); }
   const indSel = controls.querySelector('#f-industry');
@@ -604,6 +660,25 @@ async function boot() {
   document.getElementById('tabs').addEventListener('click', (e) => {
     const b = e.target.closest('.tab'); if (b) activate(b.dataset.tab);
   });
+
+  // Download Excel — exports the CURRENTLY FILTERED changes (so pick a week →
+  // download gives exactly that week). Falls back to CSV if ExcelJS is missing.
+  const dlBtn = document.getElementById('downloadBtn');
+  if (dlBtn) dlBtn.addEventListener('click', async () => {
+    const rows = filteredChanges().map(toExportRow);
+    if (!rows.length) { toast('No changes match the current filters to export.'); return; }
+    dlBtn.disabled = true; dlBtn.style.opacity = '.6';
+    try {
+      const res = await downloadExcel(rows);
+      toast(res && res.format === 'csv'
+        ? `Excel wasn’t available — downloaded ${rows.length} row${rows.length === 1 ? '' : 's'} as CSV.`
+        : `Downloaded ${rows.length} row${rows.length === 1 ? '' : 's'} to Excel.`);
+    } catch (err) {
+      toast('Sorry — the export failed. Please try again.');
+      console.error(err);
+    } finally { dlBtn.disabled = false; dlBtn.style.opacity = ''; }
+  });
+
   activate('overview');
   icons();
 }

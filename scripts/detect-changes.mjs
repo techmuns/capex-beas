@@ -19,7 +19,7 @@
 //
 // CLI:  node scripts/detect-changes.mjs   # rebuild capex-changes.json from history
 
-import { FILES, readJSON, writeJSON, nowISO, deriveEventType, log } from './lib/util.mjs';
+import { FILES, readJSON, writeJSON, nowISO, deriveEventType, weekOf, log } from './lib/util.mjs';
 
 const DEFAULT_THRESHOLD_PCT = Number(process.env.CAPEX_CHANGE_PCT || 2);
 
@@ -63,8 +63,10 @@ export function markProcessed(processed, newsId, meta = {}) {
 
 /** Build the history observation object for one extracted capex item. */
 export function makeObservation(item, candidate, filing) {
+  const date = candidate.news_dt || nowISO();
   return {
-    date: candidate.news_dt || nowISO(),
+    date,
+    week: weekOf(date)?.label || null, // Mon–Sun week label (Phase 4.1)
     news_id: candidate.news_id,
     company: candidate.company,
     scrip_cd: candidate.scrip_cd,
@@ -159,6 +161,7 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
             direction: cur.direction || 'unclear', reason: cur.reason,
             old_quote: null, new_quote: cur.quote, old_pdf: null, new_pdf: cur.source_pdf,
             old_date: null, new_date: cur.date, old_news_id: null, new_news_id: cur.news_id,
+            week: weekOf(cur.date)?.label || null,
             no_prior_on_record: true,
           }, prevByKey));
           continue;
@@ -178,6 +181,7 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
           old_pdf: prev.source_pdf, new_pdf: cur.source_pdf,
           old_date: prev.date, new_date: cur.date,
           old_news_id: prev.news_id, new_news_id: cur.news_id,
+          week: weekOf(cur.date)?.label || null,
           no_prior_on_record: false,
         }, prevByKey));
       }

@@ -23,9 +23,13 @@ the files stay empty and the UI shows an honest empty state.
   guessed, and never blocking the source-backed capex pipeline.
 - **Colorful dashboard** (`public/index.html` + `public/js/*`) — static, CDN-only (Tailwind,
   ECharts 5, Lucide). Tabs: **Overview** (biggest movers + up/down donut), **Changes** (the hero
-  feed with filters incl. **Type** & **Industry**, cards/table with Industry/Type chips + approx
-  Mkt Cap/P·E, verbatim quotes + filing links), and **By Company** (Industry/Mkt Cap/P·E header +
-  a step chart of capex over time). Honest empty state until real data lands.
+  feed with filters incl. **Week**, **Type** & **Industry**, cards/table with Industry/Type chips +
+  approx Mkt Cap/P·E, verbatim quotes + filing links), and **By Company** (Industry/Mkt Cap/P·E
+  header + a step chart of capex over time). Honest empty state until real data lands.
+- **Download Excel** — a top-bar button exports the currently-filtered changes (pick a week →
+  download exactly that week) as a polished, client-ready `.xlsx` built client-side with ExcelJS
+  (title band, frozen/auto-filtered header, colour-coded types, per-row "Open filing" hyperlinks,
+  a second "Guidance Changes" sheet); falls back to CSV if the ExcelJS CDN can't load.
 - **Email Brief (self-serve)** — a **"Brief"** button opens a slide-in to subscribe (weekday/daily,
   time in IST, All/Increases/Decreases; double opt-in) or "email me this now". A **Munshot
   newspaper**-style HTML digest is sent by **Cloudflare Pages Functions** + a KV namespace, poked
@@ -52,7 +56,7 @@ run.mjs → fetch-announcements → pdf-text → extract-capex (LLM) → detect-
 npm install pdfjs-dist --no-save
 # Prove the no-key parts on real filings (no LLM, writes nothing):
 node scripts/run.mjs --prove=2 --from=20260810 --to=20260812
-npm test                                            # 71 logic unit tests
+npm test                                            # 78 logic tests + Excel smoke test
 
 # Preview the dashboard locally (?demo=1 shows a git-ignored sample layout):
 python3 -m http.server 8123 --directory public      # http://localhost:8123/

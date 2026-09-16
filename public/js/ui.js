@@ -57,6 +57,30 @@ export const fmtDate = (iso) => {
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+// Week concept (Phase 4.1) — mirrors scripts/lib/util.mjs weekOf(): a Mon–Sun
+// label like "7–13 Sep 2026", derived deterministically from the UTC calendar
+// date. `key` is the Monday as YYYYMMDD (sortable). Returns null on a bad date.
+export const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const _pad2 = (n) => String(n).padStart(2, '0');
+const _ymd = (d) => `${d.getUTCFullYear()}${_pad2(d.getUTCMonth() + 1)}${_pad2(d.getUTCDate())}`;
+export function weekOf(input) {
+  const s = String(input ?? '');
+  let d;
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  else { const t = new Date(s); if (Number.isNaN(t.getTime())) return null; d = new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate())); }
+  const diffToMon = (d.getUTCDay() + 6) % 7;
+  const mon = new Date(d); mon.setUTCDate(d.getUTCDate() - diffToMon);
+  const sun = new Date(mon); sun.setUTCDate(mon.getUTCDate() + 6);
+  const dM = mon.getUTCDate(), dS = sun.getUTCDate();
+  const moM = MONTHS_SHORT[mon.getUTCMonth()], moS = MONTHS_SHORT[sun.getUTCMonth()];
+  const yM = mon.getUTCFullYear(), yS = sun.getUTCFullYear();
+  const label = (yM === yS && mon.getUTCMonth() === sun.getUTCMonth()) ? `${dM}–${dS} ${moM} ${yM}`
+    : (yM === yS) ? `${dM} ${moM} – ${dS} ${moS} ${yM}`
+      : `${dM} ${moM} ${yM} – ${dS} ${moS} ${yS}`;
+  return { key: _ymd(mon), label, startISO: mon.toISOString(), endISO: sun.toISOString() };
+}
+
 export const debounce = (fn, ms = 150) => {
   let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
 };
