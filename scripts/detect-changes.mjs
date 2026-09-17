@@ -19,7 +19,7 @@
 //
 // CLI:  node scripts/detect-changes.mjs   # rebuild capex-changes.json from history
 
-import { FILES, readJSON, writeJSON, nowISO, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR, log } from './lib/util.mjs';
+import { FILES, readJSON, writeJSON, nowISO, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR, figureClass, isChangeEligible, log } from './lib/util.mjs';
 
 const DEFAULT_THRESHOLD_PCT = Number(process.env.CAPEX_CHANGE_PCT || 2);
 
@@ -86,6 +86,10 @@ export function makeObservation(item, candidate, filing) {
     amount_cr_low: item.amount_cr_low,
     amount_cr_high: item.amount_cr_high,
     comparable: item.comparable,
+    // Accuracy guard (Part A/B): what the number measures + whether it is the
+    // company total. Only capex + company_total ever feeds change detection.
+    metric: item.metric || null,
+    scope: item.scope || null,
     // Single-filing revision (this one filing stated an explicit old→new move).
     is_revision: item.is_revision || false,
     old_cr: item.old_cr ?? null,
@@ -153,7 +157,12 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
     const guidance = history[scrip]
       // Only comparable, plausible guidance figures participate (the plausibility
       // guard also self-heals any absurd figure that predates the data-quality fix).
-      .filter((o) => o.type === 'guidance' && o.fiscal_year && o.amount_cr != null && isPlausibleCapexCr(o.amount_cr))
+      // Accuracy guard (Part B): only genuine COMPANY-TOTAL capex — never a
+      // percentage, wrong-unit, revenue, or segment/sub-line figure — is ever
+      // compared. isChangeEligible reads stored metric/scope, or derives them
+      // deterministically from the quote for pre-existing observations.
+      .filter((o) => o.type === 'guidance' && o.fiscal_year && o.amount_cr != null &&
+        isPlausibleCapexCr(o.amount_cr) && isChangeEligible(figureClass(o)))
       .sort((a, b) => new Date(a.date) - new Date(b.date));
 
     // Group by fiscal year — a change is only meaningful within the same target year.
@@ -210,6 +219,10 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
         // (2) Cross-filing change: this figure differs from the most-recent prior
         // guidance figure for the same (company, FY) by more than the threshold.
         const prev = series[i - 1];
+        // Two figures from the SAME filing are the same statement restated (e.g. a
+        // con-call giving "₹200–240 cr" and "₹220–240 cr"), NOT a change over time.
+        // A genuine within-one-filing old→new is handled as a single-filing revision.
+        if (prev.news_id && cur.news_id && prev.news_id === cur.news_id) continue;
         const pct = ((cur.amount_cr - prev.amount_cr) / prev.amount_cr) * 100;
         if (Math.abs(pct) <= thresholdPct) continue; // within rounding noise — not a change
         const dir = cur.amount_cr > prev.amount_cr ? 'up' : 'down';
@@ -268,6 +281,25 @@ export function pruneImplausible(history) {
   return { history, removed };
 }
 
+/**
+ * Accuracy prune (Part C): remove stored observations that are NOT genuine capex
+ * — percentages, revenue/margin lines, wrong-unit (msf/MW/tonnes) figures, and
+ * bare table fragments that were mis-captured as capex. Real capex (company-total
+ * OR a labelled segment) is kept; acquisitions are kept as context. This cleans
+ * data captured before the classifier existed. Returns { history, removed }.
+ */
+export function pruneNonCapex(history) {
+  let removed = 0;
+  for (const scrip of Object.keys(history)) {
+    const before = history[scrip].length;
+    history[scrip] = history[scrip].filter((o) =>
+      o.type === 'acquisition' || figureClass(o).metric === 'capex');
+    removed += before - history[scrip].length;
+    if (!history[scrip].length) delete history[scrip];
+  }
+  return { history, removed };
+}
+
 function finalize(change, prevByKey) {
   const key = changeKey(change);
   const prev = prevByKey.get(key);
@@ -303,6 +335,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   const { removed } = pruneImplausible(state.history);
   if (removed) log(`pruned ${removed} implausible observation(s) (> ₹${CAPEX_MAX_CR.toLocaleString('en-IN')} cr)`);
+
+  const { removed: removedNonCapex } = pruneNonCapex(state.history);
+  if (removedNonCapex) log(`pruned ${removedNonCapex} non-capex observation(s) (%, wrong-unit, revenue, segment/table junk)`);
 
   const changes = recomputeChanges(state.history, state.changes);
   const real = changes.filter((c) => !c.no_prior_on_record).length;

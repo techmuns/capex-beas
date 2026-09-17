@@ -7,8 +7,8 @@
 // Run:  npm test   (or: node scripts/test/logic-test.mjs)
 
 import { _internals } from '../extract-capex.mjs';
-import { recomputeChanges, makeObservation, addObservationToHistory, pruneImplausible } from '../detect-changes.mjs';
-import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR } from '../lib/util.mjs';
+import { recomputeChanges, makeObservation, addObservationToHistory, pruneImplausible, pruneNonCapex } from '../detect-changes.mjs';
+import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR, classifyCapexFigure, isChangeEligible, figureClass } from '../lib/util.mjs';
 import { parseScreenerHtml, needsEnrichment } from '../enrich.mjs';
 
 const { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, isAcquisition } = _internals;
@@ -292,6 +292,68 @@ async function singleFilingRevisionTests() {
   global.fetch = realFetch;
 }
 await singleFilingRevisionTests();
+
+// --- ACCURACY FIX: capex figure classifier (real committed quotes) ---------
+// Only genuine company-level capex in ₹crore is change-eligible. Fixtures use
+// the ACTUAL verbatim quotes from the committed data that produced wrong changes.
+const cls = (quote, amountText) => classifyCapexFigure({ quote, amountText });
+const elig = (quote, amountText) => isChangeEligible(cls(quote, amountText));
+
+// KEEP — genuine company-total capex
+eq('classify ASK -> capex/company_total',
+  cls('We had given guidance about around Rs. 450 crore to Rs. 500 crore, but the way we are going and receiving the orders, as I today revised the guidance to high-teens, I think our capex may go to something like Rs. 700 crore this year.', 'Rs. 700 crore'),
+  { metric: 'capex', scope: 'company_total' });
+eq('classify Yasho -> capex/company_total',
+  cls('Accordingly, we have decided to enhance our planned capital expenditure for FY27 from Rs. 125 crores to Rs. 250 crores.', 'Rs. 250 crores'),
+  { metric: 'capex', scope: 'company_total' });
+ok('eligible CMR Green greenfield capex', elig('~₹ 200 Cr FY27 capex guidance – greenfield and brownfield expansion', '₹ 200 Cr'));
+ok('eligible Blue Dart annualized capex', elig('So the capex - - the annualized capex may remain to the tune of INR100 crores', 'INR100 crores'));
+
+// DROP — percentages
+ok('drop Jain EBITDA margin %', !elig('reiterate our EBITDA margin guidance of around 14% on a standalone basis and 12.5%', '14%'));
+ok('drop M&B revenue growth %', !elig('we remain confident of delivering revenue growth of over 25% in FY27', '25%'));
+ok('drop Talbros revenue growth 18-20%', !elig('We expect the group revenue growth of 18-20% YoY while maintaining our EBITDA margins.', '20%'));
+// DROP — wrong units
+eq('classify Horizon msf -> capacity', cls('On track to achieve over 6.5 msf leasing and 6 msf development in FY27', '6').metric, 'capacity');
+eq('classify JSW GW -> capacity', cls('The Company remains on track to deliver its 3 GW greenfield capacity addition target for FY2027.', '3').metric, 'capacity');
+ok('drop Hindustan Oil barrels', !elig('Our target is to by 2027, we want to get to 10,000 to 11,000 barrels', '11,000'));
+// DROP — revenue
+eq('classify Sky Gold revenue', cls('FY27 Revenue projected at ~8,100 crore', '8,100').metric, 'revenue');
+// DROP — bare table cell (no ₹ adjacent)
+ok('drop Talbros gasket table cell', !elig('Gasket & Heat Shields 17 33 To be funded by Internal Accruals & some borrowings', '17'));
+// DROP — segment / sub-line capex (real capex, but not company total)
+eq('classify J.Kumar maintenance -> capex/segment',
+  cls('INR100 crores maintenance capex will be there.', 'INR100 crores'), { metric: 'capex', scope: 'segment' });
+ok('drop VRL on-the-properties sub-line', !elig('So, on the properties, we may invest around Rs. 150 crores – Rs. 160 crores.', 'Rs. 150 crores'));
+// DROP — vague "investment" with no capex word / concrete asset
+ok('drop Vijaya hub-centre investment (no capex cue)', !elig("we intend to acquire land for setting up another hub centre for future expansion plans with an estimated investment of INR8 crores", 'INR8 crores'));
+
+// figureClass prefers stored metric/scope, else derives from the quote
+eq('figureClass uses stored fields', figureClass({ metric: 'capex', scope: 'company_total' }), { metric: 'capex', scope: 'company_total' });
+
+// Detection: two figures from the SAME filing are one statement, never a change.
+const rid = 'sameNews1';
+const vobs = (amount_cr, quote) => ({
+  date: '2026-08-10T10:00:00', news_id: rid, company: 'VRL Logistics Ltd', scrip_cd: 539118,
+  fiscal_year: 'FY27', type: 'guidance', amount_cr, direction: 'unclear', reason: null,
+  quote, source_pdf: 'http://pdf/vrl', metric: 'capex', scope: 'company_total',
+});
+const vhist = { '539118': [
+  vobs(220, 'the CAPEX will be around Rs. 220 crores – Rs. 240 crores in a full year basis'),
+  vobs(200, 'about the CAPEX, around Rs. 200 crores – Rs. 240 crores every year'),
+] };
+eq('same-filing figures never make a cross-filing change',
+  recomputeChanges(vhist, [], 2).filter((c) => !c.no_prior_on_record).length, 0);
+
+// pruneNonCapex removes non-capex observations, keeps real capex.
+const phist = { '1': [
+  { type: 'guidance', amount_cr: 200, amount_text: '₹200 crore', quote: 'FY27 capex guidance of ₹200 crore for a new plant' },
+  { type: 'guidance', amount_cr: 14, amount_text: '14%', quote: 'EBITDA margin guidance of around 14%' },
+  { type: 'acquisition', amount_cr: 500, amount_text: 'Rs 500 crore', quote: 'to acquire ABC Ltd for Rs 500 crore' },
+] };
+const pr2 = pruneNonCapex(phist);
+eq('pruneNonCapex removed the % row', pr2.removed, 1);
+ok('pruneNonCapex kept capex + acquisition', phist['1'].length === 2 && phist['1'].every((o) => o.amount_cr !== 14));
 
 // --- Phase 4B: Screener enrichment parse (mocked HTML) ---------------------
 const screenerHtml = `<html><head></head><body>

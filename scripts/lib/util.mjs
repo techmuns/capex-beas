@@ -277,6 +277,92 @@ export function deriveEventType({ type, direction, segment_or_project, quote, he
 }
 
 // ---------------------------------------------------------------------------
+// Capex figure classifier (accuracy guard). Deterministically decides, from an
+// observation's verbatim quote + amount text, WHAT a number really is:
+//   metric: "capex" | "revenue" | "margin" | "capacity" | "other"
+//   scope:  "company_total" | "segment" | "unclear"
+// ONLY metric="capex" AND scope="company_total" may feed change detection. This
+// stops percentages (revenue growth %, EBITDA margin %), different units (msf,
+// MW, tonnes, barrels), segment / sub-line breakdowns, and bare table fragments
+// from ever being compared as if they were company-level capex.
+//
+// It is NUMBER-ANCHORED: each disqualifier is checked in the immediate
+// neighbourhood of the figure, so a capex sentence that merely also mentions a
+// growth % elsewhere (e.g. "…revised to high-teens… capex may go to ₹700 crore")
+// is still recognised as capex.
+// ---------------------------------------------------------------------------
+const CAPEX_CUE = /\bcapex\b|capital expenditure|capital outlay|capital investment|capital spend/i;
+const CAPEX_VERB = /\b(invest|investing|invested|investment|spend|spending|deploy|deploying|outlay|commission|commissioning|set up|setting up|put up|putting up)\b/i;
+// Concrete productive assets only — a bare "expansion"/"growth"/"investment"
+// without one of these is too vague to count as capex.
+const CAPEX_OBJECT = /\b(plant|facilit\w*|capacity|new line|production line|assembly line|machiner\w*|equipment|greenfield|brownfield|debottleneck\w*)\b/i;
+const NONCAPEX_DESC = /\b(revenue|ebitda|margin|top-?line|topline|yoy|year-on-year|profit|\bpat\b|order\s?book|turnover)\b/i;
+const WRONG_UNIT = /\b(msf|mn\s?sq|sq\.?\s?ft|sqft|mw|gw|kw|units?|tonnes?|mtpa|tpa|acres?|barrels?|bpd|boepd|rooms?|beds?|stores?|outlets?|seats?)\b/i;
+const MONEY_NEAR = /(₹|rs\.?|inr|crore|crores|\bcr\b|cr\.)/i;
+// Segment / sub-line markers — a figure so scoped is NOT the company total.
+const SUBLINE = /\bon the propert|maintenance capex|routine capex|\bsegment\b|\bdivision\b|sub-?category|product[- ]line|business vertical|per (?:unit|store|outlet|segment)/i;
+
+export const CAPEX_METRICS = ['capex', 'revenue', 'margin', 'capacity', 'other'];
+export const CAPEX_SCOPES = ['company_total', 'segment', 'unclear'];
+
+/**
+ * Classify a figure as {metric, scope} from its verbatim quote + amount text.
+ * Pure and deterministic (no LLM). Used both at extraction time and as a
+ * backward-compatible guard over already-stored observations.
+ */
+export function classifyCapexFigure({ quote, amountText } = {}) {
+  const qStrip = String(quote || '').replace(/(\d),(?=\d)/g, '$1');
+  const qsl = qStrip.toLowerCase();
+  const toks = numericTokens(amountText).length ? numericTokens(amountText) : numericTokens(qStrip);
+
+  let anyMoneyCapexNum = false, anyPct = false, anyUnit = false, anyRevNum = false;
+  for (const tok of toks) {
+    const idx = qsl.indexOf(tok.toLowerCase());
+    if (idx < 0) continue;
+    const end = idx + tok.length;
+    const before = qsl.slice(Math.max(0, idx - 24), idx);
+    const after = qsl.slice(end, end + 20);
+    const near = qsl.slice(Math.max(0, idx - 24), end + 20);
+    const pct = /^\s*(%|percent|per cent)/.test(after);
+    const unit = WRONG_UNIT.test(after);
+    const money = /(₹|rs\.?|inr)\s*$/.test(before) || /^\s*(crore|crores|cr\b|cr\.)/.test(after) || MONEY_NEAR.test(near);
+    const rev = NONCAPEX_DESC.test(near);
+    if (pct) anyPct = true;
+    if (unit) anyUnit = true;
+    if (rev && !money) anyRevNum = true;
+    if (money && !pct && !unit && !rev) anyMoneyCapexNum = true;
+  }
+
+  const cue = CAPEX_CUE.test(qsl) || (CAPEX_VERB.test(qsl) && CAPEX_OBJECT.test(qsl));
+
+  let metric;
+  if (anyPct) metric = 'margin';
+  else if (anyRevNum || (NONCAPEX_DESC.test(qsl) && !anyMoneyCapexNum && !cue)) metric = 'revenue';
+  else if (anyUnit && !anyMoneyCapexNum) metric = 'capacity';
+  else if (cue && anyMoneyCapexNum) metric = 'capex';
+  else metric = 'other';
+
+  let scope = 'unclear';
+  if (metric === 'capex') scope = SUBLINE.test(qsl) ? 'segment' : 'company_total';
+  return { metric, scope };
+}
+
+/** True only for company-level capex — the only thing change detection may compare. */
+export function isChangeEligible({ metric, scope } = {}) {
+  return metric === 'capex' && scope === 'company_total';
+}
+
+/**
+ * Resolve an observation's {metric, scope}: trust stored fields when present,
+ * else classify deterministically from its quote (backward-compatible with data
+ * captured before these fields existed).
+ */
+export function figureClass(o = {}) {
+  if (o.metric && o.scope) return { metric: o.metric, scope: o.scope };
+  return classifyCapexFigure({ quote: o.quote, amountText: o.amount_text });
+}
+
+// ---------------------------------------------------------------------------
 // Defensive JSON extractor for LLM output. Handles code fences, leading prose,
 // and trailing junk by balancing brackets while respecting string literals.
 // ---------------------------------------------------------------------------
