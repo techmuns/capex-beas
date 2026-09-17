@@ -21,6 +21,8 @@ const HIGH_SIGNAL_SUBCAT_HINTS = [
   'investor meet',
   'con call', 'concall', 'con. call', 'conference call', 'earnings call', 'earnings',
   'press release', 'media release',
+  // Push C (recall): order-win / press subcats often carry project & M&A news.
+  'award of order', 'order win',
 ];
 
 // Opt-in broad mode (CAPEX_BROAD=1): also keep every Result / Board Meeting filing
@@ -42,6 +44,19 @@ const CAPEX_KEYWORDS = [
   // anything that isn't really capex, so extra recall here only costs tokens.
   'revis', 'raise', 'raised', 'step up', 'step-up', 'outlay', 'guidance',
   'increase', 'increased',
+  // Push C (recall): multi-word project/capex phrases only — deliberately NOT bare
+  // "plant"/"investment", to widen recall without ballooning the candidate set.
+  'new facility', 'new project', 'commercial production', 'commissioned',
+  'debottleneck', 'investment outlay', 'project cost', 'setting up a',
+  'manufacturing module', 'phase 1', 'phase-i',
+];
+// M&A signal words. A hit KEEPS the filing so it reaches extraction; genuine
+// acquisitions route to the M&A bucket via isGenuineAcquisition and are NEVER
+// counted as organic capex changes. Broad on purpose (M&A is a separate bucket).
+const MNA_KEYWORDS = [
+  'acquire', 'acquires', 'acquired', 'acquisition', 'stake', 'merger',
+  'amalgamation', 'takeover', 'buyout', 'slump sale',
+  'definitive agreement', 'binding agreement',
 ];
 // " mw" is matched separately so it doesn't fire inside words like "mwh review".
 const MW_RE = /\b\d[\d,.]*\s?mw\b/i;
@@ -55,6 +70,10 @@ function matchReasons(rec) {
   const kw = CAPEX_KEYWORDS.filter((k) => hay.includes(k));
   if (kw.length) reasons.push(`keyword:${kw.slice(0, 3).join('|')}`);
   if (MW_RE.test(rec.HEADLINE || '') || MW_RE.test(rec.NEWSSUB || '')) reasons.push('keyword:MW');
+
+  // M&A signals — kept for the M&A bucket (never counted as organic capex).
+  const mna = MNA_KEYWORDS.filter((k) => hay.includes(k));
+  if (mna.length) reasons.push(`mna:${mna.slice(0, 3).join('|')}`);
 
   if (HIGH_SIGNAL_SUBCAT_HINTS.some((h) => sub.includes(h))) reasons.push(`subcat:${rec.SUBCATNAME}`);
   if (rec.Investor_Presentation) reasons.push('flag:investor_presentation');
