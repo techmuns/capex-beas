@@ -13,7 +13,7 @@
 
 import { callLLM, extractJSON } from './llm.mjs';
 import { getFilingText } from './pdf-text.mjs';
-import { normText, numericTokens, toCrore, deriveEventType, log, parseArgs } from './lib/util.mjs';
+import { normText, numericTokens, toCrore, deriveEventType, isPlausibleCapexCr, log, parseArgs } from './lib/util.mjs';
 
 // "acquisition" is recorded (so M&A capital still shows up as context) but is
 // NEVER treated as capex guidance — detect-changes only ever moves on "guidance".
@@ -39,21 +39,26 @@ If a capital figure is an ACQUISITION / M&A / stake purchase, STILL report it bu
 Return ONLY a JSON array (no prose, no markdown fences). Each element describes ONE capital figure that is EXPLICITLY stated in the text:
 {
   "fiscal_year": "FY27" | "H1FY27" | null,     // period the figure applies to; FY27 = Apr 2026-Mar 2027. null if not stated.
-  "amount_text": "string",                       // the figure EXACTLY as written, e.g. "₹700 crore", "Rs. 1,200 cr", "$50 million"
+  "amount_text": "string",                       // the figure EXACTLY as written, e.g. "₹700 crore", "Rs. 1,200 cr", "$50 million". For a REVISION, this is the NEW (current) figure.
   "amount_cr": number,                           // that figure normalized to Rupees crore (1 bn = 100 cr; 100 lakh = 1 cr; 10 mn = 1 cr)
   "amount_cr_low": number,                        // for a range, the low end (else = amount_cr)
   "amount_cr_high": number,                       // for a range, the high end (else = amount_cr)
   "type": "guidance" | "actual" | "plan" | "cumulative" | "acquisition",  // guidance=forward organic-capex target for a year; actual=organic capex already incurred; plan=organic-capex intention w/o firm year; cumulative=multi-year organic-capex total; acquisition=M&A / stake / JV capital (NOT organic capex)
   "segment_or_project": "string" | null,          // segment/project it is for, else null
   "direction": "up" | "down" | "flat" | "unclear",// how the filing frames it vs before
+  "is_revision": true | false,                    // TRUE only if THIS filing states BOTH a previous/old AND a new/revised figure for the SAME capex metric & period
+  "old_amount_text": "string" | null,             // when is_revision: the PREVIOUS/OLD figure EXACTLY as written (e.g. "₹500 crore"); else null
+  "new_amount_text": "string" | null,             // when is_revision: the NEW/REVISED figure EXACTLY as written (e.g. "₹700 crore"); else null. MUST equal amount_text.
   "reason": "string" | null,                      // management's stated reason IN THEIR OWN WORDS copied from the text; null if none stated. NEVER infer.
-  "verbatim_quote": "string"                       // the EXACT sentence/clause from the text that contains the figure
+  "verbatim_quote": "string"                       // the EXACT sentence/clause from the text that contains the figure(s). For a REVISION it MUST contain BOTH the old and new numbers.
 }
+
+Revisions (IMPORTANT): if management, in THIS ONE filing, states that a capex figure was CHANGED — e.g. "raised/revised/increased/cut its FY27 capex guidance from ₹500 crore to ₹700 crore", or "earlier guidance of ₹500 crore, now ₹700 crore" — set "is_revision": true, put the OLD figure in "old_amount_text", the NEW figure in "new_amount_text" AND in "amount_text", and set "direction" to "up" (raised) or "down" (cut). The "verbatim_quote" MUST contain BOTH numbers, copied character-for-character. If only ONE figure is stated (no explicit previous figure in the text), set "is_revision": false and leave old_amount_text/new_amount_text null.
 
 Hard rules:
 - Only CAPITAL figures: organic capex (guidance/actual/plan/cumulative) OR an acquisition/M&A figure (type "acquisition"). Ignore revenue, PAT, EBITDA, dividends, debt, market cap, order book, buyback, etc.
-- "verbatim_quote" MUST be copied character-for-character from the provided text, including the number. If you cannot quote it verbatim, DO NOT include that item — it will be automatically rejected.
-- Do NOT invent, round, or estimate any number. Do NOT infer a reason that is not written.
+- "verbatim_quote" MUST be copied character-for-character from the provided text, including the number(s). If you cannot quote it verbatim, DO NOT include that item — it will be automatically rejected.
+- Do NOT invent, round, or estimate any number. Do NOT infer a reason that is not written. Do NOT invent an "old" figure — only set is_revision when the previous figure is EXPLICITLY written in the text.
 - If the text contains no capital figure, return exactly [].`;
 
 /** Build a focused excerpt: the head + windows around capex mentions. */
@@ -140,6 +145,10 @@ function normalizeAmount(amountText) {
     const lc = toCrore(low, unit);
     const hc = toCrore(high, unit);
     if (lc == null || hc == null) return null;
+    // Data-quality guard: reject absurd figures (e.g. "₹12,00,000 crore" = ₹12
+    // trillion, or a raw-rupee amount mis-read as crores). Never let a fabricated
+    // giant number survive into the data or fire a bogus change.
+    if (!isPlausibleCapexCr(lc) || !isPlausibleCapexCr(hc)) return null;
     return { currency, low: lc, high: hc, midpoint: (lc + hc) / 2, comparable: true };
   }
   // Foreign currency: we have no FX rate on hand — keep the item but do not guess a ₹ value.
@@ -170,7 +179,7 @@ function quoteInSource(quote, sourceText) {
  * @returns {Promise<{items:object[], provider:string|null, model:string|null, dropped:object}>}
  */
 export async function extractCapexFromText(candidate, filingText) {
-  const dropped = { no_quote: 0, digits_mismatch: 0, quote_not_in_source: 0, no_amount: 0, not_capex: 0 };
+  const dropped = { no_quote: 0, digits_mismatch: 0, quote_not_in_source: 0, no_amount: 0, not_capex: 0, revision_gate: 0 };
   const excerpt = focusText(filingText);
 
   const userPrompt =
@@ -239,6 +248,29 @@ export async function extractCapexFromText(candidate, filingText) {
     // Change detection compares on the TOP of a stated range (the high end);
     // for a single value low == high. amount_cr is that comparison figure.
     const topCr = amt.comparable ? round2(amt.high) : null;
+
+    // Single-filing revision: this ONE filing states BOTH an old and a new figure
+    // for the same metric (e.g. "raised FY27 capex from ₹500 cr to ₹700 cr"). We
+    // capture it so detect-changes can emit it directly as a real old→new change,
+    // without needing a second filing. Gate HARD: the old figure must be a
+    // comparable ₹-crore amount AND its digits must literally appear in the quote
+    // (the new figure already passed Gate 1). Else we drop the revision framing
+    // and keep the item as a plain single figure (the new one) — never invent.
+    let is_revision = false, old_cr = null, new_cr = null, old_amount_text = null;
+    if (raw.is_revision === true && amt.comparable) {
+      const oldText = (raw.old_amount_text || '').trim();
+      const oldAmt = normalizeAmount(oldText);
+      if (oldText && oldAmt?.comparable && digitsAppearInQuote(oldText, quote)) {
+        old_amount_text = oldText;
+        old_cr = round2(oldAmt.high);
+        new_cr = topCr;                              // NEW figure = amount_text = amount_cr (top of range)
+        is_revision = true;
+        direction = new_cr > old_cr ? 'up' : new_cr < old_cr ? 'down' : 'flat';
+      } else {
+        dropped.revision_gate++;
+      }
+    }
+
     items.push({
       company: candidate.company,
       scrip_cd: candidate.scrip_cd,
@@ -253,6 +285,11 @@ export async function extractCapexFromText(candidate, filingText) {
       segment_or_project: raw.segment_or_project ? String(raw.segment_or_project).trim() : null,
       direction,
       reason,
+      // Single-filing revision fields (null unless this filing stated an explicit old→new move).
+      is_revision,
+      old_amount_text,
+      old_cr,
+      new_cr,
       verbatim_quote: quote,
     });
   }

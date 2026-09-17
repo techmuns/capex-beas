@@ -42,9 +42,11 @@ URL**. Enforced *in code* after the LLM answers:
 1. an item's amount digits must literally appear in its `verbatim_quote`, else it's dropped;
 2. the `verbatim_quote` must be found (whitespace-normalized) in the source text, else dropped;
 3. `reason` must itself be traceable to the source text, else it's set to `null` (never inferred);
-4. the "old" number in a change is always a **real prior observation** — if there's no real
-   prior, we record the new number with `old_cr: null` and `no_prior_on_record: true`. We never
-   invent a previous figure.
+4. the "old" number in a change is always a **real figure the company stated** — either a real
+   prior observation (from a second filing) OR, for a **single-filing revision**, the previous
+   figure management explicitly wrote in the SAME filing (both the old and new numbers must appear
+   in the `verbatim_quote`). If there's no real prior at all, we record the new number with
+   `old_cr: null` and `no_prior_on_record: true`. We never invent a previous figure.
 5. ₹-crore values are computed **deterministically from the verbatim text** (no LLM math trusted
    for INR figures); foreign-currency figures are kept but left un-converted rather than guessed.
 6. **Capex means organic spend only** (own plant, equipment, capacity — greenfield/brownfield,
@@ -530,6 +532,46 @@ keeping every capex figure source-backed and not breaking the tabs or the email 
   category colour-coding + zebra striping + thin borders, a real "Open filing" **hyperlink** per row,
   and an optional second **"Guidance Changes"** sheet (real ₹old→₹new revisions only). Filename
   `capex_tracker_<from>_<to>.xlsx`. `buildWorkbook()` is pure and unit-tested (`scripts/test/excel-test.mjs`).
+
+## 15. Core fix — single-filing revisions + data-quality guards (this update)
+
+Problem: the change-detector only compared figures **across two filings**, but most real capex
+revisions — including the ASK Automotive **₹500 Cr → ₹700 Cr** story — state the OLD and NEW
+figure **in one filing**. Those never produced an old→new change, so the feed showed 0 real
+changes. This update captures them, adds plausibility guards, and broadens coverage. **The email
+system is untouched** — a single-filing revision carries the same `old_cr/new_cr/direction/new_pdf`
+shape, so the Brief renders it with no code change.
+
+- **Single-filing revision capture (PART 1).** `extract-capex.mjs`'s prompt now asks the model,
+  when a filing states BOTH a previous and a new figure for the same metric/period, to return
+  `is_revision:true` with `old_amount_text` + `new_amount_text` (and keep `amount_text` = the NEW
+  figure). In code we deterministically normalize BOTH to ₹ crore (`old_cr`, `new_cr`) and gate
+  HARD: the old figure must be a comparable ₹-crore amount **and** its digits must literally appear
+  in the `verbatim_quote` (the new figure already passed the digit gate, and the quote is already
+  proven in the source). If the gate fails we **drop the revision framing** and keep the item as a
+  plain single figure — never an invented "old". `detect-changes.mjs` emits such an observation
+  **directly** as a real change (old→new, same filing for both sides, `single_filing:true`),
+  keeps the cross-filing comparison for genuinely separate filings, and de-dupes by change identity
+  so one filing can't produce both. Unit-tested end-to-end with the ASK ₹500→₹700 case (mocked LLM):
+  one real change, +40%, direction up, source PDF on both sides — plus a gate test proving a
+  claimed revision with the old number missing from the quote becomes a baseline, not a change.
+- **Data-quality guards + prune (PART 2).** A plausibility ceiling `CAPEX_MAX_CR` (₹5,00,000 cr,
+  overridable via env) in `lib/util.mjs`; `normalizeAmount` now returns `null` for any INR figure
+  above it, so absurd extractions never enter the data or fire a change. Indian digit grouping
+  (`12,00,000` → `1200000`) is covered by `numericTokens`/`normalizeAmount` and unit-tested,
+  including the Sona BLW case: **`₹12,00,000 crore` (= ₹12 trillion) is rejected**, while
+  `Rs 12,00,000 lakh` correctly resolves to **₹12,000 cr**. `detect-changes.mjs` gained
+  `pruneImplausible(history)` and its CLI (`node scripts/detect-changes.mjs`) now prunes stored
+  absurd figures, recomputes changes, and refreshes `metadata.counts`. Ran once here — **6 absurd
+  stored observations removed** (Sona BLW's ₹12 trillion "guidance", plus five raw-rupee amounts
+  mis-read as crores), 0 remaining.
+- **ASK coverage / prefilter keywords (PART 3).** `fetch-announcements.mjs`'s `CAPEX_KEYWORDS`
+  gained revision-focused signals (`revis`, `raise`, `raised`, `step up`, `outlay`, `guidance`,
+  `increase`, `increased`) so headlines announcing a capex-guidance *change* are no longer missed.
+  Extra recall here only costs LLM tokens — the anti-hallucination gates still drop anything that
+  isn't really capex. Analyst-meet / Investor-Presentation subcats are still kept as before. To
+  process a specific window on demand (e.g. the ASK story), dispatch **daily.yml** with
+  `from`/`to` (YYYYMMDD); if a deck is scanned, set the repo var `VISION_OCR=1` for the run.
 
 ## 14. Phase 5 ideas (next)
 

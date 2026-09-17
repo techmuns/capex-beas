@@ -7,8 +7,8 @@
 // Run:  npm test   (or: node scripts/test/logic-test.mjs)
 
 import { _internals } from '../extract-capex.mjs';
-import { recomputeChanges, makeObservation, addObservationToHistory } from '../detect-changes.mjs';
-import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf } from '../lib/util.mjs';
+import { recomputeChanges, makeObservation, addObservationToHistory, pruneImplausible } from '../detect-changes.mjs';
+import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR } from '../lib/util.mjs';
 import { parseScreenerHtml, needsEnrichment } from '../enrich.mjs';
 
 const { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, isAcquisition } = _internals;
@@ -28,10 +28,36 @@ eq('toCrore 50 million', toCrore(50, 'million'), 5);
 eq('toCrore 2 billion', toCrore(2, 'billion'), 200);
 eq('numericTokens ₹1,200 cr', numericTokens('₹1,200 crore'), ['1200']);
 eq('numericTokens range', numericTokens('450-500'), ['450', '500']);
+// Indian digit grouping (lakh/crore comma style, e.g. 12,00,000 = 1,200,000).
+eq('numericTokens Indian grouping 12,00,000', numericTokens('₹12,00,000 crore'), ['1200000']);
+eq('numericTokens Indian grouping 2,48,00,00,000', numericTokens('Rs. 2,48,00,00,000/-'), ['2480000000']);
 
 eq('normalizeAmount ₹700 crore', normalizeAmount('₹700 crore'), { currency: 'INR', low: 700, high: 700, midpoint: 700, comparable: true });
 eq('normalizeAmount range 450-500 cr (high=500)', normalizeAmount('450-500 crore'), { currency: 'INR', low: 450, high: 500, midpoint: 475, comparable: true });
 eq('normalizeAmount USD not comparable', normalizeAmount('$84 million'), { currency: 'USD', low: null, high: null, midpoint: null, comparable: false });
+
+// --- PART 2: data-quality / plausibility guard ----------------------------
+// Sona BLW's absurd "₹12,00,000 crore" (= ₹12 trillion, 1,200,000 cr) must be
+// REJECTED (null) — never parsed into the data as ₹12,00,000 cr.
+eq('normalizeAmount Sona BLW ₹12,00,000 crore -> null (absurd)', normalizeAmount('₹12,00,000 crore'), null);
+eq('normalizeAmount ₹12 trillion -> null (absurd)', normalizeAmount('₹ 12 trillion'), null);
+// But "Rs 12,00,000 lakh" = 1,200,000 lakh = ₹12,000 crore — plausible, kept.
+eq('normalizeAmount Rs 12,00,000 lakh = ₹12,000 cr', normalizeAmount('Rs 12,00,000 lakh'), { currency: 'INR', low: 12000, high: 12000, midpoint: 12000, comparable: true });
+eq('normalizeAmount right at ceiling kept', normalizeAmount(`₹${CAPEX_MAX_CR} crore`), { currency: 'INR', low: CAPEX_MAX_CR, high: CAPEX_MAX_CR, midpoint: CAPEX_MAX_CR, comparable: true });
+ok('isPlausibleCapexCr: 700 ok', isPlausibleCapexCr(700));
+ok('isPlausibleCapexCr: 1,200,000 rejected', !isPlausibleCapexCr(1200000));
+ok('isPlausibleCapexCr: 0 rejected', !isPlausibleCapexCr(0));
+ok('isPlausibleCapexCr: null rejected', !isPlausibleCapexCr(null));
+
+// pruneImplausible drops stored absurd observations and empties/removes the scrip.
+const pruneHist = {
+  '1': [{ amount_cr: 700, amount_cr_high: 700 }, { amount_cr: 1200000, amount_cr_high: 1200000 }],
+  '2': [{ amount_cr: 5670000000, amount_cr_high: 5670000000 }],
+};
+const pr = pruneImplausible(pruneHist);
+eq('prune removed 2', pr.removed, 2);
+eq('prune kept the plausible one', pruneHist['1'].length, 1);
+ok('prune deleted the all-absurd scrip', !('2' in pruneHist));
 
 // --- FY normalization -----------------------------------------------------
 eq('normFY FY2027', normFY('FY2027'), 'FY27');
@@ -195,6 +221,77 @@ async function acquisitionExtractTests() {
   global.fetch = realFetch;
 }
 await acquisitionExtractTests();
+
+// --- PART 1: single-filing revision (old AND new stated in ONE filing) -----
+// The ASK Automotive story: "raised its FY27 capex guidance from ₹500 crore to
+// ₹700 crore". A SINGLE filing states both figures — the pipeline must emit a
+// REAL old→new change without needing a second filing.
+async function singleFilingRevisionTests() {
+  process.env.BEDROCK_API_KEY = 'test-key';
+  process.env.AWS_REGION = 'us-east-1';
+  process.env.BEDROCK_RETRY_ROUNDS = '1';
+  process.env.BEDROCK_MODEL_IDS = 'modelA';
+  delete process.env.BEDROCK_MODEL;
+  delete process.env.MISTRAL_API_KEY;
+  const { extractCapexFromText } = await import('../extract-capex.mjs');
+
+  const realFetch = global.fetch;
+  const converseOK = (text) => ({ ok: true, status: 200, json: async () => ({ output: { message: { content: [{ text }] } } }), text: async () => '' });
+
+  const src = 'ASK Automotive Ltd has raised its FY27 capex guidance from ₹500 crore to ₹700 crore, citing higher demand for its advanced braking systems.';
+  const modelItem = [{
+    fiscal_year: 'FY27', amount_text: '₹700 crore', amount_cr: 700, amount_cr_low: 700, amount_cr_high: 700,
+    type: 'guidance', segment_or_project: null, direction: 'up',
+    is_revision: true, old_amount_text: '₹500 crore', new_amount_text: '₹700 crore',
+    reason: 'citing higher demand for its advanced braking systems',
+    verbatim_quote: 'raised its FY27 capex guidance from ₹500 crore to ₹700 crore',
+  }];
+  global.fetch = async () => converseOK(JSON.stringify(modelItem));
+
+  const cand = { company: 'ASK Automotive Ltd', scrip_cd: 544022, news_id: 'rev1', news_dt: '2026-08-10T00:00:00', category: 'Company Update', subcat: 'Investor Presentation', headline: 'ASK Automotive raises FY27 capex guidance' };
+  const res = await extractCapexFromText(cand, src);
+  eq('revision: one item extracted', res.items.length, 1);
+  const it = res.items[0];
+  eq('revision: is_revision true', it.is_revision, true);
+  eq('revision: old_cr/new_cr 500/700', [it.old_cr, it.new_cr], [500, 700]);
+  eq('revision: amount_cr = new (700)', it.amount_cr, 700);
+  eq('revision: direction up', it.direction, 'up');
+
+  const hist = {};
+  addObservationToHistory(hist, makeObservation(it, cand, { source_pdf: 'http://pdf/ask-rev1' }));
+  eq('revision observation carries old/new', [hist['544022'][0].old_cr, hist['544022'][0].new_cr], [500, 700]);
+
+  const chgs = recomputeChanges(hist, [], 2);
+  const realChgs = chgs.filter((c) => !c.no_prior_on_record);
+  eq('revision: exactly one real change (no dup baseline)', [chgs.length, realChgs.length], [1, 1]);
+  const c = realChgs[0];
+  eq('revision change 500 -> 700', [c.old_cr, c.new_cr], [500, 700]);
+  eq('revision change pct 40', c.pct_change, 40);
+  eq('revision change direction up', c.direction, 'up');
+  eq('revision change is single_filing', c.single_filing, true);
+  eq('revision change source pdf', [c.old_pdf, c.new_pdf], ['http://pdf/ask-rev1', 'http://pdf/ask-rev1']);
+  eq('revision change event_type Capex ↑', c.event_type, 'Capex ↑');
+
+  // Gate: model CLAIMS a revision but the OLD figure's digits are NOT in the quote
+  // -> revision framing is DROPPED, item kept as a plain single figure (baseline).
+  const badItem = [{
+    fiscal_year: 'FY27', amount_text: '₹700 crore', type: 'guidance', direction: 'up',
+    is_revision: true, old_amount_text: '₹500 crore', new_amount_text: '₹700 crore',
+    reason: null, verbatim_quote: 'FY27 capex guidance of ₹700 crore', // NO 500 here
+  }];
+  global.fetch = async () => converseOK(JSON.stringify(badItem));
+  const src2 = 'The board approved a FY27 capex guidance of ₹700 crore for the year.';
+  const res2 = await extractCapexFromText(cand, src2);
+  eq('revision gate: dropped when old not in quote (is_revision false)', res2.items[0]?.is_revision, false);
+  eq('revision gate: no old_cr fabricated', res2.items[0]?.old_cr, null);
+  const hist2 = {};
+  addObservationToHistory(hist2, makeObservation(res2.items[0], cand, { source_pdf: 'http://pdf/x' }));
+  const chg2 = recomputeChanges(hist2, [], 2);
+  eq('revision gate: becomes a baseline, not a change', [chg2.length, chg2.filter((c) => !c.no_prior_on_record).length], [1, 0]);
+
+  global.fetch = realFetch;
+}
+await singleFilingRevisionTests();
 
 // --- Phase 4B: Screener enrichment parse (mocked HTML) ---------------------
 const screenerHtml = `<html><head></head><body>
