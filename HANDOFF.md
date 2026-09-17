@@ -573,6 +573,42 @@ shape, so the Brief renders it with no code change.
   process a specific window on demand (e.g. the ASK story), dispatch **daily.yml** with
   `from`/`to` (YYYYMMDD); if a deck is scanned, set the repo var `VISION_OCR=1` for the run.
 
+## 16. Accuracy fix — only company-level capex is ever compared (this update)
+
+Problem: the extractor captured ANY number near a fiscal-year mention as capex, so
+**percentages** (revenue growth %, EBITDA margin %), **segment / sub-line splits**,
+**wrong-unit** figures (msf, MW, tonnes, barrels) and **bare table fragments** were
+stored as capex and then compared to each other — producing wrong "changes" (e.g.
+Jain ₹14→₹12.5 was a margin %, VRL ₹220→₹150 compared a total vs a sub-line).
+
+- **A deterministic capex classifier** (`classifyCapexFigure` in `lib/util.mjs`)
+  labels every figure `metric` (capex / revenue / margin / capacity / other) and
+  `scope` (company_total / segment / unclear) from its verbatim quote. It is
+  **number-anchored** — a capex sentence that merely also mentions a growth % elsewhere
+  (e.g. ASK's "…revised to high-teens… capex may go to ₹700 crore") is still capex,
+  while a number directly followed by `%`, sitting next to `msf/MW/tonnes/barrels`, or
+  described by `revenue/EBITDA/margin` is not. A figure counts as capex only with an
+  explicit capex cue (`capex` / `capital expenditure` / `capital outlay` / invest-in-
+  plant/facility/capacity) **and** a ₹ token adjacent to the number. `isChangeEligible`
+  = `metric==='capex' && scope==='company_total'`.
+- **Extraction (`extract-capex.mjs`)** now asks the model for `metric`/`scope`, and a
+  code-side backstop **drops any capex-typed figure that isn't genuine capex** (kept
+  for acquisitions, which remain context). Every stored observation carries `metric`
+  and `scope`.
+- **Detection (`detect-changes.mjs`)** only ever compares change-eligible observations,
+  so a total is never compared to a segment/sub-line, and a percentage never becomes a
+  change. Two figures from the **same filing** (same `news_id`) are one statement, not a
+  change over time (a genuine within-one-filing old→new is the single-filing revision of
+  §15). `figureClass` reads stored `metric`/`scope` or derives them, so the guard also
+  applies to data captured before this fix.
+- **Prune (`pruneNonCapex`)** + the `detect-changes` CLI removed **210 non-capex
+  observations** from the committed history (percentages, units, revenue, table junk),
+  leaving only real capex. The changes feed went from 8 "real" (6 wrong) to **2 correct
+  single-filing revisions (ASK ₹450→₹700, Yasho ₹125→₹250)** plus 7 genuine
+  company-total baselines.
+- **Verified against ground truth** — 19 unit fixtures use the ACTUAL committed quotes;
+  all 6 wrong changes and 5 junk baselines drop, ASK + Yasho stay. 129 tests pass.
+
 ## 14. Phase 5 ideas (next)
 
 - Server-side subcategory filtering to cut backfill cost; a "needs review" queue for

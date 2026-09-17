@@ -13,7 +13,7 @@
 
 import { callLLM, extractJSON } from './llm.mjs';
 import { getFilingText } from './pdf-text.mjs';
-import { normText, numericTokens, toCrore, deriveEventType, isPlausibleCapexCr, log, parseArgs } from './lib/util.mjs';
+import { normText, numericTokens, toCrore, deriveEventType, isPlausibleCapexCr, classifyCapexFigure, log, parseArgs } from './lib/util.mjs';
 
 // "acquisition" is recorded (so M&A capital still shows up as context) but is
 // NEVER treated as capex guidance — detect-changes only ever moves on "guidance".
@@ -44,6 +44,9 @@ Return ONLY a JSON array (no prose, no markdown fences). Each element describes 
   "amount_cr_low": number,                        // for a range, the low end (else = amount_cr)
   "amount_cr_high": number,                       // for a range, the high end (else = amount_cr)
   "type": "guidance" | "actual" | "plan" | "cumulative" | "acquisition",  // guidance=forward organic-capex target for a year; actual=organic capex already incurred; plan=organic-capex intention w/o firm year; cumulative=multi-year organic-capex total; acquisition=M&A / stake / JV capital (NOT organic capex)
+  "metric": "capex" | "revenue" | "margin" | "growth" | "order_book" | "capacity" | "other", // what the number MEASURES. Use "capex" ONLY for capital expenditure in ₹; a % is "margin"/"growth"; sales is "revenue"; MW/MTPA/units/sq ft is "capacity".
+  "scope": "company_total" | "segment" | "unclear", // is it the WHOLE company's capex, or one segment/product-line/project/sub-line?
+  "segment_name": "string" | null,                // when scope="segment", which segment/line, else null
   "segment_or_project": "string" | null,          // segment/project it is for, else null
   "direction": "up" | "down" | "flat" | "unclear",// how the filing frames it vs before
   "is_revision": true | false,                    // TRUE only if THIS filing states BOTH a previous/old AND a new/revised figure for the SAME capex metric & period
@@ -54,6 +57,14 @@ Return ONLY a JSON array (no prose, no markdown fences). Each element describes 
 }
 
 Revisions (IMPORTANT): if management, in THIS ONE filing, states that a capex figure was CHANGED — e.g. "raised/revised/increased/cut its FY27 capex guidance from ₹500 crore to ₹700 crore", or "earlier guidance of ₹500 crore, now ₹700 crore" — set "is_revision": true, put the OLD figure in "old_amount_text", the NEW figure in "new_amount_text" AND in "amount_text", and set "direction" to "up" (raised) or "down" (cut). The "verbatim_quote" MUST contain BOTH numbers, copied character-for-character. If only ONE figure is stated (no explicit previous figure in the text), set "is_revision": false and leave old_amount_text/new_amount_text null.
+
+What is a CAPEX figure (metric "capex"): a number is capex ONLY if the surrounding text EXPLICITLY frames it as the company's capital expenditure / capex / capital outlay / investment in plant, facility, equipment or capacity, expressed in Rupees (₹ / Rs / INR ... crore/lakh). Set "metric" to what the number actually measures. A number is NOT capex — set the matching metric and it will be excluded from capex tracking — if it is:
+- a PERCENTAGE of anything: revenue growth %, EBITDA/operating margin %, YoY %, "high-teens" (metric "margin" or "growth");
+- REVENUE / turnover / topline / order book / PAT / EBITDA in ₹ (metric "revenue"/"order_book"/"other");
+- a SEGMENT / product-line / division / "on the properties" / sub-category / single-project breakdown — only the CONSOLIDATED or STANDALONE COMPANY TOTAL is scope "company_total"; a breakdown line is scope "segment";
+- a different UNIT: msf, sq ft, MW, GW, units, tonnes, MTPA, acres, barrels, rooms, beds, stores (metric "capacity");
+- a bare number from a table row with no capex sentence around it (metric "other").
+Only metric "capex" AND scope "company_total" is used to detect a capex change; everything else is context.
 
 Hard rules:
 - Only CAPITAL figures: organic capex (guidance/actual/plan/cumulative) OR an acquisition/M&A figure (type "acquisition"). Ignore revenue, PAT, EBITDA, dividends, debt, market cap, order book, buyback, etc.
@@ -245,6 +256,14 @@ export async function extractCapexFromText(candidate, filingText) {
       type = 'acquisition';
     }
 
+    // Accuracy guard (Part A): decide what this number REALLY is, deterministically
+    // from its verbatim quote. A mis-extracted percentage (revenue growth %, EBITDA
+    // margin %), a segment/sub-line split, a wrong-unit figure (msf/MW/tonnes), or a
+    // bare table number is NOT capex — drop it so it can never be compared as if it
+    // were. Acquisitions are kept as context (they never enter change detection).
+    const { metric, scope } = classifyCapexFigure({ quote, amountText });
+    if (type !== 'acquisition' && metric !== 'capex') { dropped.not_capex++; continue; }
+
     // Change detection compares on the TOP of a stated range (the high end);
     // for a single value low == high. amount_cr is that comparison figure.
     const topCr = amt.comparable ? round2(amt.high) : null;
@@ -282,6 +301,8 @@ export async function extractCapexFromText(candidate, filingText) {
       amount_cr_high: topCr,
       comparable: amt.comparable,
       type,
+      metric,                                                 // what the number measures (capex/revenue/margin/…)
+      scope,                                                  // company_total | segment | unclear
       segment_or_project: raw.segment_or_project ? String(raw.segment_or_project).trim() : null,
       direction,
       reason,
