@@ -2,178 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Capex Change Monitor</title>
-  <meta name="description" content="See, at a glance, which BSE-listed companies changed how much they plan to spend on new plants & machines — every number backed by the company's own filing." />
+  <meta name="description" content="Companies that changed how much they plan to spend on new plants & machines — every figure backed by the company's own BSE filing." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366F1'/%3E%3Cstop offset='1' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E" />
 
-  <!-- CDN libs only — no build step -->
+  <!-- CDN libs only — no build step. (Tailwind dropped; the page owns its CSS.) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            display: ['Space Grotesk', 'ui-sans-serif', 'sans-serif'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-  <!-- Excel export (client-side .xlsx); app.js falls back to CSV if this fails to load -->
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
 
   <style>
-    :root {
-      --bg: #FBFAFF; --card: #FFFFFF; --ink: #14152A; --muted: #6B7280; --line: #ECEAF6;
-      --up: #10B981; --down: #F43F5E; --flat: #94A3B8;
-      --i1: #6366F1; --i2: #8B5CF6; --i3: #A855F7; --pink: #EC4899;
+    :root{
+      --bg:#FBFAFF; --card:#ffffff; --ink:#14152A; --muted:#6B7280; --line:#ECEAF6; --line2:#F3F1FB;
+      --chip-bg:#F1EEFE; --chip-ink:#6D28D9;
+      --up:#059669; --up-bg:#E7F8F0; --down:#E11D48; --down-bg:#FDECEF; --newc:#7C3AED; --new-bg:#F3F0FF;
+      --b1:#6366F1; --b2:#8B5CF6; --b3:#EC4899;
+      --shadow:0 10px 30px rgba(20,21,42,.06), 0 2px 6px rgba(20,21,42,.04);
+      --field:#ffffff;
+      /* aliases so the self-contained Brief drawer (brief.js) keeps its brand colors */
+      --i1:#6366F1; --i2:#8B5CF6; --pink:#EC4899;
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      min-height: 100vh; color: var(--ink);
-      font-family: 'Inter', system-ui, sans-serif;
-      background:
-        radial-gradient(55rem 45rem at 88% -12%, rgba(139,92,246,.16), transparent 60%),
-        radial-gradient(45rem 45rem at -8% 8%, rgba(236,72,153,.11), transparent 55%),
-        radial-gradient(48rem 48rem at 50% 122%, rgba(59,130,246,.11), transparent 55%),
-        var(--bg);
-      background-attachment: fixed;
+    @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+      --bg:#0E0F1C; --card:#17182B; --ink:#ECEEFB; --muted:#9AA0B4; --line:#262A44; --line2:#20233B;
+      --chip-bg:#241E3A; --chip-ink:#C4B5FD;
+      --up:#34D399; --up-bg:#0F2A22; --down:#FB7185; --down-bg:#2A0F17; --newc:#A78BFA; --new-bg:#1E1A33;
+      --shadow:0 12px 34px rgba(0,0,0,.45); --field:#12132322;
+      --i1:#818CF8; --i2:#A78BFA; --pink:#F472B6;
+    }}
+    :root[data-theme="dark"]{
+      --bg:#0E0F1C; --card:#17182B; --ink:#ECEEFB; --muted:#9AA0B4; --line:#262A44; --line2:#20233B;
+      --chip-bg:#241E3A; --chip-ink:#C4B5FD;
+      --up:#34D399; --up-bg:#0F2A22; --down:#FB7185; --down-bg:#2A0F17; --newc:#A78BFA; --new-bg:#1E1A33;
+      --shadow:0 12px 34px rgba(0,0,0,.45); --field:#12132322;
+      --i1:#818CF8; --i2:#A78BFA; --pink:#F472B6;
     }
-    .font-display { font-family: 'Space Grotesk', sans-serif; }
-    .num { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; }
+    *{box-sizing:border-box}
+    body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.45;
+      background-image:
+        radial-gradient(46rem 40rem at 92% -12%, rgba(139,92,246,.13), transparent 60%),
+        radial-gradient(40rem 40rem at -8% 4%, rgba(236,72,153,.10), transparent 58%);
+      background-attachment:fixed;}
+    .disp,.font-display{font-family:'Space Grotesk','Inter',sans-serif;}
+    .num{font-variant-numeric:tabular-nums;}
+    .wrap{max-width:1000px; margin:0 auto; padding-inline:16px; padding-block:20px 44px;}
 
-    /* one reusable card everywhere */
-    .card {
-      background: var(--card); border: 1px solid var(--line); border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(20,21,42,.05), 0 2px 6px rgba(20,21,42,.03);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(20,21,42,.10); }
+    .head{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+    .brand{display:flex; align-items:center; gap:13px;}
+    .logo{width:46px; height:46px; border-radius:14px; display:grid; place-items:center; font-size:22px;
+      background:linear-gradient(135deg,var(--b1),var(--b3)); box-shadow:0 8px 20px rgba(139,92,246,.4);}
+    h1{margin:0; font-size:clamp(20px,4.5vw,27px); font-weight:700; letter-spacing:-.01em;}
+    .sub{margin:3px 0 0; color:var(--muted); font-size:14px; max-width:48ch;}
+    .actions{display:flex; gap:9px; flex-wrap:wrap;}
+    .btn{font-family:inherit; font-size:13px; font-weight:600; border-radius:999px; padding:9px 15px; cursor:pointer;
+      border:1px solid var(--line); background:var(--card); color:var(--ink); display:inline-flex; align-items:center; gap:7px;
+      transition:transform .15s ease;}
+    .btn.solid{border-color:transparent; color:#fff; background:linear-gradient(90deg,var(--b1),var(--b2) 60%,var(--b3));
+      box-shadow:0 8px 18px rgba(139,92,246,.32);}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:disabled{opacity:.6; cursor:default; transform:none;}
 
-    /* pill tabs */
-    .tab {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px;
-      color: var(--muted); background: rgba(255,255,255,.7); border: 1px solid var(--line);
-      cursor: pointer; transition: all .18s ease; white-space: nowrap;
-    }
-    .tab:hover { color: var(--ink); transform: translateY(-1px); }
-    .tab.active {
-      color: #fff; border-color: transparent;
-      background: linear-gradient(90deg, var(--i1), var(--i2) 55%, var(--pink));
-      box-shadow: 0 8px 20px rgba(139,92,246,.35);
-    }
-    .tab svg { width: 16px; height: 16px; }
+    .updated{font-size:12px; color:var(--muted); align-self:center;}
 
-    /* chart heights as REAL css classes so ECharts sizes correctly at init */
-    .chart-sm { width: 100%; height: 260px; }
-    .chart-md { width: 100%; height: 340px; }
-    .chart-lg { width: 100%; height: 420px; }
-    @media (max-width: 640px) { .chart-md { height: 300px; } .chart-lg { height: 340px; } }
+    /* summary */
+    .summary{margin:16px 0 4px; font-size:15px; color:var(--ink); display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+    .summary .big{font-family:'Space Grotesk'; font-weight:700; font-size:17px;}
+    .pipe{color:var(--muted)}
+    .up{color:var(--up)} .down{color:var(--down)} .newc{color:var(--newc)}
 
-    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
-    .chip { background: rgba(255,255,255,.8); border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px; }
+    /* controls */
+    .controls{display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin:16px 0 10px;
+      background:var(--card); border:1px solid var(--line); border-radius:18px; padding:14px 16px; box-shadow:var(--shadow);}
+    .fld{display:flex; flex-direction:column; gap:5px;}
+    .fld label{font-size:11px; font-weight:600; color:var(--muted); letter-spacing:.02em;}
+    select,input{font-family:inherit; font-size:14px; color:var(--ink); background:var(--card);
+      border:1px solid var(--line); border-radius:11px; padding:9px 12px; outline:none;}
+    select:focus,input:focus{border-color:var(--b2); box-shadow:0 0 0 3px color-mix(in srgb,var(--b2) 18%, transparent);}
+    .grow{flex:1; min-width:170px;}
+    .controls .btn.solid{margin-left:auto; align-self:flex-end;}
 
-    .select, .search {
-      background: #fff; border: 1px solid var(--line); border-radius: 12px;
-      padding: 9px 12px; font-size: 14px; color: var(--ink); font-family: inherit; outline: none;
-    }
-    .select:focus, .search:focus { border-color: var(--i2); box-shadow: 0 0 0 3px rgba(139,92,246,.15); }
+    .everything{margin:0 2px 18px; font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:7px;}
+    .everything input{width:15px; height:15px; accent-color:var(--b2); padding:0; margin:0;}
+    .everything label{display:inline-flex; align-items:center; gap:7px; cursor:pointer;}
 
-    .btn-link {
-      display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
-      color: var(--i1); text-decoration: none; padding: 7px 12px; border-radius: 10px;
-      border: 1px solid var(--line); background: #fff; transition: all .15s ease;
-    }
-    .btn-link:hover { background: #F5F3FF; border-color: var(--i2); }
-    .btn-quote {
-      font-size: 12.5px; font-weight: 600; color: var(--muted); cursor: pointer;
-      background: none; border: none; display: inline-flex; align-items: center; gap: 5px; padding: 0;
-    }
-    .btn-quote:hover { color: var(--ink); }
+    /* list */
+    .list{display:flex; flex-direction:column; gap:12px;}
+    .row{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px 18px; box-shadow:var(--shadow);
+      transition:transform .15s ease, box-shadow .15s ease;}
+    .row:hover{transform:translateY(-2px); box-shadow:0 18px 40px rgba(20,21,42,.12);}
+    .rtop{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+    .cdot{width:10px; height:10px; border-radius:50%; flex:none;}
+    .cdot.up{background:var(--up)} .cdot.down{background:var(--down)} .cdot.newc{background:var(--newc)}
+    .co{font-family:'Space Grotesk'; font-weight:700; font-size:16.5px; cursor:pointer; color:var(--ink);}
+    .co:hover{text-decoration:underline; text-decoration-color:var(--b2);}
+    .chip{font-size:11.5px; font-weight:600; color:var(--chip-ink); background:var(--chip-bg); border-radius:999px; padding:3px 10px;}
+    .mc{font-size:12px; color:var(--muted);}
+    .badge{margin-left:auto; font-size:12.5px; font-weight:700; border-radius:999px; padding:4px 11px; white-space:nowrap;}
+    .badge.up{color:var(--up); background:var(--up-bg);} .badge.down{color:var(--down); background:var(--down-bg);}
+    .badge.newc{color:var(--newc); background:var(--new-bg);}
+    .headline{margin:11px 0 0; font-family:'Space Grotesk'; font-weight:600; font-size:18px; letter-spacing:-.01em;}
+    .headline .arw{color:var(--muted); margin:0 6px;}
+    .why{margin:6px 0 0; font-size:14px; color:var(--ink);}
+    .why b{color:var(--muted); font-weight:600;}
+    .rmeta{margin:11px 0 0; font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+    .rmeta a{color:var(--b1); font-weight:600; text-decoration:none;}
+    .rmeta a:hover{text-decoration:underline;}
+    .none{text-align:center; color:var(--muted); background:var(--card); border:1px dashed var(--line);
+      border-radius:18px; padding:34px 20px;}
 
-    table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
-    table.tbl th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 10px 12px; cursor: pointer; user-select: none; white-space: nowrap; }
-    table.tbl th:hover { color: var(--ink); }
-    table.tbl td { padding: 11px 12px; border-top: 1px solid var(--line); vertical-align: top; }
-    table.tbl tbody tr:nth-child(even) { background: #FAF9FE; }
+    footer{margin-top:22px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted);
+      display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
 
-    .quote { border-left: 3px solid var(--i2); background: #FAF9FE; border-radius: 0 10px 10px 0; padding: 10px 14px; color: #3d3f57; font-size: 13.5px; line-height: 1.55; }
-    .info-dot { position: relative; display: inline-flex; }
-    .info-dot .tip {
-      position: absolute; top: 130%; left: 50%; transform: translateX(-50%);
-      background: #14152A; color: #fff; font-size: 12px; font-weight: 500; line-height: 1.4;
-      padding: 8px 11px; border-radius: 10px; width: 240px; opacity: 0; pointer-events: none;
-      transition: opacity .15s ease; z-index: 30; box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    .info-dot:hover .tip { opacity: 1; }
-    ::-webkit-scrollbar { height: 10px; width: 10px; }
-    ::-webkit-scrollbar-thumb { background: #E3E0F2; border-radius: 10px; }
+    /* company history modal */
+    .modal-overlay{position:fixed; inset:0; background:rgba(20,21,42,.5); opacity:0; pointer-events:none;
+      transition:opacity .2s ease; z-index:70; display:grid; place-items:center; padding:16px;}
+    .modal-overlay.show{opacity:1; pointer-events:auto;}
+    .modal{background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:0 30px 80px rgba(0,0,0,.35);
+      width:min(760px,96vw); max-height:88vh; overflow:auto; transform:translateY(12px); transition:transform .2s ease;}
+    .modal-overlay.show .modal{transform:translateY(0);}
+    .modal-pad{padding:22px 24px 26px;}
+    .modal-x{position:sticky; top:0; float:right; background:none; border:none; cursor:pointer; color:var(--muted);
+      font-size:22px; line-height:1; padding:2px 6px; border-radius:8px;}
+    .modal-x:hover{background:var(--line2); color:var(--ink);}
+    .chart-lg{width:100%; height:300px; margin-top:8px;}
+    table.tbl{width:100%; border-collapse:collapse; font-size:13.5px; margin-top:6px;}
+    table.tbl th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted);
+      padding:8px 10px; white-space:nowrap; border-bottom:1px solid var(--line);}
+    table.tbl td{padding:9px 10px; border-top:1px solid var(--line2); vertical-align:top;}
+    table.tbl a{color:var(--b1); font-weight:600; text-decoration:none;} table.tbl a:hover{text-decoration:underline;}
 
-    /* Own the panel show/hide so tab switching works even if the Tailwind CDN
-       is slow/unavailable (don't depend on Tailwind's .hidden utility). */
-    .tab-panel.hidden { display: none; }
+    /* toast */
+    #toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(20px); opacity:0;
+      background:var(--ink); color:var(--bg); font-size:13px; font-weight:500; padding:11px 16px; border-radius:12px;
+      box-shadow:0 14px 34px rgba(0,0,0,.28); pointer-events:none; transition:opacity .2s ease, transform .2s ease; max-width:88vw; z-index:80;}
+    #toast.on{opacity:1; transform:translateX(-50%) translateY(0);}
+    @media (max-width:560px){ .badge{margin-left:0;} .controls .btn.solid{margin-left:0; width:100%; justify-content:center;} }
   </style>
 </head>
 <body>
-  <div class="mx-auto px-4 sm:px-8 py-6 sm:py-10" style="max-width:1600px">
-
-    <!-- Header -->
-    <header class="flex flex-wrap items-center justify-between gap-4 mb-6">
-      <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-2xl grid place-items-center text-white shadow-lg" style="background:linear-gradient(135deg,var(--i1),var(--pink))">
-          <i data-lucide="radar"></i>
-        </div>
+  <div class="wrap">
+    <header class="head">
+      <div class="brand">
+        <div class="logo">📡</div>
         <div>
-          <h1 class="font-display text-xl sm:text-2xl font-bold leading-tight">Capex Change Monitor</h1>
-          <p class="text-sm" style="color:var(--muted)">
-            Who changed how much they plan to spend on new plants &amp; machines
-            <span class="info-dot align-middle ml-1" style="cursor:help">
-              <i data-lucide="info" style="width:15px;height:15px;color:var(--i2)"></i>
-              <span class="tip">“Capex” = money a company plans to spend on new plants &amp; machines. We read it from each company’s own BSE filing.</span>
-            </span>
-          </p>
+          <h1 class="disp">Capex Change Monitor</h1>
+          <p class="sub">Companies that changed how much they plan to spend on new plants &amp; machines — updated daily.</p>
         </div>
       </div>
-      <div class="flex items-center gap-3">
-        <button id="downloadBtn" type="button" class="tab" title="Download the currently filtered changes as a formatted Excel file">
-          <i data-lucide="sheet"></i> Download Excel
-        </button>
-        <button id="briefBtn" type="button" class="tab" style="color:#fff;border-color:transparent;background:linear-gradient(90deg,var(--i1),var(--i2) 55%,var(--pink));box-shadow:0 8px 20px rgba(139,92,246,.35)">
-          <i data-lucide="mail"></i> Brief
-        </button>
-        <div id="lastRun" class="text-xs sm:text-sm num" style="color:var(--muted)"></div>
+      <div class="actions">
+        <button class="btn" id="briefBtn" type="button">✉️ Email brief</button>
+        <span class="updated num" id="updated"></span>
       </div>
     </header>
 
-    <!-- Tabs -->
-    <nav class="flex flex-wrap gap-2.5 mb-6" id="tabs">
-      <button class="tab active" data-tab="overview"><i data-lucide="sparkles"></i> Overview</button>
-      <button class="tab" data-tab="changes"><i data-lucide="bell"></i> Changes</button>
-      <button class="tab" data-tab="company"><i data-lucide="building-2"></i> By Company</button>
-    </nav>
+    <div class="summary" id="summary"></div>
+    <div class="controls" id="controls"></div>
+    <div class="everything" id="everythingBar"></div>
 
-    <!-- Panels -->
     <main>
-      <section id="panel-overview" class="tab-panel"></section>
-      <section id="panel-changes" class="tab-panel hidden"></section>
-      <section id="panel-company" class="tab-panel hidden"></section>
+      <div class="list" id="list"></div>
+      <div class="none" id="none" style="display:none"></div>
     </main>
 
-    <footer class="mt-10 pt-5 text-xs" style="color:var(--muted);border-top:1px solid var(--line)">
-      <span class="inline-flex items-center gap-1.5"><i data-lucide="shield-check" style="width:14px;height:14px"></i>
-      Source-backed only — every figure comes from a real BSE filing, with the exact quote and a link to the original PDF. No sample or estimated data.</span>
+    <footer>
+      <span>🔒 Source-backed — every figure comes from a real BSE filing, with a link to the original PDF. Market caps &amp; P/E are approximate context, not from the filing.</span>
     </footer>
   </div>
+
+  <div class="modal-overlay" id="modal"><div class="modal"><div class="modal-pad" id="modalBody"></div></div></div>
+  <div id="toast" role="status" aria-live="polite"></div>
 
   <script type="module" src="./js/app.js"></script>
   <script type="module" src="./js/brief.js"></script>
