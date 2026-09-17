@@ -367,21 +367,33 @@ export function figureClass(o = {}) {
 // type "acquisition"; only some are genuine M&A. This keeps real acquisitions /
 // stake purchases / mergers / takeovers / slump sales and DROPS debt & capital-
 // raising events (NCD, QIP, rights issue, preferential allotment, warrants,
-// commercial paper, buybacks, debt prepayment, resolution-plan payments) and
-// rupee-as-crore mis-parses (a "Rs X/-" subscription of shares at ₹10 face
-// value). Deterministic; used to filter the dashboard's "Major commitments (M&A)"
-// bucket. Mirrored in public/js/ui.js for the browser. Never touches capex.
+// commercial paper, buybacks, debt prepayment, resolution-plan payments),
+// follow-on funding of an EXISTING subsidiary (a "further investment / infusion
+// of additional funds in [our wholly-owned subsidiary]" — that is intercompany
+// funding, not an acquisition event), land / acreage purchases and capex actually
+// spent (those are organic capex, not M&A), and rupee-as-crore mis-parses (a
+// "Rs X/-" subscription of shares at ₹10 face value, or a nominal "N equity shares
+// at ₹X each" incorporation). Deterministic; used to filter the dashboard's "Major
+// commitments (M&A)" bucket. Mirrored in public/js/ui.js for the browser. Never
+// touches capex.
+//
+// NOTE: "wholly-owned subsidiary" is deliberately NOT an acquisition signal on its
+// own — it over-matched follow-on infusions into subsidiaries the company already
+// owns. Genuine deals that create a subsidiary still qualify via acquire / stake /
+// merger / takeover / definitive agreement / enterprise value, etc.
 // ---------------------------------------------------------------------------
-const ACQ_SIGNAL = /\bacquisitions?\b|\bacquir(?:e|es|ed|ing)\b|\bstake\b|\bmerger\b|amalgamat\w*|\btakeover\b|take[- ]over|\bbuyout\b|buy[- ]?out|controlling (?:stake|interest)|majority (?:stake|interest)|share purchase agreement|\bslump sale\b|scheme of arrangement|\bopen offer\b|enterprise value|definitive agreement|binding agreement|wholly[- ]owned subsidiary|cash-free|debt-free|voting rights/i;
-const NOT_ACQ = /\bncd\b|non-convertible debenture|rights issue|\bqip\b|qualified institutional placement|preferential (?:allotment|issue)|\bwarrants?\b|commercial paper|equity capital (?:raise|infusion)|equity raise|fund[- ]?rais(?:e|es|ed|ing)|\bbuy-?back\b|debt prepay\w*|\bprepaid\b|prepay\w*|resolution plan|\bnclt\b/i;
+const ACQ_SIGNAL = /\bacquisitions?\b|\bacquir(?:e|es|ed|ing)\b|\bstake\b|\bmerger\b|amalgamat\w*|\btakeover\b|take[- ]over|\bbuyout\b|buy[- ]?out|controlling (?:stake|interest)|majority (?:stake|interest)|share purchase agreement|\bslump sale\b|scheme of arrangement|\bopen offer\b|enterprise value|definitive agreement|binding agreement|cash-free|debt-free|voting rights/i;
+const NOT_ACQ = /\bncd\b|non-convertible debenture|rights issue|\bqip\b|qualified institutional placement|preferential (?:allotment|issue)|\bwarrants?\b|commercial paper|equity capital (?:raise|infusion)|equity raise|fund[- ]?rais(?:e|es|ed|ing)|\bbuy-?back\b|debt prepay\w*|\bprepaid\b|prepay\w*|resolution plan|\bnclt\b|further investment|infusion of (?:additional )?funds|additional funds not exceeding|inter[- ]?corporate deposit|acquisition of\s+(?:approximately\s+|about\s+)?[\d,.]+\s*acres?|acquisition of\s+(?:the\s+)?(?:land|industrial land|freehold|leasehold|a plot)|\b(?:has|have|had|was|were)\s+(?:been\s+)?spent\b/i;
 
-/** A "Rs X/-" subscription of shares at ₹10 face value is RUPEES, not crore. */
+/** A "Rs X/-" subscription of shares at ₹10 face value — or a nominal "N equity
+ * shares at ₹X per share" incorporation — is RUPEES / a token stake, not crore. */
 function looksRupeeMisparse(o = {}) {
   const q = String(o.quote || '');
   const at = String(o.amount_text || '');
   const sharesAt10 = /shares?\s+of\s+(?:rs\.?|₹)\s*10\/?-?\s*each/i.test(q);
   const rupeeSub = /\/-/.test(at) && /equity shares?|subscri/i.test(q);
-  return sharesAt10 || rupeeSub;
+  const nominalShares = /\d+\s+equity shares?\s+(?:of|at)\s+(?:rs\.?|₹)\s*[\d,.]+\s*(?:per|each|\/-)/i.test(q);
+  return sharesAt10 || rupeeSub || nominalShares;
 }
 
 /**
