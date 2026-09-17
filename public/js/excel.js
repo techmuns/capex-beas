@@ -11,21 +11,25 @@
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // Column layout (single source of truth for both the workbook and the CSV).
+// Columns 1–10 mirror the client's manual tracker EXACTLY and in order; our extra
+// columns (Old → New … Scrip) follow after column 10.
 export const COLUMNS = [
   { key: 'company', header: 'Company', width: 26 },
-  { key: 'scrip_cd', header: 'Scrip', width: 10 },
-  { key: 'date', header: 'Date', width: 13, kind: 'date' },
-  { key: 'week', header: 'Week', width: 18 },
-  { key: 'event_type', header: 'Type', width: 18, wrap: true },
-  { key: 'summary', header: 'Summary', width: 60, wrap: true },
-  { key: 'capex_cr', header: 'Capex (₹Cr)', width: 14, numFmt: '#,##0', kind: 'num' },
+  { key: 'date', header: 'Announcement Date', width: 15, kind: 'date' },
+  { key: 'event_type', header: 'Type', width: 24, wrap: true },
+  { key: 'summary', header: 'Announcement Summary', width: 52, wrap: true },
+  { key: 'capex_cr', header: 'Capex / Project Value (Rs Cr)', width: 16, numFmt: '#,##0', kind: 'num' },
+  { key: 'guidance_change', header: 'Capex Guidance Change', width: 42, wrap: true },
+  { key: 'market_cap_cr', header: 'Market Cap (Rs Cr)', width: 16, numFmt: '#,##0', kind: 'num' },
+  { key: 'pe', header: 'P/E Multiple', width: 12, numFmt: '0.0', kind: 'num' },
+  { key: 'industry', header: 'Industry', width: 22 },
+  { key: 'source', header: 'Source', width: 14, kind: 'link' },
+  // --- our extras, after the client's 10 ---
   { key: 'old_new', header: 'Old → New', width: 20 },
   { key: 'pct', header: 'Change %', width: 12, numFmt: '+0.0%;-0.0%', kind: 'num' },
   { key: 'direction', header: 'Direction', width: 12 },
-  { key: 'market_cap_cr', header: 'Market Cap (₹Cr)', width: 16, numFmt: '#,##0', kind: 'num' },
-  { key: 'pe', header: 'P/E', width: 8, numFmt: '0.0', kind: 'num' },
-  { key: 'industry', header: 'Industry', width: 22 },
-  { key: 'source', header: 'Source', width: 14, kind: 'link' },
+  { key: 'week', header: 'Week', width: 18 },
+  { key: 'scrip_cd', header: 'Scrip', width: 10, kind: 'num' },
 ];
 
 const BRAND = 'FF6366F1';
@@ -77,8 +81,9 @@ function applyCell(cell, col, r) {
       else cell.value = 'N/A';
       break;
     case 'event_type': {
-      cell.value = v || '';
-      const st = TYPE_STYLE[v];
+      const orig = r.event_type || '';
+      cell.value = r.type_display || orig; // client vocabulary for display…
+      const st = TYPE_STYLE[orig];         // …colour keyed on our original label
       if (st) { cell.fill = solid(st.fill); cell.font = { bold: true, color: { argb: st.font } }; }
       break;
     }
@@ -190,6 +195,7 @@ export function buildCsv(rows) {
   const head = COLUMNS.map((c) => csvCell(c.header)).join(',');
   const body = (rows || []).map((r) => COLUMNS.map((c) => {
     if (c.key === 'source') return csvCell(r.source || '');
+    if (c.key === 'event_type') return csvCell(r.type_display || r.event_type || '');
     if (c.key === 'pct') return csvCell(r.pct == null ? '' : `${(r.pct * 100).toFixed(1)}%`);
     if (c.key === 'date') { const d = toDate(r.date); return csvCell(d ? fnDate(d) : ''); }
     return csvCell(r[c.key]);
