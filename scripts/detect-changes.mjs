@@ -19,7 +19,7 @@
 //
 // CLI:  node scripts/detect-changes.mjs   # rebuild capex-changes.json from history
 
-import { FILES, readJSON, writeJSON, nowISO, deriveEventType, weekOf, log } from './lib/util.mjs';
+import { FILES, readJSON, writeJSON, nowISO, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR, log } from './lib/util.mjs';
 
 const DEFAULT_THRESHOLD_PCT = Number(process.env.CAPEX_CHANGE_PCT || 2);
 
@@ -86,6 +86,10 @@ export function makeObservation(item, candidate, filing) {
     amount_cr_low: item.amount_cr_low,
     amount_cr_high: item.amount_cr_high,
     comparable: item.comparable,
+    // Single-filing revision (this one filing stated an explicit old→new move).
+    is_revision: item.is_revision || false,
+    old_cr: item.old_cr ?? null,
+    new_cr: item.new_cr ?? null,
     segment_or_project: item.segment_or_project,
     direction: item.direction,
     reason: item.reason,
@@ -126,10 +130,19 @@ function changeKey(c) {
     : `${c.scrip_cd}|${c.fiscal_year}|${c.type}|${c.new_news_id}`;
 }
 
+/** A meaningful move: both figures present, comparable, and beyond rounding noise. */
+function movedEnough(oldCr, newCr, thresholdPct) {
+  if (oldCr == null || newCr == null || !(oldCr > 0)) return false;
+  return Math.abs(((newCr - oldCr) / oldCr) * 100) > thresholdPct;
+}
+
 /**
  * Rebuild the full changes list from history. Only guidance observations with a
  * fiscal_year and a comparable ₹-crore figure participate. The comparison uses
  * amount_cr, which is the TOP of a stated range (low == high for a single value).
+ * A single-filing revision (old & new stated in ONE filing) is emitted directly;
+ * otherwise a change fires when consecutive filings for the same (company, FY)
+ * differ by more than the threshold.
  * @param prevChanges previous changes.json (to carry forward detected_at)
  */
 export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAULT_THRESHOLD_PCT) {
@@ -138,7 +151,9 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
 
   for (const scrip of Object.keys(history)) {
     const guidance = history[scrip]
-      .filter((o) => o.type === 'guidance' && o.fiscal_year && o.amount_cr != null)
+      // Only comparable, plausible guidance figures participate (the plausibility
+      // guard also self-heals any absurd figure that predates the data-quality fix).
+      .filter((o) => o.type === 'guidance' && o.fiscal_year && o.amount_cr != null && isPlausibleCapexCr(o.amount_cr))
       .sort((a, b) => new Date(a.date) - new Date(b.date));
 
     // Group by fiscal year — a change is only meaningful within the same target year.
@@ -149,6 +164,32 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
       const series = byFY[fy];
       for (let i = 0; i < series.length; i++) {
         const cur = series[i];
+
+        // (1) Single-filing revision: this ONE filing stated an explicit old→new
+        // move for this metric. Emit it directly as a real change — no second
+        // filing needed. old/new share the same filing (date, PDF, news_id, quote).
+        if (cur.is_revision && movedEnough(cur.old_cr, cur.new_cr, thresholdPct) &&
+            isPlausibleCapexCr(cur.old_cr) && isPlausibleCapexCr(cur.new_cr)) {
+          const dir = cur.new_cr > cur.old_cr ? 'up' : 'down';
+          out.push(finalize({
+            company: cur.company, scrip_cd: cur.scrip_cd, fiscal_year: fy, type: 'guidance',
+            event_type: deriveEventType({ type: 'guidance', direction: dir, is_change: true }),
+            old_cr: cur.old_cr, new_cr: cur.new_cr,
+            delta_cr: round2(cur.new_cr - cur.old_cr),
+            pct_change: round2(((cur.new_cr - cur.old_cr) / cur.old_cr) * 100),
+            direction: dir,
+            reason: cur.reason,
+            old_quote: cur.quote, new_quote: cur.quote,
+            old_pdf: cur.source_pdf, new_pdf: cur.source_pdf,
+            old_date: cur.date, new_date: cur.date,
+            old_news_id: cur.news_id, new_news_id: cur.news_id,
+            week: weekOf(cur.date)?.label || null,
+            no_prior_on_record: false,
+            single_filing: true, // old & new came from the SAME filing
+          }, prevByKey));
+          continue; // a revision is authoritative — do NOT also cross-compare this obs
+        }
+
         if (i === 0) {
           // First real sighting of guidance for this (company, FY): baseline, no invented prior.
           out.push(finalize({
@@ -166,6 +207,8 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
           }, prevByKey));
           continue;
         }
+        // (2) Cross-filing change: this figure differs from the most-recent prior
+        // guidance figure for the same (company, FY) by more than the threshold.
         const prev = series[i - 1];
         const pct = ((cur.amount_cr - prev.amount_cr) / prev.amount_cr) * 100;
         if (Math.abs(pct) <= thresholdPct) continue; // within rounding noise — not a change
@@ -188,9 +231,41 @@ export function recomputeChanges(history, prevChanges = [], thresholdPct = DEFAU
     }
   }
 
+  // De-dupe by change identity (a single-filing revision and a cross-filing
+  // comparison could otherwise both land on the same new filing), keeping the
+  // first — which, by construction above, is the authoritative revision.
+  const seen = new Set();
+  const deduped = [];
+  for (const c of out) {
+    const k = changeKey(c);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    deduped.push(c);
+  }
+
   // Newest detections first.
-  out.sort((a, b) => new Date(b.new_date) - new Date(a.new_date));
-  return out;
+  deduped.sort((a, b) => new Date(b.new_date) - new Date(a.new_date));
+  return deduped;
+}
+
+/**
+ * Remove observations whose ₹-crore figure is implausible (above the plausibility
+ * ceiling) — a one-shot data-quality prune for figures stored before the guard.
+ * Returns { history, removed } (history is mutated in place).
+ */
+export function pruneImplausible(history) {
+  let removed = 0;
+  for (const scrip of Object.keys(history)) {
+    const before = history[scrip].length;
+    history[scrip] = history[scrip].filter((o) => {
+      const bad = (o.amount_cr != null && !isPlausibleCapexCr(o.amount_cr)) ||
+                  (o.amount_cr_high != null && !isPlausibleCapexCr(o.amount_cr_high));
+      return !bad;
+    });
+    removed += before - history[scrip].length;
+    if (!history[scrip].length) delete history[scrip];
+  }
+  return { history, removed };
 }
 
 function finalize(change, prevByKey) {
@@ -222,11 +297,33 @@ export function buildMetadata({ mode, window, history, changes, processed, provi
   };
 }
 
-// --- CLI: rebuild changes.json from the committed history -----------------
+// --- CLI: prune implausible figures + rebuild changes.json from history ----
 if (import.meta.url === `file://${process.argv[1]}`) {
   const state = await loadState();
+
+  const { removed } = pruneImplausible(state.history);
+  if (removed) log(`pruned ${removed} implausible observation(s) (> ₹${CAPEX_MAX_CR.toLocaleString('en-IN')} cr)`);
+
   const changes = recomputeChanges(state.history, state.changes);
-  await writeJSON(FILES.changes, changes);
   const real = changes.filter((c) => !c.no_prior_on_record).length;
+
+  // Keep metadata counts consistent with the pruned history + recomputed changes.
+  const meta = state.metadata && typeof state.metadata === 'object' ? { ...state.metadata } : {};
+  const observations = Object.values(state.history).reduce((a, l) => a + l.length, 0);
+  meta.counts = {
+    ...(meta.counts || {}),
+    companies_tracked: Object.keys(state.history).length,
+    observations,
+    changes: real,
+    baselines: changes.length - real,
+    processed_news_ids: Object.keys(state.processed.processed).length,
+  };
+  meta.generated_at = nowISO();
+
+  await Promise.all([
+    writeJSON(FILES.history, sortHistory(state.history)),
+    writeJSON(FILES.changes, changes),
+    writeJSON(FILES.metadata, meta),
+  ]);
   log(`recomputed changes: ${changes.length} entries (${real} real changes, ${changes.length - real} baselines)`);
 }

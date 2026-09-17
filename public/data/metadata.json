@@ -6,12 +6,12 @@
     "to": "20260917"
   },
   "counts": {
-    "companies_tracked": 126,
-    "observations": 244,
+    "companies_tracked": 122,
+    "observations": 238,
     "changes": 0,
-    "baselines": 7,
+    "baselines": 6,
     "processed_news_ids": 1481
   },
   "provider_used": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
-  "generated_at": "2026-09-17T06:24:00.899Z"
+  "generated_at": "2026-09-17T07:23:55.875Z"
 }

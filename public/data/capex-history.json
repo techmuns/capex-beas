@@ -2999,31 +2999,6 @@
       "subcat": "Press Release / Media Release"
     }
   ],
-  "532843": [
-    {
-      "date": "2026-09-16T19:05:08.437",
-      "week": "14–20 Sep 2026",
-      "news_id": "c789e9ff-8c8d-4f5d-a027-bf7e358ff168",
-      "company": "Fortis Healthcare Ltd",
-      "scrip_cd": 532843,
-      "fiscal_year": null,
-      "type": "acquisition",
-      "event_type": "Acquisition (M&A)",
-      "amount_text": "INR 5,67,00,00,000 (Indian Rupees Five Hundred Sixty Seven Crores only)",
-      "currency": "INR",
-      "amount_cr": 5670000000,
-      "amount_cr_low": 5670000000,
-      "amount_cr_high": 5670000000,
-      "comparable": true,
-      "segment_or_project": "Loan to SLJ Society for construction, upgradation and operation of Hospital at Ashok Vihar, Delhi",
-      "direction": "unclear",
-      "reason": "for the purposes of, inter alia, construction, upgradation and operation of the Hospital of SLJ Society",
-      "quote": "Pursuant to the Loan Agreement and the ancillary agreements thereto, FHTL has agreed to provide a loan to SLJ Society up to an amount of INR 5,67,00,00,000 (Indian Rupees Five Hundred Sixty Seven Crores only) for the purposes of, inter alia , construction, upgradation and operation of the Hospital of SLJ Society.",
-      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d34264e2-edf2-4853-8aac-44f52fe36e5a.pdf",
-      "category": "Company Update",
-      "subcat": "Press Release / Media Release"
-    }
-  ],
   "532880": [
     {
       "date": "2026-06-29T10:51:07.397",
@@ -4143,29 +4118,6 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/ab6f0f69-a7ce-40e5-b8cd-40c358c8a0fc.pdf",
       "category": "Company Update",
       "subcat": "Investor Presentation"
-    },
-    {
-      "date": "2026-09-17T09:29:50.223",
-      "week": "14–20 Sep 2026",
-      "news_id": "61b463bb-d600-422c-bc27-12d5f8e3d068",
-      "company": "Sona BLW Precision Forgings Ltd",
-      "scrip_cd": 543300,
-      "fiscal_year": "FY27",
-      "type": "guidance",
-      "event_type": "Guidance revision",
-      "amount_text": "₹ 12 trillion",
-      "currency": "INR",
-      "amount_cr": 1200000,
-      "amount_cr_low": 1200000,
-      "amount_cr_high": 1200000,
-      "comparable": true,
-      "segment_or_project": "Public Capex (infra & others)",
-      "direction": "up",
-      "reason": "6x growth in public capex (infra & others), from ₹ 2 to ₹ 12 trillion (FY15 → FY27E)",
-      "quote": "6x growth in public capex (infra & others), from ₹ 2 to ₹ 12 trillion (FY15 → FY27E) Public Capex",
-      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/ab6f0f69-a7ce-40e5-b8cd-40c358c8a0fc.pdf",
-      "category": "Company Update",
-      "subcat": "Investor Presentation"
     }
   ],
   "543910": [
@@ -4383,31 +4335,6 @@
       "reason": "RP tech had intended to acquire a business in the enterprise technology & digital infrastructure solutions space and leverage such a partnership to achieve accelerated growth in this space",
       "quote": "RP tech has entered into a binding agreement to acquire upfront 67% stake for a cash consideration of INR 3.68 Bn.",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/84d71536-fef8-4f97-9341-205825a23e54.pdf",
-      "category": "Company Update",
-      "subcat": "Press Release / Media Release"
-    }
-  ],
-  "544129": [
-    {
-      "date": "2026-09-16T15:13:27.49",
-      "week": "14–20 Sep 2026",
-      "news_id": "029b6609-246d-4b0b-8f0f-9c2020a4e248",
-      "company": "Juniper Hotels Ltd",
-      "scrip_cd": 544129,
-      "fiscal_year": null,
-      "type": "acquisition",
-      "event_type": "Acquisition (M&A)",
-      "amount_text": "Rs. 2,48,00,00,000/- (Rupees Two Hundred Forty-Eight Crores Only)",
-      "currency": "INR",
-      "amount_cr": 2480000000,
-      "amount_cr_low": 2480000000,
-      "amount_cr_high": 2480000000,
-      "comparable": true,
-      "segment_or_project": "Novotel Imagicaa hotel acquisition",
-      "direction": "unclear",
-      "reason": null,
-      "quote": "Proposal for acquisition of the operating hotel, Novotel Imagicaa, located in Khopoli strategically in close proximity to Mumbai, Maharashtra, for an aggregate lump-sum purchase consideration of Rs. 2,48,00,00,000/- (Rupees Two Hundred Forty-Eight Crores Only)",
-      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/6647ba81-aa03-4192-aa96-f99a6b6f1011.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -5276,31 +5203,6 @@
       "subcat": "Press Release / Media Release"
     }
   ],
-  "544709": [
-    {
-      "date": "2026-06-25T14:36:02.583",
-      "week": "22–28 Jun 2026",
-      "news_id": "9fb3642e-50ed-49ee-8abb-31603c0b647b",
-      "company": "Gaudium IVF and Women Health Ltd",
-      "scrip_cd": 544709,
-      "fiscal_year": null,
-      "type": "plan",
-      "event_type": "New Project",
-      "amount_text": "₹15,00,00,000/-",
-      "currency": "INR",
-      "amount_cr": 150000000,
-      "amount_cr_low": 150000000,
-      "amount_cr_high": 150000000,
-      "comparable": true,
-      "segment_or_project": "Gaudium Women Hospital, Lucknow",
-      "direction": "unclear",
-      "reason": null,
-      "quote": "The Board noted and approved the estimated project cost of up to ₹15,00,00,000/- (Rupees Fifteen Crore Only) towards development, construction, fit-outs, furnishing, medical infrastructure, plant and machinery, medical equipment, IT infrastructure, commissioning and other incidental project-related expenditure for setting up and operationalizing the proposed hospital.",
-      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/30919291-a9d3-4eef-acb0-18982fdd8504.pdf",
-      "category": "Others",
-      "subcat": "Outcome without intimation"
-    }
-  ],
   "544717": [
     {
       "date": "2026-09-08T08:37:10.683",
@@ -5399,31 +5301,6 @@
       "subcat": "Analyst / Investor Meet"
     }
   ],
-  "544757": [
-    {
-      "date": "2026-06-19T17:43:20.033",
-      "week": "15–21 Jun 2026",
-      "news_id": "63a93fb4-97ff-4a7f-b698-c9bd812356b1",
-      "company": "Bombay Super Hybrid Seeds Ltd",
-      "scrip_cd": 544757,
-      "fiscal_year": null,
-      "type": "actual",
-      "event_type": "Quarterly capex",
-      "amount_text": "Rs. 1,40,50,000/-",
-      "currency": "INR",
-      "amount_cr": 14050000,
-      "amount_cr_low": 14050000,
-      "amount_cr_high": 14050000,
-      "comparable": true,
-      "segment_or_project": "Land purchase for future expansion - Kuchiyadad Village, Rajkot",
-      "direction": "unclear",
-      "reason": "The said purchase of property is located adjacent to the Company's existing facility, presents a strategic opportunity for expansion, and shall be used for the future expansion plan of the Company.",
-      "quote": "for the total consideration of Rs. 1,40,50,000/- (Rupees One Crore Forty Lakh Fifty Thousand Only).",
-      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/f54e9a92-ba7e-4e5f-9af7-83ccf74e252b.pdf",
-      "category": "Company Update",
-      "subcat": "General"
-    }
-  ],
   "544793": [
     {
       "date": "2026-06-23T12:45:58.01",
@@ -5447,29 +5324,6 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/7a5747ec-3604-4bbd-ac5b-8b28403056a5.pdf",
       "category": "Company Update",
       "subcat": "Analyst / Investor Meet"
-    },
-    {
-      "date": "2026-09-16T15:50:07.477",
-      "week": "14–20 Sep 2026",
-      "news_id": "d7e6bcfb-09d1-44cd-800f-a5de9b769dc0",
-      "company": "Susan Electricals India Ltd",
-      "scrip_cd": 544793,
-      "fiscal_year": null,
-      "type": "plan",
-      "event_type": "Capacity Expansion",
-      "amount_text": "INR 22,00,00,000/-",
-      "currency": "INR",
-      "amount_cr": 220000000,
-      "amount_cr_low": 220000000,
-      "amount_cr_high": 220000000,
-      "comparable": true,
-      "segment_or_project": "expansion of manufacturing facilities/capacity",
-      "direction": "unclear",
-      "reason": "expansion of the Company's manufacturing facilities/capacity and business operations",
-      "quote": "Purchase of land situated at Mauza Jaunmani, District Baghpat, Uttar Pradesh for a proposed consideration of approximately INR 22,00,00,000/- (Rupees Twenty Two Crore Only) for expansion of the Company's manufacturing facilities/capacity and business operations",
-      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/4881a793-3a89-4d2b-a373-fbfc63644241.pdf",
-      "category": "Others",
-      "subcat": "Outcome without intimation"
     }
   ],
   "544866": [

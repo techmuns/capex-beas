@@ -36,6 +36,12 @@ const CAPEX_KEYWORDS = [
   'debottlenecking', 'new plant', 'expansion', 'mtpa', 'commissioning',
   'capital work-in-progress', 'capital work in progress', 'cwip',
   'ramp-up', 'ramp up', 'setting up', 'set up a', 'invest ', 'investment of',
+  // Revision-focused signals — catch headlines that announce a CHANGE to capex
+  // guidance (e.g. "ASK Automotive raises FY27 capex guidance"), which the
+  // narrower set above missed. Downstream LLM + anti-hallucination gates drop
+  // anything that isn't really capex, so extra recall here only costs tokens.
+  'revis', 'raise', 'raised', 'step up', 'step-up', 'outlay', 'guidance',
+  'increase', 'increased',
 ];
 // " mw" is matched separately so it doesn't fire inside words like "mwh review".
 const MW_RE = /\b\d[\d,.]*\s?mw\b/i;

@@ -190,6 +190,19 @@ export function numericTokens(s) {
   return matches ? matches : [];
 }
 
+// Plausibility ceiling for a single-company capex figure (in ₹ crore). A stated
+// figure above this is almost certainly a mis-extraction — e.g. a raw-rupee
+// amount read as crores ("INR 5,67,00,00,000" → ₹567 cr, not ₹5.67 bn cr), or
+// "₹12,00,000 crore" (= ₹12 trillion). We reject/prune such figures rather than
+// let a fabricated giant number pollute the data or fire a bogus change.
+// ~₹5 lakh crore is well above any real single-company capex programme.
+export const CAPEX_MAX_CR = Number(process.env.CAPEX_MAX_CR || 500000);
+
+/** True if `cr` is a finite, positive ₹-crore figure within the plausibility ceiling. */
+export function isPlausibleCapexCr(cr) {
+  return Number.isFinite(cr) && cr > 0 && cr <= CAPEX_MAX_CR;
+}
+
 // Unit -> multiplier to convert into ₹ crore.
 const UNIT_TO_CR = {
   crore: 1, crores: 1, cr: 1, 'cr.': 1, khokha: 1,
