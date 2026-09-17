@@ -16,8 +16,8 @@ const DEMO = new URLSearchParams(location.search).has('demo');
 const BASE = DEMO ? './demo' : './data';
 
 const state = { changes: [], history: {}, metadata: null, enrichment: {} };
-// period: 30|90|180|all|custom · show: changes|up|down|routine · from/to: YYYY-MM-DD (custom)
-const ui = { period: '90', from: '', to: '', show: 'changes', q: '' };
+// period: 30|90|180|all|custom · show: changes|up|down|routine|mna · from/to: YYYY-MM-DD (custom)
+const ui = { period: 'all', from: '', to: '', show: 'changes', q: '' };
 
 // ---- data ----------------------------------------------------------------
 async function loadJSON(path, fallback) {
@@ -52,27 +52,35 @@ function toast(msg) {
 // ---- events --------------------------------------------------------------
 // A "kind" drives the row stripe + pill:
 //   up = raised guidance · down = cut guidance · new = new plan (first reading)
-//   · routine = a quarterly "actual" spend figure. Acquisitions never appear.
+//   · routine = a quarterly "actual" spend figure · mna = an acquisition / major
+//   capital commitment. M&A is NEVER organic capex: it lives in its own bucket,
+//   is never counted as a capex change, and never shows in the default view.
 const eventTime = (e) => new Date(e.new_date || e.detected_at).getTime();
 const dayOf = (e) => { const d = new Date(e.new_date || e.detected_at); return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10); };
 const kindOf = (c) => (c._actual ? 'routine' : c.no_prior_on_record ? 'new' : (c.direction === 'up' ? 'up' : 'down'));
 
+// Build a pool row from a history observation of a given kind.
+function histRow(o, kind) {
+  return {
+    company: o.company, scrip_cd: o.scrip_cd, fiscal_year: o.fiscal_year,
+    event_type: o.event_type || (kind === 'mna' ? 'Acquisition (M&A)' : 'Quarterly capex'),
+    old_cr: null, new_cr: o.amount_cr, delta_cr: null, pct_change: null,
+    direction: 'unclear', reason: o.reason, new_quote: o.quote,
+    new_pdf: o.source_pdf, new_date: o.date, week: o.week,
+    no_prior_on_record: true, _kind: kind, _actual: kind === 'routine', _mna: kind === 'mna',
+  };
+}
+
 function allEvents() {
   const evs = state.changes.map((c) => ({ ...c, _kind: kindOf(c) }));
-  // Routine "quarterly / actual" capex figures live in history, not in the change
-  // feed. They're always in the pool but only shown when Show = "Include routine…".
+  // Routine "quarterly / actual" capex and acquisitions (M&A) live in history,
+  // not in the change feed. They're always in the pool but gated by Show:
+  // routine only under "Include routine…", M&A only under "Major commitments".
   for (const scrip of Object.keys(state.history)) {
     for (const o of state.history[scrip]) {
-      if (o.type === 'actual' && o.amount_cr != null) {
-        evs.push({
-          company: o.company, scrip_cd: o.scrip_cd, fiscal_year: o.fiscal_year,
-          event_type: o.event_type || 'Quarterly capex',
-          old_cr: null, new_cr: o.amount_cr, delta_cr: null, pct_change: null,
-          direction: 'unclear', reason: o.reason, new_quote: o.quote,
-          new_pdf: o.source_pdf, new_date: o.date, week: o.week,
-          no_prior_on_record: true, _kind: 'routine', _actual: true,
-        });
-      }
+      if (o.amount_cr == null) continue;
+      if (o.type === 'actual') evs.push(histRow(o, 'routine'));
+      else if (o.type === 'acquisition') evs.push(histRow(o, 'mna'));
     }
   }
   return evs;
@@ -91,13 +99,15 @@ function inPeriod(e) {
   const days = PERIOD_DAYS[ui.period] || 90;
   return eventTime(e) >= Date.now() - days * 86400000;
 }
-// Show selector (Part C): the plain-English merge of direction + the old checkbox.
+// Show selector (Part C + A3): merges direction, the old routine checkbox, and the
+// M&A bucket. M&A (mna) only appears under its own option — never in any other view.
 function passesShow(e) {
   switch (ui.show) {
     case 'up': return e._kind === 'up';
     case 'down': return e._kind === 'down';
-    case 'routine': return true;                 // changes + new plans + routine
-    default: return e._kind !== 'routine';       // "changes": everything but routine
+    case 'mna': return e._kind === 'mna';                        // ONLY acquisitions
+    case 'routine': return e._kind !== 'mna';                    // changes + new plans + routine
+    default: return e._kind !== 'routine' && e._kind !== 'mna';  // "changes": neither routine nor M&A
   }
 }
 function filteredEvents() {
@@ -120,6 +130,15 @@ function renderSummary() {
   el.innerHTML = '';
   const evs = filteredEvents();
   if (!evs.length) return; // the list area carries the empty message
+  // M&A is its own bucket — counted and described separately, never as capex.
+  if (ui.show === 'mna') {
+    const n = evs.filter((e) => e._kind === 'mna').length;
+    el.append(
+      h('span', {}, h('span', { class: 'big num' }, String(n)),
+        ` major capital commitment${n === 1 ? '' : 's'} (M&A) — not organic capex`),
+      h('span', { class: 'pipe' }, `· ${periodLabel()}`));
+    return;
+  }
   const changed = new Set(evs.filter((e) => e._kind === 'up' || e._kind === 'down').map((e) => e.scrip_cd)).size;
   const nNew = evs.filter((e) => e._kind === 'new').length;
   const nRoutine = evs.filter((e) => e._kind === 'routine').length;
@@ -158,7 +177,8 @@ function buildControls() {
     h('option', { value: 'changes' }, 'Changes & new plans'),
     h('option', { value: 'up' }, 'Only raised guidance'),
     h('option', { value: 'down' }, 'Only cut guidance'),
-    h('option', { value: 'routine' }, '＋ Include routine quarterly spend'));
+    h('option', { value: 'routine' }, '＋ Include routine quarterly spend'),
+    h('option', { value: 'mna' }, 'Major commitments (M&A)'));
   showSel.value = ui.show;
 
   const q = h('input', { id: 'f-q', type: 'search', placeholder: 'e.g. ASK Automotive', value: ui.q });
@@ -193,23 +213,44 @@ async function exportExcel() {
   finally { btn.disabled = false; }
 }
 
-// Flat row for excel.js (unchanged export format; respects current filters).
+// Our Type label → the client's tracker vocabulary (Excel display text only; the
+// original event_type still drives the cell colour).
+const TYPE_VOCAB = {
+  'Capex ↑': 'Capex Guidance ↑',
+  'Capex ↓': 'Capex Guidance ↓',
+  'Guidance revision': 'Capex Guidance Change',
+  'New Project': 'New Project',
+  'Capacity Expansion': 'New Project (Capacity Expansion)',
+  'Quarterly capex': 'Capex Update',
+  'Acquisition (M&A)': 'Major Capital Commitment (M&A)',
+};
+const plainCr = (n) => (n == null ? '—' : Number(n).toLocaleString('en-IN', { maximumFractionDigits: 2 }));
+// Plain-English "Capex Guidance Change" note — deterministic, source-backed.
+function guidanceNote(e) {
+  if (e._kind === 'mna') return 'Major investment commitment (acquisition, not organic capex)';
+  if (e._kind === 'routine') return 'Quarterly capex update (not a guidance change)';
+  if (e._kind === 'up') return `Capex guidance raised ₹${plainCr(e.old_cr)}→₹${plainCr(e.new_cr)} Cr (+${Math.round(e.pct_change)}%)`;
+  if (e._kind === 'down') return `Capex guidance cut ₹${plainCr(e.old_cr)}→₹${plainCr(e.new_cr)} Cr (−${Math.abs(Math.round(e.pct_change))}%)`;
+  return 'New capex guidance issued'; // new plan (no prior)
+}
+
+// Flat row for excel.js. Column ORDER is defined in excel.js; this supplies the
+// fields (respects the current filters). event_type stays original for colour;
+// type_display carries the client's vocabulary.
 function toExportRow(e) {
   const en = enrichOf(e.scrip_cd) || {};
   const real = !e.no_prior_on_record;
   const plain = (n) => (n == null ? '—' : `₹${Number(n).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`);
-  let summary;
-  if (e.reason) summary = e.reason;
-  else if (real) summary = headlineText(e);
-  else summary = headlineText(e);
+  const summary = e.reason || headlineText(e);
   return {
     company: e.company || '', scrip_cd: e.scrip_cd ?? '', date: e.new_date || null,
     week: e.week || weekOf(e.new_date || e.detected_at)?.label || '',
-    event_type: e.event_type || '', summary,
+    event_type: e.event_type || '', type_display: TYPE_VOCAB[e.event_type] || e.event_type || '',
+    summary, guidance_change: guidanceNote(e),
     capex_cr: e.new_cr ?? null,
     old_new: (e.old_cr != null) ? `${plain(e.old_cr)} → ${plain(e.new_cr)}` : (e.new_cr != null ? plain(e.new_cr) : '—'),
     pct: (e.pct_change == null ? null : e.pct_change / 100),
-    direction: real ? (e.direction || '') : 'new',
+    direction: e._mna ? 'M&A' : (real ? (e.direction || '') : 'new'),
     market_cap_cr: en.market_cap_cr ?? null, pe: en.pe ?? null, industry: en.industry || '',
     source: e.new_pdf || '', is_change: real,
   };
@@ -224,6 +265,7 @@ const KIND = {
   down: { pill: '▼ Cut guidance', cls: 'k-down' },
   new: { pill: '✦ New plan', cls: 'k-new' },
   routine: { pill: 'Quarterly spend', cls: 'k-routine' },
+  mna: { pill: '🤝 M&A — not organic capex', cls: 'k-mna' },
 };
 const fyPart = (e) => (e.fiscal_year ? `${e.fiscal_year} ` : '');
 
@@ -295,6 +337,7 @@ function renderList() {
 
 // Plain-text version, used by the Excel export summary column.
 function headlineText(e) {
+  if (e._kind === 'mna') return `Announced ${fmtCr(e.new_cr)} acquisition`;
   if (e._kind === 'up') return `Raised ${fyPart(e)}capex ${fmtCr(e.old_cr)} → ${fmtCr(e.new_cr)}`;
   if (e._kind === 'down') return `Trimmed ${fyPart(e)}capex ${fmtCr(e.old_cr)} → ${fmtCr(e.new_cr)}`;
   if (e._actual) return `Reported ${fyPart(e)}capex of ${fmtCr(e.new_cr)}`;
