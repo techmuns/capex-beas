@@ -25,6 +25,8 @@
       --field:#ffffff;
       /* aliases so the self-contained Brief drawer (brief.js) keeps its brand colors */
       --i1:#6366F1; --i2:#8B5CF6; --pink:#EC4899;
+      /* table row kinds (match the email): raised / cut / new plan / routine + zebra */
+      --zebra:#FAF9FE; --k-up:#0F9D6B; --k-down:#E11D48; --k-new:#2563EB; --k-routine:#64748B;
     }
     @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
       --bg:#0E0F1C; --card:#17182B; --ink:#ECEEFB; --muted:#9AA0B4; --line:#262A44; --line2:#20233B;
@@ -32,6 +34,7 @@
       --up:#34D399; --up-bg:#0F2A22; --down:#FB7185; --down-bg:#2A0F17; --newc:#A78BFA; --new-bg:#1E1A33;
       --shadow:0 12px 34px rgba(0,0,0,.45); --field:#12132322;
       --i1:#818CF8; --i2:#A78BFA; --pink:#F472B6;
+      --zebra:#1B1C30; --k-up:#34D399; --k-down:#FB7185; --k-new:#60A5FA; --k-routine:#94A3B8;
     }}
     :root[data-theme="dark"]{
       --bg:#0E0F1C; --card:#17182B; --ink:#ECEEFB; --muted:#9AA0B4; --line:#262A44; --line2:#20233B;
@@ -39,6 +42,7 @@
       --up:#34D399; --up-bg:#0F2A22; --down:#FB7185; --down-bg:#2A0F17; --newc:#A78BFA; --new-bg:#1E1A33;
       --shadow:0 12px 34px rgba(0,0,0,.45); --field:#12132322;
       --i1:#818CF8; --i2:#A78BFA; --pink:#F472B6;
+      --zebra:#1B1C30; --k-up:#34D399; --k-down:#FB7185; --k-new:#60A5FA; --k-routine:#94A3B8;
     }
     *{box-sizing:border-box}
     body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.45;
@@ -113,6 +117,43 @@
     .none{text-align:center; color:var(--muted); background:var(--card); border:1px dashed var(--line);
       border-radius:18px; padding:34px 20px;}
 
+    /* custom date range (revealed when Period = Custom) */
+    .range{display:flex; gap:10px; align-items:flex-end;}
+    .range input[type="date"]{min-width:150px;}
+
+    /* data table (Part A) — horizontal scroll stays inside the card, never the page */
+    .tablewrap{overflow-x:auto; -webkit-overflow-scrolling:touch; background:var(--card);
+      border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow);}
+    table.dt{width:100%; min-width:720px; border-collapse:collapse; font-size:14px;}
+    table.dt thead th{position:sticky; top:0; z-index:2; background:var(--card); text-align:left;
+      font-size:11px; text-transform:uppercase; letter-spacing:.04em; font-weight:700; color:var(--muted);
+      padding:13px 15px; border-bottom:1px solid var(--line); white-space:nowrap;}
+    table.dt tbody td{padding:13px 15px; border-top:1px solid var(--line2); vertical-align:middle;}
+    table.dt tbody tr:nth-child(even) td{background:var(--zebra);}
+    table.dt tbody tr:hover td{background:color-mix(in srgb,var(--b2) 9%, transparent);}
+    table.dt tbody td:first-child{border-left:4px solid transparent;}
+    table.dt tbody tr.k-up td:first-child{border-left-color:var(--k-up);}
+    table.dt tbody tr.k-down td:first-child{border-left-color:var(--k-down);}
+    table.dt tbody tr.k-new td:first-child{border-left-color:var(--k-new);}
+    table.dt tbody tr.k-routine td:first-child{border-left-color:var(--k-routine);}
+    .dt .co{font-family:'Space Grotesk'; font-weight:700; font-size:14.5px; cursor:pointer; color:var(--ink);}
+    .dt .co:hover{text-decoration:underline; text-decoration-color:var(--b2);}
+    .dt .sub2{font-size:11.5px; color:var(--muted); margin-top:2px;}
+    .dt .arw{color:var(--muted); margin:0 7px;}
+    .dt .when{color:var(--muted); white-space:nowrap;}
+    .dt a.src{color:var(--b1); font-weight:600; text-decoration:none; white-space:nowrap;}
+    .dt a.src:hover{text-decoration:underline;}
+    .pill{display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:700;
+      border-radius:999px; padding:3px 10px; white-space:nowrap;}
+    .pill.k-up{color:var(--k-up); background:color-mix(in srgb,var(--k-up) 14%, transparent);}
+    .pill.k-down{color:var(--k-down); background:color-mix(in srgb,var(--k-down) 14%, transparent);}
+    .pill.k-new{color:var(--k-new); background:color-mix(in srgb,var(--k-new) 14%, transparent);}
+    .pill.k-routine{color:var(--k-routine); background:color-mix(in srgb,var(--k-routine) 16%, transparent);}
+    .fy{margin-left:8px; font-size:12px; color:var(--muted); font-weight:600;}
+    .delta{margin-left:10px; font-size:11.5px; font-weight:700; border-radius:6px; padding:1px 7px;}
+    .delta.up{color:var(--k-up); background:color-mix(in srgb,var(--k-up) 14%, transparent);}
+    .delta.down{color:var(--k-down); background:color-mix(in srgb,var(--k-down) 14%, transparent);}
+
     footer{margin-top:22px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted);
       display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
 
@@ -160,7 +201,6 @@
 
     <div class="summary" id="summary"></div>
     <div class="controls" id="controls"></div>
-    <div class="everything" id="everythingBar"></div>
 
     <main>
       <div class="list" id="list"></div>
