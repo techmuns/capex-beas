@@ -363,6 +363,42 @@ export function figureClass(o = {}) {
 }
 
 // ---------------------------------------------------------------------------
+// M&A accuracy filter (display layer). The extractor tags many capital events as
+// type "acquisition"; only some are genuine M&A. This keeps real acquisitions /
+// stake purchases / mergers / takeovers / slump sales and DROPS debt & capital-
+// raising events (NCD, QIP, rights issue, preferential allotment, warrants,
+// commercial paper, buybacks, debt prepayment, resolution-plan payments) and
+// rupee-as-crore mis-parses (a "Rs X/-" subscription of shares at ₹10 face
+// value). Deterministic; used to filter the dashboard's "Major commitments (M&A)"
+// bucket. Mirrored in public/js/ui.js for the browser. Never touches capex.
+// ---------------------------------------------------------------------------
+const ACQ_SIGNAL = /\bacquisitions?\b|\bacquir(?:e|es|ed|ing)\b|\bstake\b|\bmerger\b|amalgamat\w*|\btakeover\b|take[- ]over|\bbuyout\b|buy[- ]?out|controlling (?:stake|interest)|majority (?:stake|interest)|share purchase agreement|\bslump sale\b|scheme of arrangement|\bopen offer\b|enterprise value|definitive agreement|binding agreement|wholly[- ]owned subsidiary|cash-free|debt-free|voting rights/i;
+const NOT_ACQ = /\bncd\b|non-convertible debenture|rights issue|\bqip\b|qualified institutional placement|preferential (?:allotment|issue)|\bwarrants?\b|commercial paper|equity capital (?:raise|infusion)|equity raise|fund[- ]?rais(?:e|es|ed|ing)|\bbuy-?back\b|debt prepay\w*|\bprepaid\b|prepay\w*|resolution plan|\bnclt\b/i;
+
+/** A "Rs X/-" subscription of shares at ₹10 face value is RUPEES, not crore. */
+function looksRupeeMisparse(o = {}) {
+  const q = String(o.quote || '');
+  const at = String(o.amount_text || '');
+  const sharesAt10 = /shares?\s+of\s+(?:rs\.?|₹)\s*10\/?-?\s*each/i.test(q);
+  const rupeeSub = /\/-/.test(at) && /equity shares?|subscri/i.test(q);
+  return sharesAt10 || rupeeSub;
+}
+
+/**
+ * True only for a genuine acquisition / M&A. Applied to already-`acquisition`-typed
+ * observations to keep the real deals and drop debt/fund-raising and mis-parses.
+ * A row with no ₹ figure (e.g. a "$250 million" deal) still qualifies.
+ */
+export function isGenuineAcquisition(o = {}) {
+  const q = String(o.quote || '');
+  if (!ACQ_SIGNAL.test(q)) return false;                       // (1) describes an acquisition
+  if (NOT_ACQ.test(q)) return false;                           // (2) not debt / capital-raise / buyback
+  if (o.amount_cr != null && o.amount_cr > 150000) return false; // (3a) implausible for one deal
+  if (looksRupeeMisparse(o)) return false;                     // (3b) rupee-as-crore mis-parse
+  return true;
+}
+
+// ---------------------------------------------------------------------------
 // Defensive JSON extractor for LLM output. Handles code fences, leading prose,
 // and trailing junk by balancing brackets while respecting string literals.
 // ---------------------------------------------------------------------------

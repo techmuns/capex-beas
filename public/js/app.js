@@ -5,7 +5,7 @@
 // backend, Excel export, email Brief, Week filter and enrichment are untouched.
 
 import {
-  h, fmtCr, fmtCrAxis, fmtMktCap, fmtPE, fmtDate, weekOf,
+  h, fmtCr, fmtCrAxis, fmtMktCap, fmtPE, fmtDate, weekOf, isGenuineAcquisition,
   newChart, disposeCharts, resizeCharts, CHART, PALETTE,
 } from './ui.js';
 import { downloadExcel } from './excel.js';
@@ -64,7 +64,7 @@ function histRow(o, kind) {
   return {
     company: o.company, scrip_cd: o.scrip_cd, fiscal_year: o.fiscal_year,
     event_type: o.event_type || (kind === 'mna' ? 'Acquisition (M&A)' : 'Quarterly capex'),
-    old_cr: null, new_cr: o.amount_cr, delta_cr: null, pct_change: null,
+    old_cr: null, new_cr: o.amount_cr, amount_text: o.amount_text, delta_cr: null, pct_change: null,
     direction: 'unclear', reason: o.reason, new_quote: o.quote,
     new_pdf: o.source_pdf, new_date: o.date, week: o.week,
     no_prior_on_record: true, _kind: kind, _actual: kind === 'routine', _mna: kind === 'mna',
@@ -78,9 +78,10 @@ function allEvents() {
   // routine only under "Include routine…", M&A only under "Major commitments".
   for (const scrip of Object.keys(state.history)) {
     for (const o of state.history[scrip]) {
-      if (o.amount_cr == null) continue;
-      if (o.type === 'actual') evs.push(histRow(o, 'routine'));
-      else if (o.type === 'acquisition') evs.push(histRow(o, 'mna'));
+      if (o.type === 'actual') { if (o.amount_cr != null) evs.push(histRow(o, 'routine')); }
+      // M&A accuracy filter: only GENUINE acquisitions reach the bucket (drops
+      // debt/fund-raising & mis-parses). Genuine deals with no ₹ figure are kept.
+      else if (o.type === 'acquisition' && isGenuineAcquisition(o)) evs.push(histRow(o, 'mna'));
     }
   }
   return evs;
@@ -280,6 +281,9 @@ function planCell(e) {
       h('span', {}, fmtCr(e.old_cr)), h('span', { class: 'arw' }, '→'),
       h('span', {}, fmtCr(e.new_cr)), chip);
   }
+  // M&A: show the deal value the filing literally stated (verbatim, source-backed
+  // — avoids normalizing "approximately 21% stake" into a bogus ₹ figure).
+  if (e._kind === 'mna') return h('td', {}, e.amount_text || fmtCr(e.new_cr));
   return h('td', { class: 'num' }, fmtCr(e.new_cr));
 }
 
@@ -337,7 +341,7 @@ function renderList() {
 
 // Plain-text version, used by the Excel export summary column.
 function headlineText(e) {
-  if (e._kind === 'mna') return `Announced ${fmtCr(e.new_cr)} acquisition`;
+  if (e._kind === 'mna') return `Announced ${e.amount_text || (e.new_cr != null ? fmtCr(e.new_cr) : '')} acquisition`.replace(/\s+/g, ' ').trim();
   if (e._kind === 'up') return `Raised ${fyPart(e)}capex ${fmtCr(e.old_cr)} → ${fmtCr(e.new_cr)}`;
   if (e._kind === 'down') return `Trimmed ${fyPart(e)}capex ${fmtCr(e.old_cr)} → ${fmtCr(e.new_cr)}`;
   if (e._actual) return `Reported ${fyPart(e)}capex of ${fmtCr(e.new_cr)}`;
