@@ -81,6 +81,26 @@ export function weekOf(input) {
   return { key: _ymd(mon), label, startISO: mon.toISOString(), endISO: sun.toISOString() };
 }
 
+// M&A accuracy filter — mirrors scripts/lib/util.mjs isGenuineAcquisition(). Keeps
+// genuine acquisitions / stake purchases / mergers / takeovers / slump sales and
+// drops debt & capital-raising (NCD, QIP, rights issue, preferential allotment,
+// warrants, commercial paper, buybacks, debt prepayment, resolution-plan payments)
+// plus rupee-as-crore mis-parses. Keep the two in sync.
+const _ACQ_SIGNAL = /\bacquisitions?\b|\bacquir(?:e|es|ed|ing)\b|\bstake\b|\bmerger\b|amalgamat\w*|\btakeover\b|take[- ]over|\bbuyout\b|buy[- ]?out|controlling (?:stake|interest)|majority (?:stake|interest)|share purchase agreement|\bslump sale\b|scheme of arrangement|\bopen offer\b|enterprise value|definitive agreement|binding agreement|wholly[- ]owned subsidiary|cash-free|debt-free|voting rights/i;
+const _NOT_ACQ = /\bncd\b|non-convertible debenture|rights issue|\bqip\b|qualified institutional placement|preferential (?:allotment|issue)|\bwarrants?\b|commercial paper|equity capital (?:raise|infusion)|equity raise|fund[- ]?rais(?:e|es|ed|ing)|\bbuy-?back\b|debt prepay\w*|\bprepaid\b|prepay\w*|resolution plan|\bnclt\b/i;
+function _looksRupeeMisparse(o) {
+  const q = String(o.quote || ''); const at = String(o.amount_text || '');
+  return /shares?\s+of\s+(?:rs\.?|₹)\s*10\/?-?\s*each/i.test(q) || (/\/-/.test(at) && /equity shares?|subscri/i.test(q));
+}
+export function isGenuineAcquisition(o = {}) {
+  const q = String(o.quote || '');
+  if (!_ACQ_SIGNAL.test(q)) return false;
+  if (_NOT_ACQ.test(q)) return false;
+  if (o.amount_cr != null && o.amount_cr > 150000) return false;
+  if (_looksRupeeMisparse(o)) return false;
+  return true;
+}
+
 export const debounce = (fn, ms = 150) => {
   let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
 };

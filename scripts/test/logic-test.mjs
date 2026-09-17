@@ -8,7 +8,7 @@
 
 import { _internals } from '../extract-capex.mjs';
 import { recomputeChanges, makeObservation, addObservationToHistory, pruneImplausible, pruneNonCapex } from '../detect-changes.mjs';
-import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR, classifyCapexFigure, isChangeEligible, figureClass } from '../lib/util.mjs';
+import { numericTokens, toCrore, extractJSON, deriveEventType, weekOf, isPlausibleCapexCr, CAPEX_MAX_CR, classifyCapexFigure, isChangeEligible, figureClass, isGenuineAcquisition } from '../lib/util.mjs';
 import { parseScreenerHtml, needsEnrichment } from '../enrich.mjs';
 
 const { normalizeAmount, digitsAppearInQuote, quoteInSource, normFY, isAcquisition } = _internals;
@@ -354,6 +354,24 @@ const phist = { '1': [
 const pr2 = pruneNonCapex(phist);
 eq('pruneNonCapex removed the % row', pr2.removed, 1);
 ok('pruneNonCapex kept capex + acquisition', phist['1'].length === 2 && phist['1'].every((o) => o.amount_cr !== 14));
+
+// --- M&A accuracy filter (real committed acquisition quotes) ---------------
+const acq = (quote, amount_cr, amount_text) => isGenuineAcquisition({ quote, amount_cr, amount_text });
+// KEEP — genuine acquisitions / stake purchases / mergers / takeovers
+ok('acq KEEP Batliboi 80% stake', acq('At closing, Batliboi will acquire an 80% stake in Penta for an upfront cash consideration of INR 15.84 crores.', 15.84, 'INR 15.84 crores'));
+ok('acq KEEP Aurobindo $250m (no ₹)', acq('The transaction, valued at $250 million on a cash-free, debt-free basis and inclusive of normalized working capital, is expected to close before the end of June 2026.', null, '$250 million'));
+ok('acq KEEP Rane slump sale', acq('Rane (Madras) Limited entered into an agreement with Hindustan Composites to acquire the Friction Business, as going concern, on slump sale basis for an enterprise value of INR 370 Crore', 370, 'INR 370 Crore'));
+ok('acq KEEP Persistent takeover (no ₹)', acq('Persistent announces the intention to launch a voluntary public takeover offer for all outstanding Nagarro shares at EUR 81 per share', null, 'EUR 81 per share'));
+// DROP — debt / capital-raising / buyback
+ok('acq DROP Ugro NCD', !acq('Five-year NCD takes FMO’s cumulative commitment to UGRO to INR 890 crore', 890, 'INR 890 crore'));
+ok('acq DROP TANFAC QIP', !acq('TANFAC Industries has successfully raised ₹ 250 crores through a Qualified Institutional Placement (QIP)', 250, '₹ 250 crores'));
+ok('acq DROP Piramal equity raise', !acq('Piramal Finance announced a ₹3,850 crore equity capital infusion, comprising ₹2,100 crore raised through a QIP and a proposed ₹1,750 crore preferential allotment of promoter warrants', 3850, '₹3,850 crore'));
+ok('acq DROP Diamond debt prepay', !acq('The Company has prepaid, in full, the entire ₹501 crore cash consideration payable to its erstwhile lenders under the NCLT-approved Resolution Plan.', 501, '₹501 crore'));
+ok('acq DROP VRL buyback', !acq('the board had approved the buyback of shares by the company to the tune of Rs. 280 crores', 280, 'Rs. 280 crores'));
+// DROP — rupee-as-crore mis-parses
+ok('acq DROP Tokyo Plast misparse', !acq('Initial subscription of ₹4,99,990/- (49,999 Equity Shares of ₹10/- each).', 499990, '₹4,99,990/-'));
+ok('acq DROP Ceigall ₹49,000 misparse', !acq('Will subscribe 4,900 Equity Shares of Rs.10/- each aggregating to Rs. 49,000/- [49%] in the JV to be incorporated', 49000, 'Rs. 49,000/-'));
+ok('acq DROP figure above ceiling', !acq('to acquire 100% stake in Target Ltd', 200000, '₹2,00,000 crore'));
 
 // --- Phase 4B: Screener enrichment parse (mocked HTML) ---------------------
 const screenerHtml = `<html><head></head><body>
