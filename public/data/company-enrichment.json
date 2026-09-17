@@ -35,6 +35,15 @@
     "as_of": "2026-09-16T12:03:38.747Z",
     "source_url": "https://www.screener.in/company/500126/"
   },
+  "500165": {
+    "company": "Kansai Nerolac Paints Ltd",
+    "industry": "Paints",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 14914,
+    "pe": 22,
+    "as_of": "2026-09-17T08:05:17.458Z",
+    "source_url": "https://www.screener.in/company/500165/"
+  },
   "500183": {
     "company": "HFCL Ltd",
     "industry": null,
@@ -62,6 +71,15 @@
     "as_of": "2026-09-16T12:03:41.118Z",
     "source_url": "https://www.screener.in/company/500186/"
   },
+  "500214": {
+    "company": "Ion Exchange (India) Ltd",
+    "industry": "Water Supply & Management",
+    "sector": "Utilities",
+    "market_cap_cr": 6248,
+    "pe": 55.1,
+    "as_of": "2026-09-17T08:05:19.430Z",
+    "source_url": "https://www.screener.in/company/500214/"
+  },
   "500330": {
     "company": "Raymond Ltd",
     "industry": "Industrial Products",
@@ -70,6 +88,24 @@
     "pe": 268,
     "as_of": "2026-09-16T12:03:43.626Z",
     "source_url": "https://www.screener.in/company/500330/"
+  },
+  "500403": {
+    "company": "Sundram Fasteners Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 25773,
+    "pe": 44.5,
+    "as_of": "2026-09-17T08:05:21.401Z",
+    "source_url": "https://www.screener.in/company/500403/"
+  },
+  "500493": {
+    "company": "Bharat Forge Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 91762,
+    "pe": 74.3,
+    "as_of": "2026-09-17T08:05:23.379Z",
+    "source_url": "https://www.screener.in/company/500493/"
   },
   "500510": {
     "company": "Larsen & Toubro Ltd",
@@ -107,6 +143,24 @@
     "as_of": "2026-09-16T12:03:50.830Z",
     "source_url": "https://www.screener.in/company/500696/"
   },
+  "500730": {
+    "company": "NOCIL Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 3155,
+    "pe": 40.4,
+    "as_of": "2026-09-17T08:05:25.355Z",
+    "source_url": "https://www.screener.in/company/500730/"
+  },
+  "500870": {
+    "company": "Castrol India Ltd",
+    "industry": "Lubricants",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 19031,
+    "pe": 17.6,
+    "as_of": "2026-09-17T08:05:27.326Z",
+    "source_url": "https://www.screener.in/company/500870/"
+  },
   "501261": {
     "company": "Lords Mark Industries Limited",
     "industry": null,
@@ -116,6 +170,42 @@
     "as_of": "2026-09-16T12:01:19.618Z",
     "source_url": "https://www.screener.in/company/501261/"
   },
+  "501423": {
+    "company": "Shaily Engineering Plastics Ltd",
+    "industry": "Plastic Products - Consumer",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 14269,
+    "pe": 80.2,
+    "as_of": "2026-09-17T08:05:29.298Z",
+    "source_url": "https://www.screener.in/company/501423/"
+  },
+  "504028": {
+    "company": "GEE Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 667,
+    "pe": 37.1,
+    "as_of": "2026-09-17T08:05:31.279Z",
+    "source_url": "https://www.screener.in/company/504028/"
+  },
+  "504614": {
+    "company": "Sarda Energy & Minerals Ltd",
+    "industry": "Iron & Steel",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 17795,
+    "pe": 20.2,
+    "as_of": "2026-09-17T08:05:33.255Z",
+    "source_url": "https://www.screener.in/company/504614/"
+  },
+  "505160": {
+    "company": "Talbros Automotive Components Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 2710,
+    "pe": 30.3,
+    "as_of": "2026-09-17T08:05:35.227Z",
+    "source_url": "https://www.screener.in/company/505160/"
+  },
   "506166": {
     "company": "Apis India Ltd",
     "industry": "Other Food Products",
@@ -124,6 +214,15 @@
     "pe": 27.8,
     "as_of": "2026-09-16T22:12:43.312Z",
     "source_url": "https://www.screener.in/company/506166/"
+  },
+  "506194": {
+    "company": "Arihant Superstructures Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 969,
+    "pe": 567,
+    "as_of": "2026-09-17T08:05:37.198Z",
+    "source_url": "https://www.screener.in/company/506194/"
   },
   "506854": {
     "company": "Tanfac Industries Ltd",
@@ -161,6 +260,15 @@
     "as_of": "2026-09-17T05:26:30.329Z",
     "source_url": "https://www.screener.in/company/507789/"
   },
+  "511034": {
+    "company": "Jindal Drilling & Industries Ltd",
+    "industry": "Offshore Support Solution Drilling",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 1696,
+    "pe": 9.87,
+    "as_of": "2026-09-17T08:05:39.170Z",
+    "source_url": "https://www.screener.in/company/511034/"
+  },
   "511196": {
     "company": "Can Fin Homes Ltd",
     "industry": "Housing Finance Company",
@@ -196,6 +304,15 @@
     "pe": 9.25,
     "as_of": "2026-09-17T06:23:31.187Z",
     "source_url": "https://www.screener.in/company/511742/"
+  },
+  "512068": {
+    "company": "Deccan Gold Mines Ltd",
+    "industry": "Precious Metals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 4330,
+    "pe": 1251,
+    "as_of": "2026-09-17T08:05:41.139Z",
+    "source_url": "https://www.screener.in/company/512068/"
   },
   "512115": {
     "company": "Rose Merc. Ltd",
@@ -233,6 +350,15 @@
     "as_of": "2026-09-16T22:12:45.265Z",
     "source_url": "https://www.screener.in/company/513683/"
   },
+  "514142": {
+    "company": "T T Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 183,
+    "pe": 345,
+    "as_of": "2026-09-17T08:05:43.110Z",
+    "source_url": "https://www.screener.in/company/514142/"
+  },
   "514211": {
     "company": "Sumeet Industries Ltd",
     "industry": "Other Textile Products",
@@ -268,6 +394,15 @@
     "pe": 193,
     "as_of": "2026-09-17T06:23:33.206Z",
     "source_url": "https://www.screener.in/company/517035/"
+  },
+  "517059": {
+    "company": "Salzer Electronics Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 979,
+    "pe": 22.2,
+    "as_of": "2026-09-17T08:05:45.080Z",
+    "source_url": "https://www.screener.in/company/517059/"
   },
   "517554": {
     "company": "NHC Foods Ltd",
