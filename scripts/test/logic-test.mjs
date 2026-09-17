@@ -373,6 +373,28 @@ ok('acq DROP Tokyo Plast misparse', !acq('Initial subscription of ₹4,99,990/- 
 ok('acq DROP Ceigall ₹49,000 misparse', !acq('Will subscribe 4,900 Equity Shares of Rs.10/- each aggregating to Rs. 49,000/- [49%] in the JV to be incorporated', 49000, 'Rs. 49,000/-'));
 ok('acq DROP figure above ceiling', !acq('to acquire 100% stake in Target Ltd', 200000, '₹2,00,000 crore'));
 
+// --- Push C (recall): new real quotes surfaced by the widened prefilter --------
+// KEEP — genuine deals from the re-extraction must survive the tightened filter.
+ok('acq KEEP Apollo Micro definitive agreement/stake', acq('We have entered into a definitive agreement to acquire 41.33% promoter stake in Premier Explosives Limited for INR1,550 crores', 1550, 'INR1,550 crores'));
+ok('acq KEEP Piramal Pharma 41% stake acquisition', acq('has approved the exercise of the Company\'s call option for acquisition of an additional 41% equity stake in Yapan Bio Private Limited ("Yapan") an associate company of the Company, from its existing shareholders', null, '41% equity stake'));
+ok('acq KEEP CESC enterprise value', acq('Enterprise Value of INR 4859 crores (excluding contingent payment of estimated INR 230 crores, payable only on additional realisation of change in law claim)', 4859, 'INR 4859 crores'));
+ok('acq KEEP Sumeet Narkoda acquisition', acq('Sumeet Industries was declared the successful bidder for the acquisition of Narkoda Limited CP plant under the CIRP for a consideration of INR23.47 crores.', 23.47, 'INR23.47 crores'));
+ok('acq KEEP Standard Engineering invested for stake', acq('We have invested approximately INR71 crores for the approximately 19% stake, with the right to grow this up to', 71, 'INR71 crores'));
+// DROP — follow-on funding of an EXISTING subsidiary is intercompany funding, not M&A.
+ok('acq DROP Bharat Forge WOS further investment', !acq('the Board of Directors of the Company have considered and approved further investment of an amount not exceeding Rs. 2,400 million in Kalyani Strategic Systems Limited ("KSSL"), wholly owned subsidiary of the Company, at fair value', 240, 'Rs. 2,400 million'));
+ok('acq DROP Advanced Enzyme fund infusion', !acq('Approved infusion of additional funds not exceeding ₹ 20 million, in one or more tranches, in Advanced Nutrazyme Private Limited ("ANPL") (Wholly Owned Subsidiary of the Company) by way of Equity investment or by providing inter corporate deposit', 2, '₹ 20 million'));
+ok('acq DROP Delhivery WOS investment', !acq('investment in Delhivery Financial Services Private Limited ("DFSPL"), a wholly owned subsidiary of the Company, not exceeding Rs. 50 crores (Rupees Fifty crores) in one or more tranches.', 50, 'Rs. 50 crores'));
+ok('acq DROP Valiant WOS further investment', !acq('Approval for making further investment in Valiant Advanced Sciences Private Limited ("VASPL"), a wholly owned subsidiary of the Company, up to an aggregate amount not exceeding ₹ 60 Crore, by way of subscription to 1% Optionally Convertible Redeemable Preference Shares', 60, '₹ 60 Crore'));
+ok('acq DROP Studds WOS further investment', !acq('Further investment in SMK Helmets Europe SRL, a Wholly Owned Subsidiary, amounting upto EUR 10,00,000.', null, 'EUR 10,00,000'));
+// DROP — land / acreage purchase is organic capex, not a business acquisition.
+ok('acq DROP KSH land acquisition', !acq('The Board has approved a proposal for the acquisition of approximately 10 acres of industrial land in Supa for the Company\'s future expansion requirements and long-term growth', null, 'approximately 10 acres'));
+// DROP — capex actually spent (con-call spend language), not a deal size.
+ok('acq DROP Prince Pipes capex spent', !acq('For this quarter, around INR 40 crores, INR 42 crores has been spent, and that has primarily been on the completion of second tranche of Bhuj plant takeover.', 42, 'INR 40 crores, INR 42 crores'));
+// DROP — nominal ₹240 subscription of 2 shares (token incorporation), not M&A.
+ok('acq DROP Pet Plastics nominal 2 shares', !acq('The Company has acquired 2 Equity Shares at ₹120 per Equity Share, aggregating to ₹240/- (Rupees Two Hundred Forty Only).', null, '₹240'));
+// DROP — a divestiture (selling shareholding) is not an acquisition.
+ok('acq DROP APL Apollo divestiture', !acq('has considered and approved the proposal for the disinvestment of the Company\'s entire shareholding in Blue Ocean, a wholly owned subsidiary, for ₹160 crore', 160, '₹160 crore'));
+
 // --- Phase 4B: Screener enrichment parse (mocked HTML) ---------------------
 const screenerHtml = `<html><head></head><body>
 <h1> Solar Industries India Ltd </h1>

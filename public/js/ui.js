@@ -84,13 +84,18 @@ export function weekOf(input) {
 // M&A accuracy filter — mirrors scripts/lib/util.mjs isGenuineAcquisition(). Keeps
 // genuine acquisitions / stake purchases / mergers / takeovers / slump sales and
 // drops debt & capital-raising (NCD, QIP, rights issue, preferential allotment,
-// warrants, commercial paper, buybacks, debt prepayment, resolution-plan payments)
-// plus rupee-as-crore mis-parses. Keep the two in sync.
-const _ACQ_SIGNAL = /\bacquisitions?\b|\bacquir(?:e|es|ed|ing)\b|\bstake\b|\bmerger\b|amalgamat\w*|\btakeover\b|take[- ]over|\bbuyout\b|buy[- ]?out|controlling (?:stake|interest)|majority (?:stake|interest)|share purchase agreement|\bslump sale\b|scheme of arrangement|\bopen offer\b|enterprise value|definitive agreement|binding agreement|wholly[- ]owned subsidiary|cash-free|debt-free|voting rights/i;
-const _NOT_ACQ = /\bncd\b|non-convertible debenture|rights issue|\bqip\b|qualified institutional placement|preferential (?:allotment|issue)|\bwarrants?\b|commercial paper|equity capital (?:raise|infusion)|equity raise|fund[- ]?rais(?:e|es|ed|ing)|\bbuy-?back\b|debt prepay\w*|\bprepaid\b|prepay\w*|resolution plan|\bnclt\b/i;
+// warrants, commercial paper, buybacks, debt prepayment, resolution-plan payments),
+// follow-on funding of an existing subsidiary ("further investment / infusion of
+// additional funds in [our WOS]"), land / acreage purchases and capex actually
+// spent (organic capex, not M&A), plus rupee-as-crore / nominal-share mis-parses.
+// "Wholly-owned subsidiary" is NOT an acquisition signal on its own. Keep in sync.
+const _ACQ_SIGNAL = /\bacquisitions?\b|\bacquir(?:e|es|ed|ing)\b|\bstake\b|\bmerger\b|amalgamat\w*|\btakeover\b|take[- ]over|\bbuyout\b|buy[- ]?out|controlling (?:stake|interest)|majority (?:stake|interest)|share purchase agreement|\bslump sale\b|scheme of arrangement|\bopen offer\b|enterprise value|definitive agreement|binding agreement|cash-free|debt-free|voting rights/i;
+const _NOT_ACQ = /\bncd\b|non-convertible debenture|rights issue|\bqip\b|qualified institutional placement|preferential (?:allotment|issue)|\bwarrants?\b|commercial paper|equity capital (?:raise|infusion)|equity raise|fund[- ]?rais(?:e|es|ed|ing)|\bbuy-?back\b|debt prepay\w*|\bprepaid\b|prepay\w*|resolution plan|\bnclt\b|further investment|infusion of (?:additional )?funds|additional funds not exceeding|inter[- ]?corporate deposit|acquisition of\s+(?:approximately\s+|about\s+)?[\d,.]+\s*acres?|acquisition of\s+(?:the\s+)?(?:land|industrial land|freehold|leasehold|a plot)|\b(?:has|have|had|was|were)\s+(?:been\s+)?spent\b/i;
 function _looksRupeeMisparse(o) {
   const q = String(o.quote || ''); const at = String(o.amount_text || '');
-  return /shares?\s+of\s+(?:rs\.?|₹)\s*10\/?-?\s*each/i.test(q) || (/\/-/.test(at) && /equity shares?|subscri/i.test(q));
+  return /shares?\s+of\s+(?:rs\.?|₹)\s*10\/?-?\s*each/i.test(q)
+    || (/\/-/.test(at) && /equity shares?|subscri/i.test(q))
+    || /\d+\s+equity shares?\s+(?:of|at)\s+(?:rs\.?|₹)\s*[\d,.]+\s*(?:per|each|\/-)/i.test(q);
 }
 export function isGenuineAcquisition(o = {}) {
   const q = String(o.quote || '');
