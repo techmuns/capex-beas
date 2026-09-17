@@ -1,4 +1,13 @@
 {
+  "500033": {
+    "company": "Force Motors Ltd",
+    "industry": "Passenger Cars & Utility Vehicles",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 22904,
+    "pe": 21.1,
+    "as_of": "2026-09-17T00:35:29.106Z",
+    "source_url": "https://www.screener.in/company/500033/"
+  },
   "500038": {
     "company": "Balrampur Chini Mills Ltd",
     "industry": "Sugar",
@@ -116,6 +125,15 @@
     "as_of": "2026-09-16T22:12:43.312Z",
     "source_url": "https://www.screener.in/company/506166/"
   },
+  "507205": {
+    "company": "Tilaknagar Industries Ltd",
+    "industry": "Breweries & Distilleries",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 13053,
+    "pe": 57.4,
+    "as_of": "2026-09-17T00:35:31.081Z",
+    "source_url": "https://www.screener.in/company/507205/"
+  },
   "511196": {
     "company": "Can Fin Homes Ltd",
     "industry": "Housing Finance Company",
@@ -133,6 +151,15 @@
     "pe": 14.1,
     "as_of": "2026-09-16T12:03:55.388Z",
     "source_url": "https://www.screener.in/company/511672/"
+  },
+  "512115": {
+    "company": "Rose Merc. Ltd",
+    "industry": "Trading & Distributors",
+    "sector": "Services",
+    "market_cap_cr": 46.8,
+    "pe": 57.7,
+    "as_of": "2026-09-17T00:35:33.056Z",
+    "source_url": "https://www.screener.in/company/512115/"
   },
   "512599": {
     "company": "Adani Enterprises Ltd",
@@ -169,6 +196,15 @@
     "pe": 27.3,
     "as_of": "2026-09-16T12:04:00.012Z",
     "source_url": "https://www.screener.in/company/514211/"
+  },
+  "514470": {
+    "company": "Winsome Textile Industries Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 160,
+    "pe": 5.61,
+    "as_of": "2026-09-17T00:35:35.031Z",
+    "source_url": "https://www.screener.in/company/514470/"
   },
   "516072": {
     "company": "Vishnu Chemicals Ltd",
@@ -305,6 +341,15 @@
     "as_of": "2026-09-16T12:01:31.489Z",
     "source_url": "https://www.screener.in/company/531548/"
   },
+  "532016": {
+    "company": "Espire Hospitality Ltd",
+    "industry": "Hotels & Resorts",
+    "sector": "Consumer Services",
+    "market_cap_cr": 212,
+    "pe": 22.7,
+    "as_of": "2026-09-17T00:35:37.007Z",
+    "source_url": "https://www.screener.in/company/532016/"
+  },
   "532155": {
     "company": "GAIL (India) Ltd",
     "industry": null,
@@ -431,6 +476,15 @@
     "as_of": "2026-09-16T15:17:58.484Z",
     "source_url": "https://www.screener.in/company/533263/"
   },
+  "534076": {
+    "company": "RHI Magnesita India Ltd",
+    "industry": "Electrodes & Refractories",
+    "sector": "Capital Goods",
+    "market_cap_cr": 7508,
+    "pe": 35.8,
+    "as_of": "2026-09-17T00:35:38.983Z",
+    "source_url": "https://www.screener.in/company/534076/"
+  },
   "538772": {
     "company": "Niyogin Fintech Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
@@ -529,6 +583,15 @@
     "pe": 58.8,
     "as_of": "2026-09-16T15:18:12.737Z",
     "source_url": "https://www.screener.in/company/540678/"
+  },
+  "540902": {
+    "company": "Amber Enterprises India Ltd",
+    "industry": "Household Appliances",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 24441,
+    "pe": 165,
+    "as_of": "2026-09-17T00:35:40.959Z",
+    "source_url": "https://www.screener.in/company/540902/"
   },
   "543273": {
     "company": "Knowledge Marine & Engineering Works Ltd",
@@ -673,5 +736,77 @@
     "pe": 25.4,
     "as_of": "2026-09-16T22:13:10.772Z",
     "source_url": "https://www.screener.in/company/544545/"
+  },
+  "544558": {
+    "company": "Fabtech Technologies Ltd",
+    "industry": "Healthcare Research, Analytics & Technology",
+    "sector": "Healthcare",
+    "market_cap_cr": 647,
+    "pe": 18.8,
+    "as_of": "2026-09-17T00:35:42.933Z",
+    "source_url": "https://www.screener.in/company/544558/"
+  },
+  "544597": {
+    "company": "Piramal Finance Ltd",
+    "industry": "Housing Finance Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 52085,
+    "pe": 29,
+    "as_of": "2026-09-17T00:35:44.909Z",
+    "source_url": "https://www.screener.in/company/544597/"
+  },
+  "544616": {
+    "company": "Gallard Steel Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 152,
+    "pe": 22.6,
+    "as_of": "2026-09-17T00:35:46.882Z",
+    "source_url": "https://www.screener.in/company/544616/"
+  },
+  "544634": {
+    "company": "Aequs Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 14800,
+    "pe": 447,
+    "as_of": "2026-09-17T00:35:48.857Z",
+    "source_url": "https://www.screener.in/company/544634/"
+  },
+  "544688": {
+    "company": "Kasturi Metal Composite Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 56.1,
+    "pe": 14.2,
+    "as_of": "2026-09-17T00:35:50.831Z",
+    "source_url": "https://www.screener.in/company/544688/"
+  },
+  "544695": {
+    "company": "Msafe Equipments Ltd",
+    "industry": "Aluminium",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 623,
+    "pe": 23.4,
+    "as_of": "2026-09-17T00:35:52.806Z",
+    "source_url": "https://www.screener.in/company/544695/"
+  },
+  "544699": {
+    "company": "Aye Finance Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 4445,
+    "pe": 18.7,
+    "as_of": "2026-09-17T00:35:54.782Z",
+    "source_url": "https://www.screener.in/company/544699/"
+  },
+  "544709": {
+    "company": "Gaudium IVF and Women Health Ltd",
+    "industry": "Healthcare Service Provider",
+    "sector": "Healthcare",
+    "market_cap_cr": 847,
+    "pe": 39.2,
+    "as_of": "2026-09-17T00:35:56.755Z",
+    "source_url": "https://www.screener.in/company/544709/"
   }
 }

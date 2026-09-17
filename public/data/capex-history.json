@@ -1,4 +1,52 @@
 {
+  "500033": [
+    {
+      "date": "2026-06-26T17:17:27.733",
+      "week": "22–28 Jun 2026",
+      "news_id": "ce879775-f706-4ac5-8c48-76af5b7ef750",
+      "company": "Force Motors Ltd-$",
+      "scrip_cd": 500033,
+      "fiscal_year": "FY26",
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "₹1,011 Cr",
+      "currency": "INR",
+      "amount_cr": 1011,
+      "amount_cr_low": 1011,
+      "amount_cr_high": 1011,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "up",
+      "reason": null,
+      "quote": "Cash Flow from Operations & Capex (₹ Cr. ) 32 238 235 324 498 458 453 399 260 208 367 540 256 471 256 312 409 7 18 531 1,011 971 1,297 FY 16 FY 17 FY 18 FY 19 FY 20 FY 21 FY 22 FY 23 FY 24 FY 25 FY 26",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/01851d61-29d3-4f62-a3dd-41bc21b22484.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-26T17:17:27.733",
+      "week": "22–28 Jun 2026",
+      "news_id": "ce879775-f706-4ac5-8c48-76af5b7ef750",
+      "company": "Force Motors Ltd-$",
+      "scrip_cd": 500033,
+      "fiscal_year": "FY25",
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "₹971 Cr",
+      "currency": "INR",
+      "amount_cr": 971,
+      "amount_cr_low": 971,
+      "amount_cr_high": 971,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Cash Flow from Operations & Capex (₹ Cr. ) 32 238 235 324 498 458 453 399 260 208 367 540 256 471 256 312 409 7 18 531 1,011 971 1,297 FY 16 FY 17 FY 18 FY 19 FY 20 FY 21 FY 22 FY 23 FY 24 FY 25 FY 26",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/01851d61-29d3-4f62-a3dd-41bc21b22484.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "500038": [
     {
       "date": "2026-06-20T15:32:15.257",
@@ -548,6 +596,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "507205": [
+    {
+      "date": "2026-06-26T17:08:48.547",
+      "week": "22–28 Jun 2026",
+      "news_id": "1323e660-c9c2-4979-90e4-12be99bb8976",
+      "company": "Tilaknagar Industries Ltd-$",
+      "scrip_cd": 507205,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 2 crore",
+      "currency": "INR",
+      "amount_cr": 2,
+      "amount_cr_low": 2,
+      "amount_cr_high": 2,
+      "comparable": true,
+      "segment_or_project": "Bartisans (Round The Cocktails Private Limited)",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Tilaknagar Industries Limited (TI) (BSE: 507205 | NSE: TI), has made a follow-on investment of INR 2 crore in Round The Cocktails Private Limited, makers of ready-to-pour cocktail and mocktail mixers under the brand name Bartisans.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/348d03c7-2134-4cc1-a520-265e9f8b359e.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "511196": [
     {
       "date": "2026-09-11T11:55:39.4",
@@ -594,6 +667,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/804f416c-ec0b-4aad-b2f1-d317fd004a58.pdf",
       "category": "Company Update",
       "subcat": "Investor Presentation"
+    }
+  ],
+  "512115": [
+    {
+      "date": "2026-06-25T19:08:16.627",
+      "week": "22–28 Jun 2026",
+      "news_id": "e9dcb444-83a6-4b99-80d3-e0d5530a0cf7",
+      "company": "Rose Merc Ltd",
+      "scrip_cd": 512115,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "30.01% equity stake",
+      "currency": "INR",
+      "amount_cr": 30.01,
+      "amount_cr_low": 30.01,
+      "amount_cr_high": 30.01,
+      "comparable": true,
+      "segment_or_project": "Virtual Gain Technologies Private Limited - fintech/digital payments",
+      "direction": "unclear",
+      "reason": "The acquisition is in line with the Company's strategy to expand its presence in the fintech and digital financial services sector and invest in technology-driven businesses with strong growth potential.",
+      "quote": "Rose Merc Limited has completed the acquisition of 30.01% equity stake in Virtual Gain Technologies Private Limited",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/e78ed036-8bf0-4cf1-bc66-af589d9fecd8.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "512599": [
@@ -807,6 +905,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/844dfcef-5464-419e-8482-bd5ca746b394.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "514470": [
+    {
+      "date": "2026-06-25T13:25:45.53",
+      "week": "22–28 Jun 2026",
+      "news_id": "e4e248ca-5495-416c-ba93-8430f1162873",
+      "company": "Winsome Textile Industries Ltd-$",
+      "scrip_cd": 514470,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "Rs. 170 Crs Approx.",
+      "currency": "INR",
+      "amount_cr": 170,
+      "amount_cr_low": 170,
+      "amount_cr_high": 170,
+      "comparable": true,
+      "segment_or_project": "Dye House expansion and modernization of the Spinning machinery",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The estimated project cost shall be approximately Rs. 170 Crs Approx. and will be funded through internal accruals/ debts.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/2028acd1-af6f-4699-b5a9-a0451a82d9fa.pdf",
+      "category": "Company Update",
+      "subcat": "General"
     }
   ],
   "516072": [
@@ -1414,6 +1537,31 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "532016": [
+    {
+      "date": "2026-06-25T22:15:53.467",
+      "week": "22–28 Jun 2026",
+      "news_id": "12c149ad-f9d6-4413-bb97-b72a76419a6a",
+      "company": "Espire Hospitality Limited",
+      "scrip_cd": 532016,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "₹300 Crores",
+      "currency": "INR",
+      "amount_cr": 300,
+      "amount_cr_low": 300,
+      "amount_cr_high": 300,
+      "comparable": true,
+      "segment_or_project": "ultra-luxury resort near Vrindavan (JW Marriott brand)",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The project, with a planned investment of approximately ₹300 Crores, will be funded through a balanced mix of equity and debt and will be operated by Marriott International under its globally renowned JW Marriott brand.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/e6189144-f89e-4d66-b491-ed18ef626a7f.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "532155": [
     {
       "date": "2026-09-08T18:07:47.38",
@@ -1976,6 +2124,121 @@
   ],
   "532717": [
     {
+      "date": "2026-06-26T16:46:54.7",
+      "week": "22–28 Jun 2026",
+      "news_id": "9808f322-e3ae-471f-92e4-62a1bfda2db2",
+      "company": "Indo Tech Transformers Ltd",
+      "scrip_cd": 532717,
+      "fiscal_year": null,
+      "type": "guidance",
+      "event_type": "Capacity Expansion",
+      "amount_text": "INR 360 Crores",
+      "currency": "INR",
+      "amount_cr": 360,
+      "amount_cr_low": 360,
+      "amount_cr_high": 360,
+      "comparable": true,
+      "segment_or_project": "enhancement of plant capacity to 50,000 MVA upto 400 KV range of Transformers",
+      "direction": "up",
+      "reason": "Enhancement of plant capacity to 50,000 MVA upto 400 KV range of Transformers",
+      "quote": "the Board of Directors at their meeting held on June 26, 2026 has considered and approved an additional Capital Expenditure (CAPEX) Proposal of INR 360 Crores for enhancement of plant capacity to 50,000 MVA upto 400 KV range of Transformers executable over the following Financial Years 2028-2029",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/9dac2064-9a73-4697-94d6-56716f3eb213.pdf",
+      "category": "Company Update",
+      "subcat": "Meeting Updates"
+    },
+    {
+      "date": "2026-06-26T16:46:54.7",
+      "week": "22–28 Jun 2026",
+      "news_id": "9808f322-e3ae-471f-92e4-62a1bfda2db2",
+      "company": "Indo Tech Transformers Ltd",
+      "scrip_cd": 532717,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "INR 75 Crores",
+      "currency": "INR",
+      "amount_cr": 75,
+      "amount_cr_low": 75,
+      "amount_cr_high": 75,
+      "comparable": true,
+      "segment_or_project": "increase the plan capacity to 16,000 MVA",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "the earlier CAPEX approval of INR 75 Crores, INR 25 Crores and INR 35 Crores to increase the plan capacity to 16,000 MVA, 20,000 MVA and 25,000 MVA respectively are in progress",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/9dac2064-9a73-4697-94d6-56716f3eb213.pdf",
+      "category": "Company Update",
+      "subcat": "Meeting Updates"
+    },
+    {
+      "date": "2026-06-26T16:46:54.7",
+      "week": "22–28 Jun 2026",
+      "news_id": "9808f322-e3ae-471f-92e4-62a1bfda2db2",
+      "company": "Indo Tech Transformers Ltd",
+      "scrip_cd": 532717,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "INR 25 Crores",
+      "currency": "INR",
+      "amount_cr": 25,
+      "amount_cr_low": 25,
+      "amount_cr_high": 25,
+      "comparable": true,
+      "segment_or_project": "increase the plan capacity to 20,000 MVA",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "the earlier CAPEX approval of INR 75 Crores, INR 25 Crores and INR 35 Crores to increase the plan capacity to 16,000 MVA, 20,000 MVA and 25,000 MVA respectively are in progress",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/9dac2064-9a73-4697-94d6-56716f3eb213.pdf",
+      "category": "Company Update",
+      "subcat": "Meeting Updates"
+    },
+    {
+      "date": "2026-06-26T16:46:54.7",
+      "week": "22–28 Jun 2026",
+      "news_id": "9808f322-e3ae-471f-92e4-62a1bfda2db2",
+      "company": "Indo Tech Transformers Ltd",
+      "scrip_cd": 532717,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "INR 35 Crores",
+      "currency": "INR",
+      "amount_cr": 35,
+      "amount_cr_low": 35,
+      "amount_cr_high": 35,
+      "comparable": true,
+      "segment_or_project": "increase the plan capacity to 25,000 MVA",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "the earlier CAPEX approval of INR 75 Crores, INR 25 Crores and INR 35 Crores to increase the plan capacity to 16,000 MVA, 20,000 MVA and 25,000 MVA respectively are in progress",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/9dac2064-9a73-4697-94d6-56716f3eb213.pdf",
+      "category": "Company Update",
+      "subcat": "Meeting Updates"
+    },
+    {
+      "date": "2026-06-26T16:46:54.7",
+      "week": "22–28 Jun 2026",
+      "news_id": "9808f322-e3ae-471f-92e4-62a1bfda2db2",
+      "company": "Indo Tech Transformers Ltd",
+      "scrip_cd": 532717,
+      "fiscal_year": null,
+      "type": "cumulative",
+      "event_type": "Capacity Expansion",
+      "amount_text": "INR 495 Crores",
+      "currency": "INR",
+      "amount_cr": 495,
+      "amount_cr_low": 495,
+      "amount_cr_high": 495,
+      "comparable": true,
+      "segment_or_project": "Enhancement of plant capacity to 50,000 MVA upto 400 KV range of Transformers",
+      "direction": "up",
+      "reason": "Enhancement of plant capacity to 50,000 MVA upto 400 KV range of Transformers",
+      "quote": "CAPEX approved on Dec 31, 2024 - INR 75 Crores CAPEX approved on Nov 13, 2025 - INR 25 Crores CAPEX approved on May 20, 2026 - INR 35 Crores CAPEX approved on June 26, 2026 - INR 360 Crores Total - INR 495 Crores",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/9dac2064-9a73-4697-94d6-56716f3eb213.pdf",
+      "category": "Company Update",
+      "subcat": "Meeting Updates"
+    },
+    {
       "date": "2026-09-10T16:51:16.93",
       "week": "7–13 Sep 2026",
       "news_id": "73b54d83-ce24-40f2-96c7-943cd66f6f52",
@@ -2530,6 +2793,31 @@
       "reason": "The company plans to leverage this new solar capacity to support further business expansion.",
       "quote": "ICRA reviewed Delta's existing Rs. 21 Crore loan and proposed Rs. 64 Crore loan, assigning an ICRA BBB (Stable) rating to both facilities.",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/74f7f161-bf02-4b07-baaf-a9daacab80a2.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "534076": [
+    {
+      "date": "2026-06-25T14:25:17.23",
+      "week": "22–28 Jun 2026",
+      "news_id": "dda3b517-feab-4156-94dd-c29c476856cc",
+      "company": "Rhi Magnesita India Ltd",
+      "scrip_cd": 534076,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "51% stake",
+      "currency": "INR",
+      "amount_cr": 51,
+      "amount_cr_low": 51,
+      "amount_cr_high": 51,
+      "comparable": true,
+      "segment_or_project": "Joint venture with Khemka Refractories for greenfield refractory recycling facility in Odisha",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Under the agreement, RHI Magnesita will hold a 51% stake in the joint venture, with Khemka Refractories holding the remaining 49%.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/68626315-468c-4d32-8b29-fe722ba101eb.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -3104,6 +3392,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/9be93d07-be78-44fc-a440-d534f28b3325.pdf",
       "category": "Company Update",
       "subcat": "Investor Presentation"
+    }
+  ],
+  "540902": [
+    {
+      "date": "2026-06-25T18:57:47.923",
+      "week": "22–28 Jun 2026",
+      "news_id": "45af3727-78e4-476a-a883-c03a84712b7a",
+      "company": "Amber Enterprises India Ltd",
+      "scrip_cd": 540902,
+      "fiscal_year": null,
+      "type": "guidance",
+      "event_type": "Guidance revision",
+      "amount_text": "INR50 crores",
+      "currency": "INR",
+      "amount_cr": 50,
+      "amount_cr_low": 50,
+      "amount_cr_high": 50,
+      "comparable": true,
+      "segment_or_project": "Mobile phone manufacturing - assembly and SMT operations",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "To start with on the assembly and SMT, we are not putting in any capex. It will be minimum. It will be below INR50 crores to start with.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/e758d7f3-9942-4baf-b20b-0e80b2d6971a.pdf",
+      "category": "Company Update",
+      "subcat": "Analyst / Investor Meet"
     }
   ],
   "543273": [
@@ -3874,6 +4187,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "544616": [
+    {
+      "date": "2026-06-25T16:44:02.027",
+      "week": "22–28 Jun 2026",
+      "news_id": "16484d93-57c7-4c02-8541-187c85a3b0f9",
+      "company": "Gallard Steel Ltd",
+      "scrip_cd": 544616,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "Rs. 7.5 Crore",
+      "currency": "INR",
+      "amount_cr": 7.5,
+      "amount_cr_low": 7.5,
+      "amount_cr_high": 7.5,
+      "comparable": true,
+      "segment_or_project": "Acquisition of lease hold industrial land in Sector-7, Pithampur, Madhya Pradesh",
+      "direction": "unclear",
+      "reason": "The above acquisition will be in line with the Company's long-term expansion strategy and is expected to strengthen/augment its operational capabilities and the acquisition will strengthen the Company's ability to undertake capacity expansion, diversify its product portfolio, and support future business opportunities.",
+      "quote": "Consideration Approx Rs. 7.5 Crore (Rs. Seven Crore Fifty lakhs)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/396cdaaa-8215-49e6-b443-c9cb806be851.pdf",
+      "category": "Company Update",
+      "subcat": "General"
+    }
+  ],
   "544634": [
     {
       "date": "2026-06-18T16:01:56.47",
@@ -3991,6 +4329,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/9f8c7595-d9c2-4dad-b300-91128aceda1a.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "544709": [
+    {
+      "date": "2026-06-25T14:36:02.583",
+      "week": "22–28 Jun 2026",
+      "news_id": "9fb3642e-50ed-49ee-8abb-31603c0b647b",
+      "company": "Gaudium IVF and Women Health Ltd",
+      "scrip_cd": 544709,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "New Project",
+      "amount_text": "₹15,00,00,000/-",
+      "currency": "INR",
+      "amount_cr": 150000000,
+      "amount_cr_low": 150000000,
+      "amount_cr_high": 150000000,
+      "comparable": true,
+      "segment_or_project": "Gaudium Women Hospital, Lucknow",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The Board noted and approved the estimated project cost of up to ₹15,00,00,000/- (Rupees Fifteen Crore Only) towards development, construction, fit-outs, furnishing, medical infrastructure, plant and machinery, medical equipment, IT infrastructure, commissioning and other incidental project-related expenditure for setting up and operationalizing the proposed hospital.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/30919291-a9d3-4eef-acb0-18982fdd8504.pdf",
+      "category": "Others",
+      "subcat": "Outcome without intimation"
     }
   ],
   "544717": [
