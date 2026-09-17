@@ -1,4 +1,13 @@
 {
+  "500008": {
+    "company": "Amara Raja Energy & Mobility Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 14552,
+    "pe": 18.6,
+    "as_of": "2026-09-17T15:37:48.119Z",
+    "source_url": "https://www.screener.in/company/500008/"
+  },
   "500033": {
     "company": "Force Motors Ltd",
     "industry": "Passenger Cars & Utility Vehicles",
@@ -25,6 +34,15 @@
     "pe": 46.2,
     "as_of": "2026-09-16T19:12:22.674Z",
     "source_url": "https://www.screener.in/company/500049/"
+  },
+  "500084": {
+    "company": "CESC Ltd",
+    "industry": "Integrated Power Utilities",
+    "sector": "Power",
+    "market_cap_cr": 18767,
+    "pe": 21.8,
+    "as_of": "2026-09-17T15:37:50.109Z",
+    "source_url": "https://www.screener.in/company/500084/"
   },
   "500126": {
     "company": "Procter & Gamble Health Ltd",
@@ -88,6 +106,15 @@
     "pe": 268,
     "as_of": "2026-09-16T12:03:43.626Z",
     "source_url": "https://www.screener.in/company/500330/"
+  },
+  "500350": {
+    "company": "RSWM Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 1017,
+    "pe": 14.5,
+    "as_of": "2026-09-17T15:37:52.097Z",
+    "source_url": "https://www.screener.in/company/500350/"
   },
   "500403": {
     "company": "Sundram Fasteners Ltd",
@@ -205,6 +232,15 @@
     "pe": 20.2,
     "as_of": "2026-09-17T08:05:33.255Z",
     "source_url": "https://www.screener.in/company/504614/"
+  },
+  "505010": {
+    "company": "Automotive Axles Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 2530,
+    "pe": 13.8,
+    "as_of": "2026-09-17T15:37:54.090Z",
+    "source_url": "https://www.screener.in/company/505010/"
   },
   "505160": {
     "company": "Talbros Automotive Components Ltd",
@@ -332,6 +368,15 @@
     "as_of": "2026-09-17T00:35:33.056Z",
     "source_url": "https://www.screener.in/company/512115/"
   },
+  "512455": {
+    "company": "Lloyds Metals & Energy Ltd",
+    "industry": "Industrial Minerals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 101287,
+    "pe": 24.8,
+    "as_of": "2026-09-17T15:37:56.078Z",
+    "source_url": "https://www.screener.in/company/512455/"
+  },
   "512599": {
     "company": "Adani Enterprises Ltd",
     "industry": "Trading - Minerals",
@@ -349,6 +394,15 @@
     "pe": 24.3,
     "as_of": "2026-09-16T19:12:26.532Z",
     "source_url": "https://www.screener.in/company/513119/"
+  },
+  "513519": {
+    "company": "Pitti Engineering Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4248,
+    "pe": 42.1,
+    "as_of": "2026-09-17T15:37:58.066Z",
+    "source_url": "https://www.screener.in/company/513519/"
   },
   "513683": {
     "company": "NLC India Ltd",
@@ -376,6 +430,15 @@
     "pe": 27.3,
     "as_of": "2026-09-16T12:04:00.012Z",
     "source_url": "https://www.screener.in/company/514211/"
+  },
+  "514448": {
+    "company": "Jyoti Resins and Adhesives Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 1001,
+    "pe": 15.6,
+    "as_of": "2026-09-17T15:38:00.057Z",
+    "source_url": "https://www.screener.in/company/514448/"
   },
   "514470": {
     "company": "Winsome Textile Industries Ltd",
@@ -476,6 +539,24 @@
     "as_of": "2026-09-16T12:04:06.556Z",
     "source_url": "https://www.screener.in/company/522163/"
   },
+  "522215": {
+    "company": "HLE Glascoat Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 2885,
+    "pe": 77.4,
+    "as_of": "2026-09-17T15:38:02.055Z",
+    "source_url": "https://www.screener.in/company/522215/"
+  },
+  "524046": {
+    "company": "Pet Plastics Ltd",
+    "industry": "Plastic Products - Industrial",
+    "sector": "Capital Goods",
+    "market_cap_cr": null,
+    "pe": 0,
+    "as_of": "2026-09-17T15:38:04.041Z",
+    "source_url": "https://www.screener.in/company/524046/"
+  },
   "524164": {
     "company": "IOL Chemicals & Pharmaceuticals Ltd",
     "industry": "Pharmaceuticals",
@@ -575,6 +656,15 @@
     "as_of": "2026-09-16T22:12:47.218Z",
     "source_url": "https://www.screener.in/company/531112/"
   },
+  "531358": {
+    "company": "Choice International Ltd",
+    "industry": "Holding Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 16441,
+    "pe": 999,
+    "as_of": "2026-09-17T15:38:06.032Z",
+    "source_url": "https://www.screener.in/company/531358/"
+  },
   "531512": {
     "company": "Orient Tradelink Ltd",
     "industry": null,
@@ -592,6 +682,15 @@
     "pe": 18.6,
     "as_of": "2026-09-16T12:01:31.489Z",
     "source_url": "https://www.screener.in/company/531548/"
+  },
+  "531676": {
+    "company": "Emrock Corporation Limited",
+    "industry": "Packaged Foods",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 398,
+    "pe": 323,
+    "as_of": "2026-09-17T15:38:08.019Z",
+    "source_url": "https://www.screener.in/company/531676/"
   },
   "532016": {
     "company": "Espire Hospitality Ltd",
@@ -629,6 +728,33 @@
     "as_of": "2026-09-16T12:01:37.445Z",
     "source_url": "https://www.screener.in/company/532313/"
   },
+  "532321": {
+    "company": "Zydus Lifesciences Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 113483,
+    "pe": 31.1,
+    "as_of": "2026-09-17T15:38:10.007Z",
+    "source_url": "https://www.screener.in/company/532321/"
+  },
+  "532454": {
+    "company": "Bharti Airtel Ltd",
+    "industry": "Telecom - Cellular & Fixed line services",
+    "sector": "Telecommunication",
+    "market_cap_cr": 1144713,
+    "pe": 66.4,
+    "as_of": "2026-09-17T15:38:11.996Z",
+    "source_url": "https://www.screener.in/company/532454/"
+  },
+  "532508": {
+    "company": "Jindal Stainless Ltd",
+    "industry": "Iron & Steel",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 59733,
+    "pe": 22.3,
+    "as_of": "2026-09-17T15:38:13.987Z",
+    "source_url": "https://www.screener.in/company/532508/"
+  },
   "532523": {
     "company": "Biocon Ltd",
     "industry": "Pharmaceuticals",
@@ -664,6 +790,15 @@
     "pe": 90,
     "as_of": "2026-09-16T12:01:41.400Z",
     "source_url": "https://www.screener.in/company/532605/"
+  },
+  "532626": {
+    "company": "Pondy Oxides & Chemicals Ltd",
+    "industry": "Diversified Metals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 3581,
+    "pe": 24.2,
+    "as_of": "2026-09-17T15:38:15.988Z",
+    "source_url": "https://www.screener.in/company/532626/"
   },
   "532661": {
     "company": "Rane (Madras) Ltd",
