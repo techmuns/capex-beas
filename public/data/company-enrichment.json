@@ -98,6 +98,15 @@
     "as_of": "2026-09-17T08:05:21.401Z",
     "source_url": "https://www.screener.in/company/500403/"
   },
+  "500418": {
+    "company": "Tokyo Plast International Ltd",
+    "industry": "Plastic Products - Consumer",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 71.2,
+    "pe": 41.7,
+    "as_of": "2026-09-17T10:39:46.214Z",
+    "source_url": "https://www.screener.in/company/500418/"
+  },
   "500493": {
     "company": "Bharat Forge Ltd",
     "industry": "Auto Components & Equipments",
@@ -404,6 +413,15 @@
     "as_of": "2026-09-17T08:05:45.080Z",
     "source_url": "https://www.screener.in/company/517059/"
   },
+  "517206": {
+    "company": "Lumax Industries Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 5344,
+    "pe": 28.6,
+    "as_of": "2026-09-17T10:39:48.174Z",
+    "source_url": "https://www.screener.in/company/517206/"
+  },
   "517554": {
     "company": "NHC Foods Ltd",
     "industry": "Other Food Products",
@@ -439,6 +457,15 @@
     "pe": 18.6,
     "as_of": "2026-09-17T05:26:34.263Z",
     "source_url": "https://www.screener.in/company/522017/"
+  },
+  "522029": {
+    "company": "Windsor Machines Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 3114,
+    "pe": 55.6,
+    "as_of": "2026-09-17T10:39:50.136Z",
+    "source_url": "https://www.screener.in/company/522029/"
   },
   "522163": {
     "company": "Diamond Power Infrastructure Ltd",
@@ -503,6 +530,15 @@
     "as_of": "2026-09-16T19:12:30.394Z",
     "source_url": "https://www.screener.in/company/524804/"
   },
+  "526612": {
+    "company": "Blue Dart Express Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 11390,
+    "pe": 35.9,
+    "as_of": "2026-09-17T10:39:52.097Z",
+    "source_url": "https://www.screener.in/company/526612/"
+  },
   "526797": {
     "company": "Greenply Industries Ltd",
     "industry": null,
@@ -511,6 +547,15 @@
     "pe": 40.1,
     "as_of": "2026-09-16T12:01:27.533Z",
     "source_url": "https://www.screener.in/company/526797/"
+  },
+  "530549": {
+    "company": "Shilpa Medicare Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 18736,
+    "pe": 120,
+    "as_of": "2026-09-17T10:39:54.057Z",
+    "source_url": "https://www.screener.in/company/530549/"
   },
   "530745": {
     "company": "ACS Technologies Ltd",
@@ -620,6 +665,24 @@
     "as_of": "2026-09-16T12:01:41.400Z",
     "source_url": "https://www.screener.in/company/532605/"
   },
+  "532661": {
+    "company": "Rane (Madras) Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 3539,
+    "pe": 28,
+    "as_of": "2026-09-17T10:39:56.016Z",
+    "source_url": "https://www.screener.in/company/532661/"
+  },
+  "532698": {
+    "company": "Nitin Spinners Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 3471,
+    "pe": 16.4,
+    "as_of": "2026-09-17T10:39:57.976Z",
+    "source_url": "https://www.screener.in/company/532698/"
+  },
   "532717": {
     "company": "Indo Tech Transformers Ltd",
     "industry": null,
@@ -628,6 +691,15 @@
     "pe": 35.9,
     "as_of": "2026-09-16T12:01:43.381Z",
     "source_url": "https://www.screener.in/company/532717/"
+  },
+  "532734": {
+    "company": "Godawari Power & Ispat Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 16000,
+    "pe": 18,
+    "as_of": "2026-09-17T10:39:59.936Z",
+    "source_url": "https://www.screener.in/company/532734/"
   },
   "532779": {
     "company": "Torrent Power Ltd",
@@ -674,6 +746,15 @@
     "as_of": "2026-09-17T05:26:38.194Z",
     "source_url": "https://www.screener.in/company/532880/"
   },
+  "532921": {
+    "company": "Adani Ports & Special Economic Zone Ltd",
+    "industry": "Port & Port services",
+    "sector": "Services",
+    "market_cap_cr": 400059,
+    "pe": 145,
+    "as_of": "2026-09-17T10:40:01.903Z",
+    "source_url": "https://www.screener.in/company/532921/"
+  },
   "532937": {
     "company": "Kuantum Papers Ltd",
     "industry": "Paper & Paper Products",
@@ -682,6 +763,24 @@
     "pe": 18.2,
     "as_of": "2026-09-16T15:17:54.446Z",
     "source_url": "https://www.screener.in/company/532937/"
+  },
+  "532940": {
+    "company": "J Kumar Infraprojects Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 3619,
+    "pe": 9.34,
+    "as_of": "2026-09-17T10:40:03.866Z",
+    "source_url": "https://www.screener.in/company/532940/"
+  },
+  "533150": {
+    "company": "Godrej Properties Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 50606,
+    "pe": 139,
+    "as_of": "2026-09-17T10:40:05.827Z",
+    "source_url": "https://www.screener.in/company/533150/"
   },
   "533169": {
     "company": "Man Infraconstruction Ltd",
@@ -719,6 +818,15 @@
     "as_of": "2026-09-16T15:17:58.484Z",
     "source_url": "https://www.screener.in/company/533263/"
   },
+  "533326": {
+    "company": "Texmaco Rail & Engineering Ltd",
+    "industry": "Railway Wagons",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4549,
+    "pe": 21.4,
+    "as_of": "2026-09-17T10:40:07.999Z",
+    "source_url": "https://www.screener.in/company/533326/"
+  },
   "533758": {
     "company": "APL Apollo Tubes Ltd",
     "industry": "Iron & Steel Products",
@@ -737,6 +845,15 @@
     "as_of": "2026-09-17T00:35:38.983Z",
     "source_url": "https://www.screener.in/company/534076/"
   },
+  "538546": {
+    "company": "Bansal Roofing Products Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 202,
+    "pe": 18.1,
+    "as_of": "2026-09-17T10:40:09.962Z",
+    "source_url": "https://www.screener.in/company/538546/"
+  },
   "538772": {
     "company": "Niyogin Fintech Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
@@ -746,6 +863,15 @@
     "as_of": "2026-09-16T15:18:00.657Z",
     "source_url": "https://www.screener.in/company/538772/"
   },
+  "539056": {
+    "company": "Imagicaaworld Entertainment Ltd",
+    "industry": "Amusement Parks/ Other Recreation",
+    "sector": "Consumer Services",
+    "market_cap_cr": 2894,
+    "pe": 101,
+    "as_of": "2026-09-17T10:40:11.923Z",
+    "source_url": "https://www.screener.in/company/539056/"
+  },
   "539083": {
     "company": "Inox Wind Ltd",
     "industry": "Heavy Electrical Equipment",
@@ -754,6 +880,15 @@
     "pe": 24.1,
     "as_of": "2026-09-17T05:26:44.095Z",
     "source_url": "https://www.screener.in/company/539083/"
+  },
+  "539118": {
+    "company": "VRL Logistics Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 5035,
+    "pe": 18.8,
+    "as_of": "2026-09-17T10:40:13.884Z",
+    "source_url": "https://www.screener.in/company/539118/"
   },
   "539404": {
     "company": "Satin Creditcare Network Ltd",
