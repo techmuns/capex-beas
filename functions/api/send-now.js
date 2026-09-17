@@ -28,7 +28,7 @@ export async function onRequestPost({ request, env }) {
   const origin = siteOrigin(env, request);
   const res = await sendMunshotEmail(env, {
     email,
-    subject: digestSubject(items.length),
+    subject: digestSubject(items),
     html: renderDigestEmail({
       items, edition: editionLabel(filter), cadence: 'daily', timeHHMM: '—',
       unsubUrl: origin, siteUrl: origin, brandLogoUrl: env.BRAND_LOGO_URL || '', now: new Date(), oneOff: true,

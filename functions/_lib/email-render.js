@@ -18,10 +18,23 @@ const cadenceText = (c) => (c === 'daily' ? 'every day' : 'every weekday');
 const dot = (color, size = 9, round = true) =>
   `<span style="display:inline-block;width:${size}px;height:${size}px;border-radius:${round ? '50%' : '2px'};background:${color};margin-right:6px;vertical-align:middle"></span>`;
 
-/** Subject line: "Munshot · N capex changes — D Mon". */
-export function digestSubject(n, now = new Date()) {
-  const noun = n === 1 ? 'capex change' : 'capex changes';
-  return `Munshot · ${n} ${noun} — ${istDMon(now)}`;
+/**
+ * Subject line. Pass the mapped items array to count real changes and first
+ * readings SEPARATELY: "Munshot · 2 capex changes · 7 new readings — 17 Sept".
+ * Backward-compatible: a bare number is treated as a legacy change count and
+ * renders "Munshot · N capex changes — D Mon".
+ */
+export function digestSubject(itemsOrCount, now = new Date()) {
+  if (typeof itemsOrCount === 'number') {
+    const n = itemsOrCount;
+    return `Munshot · ${n} ${n === 1 ? 'capex change' : 'capex changes'} — ${istDMon(now)}`;
+  }
+  const items = Array.isArray(itemsOrCount) ? itemsOrCount : [];
+  const changes = items.filter((i) => !i.baseline).length;
+  const readings = items.filter((i) => i.baseline).length;
+  const cWord = changes === 1 ? 'capex change' : 'capex changes';
+  const rWord = readings === 1 ? 'new reading' : 'new readings';
+  return `Munshot · ${changes} ${cWord} · ${readings} ${rWord} — ${istDMon(now)}`;
 }
 
 // ---- item renderers ------------------------------------------------------
@@ -70,9 +83,9 @@ export function renderDigestEmail(o) {
   const total = items.length;
   const inc = items.filter((i) => i.category === 'Increased').length;
   const dec = items.filter((i) => i.category === 'Decreased').length;
-  const counts = {};
-  for (const i of items) counts[i.category] = (counts[i.category] || 0) + 1;
-  const busiest = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] || '—';
+  // Count real capex changes vs first readings (baselines) separately.
+  const realChanges = items.filter((i) => !i.baseline).length;
+  const readings = items.filter((i) => i.baseline).length;
 
   const { front, rest } = splitFrontAndRest(items, 3);
   const restByCat = {};
@@ -83,14 +96,14 @@ export function renderDigestEmail(o) {
     ? `<img src="${esc(brandLogoUrl)}" alt="Munshot" height="34" style="height:34px;border:0;display:inline-block" />`
     : `<div style="font-family:${SERIF};font-size:34px;font-weight:bold;letter-spacing:7px;color:${INK}">MUNSHOT</div>`;
 
-  // 3 — by-the-numbers strip
+  // 3 — by-the-numbers strip: real changes (with up/down split) then first readings
   const numbers = total ? `
       <tr><td style="padding:16px 34px 6px">
         <div style="font-family:${SANS};font-size:12px;color:#4a4438;line-height:1.9">
-          ${dot(META)}${total} ${total === 1 ? 'change' : 'changes'} &nbsp;&middot;&nbsp;
-          ${dot('#10b981')}${inc} increased &nbsp;&middot;&nbsp;
-          ${dot('#f43f5e')}${dec} decreased &nbsp;&middot;&nbsp;
-          <span style="color:${META}">busiest:</span> ${esc(busiest)}
+          ${dot(META)}${realChanges} ${realChanges === 1 ? 'change' : 'changes'} &nbsp;&middot;&nbsp;
+          ${dot('#10b981')}${inc} up &nbsp;&middot;&nbsp;
+          ${dot('#f43f5e')}${dec} down &nbsp;&middot;&nbsp;
+          ${dot('#64748b')}${readings} new ${readings === 1 ? 'reading' : 'readings'}
         </div>
       </td></tr>` : '';
 
@@ -111,7 +124,7 @@ export function renderDigestEmail(o) {
         <div style="font-family:${SANS};font-size:12px;color:${META};margin-top:8px">No BSE-filed capex changes matched your brief. We'll be back the moment a company revises its plan.</div>
       </td></tr>` : '';
 
-  const subj = digestSubject(total, now);
+  const subj = digestSubject(items, now);
 
   return `<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
