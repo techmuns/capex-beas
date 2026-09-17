@@ -596,6 +596,125 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "506854": [
+    {
+      "date": "2026-06-29T23:43:02.24",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "86577375-b6bc-4a12-af1a-b7ee4245f699",
+      "company": "TANFAC Industries Ltd-$",
+      "scrip_cd": 506854,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "₹ 250 crores",
+      "currency": "INR",
+      "amount_cr": 250,
+      "amount_cr_low": 250,
+      "amount_cr_high": 250,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "TANFAC Industries Limited (BSE: 506854) one of India's leading fluorine chemical manufacturers, has successfully raised ₹ 250 crores through a Qualified Institutional Placement (QIP)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/08deec26-76d5-4450-aa11-f1af98e059ba.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "506879": [
+    {
+      "date": "2026-06-29T20:26:55.957",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "dff5db17-b5d8-4919-b708-9aca9673640b",
+      "company": "Gujarat Themis Biosyn Ltd",
+      "scrip_cd": 506879,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "€62 mn",
+      "currency": "EUR",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "segment_or_project": "Acquisition of Sanofi's Select Product Portfolio",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "€62 mn Net Revenue (CY25)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/572e2ea2-2abf-4998-bb0c-3fb2b12b31be.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-29T20:26:55.957",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "dff5db17-b5d8-4919-b708-9aca9673640b",
+      "company": "Gujarat Themis Biosyn Ltd",
+      "scrip_cd": 506879,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "7,464.46",
+      "currency": "INR",
+      "amount_cr": 7464.46,
+      "amount_cr_low": 7464.46,
+      "amount_cr_high": 7464.46,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Payments for property, plant and equipment (7,464.46)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/572e2ea2-2abf-4998-bb0c-3fb2b12b31be.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-29T20:26:55.957",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "dff5db17-b5d8-4919-b708-9aca9673640b",
+      "company": "Gujarat Themis Biosyn Ltd",
+      "scrip_cd": 506879,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "11,615.02",
+      "currency": "INR",
+      "amount_cr": 11615.02,
+      "amount_cr_low": 11615.02,
+      "amount_cr_high": 11615.02,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Payments for property, plant and equipment (7,464.46) (11,615.02) (17,253.44)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/572e2ea2-2abf-4998-bb0c-3fb2b12b31be.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-29T20:26:55.957",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "dff5db17-b5d8-4919-b708-9aca9673640b",
+      "company": "Gujarat Themis Biosyn Ltd",
+      "scrip_cd": 506879,
+      "fiscal_year": "FY26",
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "17,253.44",
+      "currency": "INR",
+      "amount_cr": 17253.44,
+      "amount_cr_low": 17253.44,
+      "amount_cr_high": 17253.44,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "up",
+      "reason": null,
+      "quote": "Payments for property, plant and equipment (7,464.46) (11,615.02) (17,253.44)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/572e2ea2-2abf-4998-bb0c-3fb2b12b31be.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "507205": [
     {
       "date": "2026-06-26T17:08:48.547",
@@ -621,6 +740,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "507789": [
+    {
+      "date": "2026-06-29T16:46:44.96",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "4a64ee80-ee4f-4277-9330-a3c89fa27e83",
+      "company": "Jagsonpal Pharmaceuticals Ltd",
+      "scrip_cd": 507789,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 20.8 crores",
+      "currency": "INR",
+      "amount_cr": 20.8,
+      "amount_cr_low": 20.8,
+      "amount_cr_high": 20.8,
+      "comparable": true,
+      "segment_or_project": "85% stake in Aequitas Healthcare Private Limited",
+      "direction": "unclear",
+      "reason": "The proposed acquisition marks Jagsonpal's strategic entry into the hospital segment and is aligned with the Company's long-term vision of strengthening its presence in India's growing healthcare ecosystem.",
+      "quote": "The total consideration for 85% stake would be Rs. 20.8 crores, which shall be funded from internal accruals of Jagsonpal.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/367ed79f-b89a-4314-9637-e8586782310c.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "511196": [
     {
       "date": "2026-09-11T11:55:39.4",
@@ -642,6 +786,31 @@
       "reason": null,
       "quote": "Can Fin Homes has implemented Project Tejas, a Rs. 297-crore, seven-year enterprise digital transformation programme to modernise its technology infrastructure and build a connected, agile and future-ready organisation.",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/74f1cf54-04e3-4c05-8eca-46defd947abb.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "511413": [
+    {
+      "date": "2026-06-29T19:39:58.54",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "ec8d13eb-bb7b-4539-b6c4-a426fb224d5d",
+      "company": "Crest Ventures Ltd",
+      "scrip_cd": 511413,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "Rs. 2,200 Crore",
+      "currency": "INR",
+      "amount_cr": 2200,
+      "amount_cr_low": 2200,
+      "amount_cr_high": 2200,
+      "comparable": true,
+      "segment_or_project": "Dadar cluster redevelopment project",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "This cluster redevelopment project in Dadar, Mumbai has an estimated overall Gross Development Value (GDV) of approximately Rs. 2,200 Crore",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/bf63aa60-186f-469e-824c-519a877e1240.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -1097,6 +1266,54 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8d6b2451-8f85-491e-b002-6ee089e03cff.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "522017": [
+    {
+      "date": "2026-06-29T20:29:44.64",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "02635726-8012-4838-9ba9-c5becb5f1c24",
+      "company": "Fluidomat Ltd",
+      "scrip_cd": 522017,
+      "fiscal_year": null,
+      "type": "guidance",
+      "event_type": "Capacity Expansion",
+      "amount_text": "₹ 35.00 crores",
+      "currency": "INR",
+      "amount_cr": 35,
+      "amount_cr_low": 35,
+      "amount_cr_high": 35,
+      "comparable": true,
+      "segment_or_project": "modernisation and capacity expansion programme",
+      "direction": "up",
+      "reason": "to be financed entirely through internal accruals, with an estimated investment of ₹ 35.00 crores. The programme encompasses civil construction of 86,988 sq. ft., modernisation of aluminium and CI foundries, installation of modern CNC machines, and commissioning of high-KW coupling testing beds and advanced material testing laboratories. This is expected to augment annual production capacity from 1,500 units to 3,500 units over approximately 2 – 3 years",
+      "quote": "In February 2026, the Board approved a modernisation and capacity expansion programme, to be financed entirely through internal accruals, with an estimated investment of ₹ 35.00 crores.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/57094613-c398-4e71-8971-9c10a0567396.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-29T20:29:44.64",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "02635726-8012-4838-9ba9-c5becb5f1c24",
+      "company": "Fluidomat Ltd",
+      "scrip_cd": 522017,
+      "fiscal_year": null,
+      "type": "guidance",
+      "event_type": "Capacity Expansion",
+      "amount_text": "₹35 Cr",
+      "currency": "INR",
+      "amount_cr": 35,
+      "amount_cr_low": 35,
+      "amount_cr_high": 35,
+      "comparable": true,
+      "segment_or_project": "Capex & Expansion Plan",
+      "direction": "up",
+      "reason": null,
+      "quote": "TOTAL INVESTMENT ₹35 Cr Estimated gross capex",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/57094613-c398-4e71-8971-9c10a0567396.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
     }
   ],
   "522163": [
@@ -1840,6 +2057,31 @@
       "reason": null,
       "quote": "Biocon has invested over USD 600 million in the facility since 2011 in this Center of Excellence for insulin manufacturing, representing one of the largest foreign direct investments (FDI) in Malaysia's biotechnology sector.",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d637dea7-0778-446a-8164-2b895a76cbc9.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "532531": [
+    {
+      "date": "2026-06-27T16:00:27.777",
+      "week": "22–28 Jun 2026",
+      "news_id": "a8b4cf6c-8fcf-47d4-b475-9a40c9aada51",
+      "company": "Strides Pharma Science Ltd",
+      "scrip_cd": 532531,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "₹500 million",
+      "currency": "INR",
+      "amount_cr": 50,
+      "amount_cr_low": 50,
+      "amount_cr_high": 50,
+      "comparable": true,
+      "segment_or_project": "Pivot Path",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "includes a primary capital infusion of ₹500 million to accelerate Pivot Path's next phase of growth",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/480ddeb8-61cc-4f97-9243-2c87c21f08d9.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -2590,6 +2832,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "532880": [
+    {
+      "date": "2026-06-29T10:51:07.397",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "94cae086-5de1-4d6a-ade7-7d97edbf34dc",
+      "company": "Omaxe Ltd",
+      "scrip_cd": 532880,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "Rs. 6,200 crore",
+      "currency": "INR",
+      "amount_cr": 6200,
+      "amount_cr_low": 6200,
+      "amount_cr_high": 6200,
+      "comparable": true,
+      "segment_or_project": "hospitality vertical - 19 hotels across five states",
+      "direction": "up",
+      "reason": "to develop hospitality assets across high-growth urban centres, pilgrimage destinations, and transit corridors",
+      "quote": "The company proposes to invest approximately Rs. 6,200 crore over the next 4 – 5 years, subject to project-specific, regulatory, and other necessary approvals, as well as market conditions, to develop hospitality assets across high-growth urban centres, pilgrimage destinations, and transit corridors.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/b2f03086-2dad-4f96-8d7f-f133511a75f8.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "532937": [
     {
       "date": "2026-06-18T17:34:07.01",
@@ -2657,6 +2924,54 @@
       "reason": null,
       "quote": "Together with Aaradhya Avaan and our Marine Lines project, these marquee South Mumbai developments represent cumulative GDV potential exceeding ₹8,000 crores and provide strong visibility for our growth pipeline over the coming years.",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/76612035-f51e-4c8f-b3df-2fcd512f3c96.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "533179": [
+    {
+      "date": "2026-06-27T03:17:08.06",
+      "week": "22–28 Jun 2026",
+      "news_id": "b999e5de-7929-48b0-9a0a-71047adfe568",
+      "company": "Persistent Systems Ltd",
+      "scrip_cd": 533179,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "EUR 81 per share",
+      "currency": "EUR",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "segment_or_project": "Nagarro SE acquisition",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Persistent announces the intention to launch a voluntary public takeover offer for all outstanding Nagarro shares at EUR 81 per share",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/01a54a55-a962-4fec-a0ac-db05d3ad5b7a.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-27T03:17:08.06",
+      "week": "22–28 Jun 2026",
+      "news_id": "b999e5de-7929-48b0-9a0a-71047adfe568",
+      "company": "Persistent Systems Ltd",
+      "scrip_cd": 533179,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "approximately 21% stake",
+      "currency": "INR",
+      "amount_cr": 21,
+      "amount_cr_low": 21,
+      "amount_cr_high": 21,
+      "comparable": true,
+      "segment_or_project": "Nagarro SE stake purchase from Lantano",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Persistent has already secured an approximately 21% stake 1 in Nagarro, with the largest shareholder of Nagarro committing its entire stake under a binding agreement",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/01a54a55-a962-4fec-a0ac-db05d3ad5b7a.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
     }
@@ -2797,6 +3112,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "533758": [
+    {
+      "date": "2026-06-27T12:37:07.797",
+      "week": "22–28 Jun 2026",
+      "news_id": "49673ce3-94a5-4316-934e-f0b17eb1f78d",
+      "company": "APL Apollo Tubes Ltd",
+      "scrip_cd": 533758,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "₹160 crore",
+      "currency": "INR",
+      "amount_cr": 160,
+      "amount_cr_low": 160,
+      "amount_cr_high": 160,
+      "comparable": true,
+      "segment_or_project": "Blue Ocean Projects Private Limited (disinvestment/sale of subsidiary)",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "has considered and approved the proposal for the disinvestment of the Company's entire shareholding in Blue Ocean Projects Private Limited (\"BOPPL\"), a wholly owned subsidiary of the Company, to SG Realtor Private Limited (\"Proposed Buyer\"), a related party, for an aggregate consideration of ₹160 crore (\"Proposed Transaction\"), upon the recommendation of the Audit Committee.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/fbf7437e-cbd6-41c9-8dae-65430d669dda.pdf",
+      "category": "Company Update",
+      "subcat": "Diversification / Disinvestment"
+    }
+  ],
   "534076": [
     {
       "date": "2026-06-25T14:25:17.23",
@@ -2845,6 +3185,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/4d1ae4a7-3767-4eb8-b151-99a286984344.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "539083": [
+    {
+      "date": "2026-06-29T19:08:10.51",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "dd52a7d2-719b-49e3-a573-14bda134a891",
+      "company": "Inox Wind Ltd",
+      "scrip_cd": 539083,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 50 Crore",
+      "currency": "INR",
+      "amount_cr": 50,
+      "amount_cr_low": 50,
+      "amount_cr_high": 50,
+      "comparable": true,
+      "segment_or_project": "Inox Renewable Solutions Limited (IRSL)",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Inox Wind Limited ( \" the Company \" ) has executed binding agreements, the last of which was executed on 29 th June, 2026, for partial divestment of equity shares of face value of Rs.10/- each of its material subsidiary, Inox Renewable Solutions Limited (\"IRSL\") for an aggregate transaction value of approximately Rs. 50 Crore.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/3ee38ae8-2203-4452-8c2a-738fd59a2425.pdf",
+      "category": "Company Update",
+      "subcat": "Diversification / Disinvestment"
     }
   ],
   "539404": [
@@ -3162,6 +3527,31 @@
       "subcat": "Press Release / Media Release"
     }
   ],
+  "540673": [
+    {
+      "date": "2026-06-29T20:57:26.96",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "3c9f97e7-14ea-4e90-872e-11ebb55cd4db",
+      "company": "SIS Ltd",
+      "scrip_cd": 540673,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 120 crore",
+      "currency": "INR",
+      "amount_cr": 120,
+      "amount_cr_low": 120,
+      "amount_cr_high": 120,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "announced that its Board of Directors has approved, in principle, a proposal to undertake a share buyback of up to Rs. 120 crore",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/0172abdd-eb2f-4952-beeb-9a47aef86381.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "540678": [
     {
       "date": "2026-09-10T10:40:09.173",
@@ -3417,6 +3807,52 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/e758d7f3-9942-4baf-b20b-0e80b2d6971a.pdf",
       "category": "Company Update",
       "subcat": "Analyst / Investor Meet"
+    },
+    {
+      "date": "2026-06-27T20:52:07.53",
+      "week": "22–28 Jun 2026",
+      "news_id": "c035d2c7-5a9b-4974-8142-8076add9d71d",
+      "company": "Amber Enterprises India Ltd",
+      "scrip_cd": 540902,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "16 acres",
+      "currency": "INR",
+      "amount_cr": 16,
+      "amount_cr_low": 16,
+      "amount_cr_high": 16,
+      "comparable": true,
+      "segment_or_project": "Ascent-K Circuit's facility for advanced HDI PCBs manufacturing at YIEDA, Jewar",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Ascent-K Circuit's facility for advanced HDI PCBs manufacturing, spanning across 16 acres, and approved under the Electronics Component Manufacturing Scheme (ECMS) by the Ministry of Electronics and Information Technology (MeitY).",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/06ba15a3-89c8-4267-99b9-28e05687e272.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-27T20:52:07.53",
+      "week": "22–28 Jun 2026",
+      "news_id": "c035d2c7-5a9b-4974-8142-8076add9d71d",
+      "company": "Amber Enterprises India Ltd",
+      "scrip_cd": 540902,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "100 acres",
+      "currency": "INR",
+      "amount_cr": 100,
+      "amount_cr_low": 100,
+      "amount_cr_high": 100,
+      "comparable": true,
+      "segment_or_project": "Ultra Mega AC manufacturing facility at YIEDA, Jewar",
+      "direction": "unclear",
+      "reason": "to boost domestic production and scale, in a phased manner, for air conditioner manufacturing",
+      "quote": "Amber Group's Ultra Mega AC manufacturing facility, spanning across 100 acres, to boost domestic production and scale, in a phased manner, for air conditioner manufacturing.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/06ba15a3-89c8-4267-99b9-28e05687e272.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "543273": [
@@ -3467,6 +3903,54 @@
       "subcat": "Analyst / Investor Meet"
     }
   ],
+  "543910": [
+    {
+      "date": "2026-06-29T14:02:04.29",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "641e2aff-5379-445b-9863-ac62c0b4e753",
+      "company": "AVG Logistics Ltd",
+      "scrip_cd": 543910,
+      "fiscal_year": "FY26",
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "₹100 Cr+",
+      "currency": "INR",
+      "amount_cr": 100,
+      "amount_cr_low": 100,
+      "amount_cr_high": 100,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": "for long-term growth",
+      "quote": "₹100 Cr+ Capex in FY25 – 26 for long-term growth and further ₹50 Crores per annum",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/733da2e5-9159-4afc-abd9-31bbf54fe0ca.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    },
+    {
+      "date": "2026-06-29T14:02:04.29",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "641e2aff-5379-445b-9863-ac62c0b4e753",
+      "company": "AVG Logistics Ltd",
+      "scrip_cd": 543910,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "₹50 Crores per annum",
+      "currency": "INR",
+      "amount_cr": 50,
+      "amount_cr_low": 50,
+      "amount_cr_high": 50,
+      "comparable": true,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "₹100 Cr+ Capex in FY25 – 26 for long-term growth and further ₹50 Crores per annum",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/733da2e5-9159-4afc-abd9-31bbf54fe0ca.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
+    }
+  ],
   "543960": [
     {
       "date": "2026-06-20T18:32:12.253",
@@ -3490,6 +3974,54 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/3f50e803-a593-4028-85b3-a22cca0bdbf4.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
+    }
+  ],
+  "543963": [
+    {
+      "date": "2026-06-27T17:48:07.127",
+      "week": "22–28 Jun 2026",
+      "news_id": "fa88d085-c37c-4b6b-862b-9d02a2ff3a6b",
+      "company": "Shelter Pharma Ltd",
+      "scrip_cd": 543963,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "around 2.5 Cr rupees",
+      "currency": "INR",
+      "amount_cr": 2.5,
+      "amount_cr_low": 2.5,
+      "amount_cr_high": 2.5,
+      "comparable": true,
+      "segment_or_project": "land acquisition near Ahmedabad for second manufacturing facility",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "We have bought a land for around like 2.5 Cr rupees.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/fcf82b02-0105-4bfb-891f-0dc0d2d25b62.pdf",
+      "category": "Company Update",
+      "subcat": "Earnings Call Transcript"
+    },
+    {
+      "date": "2026-06-27T17:48:07.127",
+      "week": "22–28 Jun 2026",
+      "news_id": "fa88d085-c37c-4b6b-862b-9d02a2ff3a6b",
+      "company": "Shelter Pharma Ltd",
+      "scrip_cd": 543963,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "around 12 to 15 Cr",
+      "currency": "INR",
+      "amount_cr": 15,
+      "amount_cr_low": 12,
+      "amount_cr_high": 15,
+      "comparable": true,
+      "segment_or_project": "second manufacturing facility - plant installation",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "So, I think if I give you the big numbers, it is around 12 to 15 Cr would be needed",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/fcf82b02-0105-4bfb-891f-0dc0d2d25b62.pdf",
+      "category": "Company Update",
+      "subcat": "Earnings Call Transcript"
     }
   ],
   "544014": [
@@ -3901,6 +4433,31 @@
       "subcat": "Analyst / Investor Meet"
     }
   ],
+  "544345": [
+    {
+      "date": "2026-06-29T16:45:15.45",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "b4a60e66-b45b-4cb8-b78f-14edd83e74c7",
+      "company": "Denta Water and Infra Solutions Ltd",
+      "scrip_cd": 544345,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "Rs. 600 crores",
+      "currency": "INR",
+      "amount_cr": 600,
+      "amount_cr_low": 600,
+      "amount_cr_high": 600,
+      "comparable": true,
+      "segment_or_project": "bidding pipeline",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Around 5 to 6 projects valued at around Rs. 600 crores.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/7c95ca49-4e79-4006-9b3a-b8fae26487b8.pdf",
+      "category": "Company Update",
+      "subcat": "Analyst / Investor Meet"
+    }
+  ],
   "544425": [
     {
       "date": "2026-06-22T13:06:04.91",
@@ -4137,6 +4694,79 @@
       "subcat": "Press Release / Media Release (Revised)"
     }
   ],
+  "544546": [
+    {
+      "date": "2026-06-29T11:29:19.57",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "cc338945-3714-4f6c-b9dd-9bad3f11f97d",
+      "company": "Chatterbox Technologies Ltd",
+      "scrip_cd": 544546,
+      "fiscal_year": null,
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "Rs 42.86 crore",
+      "currency": "INR",
+      "amount_cr": 42.86,
+      "amount_cr_low": 42.86,
+      "amount_cr_high": 42.86,
+      "comparable": true,
+      "segment_or_project": "IPO",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Successfully completed IPO raising Rs 42.86 crore and became India's only publicly listed influencer marketing company at this scale",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/1c61eadd-c526-4ecc-b390-707243933904.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
+  "544550": [
+    {
+      "date": "2026-06-29T18:43:46.797",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "d14f4a7b-5615-4f66-ba06-3dee033b2cae",
+      "company": "Pace Digitek Ltd",
+      "scrip_cd": 544550,
+      "fiscal_year": "FY27",
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "2.5 GWh",
+      "currency": "INR",
+      "amount_cr": 2.5,
+      "amount_cr_low": 2.5,
+      "amount_cr_high": 2.5,
+      "comparable": true,
+      "segment_or_project": "BESS manufacturing capacity expansion",
+      "direction": "up",
+      "reason": "Installation, integration and commissioning activities for the additional 2.5 GWh manufacturing line are currently in advanced stages",
+      "quote": "Installation, integration and commissioning activities for the additional 2.5 GWh manufacturing line are currently in advanced stages and are expected to be completed in July 2026.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/0050509e-753a-4d97-8acb-e58b5778e892.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-06-29T18:43:46.797",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "d14f4a7b-5615-4f66-ba06-3dee033b2cae",
+      "company": "Pace Digitek Ltd",
+      "scrip_cd": 544550,
+      "fiscal_year": "FY27",
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "5 GWh",
+      "currency": "INR",
+      "amount_cr": 5,
+      "amount_cr_low": 5,
+      "amount_cr_high": 5,
+      "comparable": true,
+      "segment_or_project": "BESS manufacturing capacity expansion",
+      "direction": "up",
+      "reason": "Infrastructure development and facility preparation activities have been substantially completed, while orders for the additional production lines have already been placed",
+      "quote": "The next 5 GWh capacity expansion is targeted to become operational during Q3 FY2027, taking total installed BESS manufacturing capacity to 10 GWh.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/0050509e-753a-4d97-8acb-e58b5778e892.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
+    }
+  ],
   "544558": [
     {
       "date": "2026-06-23T20:11:29.887",
@@ -4160,6 +4790,31 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/bd23136b-709d-4356-9fe9-37b3a5e7eab5.pdf",
       "category": "Company Update",
       "subcat": "Investor Presentation"
+    }
+  ],
+  "544570": [
+    {
+      "date": "2026-06-29T18:57:54.983",
+      "week": "29 Jun – 5 Jul 2026",
+      "news_id": "3d813c39-e34a-42ef-aaf9-8af71e332bb3",
+      "company": "WeWork India Management Ltd",
+      "scrip_cd": 544570,
+      "fiscal_year": null,
+      "type": "plan",
+      "event_type": "Capacity Expansion",
+      "amount_text": "₹9.80 Crore",
+      "currency": "INR",
+      "amount_cr": 9.8,
+      "amount_cr_low": 9.8,
+      "amount_cr_high": 9.8,
+      "comparable": true,
+      "segment_or_project": "Krishe Emerald, Hyderabad centre expansion",
+      "direction": "up",
+      "reason": "To cater to incremental demand and to enhance Company's operational capacity in line with business growth.",
+      "quote": "Investment required ₹9.80 Crore (approx.)",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/227a2720-b212-4af1-9e9e-b785e2616e4f.pdf",
+      "category": "Company Update",
+      "subcat": "General"
     }
   ],
   "544597": [
