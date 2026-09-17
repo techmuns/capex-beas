@@ -41,7 +41,7 @@ export async function onRequestPost({ request, env }) {
 
     const res = await sendMunshotEmail(env, {
       email: sub.email,
-      subject: digestSubject(items.length, now),
+      subject: digestSubject(items, now),
       html: renderDigestEmail({
         items, edition: editionLabel(sub.filter), cadence: sub.cadence, timeHHMM: sub.timeHHMM,
         unsubUrl: `${origin}/api/unsubscribe?token=${sub.unsubToken}`, siteUrl: origin,
