@@ -287,6 +287,34 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/6724c815-2bac-4b86-8c77-796fe07221ca.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-07-14T20:05:29.957",
+      "week": "13–19 Jul 2026",
+      "news_id": "eddd6ed2-8b0e-4890-b6c0-59549e926487",
+      "company": "Hero MotoCorp Ltd",
+      "scrip_cd": 500182,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 1,000 crore",
+      "currency": "INR",
+      "amount_cr": 1000,
+      "amount_cr_low": 1000,
+      "amount_cr_high": 1000,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Ather Energy Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "The Committee of Directors (\"COD\") at its meeting held today viz. July 14, 2026 has considered and approved the additional investment of up to Rs. 1,000 crore (Rupees one thousand crore only) in Ather Energy Limited, an associate company.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/f82425ef-f291-459e-9422-e0905ab2a337.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
     }
   ],
   "500183": [
@@ -2411,6 +2439,36 @@
       "subcat": "Investor Presentation"
     }
   ],
+  "517334": [
+    {
+      "date": "2026-07-14T19:42:24.62",
+      "week": "13–19 Jul 2026",
+      "news_id": "cc7294de-2ffc-4fec-b95d-77469474b8ea",
+      "company": "Samvardhana Motherson International Ltd",
+      "scrip_cd": 517334,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "JPY 330 million",
+      "currency": "INR",
+      "amount_cr": 33,
+      "amount_cr_low": 33,
+      "amount_cr_high": 33,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "11% stake acquisition in Shinnichi Kogyo Co., Ltd.",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "MGI BV has remitted the aggregate purchase consideration amounting to JPY 330 million (subject to deduction of applicable taxes), to HMCL and has achieved the closing of the SPA on July 14, 2026.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/386cc627-b9dc-4bd4-ac51-ffff333295a4.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
+    }
+  ],
   "517554": [
     {
       "date": "2026-09-16T21:23:16.46",
@@ -2867,6 +2925,66 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/233b3f1b-f928-4a57-8719-485085b6ec26.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    }
+  ],
+  "523457": [
+    {
+      "date": "2026-07-14T17:53:56.72",
+      "week": "13–19 Jul 2026",
+      "news_id": "598d2dd7-d044-4ecd-84d2-0bf1e96e2776",
+      "company": "Linde India Ltd",
+      "scrip_cd": 523457,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 105 Crores",
+      "currency": "INR",
+      "amount_cr": 105,
+      "amount_cr_low": 105,
+      "amount_cr_high": 105,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Zenataris Renewable Energy Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "This investment is the final tranche in the overall planned investment of Rs. 105 Crores in the above mentioned SPV.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/4d792927-92e3-4177-b0d2-a3a58fb29063.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
+    }
+  ],
+  "523890": [
+    {
+      "date": "2026-07-14T14:14:25.177",
+      "week": "13–19 Jul 2026",
+      "news_id": "d0dbd2a6-b215-48da-872a-f039d80545a2",
+      "company": "DS Kulkarni Developers Ltd",
+      "scrip_cd": 523890,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "100% equity stakes",
+      "currency": "INR",
+      "amount_cr": 100,
+      "amount_cr_low": 100,
+      "amount_cr_high": 100,
+      "comparable": true,
+      "metric": "margin",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Moonbrick Realty Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Company, has completed acquisition of 100% equity stakes in Moonbrick on 13 th July, 2026.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/37837b18-8a42-4f97-ad1b-025fdabcc380.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
     }
   ],
   "524046": [
@@ -3340,6 +3458,34 @@
       "reason": "This investment is being done to meet the working capital requirements of Three O Verse Global IT Services L.L.C.",
       "quote": "Three O Verse Global IT Services L.L.C, Dubai, a wholly owned subsidiary of Ticker and a step down subsidiary of the Company has allotted 3843 equity shares of AED 1000/- each to Ticker on July 06, 2026. (Equivalent to Rupees 10.08 cores).",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/4340e41f-69f3-4038-be0a-8f4b729e3ab4.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
+    },
+    {
+      "date": "2026-07-14T16:20:54.42",
+      "week": "13–19 Jul 2026",
+      "news_id": "695d4855-8099-4538-a9cf-ddd8a8f10904",
+      "company": "63 Moons Technologies Ltd",
+      "scrip_cd": 526881,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 21.49 crores",
+      "currency": "INR",
+      "amount_cr": 21.49,
+      "amount_cr_low": 21.49,
+      "amount_cr_high": 21.49,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Ticker Limited",
+      "direction": "unclear",
+      "reason": "The acquisition is undertaken by the WOS as a part of its investment.",
+      "quote": "our Wholly owned Subsidiary (WOS) Financial Technologies Singapore Pte Ltd., has acquired 79,58,300 equity shares through secondary market for a total consideration of approx. Rs. 21.49 crores in our Indian unlisted subsidiary Ticker Limited.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8c789334-baad-4a75-89aa-4d701f16b530.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
     }
@@ -3848,6 +3994,36 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/09e32bd5-7385-48c1-bdc4-2183981d49d5.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
+    }
+  ],
+  "532051": [
+    {
+      "date": "2026-07-14T20:12:32.98",
+      "week": "13–19 Jul 2026",
+      "news_id": "da389bd9-4efb-4421-b8b7-306fb27dc666",
+      "company": "Swelect Energy Systems Ltd-$",
+      "scrip_cd": 532051,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "US$ 500,000",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Comstock BESS LLC - US grid-storage market entry",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "approved the proposal of SWELECT ENERGY SYSTEMS PTE. LTD. Singapore (wholly owned subsidiary of the Company) to make strategic investment upto US$ 500,000 in Class B Preferred Equity in Comstock BESS LLC",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/196e120c-d939-48b9-8e6d-8a4231a347ba.pdf",
+      "category": "Company Update",
+      "subcat": "General"
     }
   ],
   "532234": [
@@ -5932,6 +6108,36 @@
       "subcat": "Acquisition"
     }
   ],
+  "533293": [
+    {
+      "date": "2026-07-14T21:53:41.283",
+      "week": "13–19 Jul 2026",
+      "news_id": "c881ed76-6503-4710-85e1-9a228f51a192",
+      "company": "Kirloskar Oil Engines Ltd",
+      "scrip_cd": 533293,
+      "fiscal_year": "FY27",
+      "type": "guidance",
+      "event_type": "Capacity Expansion",
+      "amount_text": "₹1400 crore",
+      "currency": "INR",
+      "amount_cr": 1400,
+      "amount_cr_low": 1400,
+      "amount_cr_high": 1400,
+      "comparable": true,
+      "metric": "capex",
+      "scope": "company_total",
+      "is_revision": true,
+      "old_cr": 700,
+      "new_cr": 1400,
+      "segment_or_project": "expansion in Kagal",
+      "direction": "up",
+      "reason": null,
+      "quote": "2025 z Incorporation of Kirloskar International FZE (UAE) z Development of 6 MW Marine Diesel Engine for Indian Navy z New consolidated facility in Sanand for KOEL Fluid Dynamics z BSV transition z Announcement of ₹ 700 crore capital expenditure plan for expansion in Kagal 2026 z KOEL Fluid Dynamics launched, consolidating our B2C business z Incorporated a wholly owned subsidiary, Kirloskar Advanced Systems Pvt. Ltd. (KASPL) z Announcement of ₹1400 crore capital expenditure plan for further expansion in Kagal",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/55e9216a-6a4d-46c9-a54e-419fa051ac53.pdf",
+      "category": "Others",
+      "subcat": "Reg. 34 (1) Annual Report"
+    }
+  ],
   "533326": [
     {
       "date": "2026-08-10T14:35:53.49",
@@ -6267,6 +6473,36 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/8043b368-9d5b-46f1-b1c5-18f884799dee.pdf",
       "category": "Company Update",
       "subcat": "General"
+    }
+  ],
+  "539046": [
+    {
+      "date": "2026-07-15T10:35:44.787",
+      "week": "13–19 Jul 2026",
+      "news_id": "4bdaf483-2ca6-44a7-8ae3-3c8b919bd82c",
+      "company": "Manaksia Coated Metals & Industries Ltd",
+      "scrip_cd": 539046,
+      "fiscal_year": "FY27",
+      "type": "plan",
+      "event_type": "Guidance revision",
+      "amount_text": "Rs. 65 Cr.",
+      "currency": "INR",
+      "amount_cr": 65,
+      "amount_cr_low": 65,
+      "amount_cr_high": 65,
+      "comparable": true,
+      "metric": "capex",
+      "scope": "company_total",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "New Colour Coating Line (CCL) – 2 – Phase 1",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Est. Capex - Rs. 65 Cr.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/318fe867-a8e8-495e-bac4-26169558a2ff.pdf",
+      "category": "Company Update",
+      "subcat": "Investor Presentation"
     }
   ],
   "539056": [
@@ -7918,6 +8154,36 @@
       "subcat": "Earnings Call Transcript"
     }
   ],
+  "543420": [
+    {
+      "date": "2026-07-14T17:51:06.53",
+      "week": "13–19 Jul 2026",
+      "news_id": "3b7686a5-b9df-4bc6-9df9-82e88d4a17c1",
+      "company": "Jet Freight Logistics Ltd",
+      "scrip_cd": 543420,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 18 (Eighteen) Crores",
+      "currency": "INR",
+      "amount_cr": 18,
+      "amount_cr_low": 18,
+      "amount_cr_high": 18,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Natwest Trade & Logistics Services – FZCO",
+      "direction": "unclear",
+      "reason": "The primary objective of the proposed acquisition is to expand the Company's international footprint and strengthen its global logistics network by enhancing its freight forwarding capabilities, leveraging technology-driven logistics solutions, facilitating cross-border trade, and establishing a strategic presence in one of the world's leading logistics hubs.",
+      "quote": "Subscription to the ordinary shares of the Investee Company is done at a mutually agreed valuation of the Investee Company and in accordance with the terms specified in the agreement executed between the parties at an acquisition cost of Rs. 18 (Eighteen) Crores payable in tranches.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/73daa815-739b-43b9-9aed-13138284f029.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
+    }
+  ],
   "543441": [
     {
       "date": "2026-08-10T20:22:23.51",
@@ -9522,6 +9788,34 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/57df1135-c9ba-4853-aded-137ef95b8c79.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
+    },
+    {
+      "date": "2026-07-14T18:46:08.293",
+      "week": "13–19 Jul 2026",
+      "news_id": "365d8c37-b659-4a9c-921c-203d15338f68",
+      "company": "Inventurus Knowledge Solutions Ltd",
+      "scrip_cd": 544309,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "USD 2,840,000",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "IKS WWMG MSO LLC",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "IKS Inc. has completed the first tranche of investment of USD 2,840,000 by subscribing to 2,840,000 Common Units of the WWMG MSO.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/eba19446-35c9-4779-80ea-0bc7b85424ae.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
     }
   ],
   "544322": [
@@ -10604,6 +10898,36 @@
       "subcat": "Acquisition"
     }
   ],
+  "544625": [
+    {
+      "date": "2026-07-14T17:17:50.033",
+      "week": "13–19 Jul 2026",
+      "news_id": "910a1fca-94e3-4e4d-99b1-7eeed1360574",
+      "company": "Logiciel Solutions Ltd",
+      "scrip_cd": 544625,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "USD 10,000",
+      "currency": "USD",
+      "amount_cr": null,
+      "amount_cr_low": null,
+      "amount_cr_high": null,
+      "comparable": false,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Logiciel Solutions Inc., USA - wholly-owned subsidiary",
+      "direction": "unclear",
+      "reason": "The investment is intended to strengthen the Company's presence in the North American market, enhance customer engagement, facilitate business expansion and support the growth of its IT Services and IT Staffing business.",
+      "quote": "The Company proposes to invest an amount of USD 10,000 towards subscription of 10,00,000 shares of Logiciel Solutions Inc. with a par value of USD 0.01 per share, resulting in the subsidiary becoming a wholly-owned subsidiary of the Company",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/f3595828-e093-484f-94f0-042d3daafe26.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
+    }
+  ],
   "544631": [
     {
       "date": "2026-07-13T12:20:39.79",
@@ -11118,6 +11442,36 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/3f93bfb2-516e-403e-aadd-4b90eca37803.pdf",
       "category": "Company Update",
       "subcat": "Analyst / Investor Meet"
+    }
+  ],
+  "544755": [
+    {
+      "date": "2026-07-14T18:33:48.907",
+      "week": "13–19 Jul 2026",
+      "news_id": "4bf3bd2e-637c-4f5a-91f1-71cfcc7b72e2",
+      "company": "Recode Studios Ltd",
+      "scrip_cd": 544755,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "₹8.32 Crore",
+      "currency": "INR",
+      "amount_cr": 8.32,
+      "amount_cr_low": 8.32,
+      "amount_cr_high": 8.32,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Aflairza - Phase I acquisition (33% stake)",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Under the proposed transaction, Recode will initially acquire a 33% stake in Phase I for an aggregate consideration of ₹8.32 Crore, with equal allocation between promoter share purchase and fresh capital into the company.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/db2afb8d-f9bb-4a9e-ba99-7c2798afda3a.pdf",
+      "category": "Company Update",
+      "subcat": "Press Release / Media Release"
     }
   ],
   "544777": [
