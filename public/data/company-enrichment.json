@@ -134,6 +134,15 @@
     "as_of": "2026-09-17T15:48:56.503Z",
     "source_url": "https://www.screener.in/company/500228/"
   },
+  "500300": {
+    "company": "Grasim Industries Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 218253,
+    "pe": 259,
+    "as_of": "2026-09-18T18:33:25.071Z",
+    "source_url": "https://www.screener.in/company/500300/"
+  },
   "500330": {
     "company": "Raymond Ltd",
     "industry": "Industrial Products",
@@ -728,6 +737,15 @@
     "as_of": "2026-09-16T19:12:30.394Z",
     "source_url": "https://www.screener.in/company/524804/"
   },
+  "524816": {
+    "company": "Natco Pharma Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 14560,
+    "pe": 16.3,
+    "as_of": "2026-09-18T18:33:27.089Z",
+    "source_url": "https://www.screener.in/company/524816/"
+  },
   "526247": {
     "company": "Premier Explosives Ltd",
     "industry": "Explosives",
@@ -890,6 +908,15 @@
     "as_of": "2026-09-16T12:01:35.446Z",
     "source_url": "https://www.screener.in/company/532234/"
   },
+  "532281": {
+    "company": "HCL Technologies Ltd",
+    "industry": "Computers - Software & Consulting",
+    "sector": "Information Technology",
+    "market_cap_cr": 339639,
+    "pe": 18.7,
+    "as_of": "2026-09-18T18:33:29.110Z",
+    "source_url": "https://www.screener.in/company/532281/"
+  },
   "532309": {
     "company": "GE Power India Ltd",
     "industry": "Heavy Electrical Equipment",
@@ -925,6 +952,15 @@
     "pe": 13.7,
     "as_of": "2026-09-18T11:20:35.902Z",
     "source_url": "https://www.screener.in/company/532372/"
+  },
+  "532408": {
+    "company": "Sigma Advanced System Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 16486,
+    "pe": 226,
+    "as_of": "2026-09-18T18:33:31.139Z",
+    "source_url": "https://www.screener.in/company/532408/"
   },
   "532454": {
     "company": "Bharti Airtel Ltd",
@@ -2105,6 +2141,15 @@
     "as_of": "2026-09-17T05:26:51.955Z",
     "source_url": "https://www.screener.in/company/544345/"
   },
+  "544346": {
+    "company": "RDB Real Estate Construction Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 376,
+    "pe": 50.9,
+    "as_of": "2026-09-18T18:33:33.157Z",
+    "source_url": "https://www.screener.in/company/544346/"
+  },
   "544367": {
     "company": "Quality Power Electrical Equipments Ltd",
     "industry": "Heavy Electrical Equipment",
@@ -2258,6 +2303,24 @@
     "as_of": "2026-09-17T00:35:42.933Z",
     "source_url": "https://www.screener.in/company/544558/"
   },
+  "544563": {
+    "company": "Zelio E-Mobility Ltd",
+    "industry": "2/3 Wheelers",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 1803,
+    "pe": 64.7,
+    "as_of": "2026-09-18T18:33:35.175Z",
+    "source_url": "https://www.screener.in/company/544563/"
+  },
+  "544568": {
+    "company": "DSM Fresh Foods Ltd",
+    "industry": "Meat Products including Poultry",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 123,
+    "pe": 8.42,
+    "as_of": "2026-09-18T18:33:37.195Z",
+    "source_url": "https://www.screener.in/company/544568/"
+  },
   "544570": {
     "company": "Wework India Management Ltd",
     "industry": "Diversified Commercial Services",
@@ -2266,6 +2329,15 @@
     "pe": 109,
     "as_of": "2026-09-17T06:23:47.312Z",
     "source_url": "https://www.screener.in/company/544570/"
+  },
+  "544574": {
+    "company": "Tata Capital Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 149035,
+    "pe": 40.8,
+    "as_of": "2026-09-18T18:33:39.212Z",
+    "source_url": "https://www.screener.in/company/544574/"
   },
   "544597": {
     "company": "Piramal Finance Ltd",
@@ -2303,6 +2375,15 @@
     "as_of": "2026-09-17T00:35:46.882Z",
     "source_url": "https://www.screener.in/company/544616/"
   },
+  "544631": {
+    "company": "Creative Newtech Ltd",
+    "industry": "Trading & Distributors",
+    "sector": "Services",
+    "market_cap_cr": 1707,
+    "pe": 44.9,
+    "as_of": "2026-09-18T18:33:41.229Z",
+    "source_url": "https://www.screener.in/company/544631/"
+  },
   "544634": {
     "company": "Aequs Ltd",
     "industry": null,
@@ -2338,6 +2419,15 @@
     "pe": 45.5,
     "as_of": "2026-09-18T15:03:49.281Z",
     "source_url": "https://www.screener.in/company/544658/"
+  },
+  "544664": {
+    "company": "KSH International Ltd",
+    "industry": "Cables - Electricals",
+    "sector": "Capital Goods",
+    "market_cap_cr": 7090,
+    "pe": 54.2,
+    "as_of": "2026-09-18T18:33:43.246Z",
+    "source_url": "https://www.screener.in/company/544664/"
   },
   "544688": {
     "company": "Kasturi Metal Composite Ltd",
@@ -2384,6 +2474,15 @@
     "as_of": "2026-09-17T06:23:49.327Z",
     "source_url": "https://www.screener.in/company/544717/"
   },
+  "544720": {
+    "company": "Omnitech Engineering Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 6860,
+    "pe": 67.6,
+    "as_of": "2026-09-18T18:33:45.265Z",
+    "source_url": "https://www.screener.in/company/544720/"
+  },
   "544726": {
     "company": "Kotyark Industries Ltd",
     "industry": "Refineries & Marketing",
@@ -2411,6 +2510,15 @@
     "as_of": "2026-09-17T06:23:55.371Z",
     "source_url": "https://www.screener.in/company/544757/"
   },
+  "544777": {
+    "company": "CMR Green Technologies Ltd",
+    "industry": "Aluminium, Copper & Zinc Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 5068,
+    "pe": 40.5,
+    "as_of": "2026-09-18T18:33:47.289Z",
+    "source_url": "https://www.screener.in/company/544777/"
+  },
   "544793": {
     "company": "Susan Electricals India Ltd",
     "industry": "Cables - Electricals",
@@ -2428,5 +2536,23 @@
     "pe": 69.3,
     "as_of": "2026-09-17T06:23:59.397Z",
     "source_url": "https://www.screener.in/company/544866/"
+  },
+  "544868": {
+    "company": "Milky Mist Dairy Food Ltd",
+    "industry": "Dairy Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 21127,
+    "pe": 115,
+    "as_of": "2026-09-18T18:33:49.305Z",
+    "source_url": "https://www.screener.in/company/544868/"
+  },
+  "544870": {
+    "company": "Behari Lal Engineering Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 1862,
+    "pe": 27.2,
+    "as_of": "2026-09-18T18:33:51.321Z",
+    "source_url": "https://www.screener.in/company/544870/"
   }
 }
