@@ -1106,6 +1106,15 @@
     "as_of": "2026-09-17T05:26:38.194Z",
     "source_url": "https://www.screener.in/company/532880/"
   },
+  "532893": {
+    "company": "VTM Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 479,
+    "pe": 43.5,
+    "as_of": "2026-09-18T15:03:21.577Z",
+    "source_url": "https://www.screener.in/company/532893/"
+  },
   "532921": {
     "company": "Adani Ports & Special Economic Zone Ltd",
     "industry": "Port & Port services",
@@ -1790,6 +1799,15 @@
     "as_of": "2026-09-18T06:01:37.932Z",
     "source_url": "https://www.screener.in/company/543766/"
   },
+  "543904": {
+    "company": "Mankind Pharma Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 95236,
+    "pe": 42.1,
+    "as_of": "2026-09-18T15:03:23.556Z",
+    "source_url": "https://www.screener.in/company/543904/"
+  },
   "543910": {
     "company": "AVG Logistics Ltd",
     "industry": "Logistics Solution Provider",
@@ -2105,6 +2123,51 @@
     "as_of": "2026-09-16T22:13:02.846Z",
     "source_url": "https://www.screener.in/company/544425/"
   },
+  "544430": {
+    "company": "Sambhv Steel Tubes Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4348,
+    "pe": 26.1,
+    "as_of": "2026-09-18T15:03:25.533Z",
+    "source_url": "https://www.screener.in/company/544430/"
+  },
+  "544442": {
+    "company": "Chemkart India Ltd",
+    "industry": "Other Food Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 240,
+    "pe": 11.6,
+    "as_of": "2026-09-18T15:03:27.512Z",
+    "source_url": "https://www.screener.in/company/544442/"
+  },
+  "544447": {
+    "company": "Smartworks Coworking Spaces Ltd",
+    "industry": "Diversified Commercial Services",
+    "sector": "Services",
+    "market_cap_cr": 6262,
+    "pe": 287,
+    "as_of": "2026-09-18T15:03:29.492Z",
+    "source_url": "https://www.screener.in/company/544447/"
+  },
+  "544449": {
+    "company": "Anthem Biosciences Ltd",
+    "industry": "Biotechnology",
+    "sector": "Healthcare",
+    "market_cap_cr": 52354,
+    "pe": 81.5,
+    "as_of": "2026-09-18T15:03:31.470Z",
+    "source_url": "https://www.screener.in/company/544449/"
+  },
+  "544470": {
+    "company": "M & B Engineering Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 1441,
+    "pe": 18.3,
+    "as_of": "2026-09-18T15:03:33.449Z",
+    "source_url": "https://www.screener.in/company/544470/"
+  },
   "544488": {
     "company": "Vikram Solar Ltd",
     "industry": "Other Electrical Equipment",
@@ -2114,6 +2177,15 @@
     "as_of": "2026-09-16T22:13:04.799Z",
     "source_url": "https://www.screener.in/company/544488/"
   },
+  "544496": {
+    "company": "Vikran Engineering Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 1451,
+    "pe": 13.9,
+    "as_of": "2026-09-18T15:03:35.426Z",
+    "source_url": "https://www.screener.in/company/544496/"
+  },
   "544516": {
     "company": "Airfloa Rail Technology Ltd",
     "industry": "Industrial Products",
@@ -2122,6 +2194,24 @@
     "pe": 32.5,
     "as_of": "2026-09-16T22:13:06.752Z",
     "source_url": "https://www.screener.in/company/544516/"
+  },
+  "544536": {
+    "company": "Wealth First Portfolio Managers Ltd",
+    "industry": "Other Financial Services",
+    "sector": "Financial Services",
+    "market_cap_cr": 893,
+    "pe": 26,
+    "as_of": "2026-09-18T15:03:37.407Z",
+    "source_url": "https://www.screener.in/company/544536/"
+  },
+  "544537": {
+    "company": "Jain Resource Recycling Ltd",
+    "industry": "Diversified Metals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 9528,
+    "pe": 26.4,
+    "as_of": "2026-09-18T15:03:39.383Z",
+    "source_url": "https://www.screener.in/company/544537/"
   },
   "544541": {
     "company": "Systematic Industries Ltd",
@@ -2186,6 +2276,24 @@
     "as_of": "2026-09-17T00:35:44.909Z",
     "source_url": "https://www.screener.in/company/544597/"
   },
+  "544599": {
+    "company": "Studds Accessories Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 1603,
+    "pe": 20.9,
+    "as_of": "2026-09-18T15:03:41.363Z",
+    "source_url": "https://www.screener.in/company/544599/"
+  },
+  "544602": {
+    "company": "Allcargo Global Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 1352,
+    "pe": 0,
+    "as_of": "2026-09-18T15:03:43.341Z",
+    "source_url": "https://www.screener.in/company/544602/"
+  },
   "544616": {
     "company": "Gallard Steel Ltd",
     "industry": "Auto Components & Equipments",
@@ -2203,6 +2311,33 @@
     "pe": 447,
     "as_of": "2026-09-17T00:35:48.857Z",
     "source_url": "https://www.screener.in/company/544634/"
+  },
+  "544644": {
+    "company": "Corona Remedies Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 13505,
+    "pe": 63.8,
+    "as_of": "2026-09-18T15:03:45.322Z",
+    "source_url": "https://www.screener.in/company/544644/"
+  },
+  "544645": {
+    "company": "Park Medi World Ltd",
+    "industry": "Hospital",
+    "sector": "Healthcare",
+    "market_cap_cr": 12161,
+    "pe": 371,
+    "as_of": "2026-09-18T15:03:47.301Z",
+    "source_url": "https://www.screener.in/company/544645/"
+  },
+  "544658": {
+    "company": "ICICI Prudential Asset Management Co Ltd",
+    "industry": "Asset Management Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 158535,
+    "pe": 45.5,
+    "as_of": "2026-09-18T15:03:49.281Z",
+    "source_url": "https://www.screener.in/company/544658/"
   },
   "544688": {
     "company": "Kasturi Metal Composite Ltd",
