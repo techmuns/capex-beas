@@ -152,6 +152,15 @@
     "as_of": "2026-09-17T15:48:56.503Z",
     "source_url": "https://www.screener.in/company/500228/"
   },
+  "500264": {
+    "company": "Mafatlal Industries Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 863,
+    "pe": 14.2,
+    "as_of": "2026-09-19T14:55:18.272Z",
+    "source_url": "https://www.screener.in/company/500264/"
+  },
   "500300": {
     "company": "Grasim Industries Ltd",
     "industry": "Cement & Cement Products",
@@ -322,6 +331,15 @@
     "pe": 21,
     "as_of": "2026-09-18T11:20:30.069Z",
     "source_url": "https://www.screener.in/company/501455/"
+  },
+  "502015": {
+    "company": "Asi Industries Ltd",
+    "industry": "Industrial Minerals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 215,
+    "pe": 8.55,
+    "as_of": "2026-09-19T14:55:20.278Z",
+    "source_url": "https://www.screener.in/company/502015/"
   },
   "504000": {
     "company": "Elpro International Ltd",
@@ -863,6 +881,15 @@
     "as_of": "2026-09-16T12:01:21.594Z",
     "source_url": "https://www.screener.in/company/524342/"
   },
+  "524394": {
+    "company": "Vimta Labs Ltd",
+    "industry": "Healthcare Research, Analytics & Technology",
+    "sector": "Healthcare",
+    "market_cap_cr": 2696,
+    "pe": 33.4,
+    "as_of": "2026-09-19T14:55:22.287Z",
+    "source_url": "https://www.screener.in/company/524394/"
+  },
   "524404": {
     "company": "Marksans Pharma Ltd",
     "industry": "Pharmaceuticals",
@@ -1322,6 +1349,15 @@
     "as_of": "2026-09-17T19:22:43.556Z",
     "source_url": "https://www.screener.in/company/532796/"
   },
+  "532804": {
+    "company": "Technocraft Industries (India) Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 6924,
+    "pe": 25.5,
+    "as_of": "2026-09-19T14:55:24.294Z",
+    "source_url": "https://www.screener.in/company/532804/"
+  },
   "532817": {
     "company": "Oriental Trimex Ltd",
     "industry": "Granites & Marbles",
@@ -1403,6 +1439,15 @@
     "as_of": "2026-09-17T19:22:45.540Z",
     "source_url": "https://www.screener.in/company/532924/"
   },
+  "532928": {
+    "company": "Transformers & Rectifiers India Ltd",
+    "industry": "Heavy Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 8400,
+    "pe": 39,
+    "as_of": "2026-09-19T14:55:26.305Z",
+    "source_url": "https://www.screener.in/company/532928/"
+  },
   "532937": {
     "company": "Kuantum Papers Ltd",
     "industry": "Paper & Paper Products",
@@ -1447,6 +1492,15 @@
     "pe": 139,
     "as_of": "2026-09-17T10:40:05.827Z",
     "source_url": "https://www.screener.in/company/533150/"
+  },
+  "533151": {
+    "company": "D B Corp Ltd",
+    "industry": "Print Media",
+    "sector": "Media, Entertainment & Publication",
+    "market_cap_cr": 3281,
+    "pe": 9.33,
+    "as_of": "2026-09-19T14:55:28.516Z",
+    "source_url": "https://www.screener.in/company/533151/"
   },
   "533169": {
     "company": "Man Infraconstruction Ltd",
@@ -1996,6 +2050,15 @@
     "pe": 138,
     "as_of": "2026-09-17T22:33:51.156Z",
     "source_url": "https://www.screener.in/company/543220/"
+  },
+  "543232": {
+    "company": "Computer Age Management Services Ltd",
+    "industry": "Depositories, Clearing Houses and Other Intermediaries",
+    "sector": "Financial Services",
+    "market_cap_cr": 17589,
+    "pe": 38.8,
+    "as_of": "2026-09-19T14:55:30.524Z",
+    "source_url": "https://www.screener.in/company/543232/"
   },
   "543234": {
     "company": "Secmark Consultancy Ltd",
