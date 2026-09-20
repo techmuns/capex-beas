@@ -143,6 +143,15 @@
     "as_of": "2026-09-16T12:03:41.118Z",
     "source_url": "https://www.screener.in/company/500186/"
   },
+  "500188": {
+    "company": "Hindustan Zinc Ltd",
+    "industry": "Zinc",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 251829,
+    "pe": 14.9,
+    "as_of": "2026-09-20T14:21:56.589Z",
+    "source_url": "https://www.screener.in/company/500188/"
+  },
   "500214": {
     "company": "Ion Exchange (India) Ltd",
     "industry": "Water Supply & Management",
@@ -223,6 +232,15 @@
     "pe": 44.5,
     "as_of": "2026-09-17T08:05:21.401Z",
     "source_url": "https://www.screener.in/company/500403/"
+  },
+  "500410": {
+    "company": "ACC Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 23656,
+    "pe": 12.2,
+    "as_of": "2026-09-20T14:21:58.565Z",
+    "source_url": "https://www.screener.in/company/500410/"
   },
   "500418": {
     "company": "Tokyo Plast International Ltd",
@@ -827,6 +845,15 @@
     "as_of": "2026-09-16T12:04:04.326Z",
     "source_url": "https://www.screener.in/company/519287/"
   },
+  "520051": {
+    "company": "Jamna Auto Industries Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 5001,
+    "pe": 19.7,
+    "as_of": "2026-09-20T14:22:00.540Z",
+    "source_url": "https://www.screener.in/company/520051/"
+  },
   "520056": {
     "company": "TVS Holdings Ltd",
     "industry": "Investment Company",
@@ -889,6 +916,15 @@
     "pe": 77.4,
     "as_of": "2026-09-17T15:38:02.055Z",
     "source_url": "https://www.screener.in/company/522215/"
+  },
+  "522257": {
+    "company": "Rajoo Engineers Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 947,
+    "pe": 22.7,
+    "as_of": "2026-09-20T14:22:02.514Z",
+    "source_url": "https://www.screener.in/company/522257/"
   },
   "522275": {
     "company": "GE Vernova T&D India Ltd",
@@ -1250,6 +1286,15 @@
     "as_of": "2026-09-18T21:23:46.345Z",
     "source_url": "https://www.screener.in/company/532051/"
   },
+  "532144": {
+    "company": "Welspun Corp Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 70171,
+    "pe": 95.3,
+    "as_of": "2026-09-20T14:22:04.494Z",
+    "source_url": "https://www.screener.in/company/532144/"
+  },
   "532155": {
     "company": "GAIL (India) Ltd",
     "industry": null,
@@ -1267,6 +1312,15 @@
     "pe": 9.65,
     "as_of": "2026-09-16T12:01:35.446Z",
     "source_url": "https://www.screener.in/company/532234/"
+  },
+  "532259": {
+    "company": "Apar Industries Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 78963,
+    "pe": 66.2,
+    "as_of": "2026-09-20T14:22:06.476Z",
+    "source_url": "https://www.screener.in/company/532259/"
   },
   "532281": {
     "company": "HCL Technologies Ltd",
@@ -1519,6 +1573,15 @@
     "pe": 37.7,
     "as_of": "2026-09-19T01:42:05.040Z",
     "source_url": "https://www.screener.in/company/532755/"
+  },
+  "532762": {
+    "company": "Action Construction Equipment Ltd",
+    "industry": "Construction Vehicles",
+    "sector": "Capital Goods",
+    "market_cap_cr": 14638,
+    "pe": 32.7,
+    "as_of": "2026-09-20T14:22:08.690Z",
+    "source_url": "https://www.screener.in/company/532762/"
   },
   "532777": {
     "company": "Info Edge (India) Ltd",
@@ -1781,6 +1844,15 @@
     "as_of": "2026-09-17T10:40:07.999Z",
     "source_url": "https://www.screener.in/company/533326/"
   },
+  "533333": {
+    "company": "Fineotex Chemical Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 6640,
+    "pe": 71.8,
+    "as_of": "2026-09-20T14:22:10.669Z",
+    "source_url": "https://www.screener.in/company/533333/"
+  },
   "533758": {
     "company": "APL Apollo Tubes Ltd",
     "industry": "Iron & Steel Products",
@@ -1898,6 +1970,15 @@
     "as_of": "2026-09-17T05:26:44.095Z",
     "source_url": "https://www.screener.in/company/539083/"
   },
+  "539115": {
+    "company": "Alan Scott Enterprises Ltd",
+    "industry": "Film Production, Distribution & Exhibition",
+    "sector": "Media, Entertainment & Publication",
+    "market_cap_cr": 172,
+    "pe": 1229,
+    "as_of": "2026-09-20T14:22:12.648Z",
+    "source_url": "https://www.screener.in/company/539115/"
+  },
   "539118": {
     "company": "VRL Logistics Ltd",
     "industry": "Logistics Solution Provider",
@@ -1960,6 +2041,15 @@
     "pe": 29.2,
     "as_of": "2026-09-19T11:40:12.412Z",
     "source_url": "https://www.screener.in/company/539523/"
+  },
+  "539524": {
+    "company": "Dr Lal Pathlabs Ltd",
+    "industry": "Healthcare Service Provider",
+    "sector": "Healthcare",
+    "market_cap_cr": 31839,
+    "pe": 56.3,
+    "as_of": "2026-09-20T14:22:14.627Z",
+    "source_url": "https://www.screener.in/company/539524/"
   },
   "539542": {
     "company": "Lux Industries Ltd",
