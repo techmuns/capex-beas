@@ -1169,6 +1169,15 @@
     "as_of": "2026-09-16T12:01:31.489Z",
     "source_url": "https://www.screener.in/company/531548/"
   },
+  "531550": {
+    "company": "Jhaveri Credits & Capital Ltd",
+    "industry": "Other Financial Services",
+    "sector": "Financial Services",
+    "market_cap_cr": 226,
+    "pe": 127,
+    "as_of": "2026-09-20T06:27:43.216Z",
+    "source_url": "https://www.screener.in/company/531550/"
+  },
   "531676": {
     "company": "Emrock Corporation Limited",
     "industry": "Packaged Foods",
@@ -1177,6 +1186,15 @@
     "pe": 323,
     "as_of": "2026-09-17T15:38:08.019Z",
     "source_url": "https://www.screener.in/company/531676/"
+  },
+  "531761": {
+    "company": "Apollo Pipes Ltd",
+    "industry": "Plastic Products - Industrial",
+    "sector": "Capital Goods",
+    "market_cap_cr": 2394,
+    "pe": 192,
+    "as_of": "2026-09-20T06:27:45.201Z",
+    "source_url": "https://www.screener.in/company/531761/"
   },
   "531859": {
     "company": "Oriental Rail Infrastructure Ltd",
@@ -2717,6 +2735,15 @@
     "as_of": "2026-09-16T19:12:49.686Z",
     "source_url": "https://www.screener.in/company/544238/"
   },
+  "544256": {
+    "company": "P N Gadgil Jewellers Ltd",
+    "industry": "Gems, Jewellery And Watches",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 8902,
+    "pe": 20.3,
+    "as_of": "2026-09-20T06:27:47.184Z",
+    "source_url": "https://www.screener.in/company/544256/"
+  },
   "544258": {
     "company": "Western Carriers (India) Ltd",
     "industry": "Logistics Solution Provider",
@@ -2743,6 +2770,15 @@
     "pe": 58.5,
     "as_of": "2026-09-19T22:38:44.968Z",
     "source_url": "https://www.screener.in/company/544282/"
+  },
+  "544283": {
+    "company": "ACME Solar Holdings Ltd",
+    "industry": "Power Generation",
+    "sector": "Power",
+    "market_cap_cr": 30767,
+    "pe": 68.6,
+    "as_of": "2026-09-20T06:27:49.165Z",
+    "source_url": "https://www.screener.in/company/544283/"
   },
   "544296": {
     "company": "Nisus Finance Services Co Ltd",
@@ -3292,5 +3328,14 @@
     "pe": 27.2,
     "as_of": "2026-09-18T18:33:51.321Z",
     "source_url": "https://www.screener.in/company/544870/"
+  },
+  "544906": {
+    "company": "Rays of Belief Ltd",
+    "industry": "Hospital",
+    "sector": "Healthcare",
+    "market_cap_cr": 468,
+    "pe": 79.5,
+    "as_of": "2026-09-20T06:27:50.917Z",
+    "source_url": "https://www.screener.in/company/544906/"
   }
 }
