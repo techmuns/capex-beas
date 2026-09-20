@@ -233,6 +233,15 @@
     "as_of": "2026-09-17T15:37:52.097Z",
     "source_url": "https://www.screener.in/company/500350/"
   },
+  "500400": {
+    "company": "Tata Power Company Ltd",
+    "industry": "Integrated Power Utilities",
+    "sector": "Power",
+    "market_cap_cr": 119761,
+    "pe": 136,
+    "as_of": "2026-09-20T23:21:27.908Z",
+    "source_url": "https://www.screener.in/company/500400/"
+  },
   "500403": {
     "company": "Sundram Fasteners Ltd",
     "industry": "Auto Components & Equipments",
@@ -403,6 +412,15 @@
     "pe": 8.55,
     "as_of": "2026-09-19T14:55:20.278Z",
     "source_url": "https://www.screener.in/company/502015/"
+  },
+  "502090": {
+    "company": "Sagar Cements Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 1984,
+    "pe": 103,
+    "as_of": "2026-09-20T23:21:29.860Z",
+    "source_url": "https://www.screener.in/company/502090/"
   },
   "503806": {
     "company": "SRF Ltd",
@@ -835,6 +853,15 @@
     "pe": 22.2,
     "as_of": "2026-09-17T08:05:45.080Z",
     "source_url": "https://www.screener.in/company/517059/"
+  },
+  "517146": {
+    "company": "Usha Martin Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 15456,
+    "pe": 37,
+    "as_of": "2026-09-20T23:21:31.812Z",
+    "source_url": "https://www.screener.in/company/517146/"
   },
   "517206": {
     "company": "Lumax Industries Ltd",
@@ -1367,6 +1394,15 @@
     "as_of": "2026-09-16T12:01:33.468Z",
     "source_url": "https://www.screener.in/company/532155/"
   },
+  "532162": {
+    "company": "JK Paper Ltd",
+    "industry": "Paper & Paper Products",
+    "sector": "Forest Materials",
+    "market_cap_cr": 7808,
+    "pe": 28.6,
+    "as_of": "2026-09-20T23:21:33.763Z",
+    "source_url": "https://www.screener.in/company/532162/"
+  },
   "532234": {
     "company": "National Aluminium Company Ltd",
     "industry": null,
@@ -1511,6 +1547,15 @@
     "as_of": "2026-09-19T06:16:18.132Z",
     "source_url": "https://www.screener.in/company/532524/"
   },
+  "532527": {
+    "company": "Ramkrishna Forgings Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 13191,
+    "pe": 106,
+    "as_of": "2026-09-20T23:21:35.717Z",
+    "source_url": "https://www.screener.in/company/532527/"
+  },
   "532531": {
     "company": "Strides Pharma Science Ltd",
     "industry": "Pharmaceuticals",
@@ -1537,6 +1582,15 @@
     "pe": 69.9,
     "as_of": "2026-09-16T12:01:39.422Z",
     "source_url": "https://www.screener.in/company/532539/"
+  },
+  "532555": {
+    "company": "NTPC Ltd",
+    "industry": "Power Generation",
+    "sector": "Power",
+    "market_cap_cr": 313833,
+    "pe": 13.2,
+    "as_of": "2026-09-20T23:21:37.671Z",
+    "source_url": "https://www.screener.in/company/532555/"
   },
   "532605": {
     "company": "JBM Auto Ltd",
@@ -1637,6 +1691,15 @@
     "as_of": "2026-09-19T01:42:05.040Z",
     "source_url": "https://www.screener.in/company/532755/"
   },
+  "532756": {
+    "company": "CIE Automotive India Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 14687,
+    "pe": 22.4,
+    "as_of": "2026-09-20T23:21:39.625Z",
+    "source_url": "https://www.screener.in/company/532756/"
+  },
   "532762": {
     "company": "Action Construction Equipment Ltd",
     "industry": "Construction Vehicles",
@@ -1663,6 +1726,15 @@
     "pe": 26.2,
     "as_of": "2026-09-16T12:01:45.358Z",
     "source_url": "https://www.screener.in/company/532779/"
+  },
+  "532784": {
+    "company": "Sobha Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 12994,
+    "pe": 41.4,
+    "as_of": "2026-09-20T23:21:41.577Z",
+    "source_url": "https://www.screener.in/company/532784/"
   },
   "532796": {
     "company": "Lumax Auto Technologies Ltd",
@@ -1897,6 +1969,24 @@
     "pe": 341,
     "as_of": "2026-09-17T19:22:51.502Z",
     "source_url": "https://www.screener.in/company/533274/"
+  },
+  "533278": {
+    "company": "Coal India Ltd",
+    "industry": "Coal",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 252610,
+    "pe": 13.4,
+    "as_of": "2026-09-20T23:21:43.529Z",
+    "source_url": "https://www.screener.in/company/533278/"
+  },
+  "533282": {
+    "company": "Gravita India Ltd",
+    "industry": "Industrial Minerals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 11798,
+    "pe": 39.7,
+    "as_of": "2026-09-20T23:21:45.481Z",
+    "source_url": "https://www.screener.in/company/533282/"
   },
   "533293": {
     "company": "Kirloskar Oil Engines Ltd",
@@ -2177,6 +2267,15 @@
     "as_of": "2026-09-20T10:13:21.390Z",
     "source_url": "https://www.screener.in/company/539871/"
   },
+  "539872": {
+    "company": "Bajaj Healthcare Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 1113,
+    "pe": 19.8,
+    "as_of": "2026-09-20T23:21:47.431Z",
+    "source_url": "https://www.screener.in/company/539872/"
+  },
   "539922": {
     "company": "Rotographics (India) Ltd",
     "industry": "Trading & Distributors",
@@ -2419,6 +2518,15 @@
     "pe": 35.4,
     "as_of": "2026-09-20T05:31:57.810Z",
     "source_url": "https://www.screener.in/company/541402/"
+  },
+  "541450": {
+    "company": "Adani Green Energy Ltd",
+    "industry": "Power Generation",
+    "sector": "Power",
+    "market_cap_cr": 219816,
+    "pe": 321,
+    "as_of": "2026-09-20T23:21:49.385Z",
+    "source_url": "https://www.screener.in/company/541450/"
   },
   "541729": {
     "company": "HDFC Asset Management Company Ltd",
