@@ -89,6 +89,15 @@
     "as_of": "2026-09-20T00:31:26.091Z",
     "source_url": "https://www.screener.in/company/500104/"
   },
+  "500124": {
+    "company": "Dr Reddys Laboratories Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 101207,
+    "pe": 153,
+    "as_of": "2026-09-21T14:42:40.463Z",
+    "source_url": "https://www.screener.in/company/500124/"
+  },
   "500126": {
     "company": "Procter & Gamble Health Ltd",
     "industry": "Pharmaceuticals",
@@ -314,6 +323,15 @@
     "as_of": "2026-09-16T12:03:46.132Z",
     "source_url": "https://www.screener.in/company/500510/"
   },
+  "500520": {
+    "company": "Mahindra & Mahindra Ltd",
+    "industry": "Passenger Cars & Utility Vehicles",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 379805,
+    "pe": 23.2,
+    "as_of": "2026-09-21T14:42:42.391Z",
+    "source_url": "https://www.screener.in/company/500520/"
+  },
   "500570": {
     "company": "Tata Motors Passenger Vehicles Ltd",
     "industry": "Passenger Cars & Utility Vehicles",
@@ -502,6 +520,15 @@
     "pe": 30.3,
     "as_of": "2026-09-17T08:05:35.227Z",
     "source_url": "https://www.screener.in/company/505160/"
+  },
+  "505192": {
+    "company": "SML Mahindra Ltd",
+    "industry": "Commercial Vehicles",
+    "sector": "Capital Goods",
+    "market_cap_cr": 9346,
+    "pe": 59.8,
+    "as_of": "2026-09-21T14:42:44.319Z",
+    "source_url": "https://www.screener.in/company/505192/"
   },
   "505283": {
     "company": "Kirloskar Pneumatic Company Ltd",
@@ -718,6 +745,15 @@
     "pe": 57.7,
     "as_of": "2026-09-17T00:35:33.056Z",
     "source_url": "https://www.screener.in/company/512115/"
+  },
+  "512179": {
+    "company": "Sunteck Realty Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 4256,
+    "pe": 250,
+    "as_of": "2026-09-21T14:42:46.250Z",
+    "source_url": "https://www.screener.in/company/512179/"
   },
   "512329": {
     "company": "SG Mart Ltd",
@@ -1826,6 +1862,15 @@
     "as_of": "2026-09-20T23:21:41.577Z",
     "source_url": "https://www.screener.in/company/532784/"
   },
+  "532790": {
+    "company": "Tanla Platforms Ltd",
+    "industry": "Software Products",
+    "sector": "Information Technology",
+    "market_cap_cr": 6539,
+    "pe": 39.2,
+    "as_of": "2026-09-21T14:42:48.183Z",
+    "source_url": "https://www.screener.in/company/532790/"
+  },
   "532796": {
     "company": "Lumax Auto Technologies Ltd",
     "industry": "Auto Components & Equipments",
@@ -1969,6 +2014,15 @@
     "pe": 9.95,
     "as_of": "2026-09-18T00:55:27.835Z",
     "source_url": "https://www.screener.in/company/532945/"
+  },
+  "532983": {
+    "company": "RPG Life Sciences Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 4560,
+    "pe": 39.1,
+    "as_of": "2026-09-21T14:42:50.112Z",
+    "source_url": "https://www.screener.in/company/532983/"
   },
   "532993": {
     "company": "Sejal Glass Ltd",
@@ -2500,6 +2554,15 @@
     "pe": 17.5,
     "as_of": "2026-09-17T22:33:43.268Z",
     "source_url": "https://www.screener.in/company/540404/"
+  },
+  "540596": {
+    "company": "ERIS Lifesciences Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 17951,
+    "pe": 87,
+    "as_of": "2026-09-21T14:42:52.038Z",
+    "source_url": "https://www.screener.in/company/540596/"
   },
   "540602": {
     "company": "GTPL Hathway Ltd",
