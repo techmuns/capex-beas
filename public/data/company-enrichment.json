@@ -206,6 +206,15 @@
     "as_of": "2026-09-21T01:49:35.338Z",
     "source_url": "https://www.screener.in/company/500284/"
   },
+  "500295": {
+    "company": "Vedanta Ltd",
+    "industry": "Diversified Metals",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 101866,
+    "pe": 57.4,
+    "as_of": "2026-09-22T01:59:01.457Z",
+    "source_url": "https://www.screener.in/company/500295/"
+  },
   "500300": {
     "company": "Grasim Industries Ltd",
     "industry": "Cement & Cement Products",
@@ -340,6 +349,15 @@
     "pe": 176,
     "as_of": "2026-09-16T19:12:24.603Z",
     "source_url": "https://www.screener.in/company/500570/"
+  },
+  "500645": {
+    "company": "Deepak Fertilisers & Petrochemicals Corp Ltd",
+    "industry": "Commodity Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 17243,
+    "pe": 68.8,
+    "as_of": "2026-09-22T01:59:03.427Z",
+    "source_url": "https://www.screener.in/company/500645/"
   },
   "500650": {
     "company": "Excel Industries Ltd",
@@ -2933,6 +2951,15 @@
     "as_of": "2026-09-19T11:40:14.428Z",
     "source_url": "https://www.screener.in/company/543275/"
   },
+  "543276": {
+    "company": "Craftsman Automation Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 28786,
+    "pe": 104,
+    "as_of": "2026-09-22T01:59:05.395Z",
+    "source_url": "https://www.screener.in/company/543276/"
+  },
   "543287": {
     "company": "Lodha Developers Ltd",
     "industry": "Residential, Commercial Projects",
@@ -3049,6 +3076,15 @@
     "pe": 212,
     "as_of": "2026-09-19T20:43:10.790Z",
     "source_url": "https://www.screener.in/company/543396/"
+  },
+  "543401": {
+    "company": "Go Fashion (India) Ltd",
+    "industry": "Speciality Retail",
+    "sector": "Consumer Services",
+    "market_cap_cr": 1613,
+    "pe": 30.2,
+    "as_of": "2026-09-22T01:59:07.361Z",
+    "source_url": "https://www.screener.in/company/543401/"
   },
   "543420": {
     "company": "Jet Freight Logistics Ltd",
@@ -4039,6 +4075,15 @@
     "pe": 40.5,
     "as_of": "2026-09-18T18:33:47.289Z",
     "source_url": "https://www.screener.in/company/544777/"
+  },
+  "544780": {
+    "company": "Vedanta Aluminium Metal Ltd",
+    "industry": "Aluminium",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 161519,
+    "pe": 49.7,
+    "as_of": "2026-09-22T01:59:09.328Z",
+    "source_url": "https://www.screener.in/company/544780/"
   },
   "544784": {
     "company": "Vedanta Iron & Steel Ltd",
