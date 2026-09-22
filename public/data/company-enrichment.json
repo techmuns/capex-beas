@@ -179,6 +179,24 @@
     "as_of": "2026-09-17T15:48:56.503Z",
     "source_url": "https://www.screener.in/company/500228/"
   },
+  "500233": {
+    "company": "Kajaria Ceramics Ltd",
+    "industry": "Ceramics",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 18618,
+    "pe": 35.2,
+    "as_of": "2026-09-22T13:36:05.776Z",
+    "source_url": "https://www.screener.in/company/500233/"
+  },
+  "500252": {
+    "company": "LMW Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 18273,
+    "pe": 89,
+    "as_of": "2026-09-22T13:36:07.738Z",
+    "source_url": "https://www.screener.in/company/500252/"
+  },
   "500257": {
     "company": "Lupin Ltd",
     "industry": "Pharmaceuticals",
@@ -637,6 +655,15 @@
     "pe": 567,
     "as_of": "2026-09-17T08:05:37.198Z",
     "source_url": "https://www.screener.in/company/506194/"
+  },
+  "506618": {
+    "company": "Punjab Chemicals & Crop Protection Ltd",
+    "industry": "Pesticides & Agrochemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 1285,
+    "pe": 19.8,
+    "as_of": "2026-09-22T13:36:09.707Z",
+    "source_url": "https://www.screener.in/company/506618/"
   },
   "506854": {
     "company": "Tanfac Industries Ltd",
@@ -2708,6 +2735,15 @@
     "as_of": "2026-09-17T22:33:41.299Z",
     "source_url": "https://www.screener.in/company/540180/"
   },
+  "540205": {
+    "company": "Aditya Vision Ltd",
+    "industry": "Speciality Retail",
+    "sector": "Consumer Services",
+    "market_cap_cr": 8095,
+    "pe": 57.8,
+    "as_of": "2026-09-22T13:36:11.666Z",
+    "source_url": "https://www.screener.in/company/540205/"
+  },
   "540222": {
     "company": "Laurus Labs Ltd",
     "industry": "Pharmaceuticals",
@@ -3221,6 +3257,15 @@
     "as_of": "2026-09-20T17:49:11.697Z",
     "source_url": "https://www.screener.in/company/543427/"
   },
+  "543428": {
+    "company": "Data Patterns (India) Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 25129,
+    "pe": 93,
+    "as_of": "2026-09-22T13:36:13.625Z",
+    "source_url": "https://www.screener.in/company/543428/"
+  },
   "543441": {
     "company": "CMS Info Systems Ltd",
     "industry": "Diversified Commercial Services",
@@ -3590,6 +3635,15 @@
     "as_of": "2026-09-18T06:02:02.569Z",
     "source_url": "https://www.screener.in/company/544210/"
   },
+  "544219": {
+    "company": "VVIP Infratech Ltd",
+    "industry": "Waste Management",
+    "sector": "Utilities",
+    "market_cap_cr": 342,
+    "pe": 15.1,
+    "as_of": "2026-09-22T13:36:15.703Z",
+    "source_url": "https://www.screener.in/company/544219/"
+  },
   "544222": {
     "company": "Akums Drugs & Pharmaceuticals Ltd",
     "industry": "Pharmaceuticals",
@@ -3770,6 +3824,15 @@
     "as_of": "2026-09-18T11:20:57.284Z",
     "source_url": "https://www.screener.in/company/544367/"
   },
+  "544408": {
+    "company": "Leela Palaces Hotels & Resorts Ltd",
+    "industry": "Hotels & Resorts",
+    "sector": "Consumer Services",
+    "market_cap_cr": 17955,
+    "pe": 59.2,
+    "as_of": "2026-09-22T13:36:17.662Z",
+    "source_url": "https://www.screener.in/company/544408/"
+  },
   "544425": {
     "company": "AJC Jewel Manufacturers Ltd",
     "industry": "Gems, Jewellery And Watches",
@@ -3851,6 +3914,15 @@
     "as_of": "2026-09-18T15:03:35.426Z",
     "source_url": "https://www.screener.in/company/544496/"
   },
+  "544497": {
+    "company": "Anlon Healthcare Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 1525,
+    "pe": 52.5,
+    "as_of": "2026-09-22T13:36:19.622Z",
+    "source_url": "https://www.screener.in/company/544497/"
+  },
   "544514": {
     "company": "Jay Ambe Supermarkets Ltd",
     "industry": "Diversified Retail",
@@ -3868,6 +3940,15 @@
     "pe": 32.5,
     "as_of": "2026-09-16T22:13:06.752Z",
     "source_url": "https://www.screener.in/company/544516/"
+  },
+  "544533": {
+    "company": "Seshaasai Technologies Ltd",
+    "industry": "Financial Technology (Fintech)",
+    "sector": "Financial Services",
+    "market_cap_cr": 5835,
+    "pe": 21.7,
+    "as_of": "2026-09-22T13:36:21.583Z",
+    "source_url": "https://www.screener.in/company/544533/"
   },
   "544536": {
     "company": "Wealth First Portfolio Managers Ltd",
@@ -4102,6 +4183,15 @@
     "pe": 54.2,
     "as_of": "2026-09-18T18:33:43.246Z",
     "source_url": "https://www.screener.in/company/544664/"
+  },
+  "544685": {
+    "company": "Shadowfax Technologies Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 16609,
+    "pe": 96.4,
+    "as_of": "2026-09-22T13:36:23.541Z",
+    "source_url": "https://www.screener.in/company/544685/"
   },
   "544688": {
     "company": "Kasturi Metal Composite Ltd",
