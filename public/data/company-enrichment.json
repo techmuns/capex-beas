@@ -39,9 +39,9 @@
     "company": "Bharat Electronics Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 283381,
-    "pe": 46.2,
-    "as_of": "2026-09-16T19:12:22.674Z",
+    "market_cap_cr": 289504,
+    "pe": 47.2,
+    "as_of": "2026-09-23T22:26:56.548Z",
     "source_url": "https://www.screener.in/company/500049/"
   },
   "500052": {
@@ -277,6 +277,15 @@
     "pe": 151,
     "as_of": "2026-09-20T20:55:14.083Z",
     "source_url": "https://www.screener.in/company/500304/"
+  },
+  "500312": {
+    "company": "Oil & Natural Gas Corpn Ltd",
+    "industry": "Oil Exploration & Production",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 298027,
+    "pe": 7.11,
+    "as_of": "2026-09-23T22:26:58.520Z",
+    "source_url": "https://www.screener.in/company/500312/"
   },
   "500325": {
     "company": "Reliance Industries Ltd",
@@ -1236,9 +1245,9 @@
     "company": "Batliboi Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 387,
-    "pe": 53.2,
-    "as_of": "2026-09-16T19:12:28.461Z",
+    "market_cap_cr": 398,
+    "pe": 54.8,
+    "as_of": "2026-09-23T22:27:00.492Z",
     "source_url": "https://www.screener.in/company/522004/"
   },
   "522005": {
@@ -1357,6 +1366,15 @@
     "pe": 19.2,
     "as_of": "2026-09-19T01:42:03.057Z",
     "source_url": "https://www.screener.in/company/523610/"
+  },
+  "523694": {
+    "company": "Apcotex Industries Ltd",
+    "industry": "Rubber",
+    "sector": "Capital Goods",
+    "market_cap_cr": 3162,
+    "pe": 19.6,
+    "as_of": "2026-09-23T22:27:02.467Z",
+    "source_url": "https://www.screener.in/company/523694/"
   },
   "523796": {
     "company": "Viceroy Hotels Ltd",
@@ -1479,9 +1497,9 @@
     "company": "Aurobindo Pharma Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 94256,
-    "pe": 36.2,
-    "as_of": "2026-09-16T19:12:30.394Z",
+    "market_cap_cr": 99051,
+    "pe": 38,
+    "as_of": "2026-09-23T22:27:04.442Z",
     "source_url": "https://www.screener.in/company/524804/"
   },
   "524816": {
@@ -1528,6 +1546,15 @@
     "pe": 9.7,
     "as_of": "2026-09-23T04:55:24.889Z",
     "source_url": "https://www.screener.in/company/526381/"
+  },
+  "526582": {
+    "company": "TPL Plastech Ltd",
+    "industry": "Packaging",
+    "sector": "Capital Goods",
+    "market_cap_cr": 524,
+    "pe": 17.4,
+    "as_of": "2026-09-23T22:27:06.417Z",
+    "source_url": "https://www.screener.in/company/526582/"
   },
   "526612": {
     "company": "Blue Dart Express Ltd",
@@ -1934,6 +1961,15 @@
     "as_of": "2026-09-19T20:43:08.836Z",
     "source_url": "https://www.screener.in/company/532482/"
   },
+  "532497": {
+    "company": "Radico Khaitan Ltd",
+    "industry": "Breweries & Distilleries",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 61657,
+    "pe": 87.8,
+    "as_of": "2026-09-23T22:27:08.391Z",
+    "source_url": "https://www.screener.in/company/532497/"
+  },
   "532500": {
     "company": "Maruti Suzuki India Ltd",
     "industry": "Passenger Cars & Utility Vehicles",
@@ -2280,9 +2316,9 @@
     "company": "Embassy Developments Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 7465,
+    "market_cap_cr": 8513,
     "pe": 81.3,
-    "as_of": "2026-09-16T22:12:51.126Z",
+    "as_of": "2026-09-23T22:27:10.365Z",
     "source_url": "https://www.screener.in/company/532832/"
   },
   "532835": {
@@ -2320,6 +2356,15 @@
     "pe": 25.2,
     "as_of": "2026-09-17T05:26:38.194Z",
     "source_url": "https://www.screener.in/company/532880/"
+  },
+  "532884": {
+    "company": "Refex Industries Ltd",
+    "industry": "Waste Management",
+    "sector": "Utilities",
+    "market_cap_cr": 3934,
+    "pe": 13.7,
+    "as_of": "2026-09-23T22:27:12.340Z",
+    "source_url": "https://www.screener.in/company/532884/"
   },
   "532891": {
     "company": "Puravankara Ltd",
@@ -2865,9 +2910,9 @@
     "company": "Precision Camshafts Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 1072,
-    "pe": 29.7,
-    "as_of": "2026-09-16T22:12:55.035Z",
+    "market_cap_cr": 1160,
+    "pe": 32.1,
+    "as_of": "2026-09-23T22:27:14.315Z",
     "source_url": "https://www.screener.in/company/539636/"
   },
   "539725": {
@@ -3032,13 +3077,22 @@
     "as_of": "2026-09-19T06:16:24.171Z",
     "source_url": "https://www.screener.in/company/540222/"
   },
+  "540293": {
+    "company": "Pricol Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 9307,
+    "pe": 42.8,
+    "as_of": "2026-09-23T22:27:16.291Z",
+    "source_url": "https://www.screener.in/company/540293/"
+  },
   "540361": {
     "company": "Danube Industries Ltd",
     "industry": "Trading & Distributors",
     "sector": "Services",
-    "market_cap_cr": 46.4,
-    "pe": 35.2,
-    "as_of": "2026-09-16T19:12:36.193Z",
+    "market_cap_cr": 47,
+    "pe": 35.6,
+    "as_of": "2026-09-23T22:27:18.263Z",
     "source_url": "https://www.screener.in/company/540361/"
   },
   "540395": {
@@ -3054,9 +3108,9 @@
     "company": "Maximus International Ltd",
     "industry": "Trading & Distributors",
     "sector": "Services",
-    "market_cap_cr": 198,
-    "pe": 59.8,
-    "as_of": "2026-09-16T19:12:38.120Z",
+    "market_cap_cr": 204,
+    "pe": 61.6,
+    "as_of": "2026-09-23T22:27:20.251Z",
     "source_url": "https://www.screener.in/company/540401/"
   },
   "540404": {
@@ -3067,6 +3121,15 @@
     "pe": 17.5,
     "as_of": "2026-09-17T22:33:43.268Z",
     "source_url": "https://www.screener.in/company/540404/"
+  },
+  "540544": {
+    "company": "PSP Projects Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 3300,
+    "pe": 49.1,
+    "as_of": "2026-09-23T22:27:22.230Z",
+    "source_url": "https://www.screener.in/company/540544/"
   },
   "540596": {
     "company": "ERIS Lifesciences Ltd",
@@ -3099,9 +3162,9 @@
     "company": "Cochin Shipyard Ltd",
     "industry": "Ship Building & Allied Services",
     "sector": "Capital Goods",
-    "market_cap_cr": 34725,
-    "pe": 58.8,
-    "as_of": "2026-09-16T15:18:12.737Z",
+    "market_cap_cr": 36042,
+    "pe": 61,
+    "as_of": "2026-09-23T22:27:24.207Z",
     "source_url": "https://www.screener.in/company/540678/"
   },
   "540699": {
