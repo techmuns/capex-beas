@@ -165,9 +165,9 @@
     "company": "Himadri Speciality Chemical Ltd",
     "industry": "Carbon Black",
     "sector": "Chemicals",
-    "market_cap_cr": 32970,
-    "pe": 41.7,
-    "as_of": "2026-09-16T15:17:50.422Z",
+    "market_cap_cr": 33708,
+    "pe": 42.6,
+    "as_of": "2026-09-23T19:11:39.514Z",
     "source_url": "https://www.screener.in/company/500184/"
   },
   "500186": {
@@ -1783,11 +1783,11 @@
   },
   "532155": {
     "company": "GAIL (India) Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 112718,
-    "pe": 12,
-    "as_of": "2026-09-16T12:01:33.468Z",
+    "industry": "Gas Transmission/Marketing",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 113743,
+    "pe": 12.1,
+    "as_of": "2026-09-23T19:11:41.496Z",
     "source_url": "https://www.screener.in/company/532155/"
   },
   "532162": {
@@ -1810,11 +1810,11 @@
   },
   "532234": {
     "company": "National Aluminium Company Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 65180,
-    "pe": 9.65,
-    "as_of": "2026-09-16T12:01:35.446Z",
+    "industry": "Aluminium",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 66809,
+    "pe": 9.89,
+    "as_of": "2026-09-23T19:11:43.476Z",
     "source_url": "https://www.screener.in/company/532234/"
   },
   "532259": {
@@ -2017,11 +2017,11 @@
   },
   "532539": {
     "company": "Uno Minda Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 67747,
-    "pe": 69.9,
-    "as_of": "2026-09-16T12:01:39.422Z",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 70115,
+    "pe": 72.3,
+    "as_of": "2026-09-23T19:11:45.464Z",
     "source_url": "https://www.screener.in/company/532539/"
   },
   "532541": {
@@ -2044,11 +2044,11 @@
   },
   "532605": {
     "company": "JBM Auto Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 13845,
-    "pe": 90,
-    "as_of": "2026-09-16T12:01:41.400Z",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 14236,
+    "pe": 92.5,
+    "as_of": "2026-09-23T19:11:47.444Z",
     "source_url": "https://www.screener.in/company/532605/"
   },
   "532612": {
@@ -2096,6 +2096,15 @@
     "as_of": "2026-09-17T10:39:56.016Z",
     "source_url": "https://www.screener.in/company/532661/"
   },
+  "532687": {
+    "company": "Repro India Ltd",
+    "industry": "Printing & Publication",
+    "sector": "Media, Entertainment & Publication",
+    "market_cap_cr": 433,
+    "pe": 236,
+    "as_of": "2026-09-23T19:11:49.423Z",
+    "source_url": "https://www.screener.in/company/532687/"
+  },
   "532689": {
     "company": "PVR Inox Ltd",
     "industry": "Film Production, Distribution & Exhibition",
@@ -2116,11 +2125,11 @@
   },
   "532717": {
     "company": "Indo Tech Transformers Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 3562,
-    "pe": 35.9,
-    "as_of": "2026-09-16T12:01:43.381Z",
+    "industry": "Heavy Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 3488,
+    "pe": 35.1,
+    "as_of": "2026-09-23T19:11:51.404Z",
     "source_url": "https://www.screener.in/company/532717/"
   },
   "532725": {
@@ -2197,11 +2206,11 @@
   },
   "532779": {
     "company": "Torrent Power Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 65014,
-    "pe": 26.2,
-    "as_of": "2026-09-16T12:01:45.358Z",
+    "industry": "Integrated Power Utilities",
+    "sector": "Power",
+    "market_cap_cr": 63477,
+    "pe": 25.6,
+    "as_of": "2026-09-23T19:11:53.389Z",
     "source_url": "https://www.screener.in/company/532779/"
   },
   "532784": {
@@ -2262,9 +2271,9 @@
     "company": "Vodafone Idea Ltd",
     "industry": "Telecom - Cellular & Fixed line services",
     "sector": "Telecommunication",
-    "market_cap_cr": 154284,
+    "market_cap_cr": 157424,
     "pe": 3.26,
-    "as_of": "2026-09-16T15:17:52.434Z",
+    "as_of": "2026-09-23T19:11:55.370Z",
     "source_url": "https://www.screener.in/company/532822/"
   },
   "532832": {
@@ -2379,9 +2388,9 @@
     "company": "Kuantum Papers Ltd",
     "industry": "Paper & Paper Products",
     "sector": "Forest Materials",
-    "market_cap_cr": 659,
-    "pe": 18.2,
-    "as_of": "2026-09-16T15:17:54.446Z",
+    "market_cap_cr": 726,
+    "pe": 20.1,
+    "as_of": "2026-09-23T19:11:57.351Z",
     "source_url": "https://www.screener.in/company/532937/"
   },
   "532940": {
@@ -2685,9 +2694,9 @@
     "company": "Niyogin Fintech Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
     "sector": "Financial Services",
-    "market_cap_cr": 581,
-    "pe": 109,
-    "as_of": "2026-09-16T15:18:00.657Z",
+    "market_cap_cr": 593,
+    "pe": 111,
+    "as_of": "2026-09-23T19:11:59.331Z",
     "source_url": "https://www.screener.in/company/538772/"
   },
   "538836": {
@@ -2802,9 +2811,9 @@
     "company": "Satin Creditcare Network Ltd",
     "industry": "Microfinance Institutions",
     "sector": "Financial Services",
-    "market_cap_cr": 2408,
-    "pe": 6.34,
-    "as_of": "2026-09-16T15:18:02.672Z",
+    "market_cap_cr": 2509,
+    "pe": 6.61,
+    "as_of": "2026-09-23T19:12:01.312Z",
     "source_url": "https://www.screener.in/company/539404/"
   },
   "539522": {
@@ -2847,9 +2856,9 @@
     "company": "Blue Cloud Softech Solutions Ltd",
     "industry": "Software Products",
     "sector": "Information Technology",
-    "market_cap_cr": 1806,
-    "pe": 42.9,
-    "as_of": "2026-09-16T15:18:04.683Z",
+    "market_cap_cr": 1816,
+    "pe": 43.2,
+    "as_of": "2026-09-23T19:12:03.292Z",
     "source_url": "https://www.screener.in/company/539607/"
   },
   "539636": {
@@ -2878,6 +2887,15 @@
     "pe": 51.7,
     "as_of": "2026-09-22T06:29:29.942Z",
     "source_url": "https://www.screener.in/company/539730/"
+  },
+  "539787": {
+    "company": "Healthcare Global Enterprises Ltd",
+    "industry": "Hospital",
+    "sector": "Healthcare",
+    "market_cap_cr": 10644,
+    "pe": 158,
+    "as_of": "2026-09-23T19:12:05.274Z",
+    "source_url": "https://www.screener.in/company/539787/"
   },
   "539837": {
     "company": "Raghav Productivity Enhancers Ltd",
@@ -2946,9 +2964,9 @@
     "company": "Dilip Buildcon Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 6625,
-    "pe": 32.7,
-    "as_of": "2026-09-16T15:18:08.711Z",
+    "market_cap_cr": 6716,
+    "pe": 33.1,
+    "as_of": "2026-09-23T19:12:07.255Z",
     "source_url": "https://www.screener.in/company/540047/"
   },
   "540061": {
