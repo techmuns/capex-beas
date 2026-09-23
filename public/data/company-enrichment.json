@@ -26,6 +26,15 @@
     "as_of": "2026-09-16T15:17:48.411Z",
     "source_url": "https://www.screener.in/company/500038/"
   },
+  "500042": {
+    "company": "BASF India Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 15495,
+    "pe": 25,
+    "as_of": "2026-09-23T15:10:29.997Z",
+    "source_url": "https://www.screener.in/company/500042/"
+  },
   "500049": {
     "company": "Bharat Electronics Ltd",
     "industry": null,
@@ -145,11 +154,11 @@
   },
   "500183": {
     "company": "HFCL Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 32656,
-    "pe": 68.8,
-    "as_of": "2026-09-16T12:01:17.636Z",
+    "industry": "Telecom - Infrastructure",
+    "sector": "Telecommunication",
+    "market_cap_cr": 33408,
+    "pe": 70.4,
+    "as_of": "2026-09-23T15:10:32.005Z",
     "source_url": "https://www.screener.in/company/500183/"
   },
   "500184": {
@@ -435,9 +444,9 @@
     "company": "Novartis India Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 4927,
-    "pe": 50.4,
-    "as_of": "2026-09-16T12:03:48.449Z",
+    "market_cap_cr": 4997,
+    "pe": 51.1,
+    "as_of": "2026-09-23T15:10:34.012Z",
     "source_url": "https://www.screener.in/company/500672/"
   },
   "500696": {
@@ -948,9 +957,9 @@
     "company": "Adani Enterprises Ltd",
     "industry": "Trading - Minerals",
     "sector": "Metals & Mining",
-    "market_cap_cr": 395298,
-    "pe": 119,
-    "as_of": "2026-09-16T12:03:57.853Z",
+    "market_cap_cr": 406465,
+    "pe": 122,
+    "as_of": "2026-09-23T15:10:36.021Z",
     "source_url": "https://www.screener.in/company/512599/"
   },
   "513043": {
@@ -1056,9 +1065,9 @@
     "company": "Sumeet Industries Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 676,
-    "pe": 27.3,
-    "as_of": "2026-09-16T12:04:00.012Z",
+    "market_cap_cr": 778,
+    "pe": 31.5,
+    "as_of": "2026-09-23T15:10:38.029Z",
     "source_url": "https://www.screener.in/company/514211/"
   },
   "514234": {
@@ -1101,9 +1110,9 @@
     "company": "Vishnu Chemicals Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 4679,
-    "pe": 45.5,
-    "as_of": "2026-09-16T12:04:02.165Z",
+    "market_cap_cr": 4855,
+    "pe": 47.2,
+    "as_of": "2026-09-23T15:10:40.035Z",
     "source_url": "https://www.screener.in/company/516072/"
   },
   "517035": {
@@ -1191,9 +1200,9 @@
     "company": "Modern Dairies Ltd",
     "industry": "Dairy Products",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 153,
-    "pe": 28.4,
-    "as_of": "2026-09-16T12:04:04.326Z",
+    "market_cap_cr": 151,
+    "pe": 28.1,
+    "as_of": "2026-09-23T15:10:42.041Z",
     "source_url": "https://www.screener.in/company/519287/"
   },
   "519299": {
@@ -1232,6 +1241,15 @@
     "as_of": "2026-09-16T19:12:28.461Z",
     "source_url": "https://www.screener.in/company/522004/"
   },
+  "522005": {
+    "company": "Austin Engineering Company Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 57.4,
+    "pe": 14.6,
+    "as_of": "2026-09-23T15:10:44.047Z",
+    "source_url": "https://www.screener.in/company/522005/"
+  },
   "522014": {
     "company": "United Drilling Tools Ltd",
     "industry": "Industrial Products",
@@ -1263,9 +1281,9 @@
     "company": "Diamond Power Infrastructure Ltd",
     "industry": "Other Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 23471,
-    "pe": 127,
-    "as_of": "2026-09-16T12:04:06.556Z",
+    "market_cap_cr": 22795,
+    "pe": 123,
+    "as_of": "2026-09-23T15:10:46.054Z",
     "source_url": "https://www.screener.in/company/522163/"
   },
   "522205": {
@@ -1380,9 +1398,9 @@
     "company": "IOL Chemicals & Pharmaceuticals Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 5686,
-    "pe": 32.2,
-    "as_of": "2026-09-16T12:04:08.738Z",
+    "market_cap_cr": 6069,
+    "pe": 34.4,
+    "as_of": "2026-09-23T15:10:48.062Z",
     "source_url": "https://www.screener.in/company/524164/"
   },
   "524208": {
@@ -1405,11 +1423,11 @@
   },
   "524342": {
     "company": "Indo Borax & Chemicals Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 1523,
-    "pe": 31.3,
-    "as_of": "2026-09-16T12:01:21.594Z",
+    "industry": "Commodity Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 1483,
+    "pe": 30.5,
+    "as_of": "2026-09-23T15:10:50.070Z",
     "source_url": "https://www.screener.in/company/524342/"
   },
   "524394": {
@@ -1432,20 +1450,20 @@
   },
   "524542": {
     "company": "Sukhjit Starch & Chemicals Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 499,
-    "pe": 14.7,
-    "as_of": "2026-09-16T12:01:23.571Z",
+    "industry": "Other Agricultural Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 508,
+    "pe": 15,
+    "as_of": "2026-09-23T15:10:52.078Z",
     "source_url": "https://www.screener.in/company/524542/"
   },
   "524558": {
     "company": "Neuland Laboratories Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 29221,
-    "pe": 58.8,
-    "as_of": "2026-09-16T12:01:25.556Z",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 28881,
+    "pe": 58.1,
+    "as_of": "2026-09-23T15:10:54.085Z",
     "source_url": "https://www.screener.in/company/524558/"
   },
   "524592": {
@@ -1522,11 +1540,11 @@
   },
   "526797": {
     "company": "Greenply Industries Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 3530,
-    "pe": 40.1,
-    "as_of": "2026-09-16T12:01:27.533Z",
+    "industry": "Plywood Boards/ Laminates",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 3728,
+    "pe": 42.4,
+    "as_of": "2026-09-23T15:10:56.094Z",
     "source_url": "https://www.screener.in/company/526797/"
   },
   "526881": {
@@ -1684,11 +1702,11 @@
   },
   "531548": {
     "company": "Somany Ceramics Ltd",
-    "industry": null,
-    "sector": null,
-    "market_cap_cr": 2256,
-    "pe": 18.6,
-    "as_of": "2026-09-16T12:01:31.489Z",
+    "industry": "Ceramics",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 2453,
+    "pe": 20.2,
+    "as_of": "2026-09-23T15:10:58.101Z",
     "source_url": "https://www.screener.in/company/531548/"
   },
   "531550": {
