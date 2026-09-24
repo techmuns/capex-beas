@@ -129,9 +129,9 @@
     "company": "Kansai Nerolac Paints Ltd",
     "industry": "Paints",
     "sector": "Consumer Durables",
-    "market_cap_cr": 14914,
-    "pe": 22,
-    "as_of": "2026-09-17T08:05:17.458Z",
+    "market_cap_cr": 14560,
+    "pe": 21.6,
+    "as_of": "2026-09-24T11:55:00.016Z",
     "source_url": "https://www.screener.in/company/500165/"
   },
   "500171": {
@@ -214,6 +214,15 @@
     "pe": 35.2,
     "as_of": "2026-09-22T13:36:05.776Z",
     "source_url": "https://www.screener.in/company/500233/"
+  },
+  "500245": {
+    "company": "Kirloskar Ferrous Industries Ltd",
+    "industry": "Pig Iron",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 7913,
+    "pe": 20.2,
+    "as_of": "2026-09-24T11:55:02.002Z",
+    "source_url": "https://www.screener.in/company/500245/"
   },
   "500252": {
     "company": "LMW Ltd",
@@ -372,9 +381,9 @@
     "company": "Tokyo Plast International Ltd",
     "industry": "Plastic Products - Consumer",
     "sector": "Consumer Durables",
-    "market_cap_cr": 71.2,
-    "pe": 41.7,
-    "as_of": "2026-09-17T10:39:46.214Z",
+    "market_cap_cr": 71.8,
+    "pe": 42,
+    "as_of": "2026-09-24T11:55:04.179Z",
     "source_url": "https://www.screener.in/company/500418/"
   },
   "500470": {
@@ -390,9 +399,9 @@
     "company": "Bharat Forge Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 91762,
-    "pe": 74.3,
-    "as_of": "2026-09-17T08:05:23.379Z",
+    "market_cap_cr": 95809,
+    "pe": 77.6,
+    "as_of": "2026-09-24T11:55:06.168Z",
     "source_url": "https://www.screener.in/company/500493/"
   },
   "500510": {
@@ -480,9 +489,9 @@
     "company": "NOCIL Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 3155,
-    "pe": 40.4,
-    "as_of": "2026-09-17T08:05:25.355Z",
+    "market_cap_cr": 3187,
+    "pe": 40.7,
+    "as_of": "2026-09-24T11:55:08.157Z",
     "source_url": "https://www.screener.in/company/500730/"
   },
   "500790": {
@@ -507,9 +516,9 @@
     "company": "Castrol India Ltd",
     "industry": "Lubricants",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 19031,
-    "pe": 17.6,
-    "as_of": "2026-09-17T08:05:27.326Z",
+    "market_cap_cr": 19261,
+    "pe": 17.8,
+    "as_of": "2026-09-24T11:55:10.146Z",
     "source_url": "https://www.screener.in/company/500870/"
   },
   "500878": {
@@ -624,9 +633,9 @@
     "company": "GEE Ltd",
     "industry": "Other Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 667,
-    "pe": 37.1,
-    "as_of": "2026-09-17T08:05:31.279Z",
+    "market_cap_cr": 676,
+    "pe": 37.6,
+    "as_of": "2026-09-24T11:55:12.311Z",
     "source_url": "https://www.screener.in/company/504028/"
   },
   "504036": {
@@ -642,9 +651,9 @@
     "company": "Sarda Energy & Minerals Ltd",
     "industry": "Iron & Steel",
     "sector": "Metals & Mining",
-    "market_cap_cr": 17795,
-    "pe": 20.2,
-    "as_of": "2026-09-17T08:05:33.255Z",
+    "market_cap_cr": 17589,
+    "pe": 20,
+    "as_of": "2026-09-24T11:55:14.299Z",
     "source_url": "https://www.screener.in/company/504614/"
   },
   "505010": {
@@ -660,9 +669,9 @@
     "company": "Talbros Automotive Components Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 2710,
-    "pe": 30.3,
-    "as_of": "2026-09-17T08:05:35.227Z",
+    "market_cap_cr": 2885,
+    "pe": 32.2,
+    "as_of": "2026-09-24T11:55:16.483Z",
     "source_url": "https://www.screener.in/company/505160/"
   },
   "505192": {
@@ -727,6 +736,15 @@
     "pe": 51.1,
     "as_of": "2026-09-20T05:31:49.847Z",
     "source_url": "https://www.screener.in/company/505790/"
+  },
+  "505854": {
+    "company": "TRF Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 234,
+    "pe": 36.5,
+    "as_of": "2026-09-24T11:55:18.656Z",
+    "source_url": "https://www.screener.in/company/505854/"
   },
   "506166": {
     "company": "Apis India Ltd",
@@ -863,6 +881,15 @@
     "as_of": "2026-09-19T11:40:04.333Z",
     "source_url": "https://www.screener.in/company/509243/"
   },
+  "509675": {
+    "company": "BirlaNu Ltd",
+    "industry": "Other Construction Materials",
+    "sector": "Construction Materials",
+    "market_cap_cr": 1067,
+    "pe": 24.1,
+    "as_of": "2026-09-24T11:55:20.644Z",
+    "source_url": "https://www.screener.in/company/509675/"
+  },
   "509930": {
     "company": "Supreme Industries Ltd",
     "industry": "Plastic Products - Industrial",
@@ -912,9 +939,9 @@
     "company": "Ugro Capital Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
     "sector": "Financial Services",
-    "market_cap_cr": 1293,
-    "pe": 9.25,
-    "as_of": "2026-09-17T06:23:31.187Z",
+    "market_cap_cr": 1279,
+    "pe": 9.14,
+    "as_of": "2026-09-24T11:55:22.627Z",
     "source_url": "https://www.screener.in/company/511742/"
   },
   "512068": {
@@ -1074,9 +1101,9 @@
     "company": "T T Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 183,
-    "pe": 345,
-    "as_of": "2026-09-17T08:05:43.110Z",
+    "market_cap_cr": 190,
+    "pe": 358,
+    "as_of": "2026-09-24T11:55:24.610Z",
     "source_url": "https://www.screener.in/company/514142/"
   },
   "514162": {
@@ -1146,18 +1173,18 @@
     "company": "RIR Power Electronics Ltd",
     "industry": "Other Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 1570,
-    "pe": 193,
-    "as_of": "2026-09-17T06:23:33.206Z",
+    "market_cap_cr": 1456,
+    "pe": 179,
+    "as_of": "2026-09-24T11:55:26.593Z",
     "source_url": "https://www.screener.in/company/517035/"
   },
   "517059": {
     "company": "Salzer Electronics Ltd",
     "industry": "Other Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 979,
-    "pe": 22.2,
-    "as_of": "2026-09-17T08:05:45.080Z",
+    "market_cap_cr": 952,
+    "pe": 21.5,
+    "as_of": "2026-09-24T11:55:28.576Z",
     "source_url": "https://www.screener.in/company/517059/"
   },
   "517146": {
