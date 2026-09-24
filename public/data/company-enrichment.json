@@ -3,9 +3,9 @@
     "company": "Amara Raja Energy & Mobility Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 14552,
+    "market_cap_cr": 14582,
     "pe": 18.6,
-    "as_of": "2026-09-17T15:37:48.119Z",
+    "as_of": "2026-09-24T17:16:44.268Z",
     "source_url": "https://www.screener.in/company/500008/"
   },
   "500033": {
@@ -57,9 +57,9 @@
     "company": "CESC Ltd",
     "industry": "Integrated Power Utilities",
     "sector": "Power",
-    "market_cap_cr": 18767,
-    "pe": 21.8,
-    "as_of": "2026-09-17T15:37:50.109Z",
+    "market_cap_cr": 18538,
+    "pe": 21.5,
+    "as_of": "2026-09-24T17:16:46.282Z",
     "source_url": "https://www.screener.in/company/500084/"
   },
   "500086": {
@@ -147,9 +147,9 @@
     "company": "Hero MotoCorp Ltd",
     "industry": "2/3 Wheelers",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 106292,
-    "pe": 18.7,
-    "as_of": "2026-09-17T15:48:54.503Z",
+    "market_cap_cr": 105996,
+    "pe": 18.6,
+    "as_of": "2026-09-24T17:16:48.298Z",
     "source_url": "https://www.screener.in/company/500182/"
   },
   "500183": {
@@ -201,9 +201,9 @@
     "company": "JSW Steel Ltd",
     "industry": "Iron & Steel",
     "sector": "Metals & Mining",
-    "market_cap_cr": 306538,
-    "pe": 40.7,
-    "as_of": "2026-09-17T15:48:56.503Z",
+    "market_cap_cr": 311319,
+    "pe": 41.3,
+    "as_of": "2026-09-24T17:16:50.312Z",
     "source_url": "https://www.screener.in/company/500228/"
   },
   "500233": {
@@ -327,9 +327,9 @@
     "company": "RSWM Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 1017,
-    "pe": 14.5,
-    "as_of": "2026-09-17T15:37:52.097Z",
+    "market_cap_cr": 1042,
+    "pe": 14.8,
+    "as_of": "2026-09-24T17:16:52.343Z",
     "source_url": "https://www.screener.in/company/500350/"
   },
   "500380": {
@@ -340,6 +340,15 @@
     "pe": 15.9,
     "as_of": "2026-09-24T01:03:44.839Z",
     "source_url": "https://www.screener.in/company/500380/"
+  },
+  "500387": {
+    "company": "Shree Cement Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 81311,
+    "pe": 53.3,
+    "as_of": "2026-09-24T17:16:54.358Z",
+    "source_url": "https://www.screener.in/company/500387/"
   },
   "500400": {
     "company": "Tata Power Company Ltd",
@@ -390,9 +399,9 @@
     "company": "Tata Steel Ltd",
     "industry": "Iron & Steel",
     "sector": "Metals & Mining",
-    "market_cap_cr": 233996,
-    "pe": 13,
-    "as_of": "2026-09-17T15:48:58.505Z",
+    "market_cap_cr": 234801,
+    "pe": 13.1,
+    "as_of": "2026-09-24T17:16:56.373Z",
     "source_url": "https://www.screener.in/company/500470/"
   },
   "500493": {
@@ -403,6 +412,15 @@
     "pe": 77.6,
     "as_of": "2026-09-24T11:55:06.168Z",
     "source_url": "https://www.screener.in/company/500493/"
+  },
+  "500495": {
+    "company": "Escorts Kubota Ltd",
+    "industry": "Tractors",
+    "sector": "Capital Goods",
+    "market_cap_cr": 31577,
+    "pe": 22,
+    "as_of": "2026-09-24T17:16:58.388Z",
+    "source_url": "https://www.screener.in/company/500495/"
   },
   "500510": {
     "company": "Larsen & Toubro Ltd",
@@ -660,9 +678,9 @@
     "company": "Automotive Axles Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 2530,
-    "pe": 13.8,
-    "as_of": "2026-09-17T15:37:54.090Z",
+    "market_cap_cr": 2558,
+    "pe": 14,
+    "as_of": "2026-09-24T17:17:00.402Z",
     "source_url": "https://www.screener.in/company/505010/"
   },
   "505160": {
@@ -849,9 +867,9 @@
     "company": "Everest Industries Ltd",
     "industry": "Other Construction Materials",
     "sector": "Construction Materials",
-    "market_cap_cr": 643,
+    "market_cap_cr": 689,
     "pe": 330,
-    "as_of": "2026-09-17T15:49:00.505Z",
+    "as_of": "2026-09-24T17:17:02.416Z",
     "source_url": "https://www.screener.in/company/508906/"
   },
   "508989": {
@@ -1002,9 +1020,9 @@
     "company": "Lloyds Metals & Energy Ltd",
     "industry": "Industrial Minerals",
     "sector": "Metals & Mining",
-    "market_cap_cr": 101287,
-    "pe": 24.8,
-    "as_of": "2026-09-17T15:37:56.078Z",
+    "market_cap_cr": 102514,
+    "pe": 25.1,
+    "as_of": "2026-09-24T17:17:04.431Z",
     "source_url": "https://www.screener.in/company/512455/"
   },
   "512599": {
@@ -1083,9 +1101,9 @@
     "company": "Pitti Engineering Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 4248,
-    "pe": 42.1,
-    "as_of": "2026-09-17T15:37:58.066Z",
+    "market_cap_cr": 4368,
+    "pe": 43.3,
+    "as_of": "2026-09-24T17:17:06.446Z",
     "source_url": "https://www.screener.in/company/513519/"
   },
   "513683": {
@@ -1137,9 +1155,9 @@
     "company": "Jyoti Resins and Adhesives Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 1001,
-    "pe": 15.6,
-    "as_of": "2026-09-17T15:38:00.057Z",
+    "market_cap_cr": 1000,
+    "pe": 15.5,
+    "as_of": "2026-09-24T17:17:08.468Z",
     "source_url": "https://www.screener.in/company/514448/"
   },
   "514470": {
@@ -1200,9 +1218,9 @@
     "company": "Lumax Industries Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 5344,
-    "pe": 28.6,
-    "as_of": "2026-09-17T10:39:48.174Z",
+    "market_cap_cr": 5373,
+    "pe": 28.7,
+    "as_of": "2026-09-24T17:17:10.488Z",
     "source_url": "https://www.screener.in/company/517206/"
   },
   "517334": {
@@ -1227,9 +1245,9 @@
     "company": "NHC Foods Ltd",
     "industry": "Other Food Products",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 197,
-    "pe": 24,
-    "as_of": "2026-09-17T06:23:35.220Z",
+    "market_cap_cr": 174,
+    "pe": 21.1,
+    "as_of": "2026-09-24T17:17:12.502Z",
     "source_url": "https://www.screener.in/company/517554/"
   },
   "517556": {
