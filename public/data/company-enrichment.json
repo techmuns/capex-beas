@@ -606,9 +606,9 @@
     "company": "Greaves Cotton Ltd",
     "industry": "Compressors, Pumps & Diesel Engines",
     "sector": "Capital Goods",
-    "market_cap_cr": 4593,
-    "pe": 21,
-    "as_of": "2026-09-18T11:20:30.069Z",
+    "market_cap_cr": 5468,
+    "pe": 25.1,
+    "as_of": "2026-09-25T13:58:53.523Z",
     "source_url": "https://www.screener.in/company/501455/"
   },
   "502015": {
@@ -1178,6 +1178,15 @@
     "as_of": "2026-09-24T17:17:06.446Z",
     "source_url": "https://www.screener.in/company/513519/"
   },
+  "513532": {
+    "company": "Pradeep Metals Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 855,
+    "pe": 31.8,
+    "as_of": "2026-09-25T13:58:55.542Z",
+    "source_url": "https://www.screener.in/company/513532/"
+  },
   "513683": {
     "company": "NLC India Ltd",
     "industry": "Power Generation",
@@ -1245,9 +1254,9 @@
     "company": "Haldyn Glass Ltd",
     "industry": "Packaging",
     "sector": "Capital Goods",
-    "market_cap_cr": 755,
-    "pe": 30.3,
-    "as_of": "2026-09-18T11:20:32.013Z",
+    "market_cap_cr": 779,
+    "pe": 31.3,
+    "as_of": "2026-09-25T13:58:57.584Z",
     "source_url": "https://www.screener.in/company/515147/"
   },
   "516072": {
@@ -1601,6 +1610,15 @@
     "as_of": "2026-09-23T15:10:50.070Z",
     "source_url": "https://www.screener.in/company/524342/"
   },
+  "524348": {
+    "company": "Aarti Drugs Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 3898,
+    "pe": 22.5,
+    "as_of": "2026-09-25T13:58:59.608Z",
+    "source_url": "https://www.screener.in/company/524348/"
+  },
   "524394": {
     "company": "Vimta Labs Ltd",
     "industry": "Healthcare Research, Analytics & Technology",
@@ -1686,9 +1704,9 @@
     "company": "Premier Explosives Ltd",
     "industry": "Explosives",
     "sector": "Chemicals",
-    "market_cap_cr": 3593,
-    "pe": 104,
-    "as_of": "2026-09-18T11:20:33.959Z",
+    "market_cap_cr": 3654,
+    "pe": 106,
+    "as_of": "2026-09-25T13:59:01.823Z",
     "source_url": "https://www.screener.in/company/526247/"
   },
   "526269": {
@@ -2091,9 +2109,9 @@
     "company": "Virinchi Ltd",
     "industry": "Software Products",
     "sector": "Information Technology",
-    "market_cap_cr": 161,
-    "pe": 13.7,
-    "as_of": "2026-09-18T11:20:35.902Z",
+    "market_cap_cr": 156,
+    "pe": 13.3,
+    "as_of": "2026-09-25T13:59:03.854Z",
     "source_url": "https://www.screener.in/company/532372/"
   },
   "532395": {
@@ -2370,9 +2388,9 @@
     "company": "Solar Industries India Ltd",
     "industry": "Explosives",
     "sector": "Chemicals",
-    "market_cap_cr": 170393,
-    "pe": 131,
-    "as_of": "2026-09-18T11:20:37.847Z",
+    "market_cap_cr": 178352,
+    "pe": 137,
+    "as_of": "2026-09-25T13:59:05.878Z",
     "source_url": "https://www.screener.in/company/532725/"
   },
   "532726": {
@@ -3122,6 +3140,15 @@
     "as_of": "2026-09-23T19:12:01.312Z",
     "source_url": "https://www.screener.in/company/539404/"
   },
+  "539408": {
+    "company": "Kuber Udyog Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 19.6,
+    "pe": 31.6,
+    "as_of": "2026-09-25T13:59:07.894Z",
+    "source_url": "https://www.screener.in/company/539408/"
+  },
   "539522": {
     "company": "Grovy India Ltd",
     "industry": "Residential, Commercial Projects",
@@ -3243,10 +3270,19 @@
     "company": "Rotographics (India) Ltd",
     "industry": "Trading & Distributors",
     "sector": "Services",
-    "market_cap_cr": 351,
-    "pe": 313,
-    "as_of": "2026-09-18T11:20:39.791Z",
+    "market_cap_cr": 318,
+    "pe": 284,
+    "as_of": "2026-09-25T13:59:09.930Z",
     "source_url": "https://www.screener.in/company/539922/"
+  },
+  "539957": {
+    "company": "Mahanagar Gas Ltd",
+    "industry": "LPG/CNG/PNG/LNG Supplier",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 10586,
+    "pe": 14.7,
+    "as_of": "2026-09-25T13:59:11.952Z",
+    "source_url": "https://www.screener.in/company/539957/"
   },
   "539997": {
     "company": "Kwality Pharmaceuticals Ltd",
@@ -3297,9 +3333,9 @@
     "company": "Mitsu Chem Plast Ltd",
     "industry": "Packaging",
     "sector": "Capital Goods",
-    "market_cap_cr": 237,
-    "pe": 10.2,
-    "as_of": "2026-09-17T15:49:16.511Z",
+    "market_cap_cr": 243,
+    "pe": 10.5,
+    "as_of": "2026-09-25T13:59:13.971Z",
     "source_url": "https://www.screener.in/company/540078/"
   },
   "540153": {
@@ -3315,10 +3351,19 @@
     "company": "Varun Beverages Ltd",
     "industry": "Other Beverages",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 140526,
-    "pe": 47.6,
-    "as_of": "2026-09-17T22:33:41.299Z",
+    "market_cap_cr": 146816,
+    "pe": 49.8,
+    "as_of": "2026-09-25T13:59:15.992Z",
     "source_url": "https://www.screener.in/company/540180/"
+  },
+  "540203": {
+    "company": "Sheela Foam Ltd",
+    "industry": "Consumer Durables",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 6920,
+    "pe": 45.2,
+    "as_of": "2026-09-25T13:59:18.016Z",
+    "source_url": "https://www.screener.in/company/540203/"
   },
   "540205": {
     "company": "Aditya Vision Ltd",
@@ -3378,9 +3423,9 @@
     "company": "Prime Fresh Ltd",
     "industry": "Other Agricultural Products",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 226,
-    "pe": 17.5,
-    "as_of": "2026-09-17T22:33:43.268Z",
+    "market_cap_cr": 217,
+    "pe": 16.8,
+    "as_of": "2026-09-25T13:59:20.205Z",
     "source_url": "https://www.screener.in/company/540404/"
   },
   "540544": {
@@ -3432,9 +3477,9 @@
     "company": "Dixon Technologies (India) Ltd",
     "industry": "Consumer Electronics",
     "sector": "Consumer Durables",
-    "market_cap_cr": 80133,
-    "pe": 64.5,
-    "as_of": "2026-09-18T11:20:41.736Z",
+    "market_cap_cr": 82210,
+    "pe": 66.2,
+    "as_of": "2026-09-25T13:59:22.373Z",
     "source_url": "https://www.screener.in/company/540699/"
   },
   "540724": {
