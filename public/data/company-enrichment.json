@@ -260,6 +260,15 @@
     "as_of": "2026-09-19T20:43:02.970Z",
     "source_url": "https://www.screener.in/company/500257/"
   },
+  "500260": {
+    "company": "The Ramco Cements Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 20559,
+    "pe": 110,
+    "as_of": "2026-09-25T07:55:26.817Z",
+    "source_url": "https://www.screener.in/company/500260/"
+  },
   "500264": {
     "company": "Mafatlal Industries Ltd",
     "industry": "Other Textile Products",
@@ -2069,6 +2078,15 @@
     "as_of": "2026-09-21T01:49:39.300Z",
     "source_url": "https://www.screener.in/company/532343/"
   },
+  "532349": {
+    "company": "Transport Corporation of India Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 7026,
+    "pe": 16,
+    "as_of": "2026-09-25T07:55:28.827Z",
+    "source_url": "https://www.screener.in/company/532349/"
+  },
   "532372": {
     "company": "Virinchi Ltd",
     "industry": "Software Products",
@@ -2964,9 +2982,9 @@
     "company": "Bansal Roofing Products Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 202,
-    "pe": 18.1,
-    "as_of": "2026-09-17T10:40:09.962Z",
+    "market_cap_cr": 220,
+    "pe": 19.7,
+    "as_of": "2026-09-25T07:55:30.838Z",
     "source_url": "https://www.screener.in/company/538546/"
   },
   "538666": {
@@ -2991,27 +3009,27 @@
     "company": "Monte Carlo Fashions Ltd",
     "industry": "Garments & Apparels",
     "sector": "Textiles",
-    "market_cap_cr": 1148,
-    "pe": 11,
-    "as_of": "2026-09-17T19:22:55.472Z",
+    "market_cap_cr": 1083,
+    "pe": 10.4,
+    "as_of": "2026-09-25T07:55:32.850Z",
     "source_url": "https://www.screener.in/company/538836/"
   },
   "538993": {
     "company": "Purohit Construction Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 5.52,
+    "market_cap_cr": 5.25,
     "pe": 1.43,
-    "as_of": "2026-09-18T00:55:29.824Z",
+    "as_of": "2026-09-25T07:55:34.860Z",
     "source_url": "https://www.screener.in/company/538993/"
   },
   "539044": {
     "company": "Manaksia Steels Ltd",
     "industry": "Iron & Steel",
     "sector": "Metals & Mining",
-    "market_cap_cr": 679,
-    "pe": 12.5,
-    "as_of": "2026-09-17T19:22:57.455Z",
+    "market_cap_cr": 688,
+    "pe": 12.7,
+    "as_of": "2026-09-25T07:55:36.871Z",
     "source_url": "https://www.screener.in/company/539044/"
   },
   "539046": {
@@ -3027,9 +3045,9 @@
     "company": "Imagicaaworld Entertainment Ltd",
     "industry": "Amusement Parks/ Other Recreation",
     "sector": "Consumer Services",
-    "market_cap_cr": 2894,
-    "pe": 101,
-    "as_of": "2026-09-17T10:40:11.923Z",
+    "market_cap_cr": 2921,
+    "pe": 102,
+    "as_of": "2026-09-25T07:55:38.882Z",
     "source_url": "https://www.screener.in/company/539056/"
   },
   "539083": {
@@ -3054,18 +3072,18 @@
     "company": "VRL Logistics Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 5035,
-    "pe": 18.8,
-    "as_of": "2026-09-17T10:40:13.884Z",
+    "market_cap_cr": 5064,
+    "pe": 19,
+    "as_of": "2026-09-25T07:55:40.895Z",
     "source_url": "https://www.screener.in/company/539118/"
   },
   "539221": {
     "company": "Sportking India Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 2534,
-    "pe": 15.7,
-    "as_of": "2026-09-17T15:49:10.508Z",
+    "market_cap_cr": 2668,
+    "pe": 16.5,
+    "as_of": "2026-09-25T07:55:42.906Z",
     "source_url": "https://www.screener.in/company/539221/"
   },
   "539254": {
@@ -3108,9 +3126,9 @@
     "company": "Grovy India Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 107,
-    "pe": 28.8,
-    "as_of": "2026-09-17T15:49:12.508Z",
+    "market_cap_cr": 117,
+    "pe": 31.6,
+    "as_of": "2026-09-25T07:55:44.916Z",
     "source_url": "https://www.screener.in/company/539522/"
   },
   "539523": {
@@ -3135,9 +3153,9 @@
     "company": "Lux Industries Ltd",
     "industry": "Garments & Apparels",
     "sector": "Textiles",
-    "market_cap_cr": 3135,
-    "pe": 30.3,
-    "as_of": "2026-09-17T19:22:59.443Z",
+    "market_cap_cr": 3600,
+    "pe": 34.8,
+    "as_of": "2026-09-25T07:55:46.927Z",
     "source_url": "https://www.screener.in/company/539542/"
   },
   "539607": {
@@ -3162,9 +3180,9 @@
     "company": "Gokul Agro Resources Ltd",
     "industry": "Edible Oil",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 6438,
-    "pe": 18.1,
-    "as_of": "2026-09-18T00:55:31.814Z",
+    "market_cap_cr": 6551,
+    "pe": 18.5,
+    "as_of": "2026-09-25T07:55:48.938Z",
     "source_url": "https://www.screener.in/company/539725/"
   },
   "539730": {
@@ -3234,18 +3252,18 @@
     "company": "Kwality Pharmaceuticals Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 3590,
-    "pe": 44,
-    "as_of": "2026-09-17T15:49:14.507Z",
+    "market_cap_cr": 3818,
+    "pe": 46.8,
+    "as_of": "2026-09-25T07:55:50.949Z",
     "source_url": "https://www.screener.in/company/539997/"
   },
   "540025": {
     "company": "Advanced Enzyme Technologies Ltd",
     "industry": "Biotechnology",
     "sector": "Healthcare",
-    "market_cap_cr": 3226,
-    "pe": 39,
-    "as_of": "2026-09-17T22:33:39.330Z",
+    "market_cap_cr": 3270,
+    "pe": 39.5,
+    "as_of": "2026-09-25T07:55:52.963Z",
     "source_url": "https://www.screener.in/company/540025/"
   },
   "540047": {
@@ -3270,9 +3288,9 @@
     "company": "BLS International Services Ltd",
     "industry": "Tour, Travel Related Services",
     "sector": "Consumer Services",
-    "market_cap_cr": 9402,
-    "pe": 64,
-    "as_of": "2026-09-18T06:01:35.905Z",
+    "market_cap_cr": 9157,
+    "pe": 62.3,
+    "as_of": "2026-09-25T07:55:54.975Z",
     "source_url": "https://www.screener.in/company/540073/"
   },
   "540078": {
