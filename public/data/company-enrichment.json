@@ -224,6 +224,15 @@
     "as_of": "2026-09-22T13:36:05.776Z",
     "source_url": "https://www.screener.in/company/500233/"
   },
+  "500240": {
+    "company": "Kinetic Engineering Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 624,
+    "pe": 56.1,
+    "as_of": "2026-09-25T06:28:42.811Z",
+    "source_url": "https://www.screener.in/company/500240/"
+  },
   "500245": {
     "company": "Kirloskar Ferrous Industries Ltd",
     "industry": "Pig Iron",
@@ -521,6 +530,15 @@
     "as_of": "2026-09-24T11:55:08.157Z",
     "source_url": "https://www.screener.in/company/500730/"
   },
+  "500780": {
+    "company": "Zuari Industries Ltd",
+    "industry": "Sugar",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 866,
+    "pe": 26.9,
+    "as_of": "2026-09-25T06:28:44.825Z",
+    "source_url": "https://www.screener.in/company/500780/"
+  },
   "500790": {
     "company": "Nestle India Ltd",
     "industry": "Packaged Foods",
@@ -673,6 +691,15 @@
     "pe": 74.6,
     "as_of": "2026-09-20T20:55:16.016Z",
     "source_url": "https://www.screener.in/company/504036/"
+  },
+  "504341": {
+    "company": "Ravindra Energy Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 2899,
+    "pe": 35.9,
+    "as_of": "2026-09-25T06:28:46.845Z",
+    "source_url": "https://www.screener.in/company/504341/"
   },
   "504614": {
     "company": "Sarda Energy & Minerals Ltd",
@@ -1277,6 +1304,15 @@
     "as_of": "2026-09-19T06:44:30.164Z",
     "source_url": "https://www.screener.in/company/517354/"
   },
+  "517514": {
+    "company": "D & H India Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 209,
+    "pe": 23.1,
+    "as_of": "2026-09-25T06:28:49.022Z",
+    "source_url": "https://www.screener.in/company/517514/"
+  },
   "517554": {
     "company": "NHC Foods Ltd",
     "industry": "Other Food Products",
@@ -1600,6 +1636,15 @@
     "pe": 12.2,
     "as_of": "2026-09-19T22:38:33.129Z",
     "source_url": "https://www.screener.in/company/524592/"
+  },
+  "524774": {
+    "company": "NGL Fine Chem Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 1809,
+    "pe": 35.9,
+    "as_of": "2026-09-25T06:28:51.037Z",
+    "source_url": "https://www.screener.in/company/524774/"
   },
   "524804": {
     "company": "Aurobindo Pharma Ltd",
@@ -2339,6 +2384,15 @@
     "as_of": "2026-09-23T06:14:28.533Z",
     "source_url": "https://www.screener.in/company/532748/"
   },
+  "532749": {
+    "company": "Allcargo Logistics Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 1603,
+    "pe": 37.3,
+    "as_of": "2026-09-25T06:28:53.056Z",
+    "source_url": "https://www.screener.in/company/532749/"
+  },
   "532755": {
     "company": "Tech Mahindra Ltd",
     "industry": "Computers - Software & Consulting",
@@ -2609,6 +2663,15 @@
     "as_of": "2026-09-24T06:21:35.385Z",
     "source_url": "https://www.screener.in/company/532953/"
   },
+  "532976": {
+    "company": "Jai Balaji Industries Ltd",
+    "industry": "Iron & Steel",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 5925,
+    "pe": 40.5,
+    "as_of": "2026-09-25T06:28:55.071Z",
+    "source_url": "https://www.screener.in/company/532976/"
+  },
   "532983": {
     "company": "RPG Life Sciences Ltd",
     "industry": "Pharmaceuticals",
@@ -2703,9 +2766,9 @@
     "company": "Hindustan Media Ventures Ltd",
     "industry": "Print Media",
     "sector": "Media, Entertainment & Publication",
-    "market_cap_cr": 571,
-    "pe": 3.61,
-    "as_of": "2026-09-17T19:22:49.508Z",
+    "market_cap_cr": 542,
+    "pe": 3.43,
+    "as_of": "2026-09-25T06:28:57.272Z",
     "source_url": "https://www.screener.in/company/533217/"
   },
   "533259": {
@@ -2726,6 +2789,15 @@
     "as_of": "2026-09-16T15:17:58.484Z",
     "source_url": "https://www.screener.in/company/533263/"
   },
+  "533271": {
+    "company": "Ashoka Buildcon Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 3144,
+    "pe": 16.5,
+    "as_of": "2026-09-25T06:28:59.505Z",
+    "source_url": "https://www.screener.in/company/533271/"
+  },
   "533272": {
     "company": "Jupiter Wagons Ltd",
     "industry": "Railway Wagons",
@@ -2739,9 +2811,9 @@
     "company": "Prestige Estates Projects Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 61862,
-    "pe": 341,
-    "as_of": "2026-09-17T19:22:51.502Z",
+    "market_cap_cr": 63313,
+    "pe": 349,
+    "as_of": "2026-09-25T06:29:01.527Z",
     "source_url": "https://www.screener.in/company/533274/"
   },
   "533278": {
@@ -2784,9 +2856,9 @@
     "company": "Texmaco Rail & Engineering Ltd",
     "industry": "Railway Wagons",
     "sector": "Capital Goods",
-    "market_cap_cr": 4549,
-    "pe": 21.4,
-    "as_of": "2026-09-17T10:40:07.999Z",
+    "market_cap_cr": 5082,
+    "pe": 23.9,
+    "as_of": "2026-09-25T06:29:03.541Z",
     "source_url": "https://www.screener.in/company/533326/"
   },
   "533333": {
@@ -2797,6 +2869,15 @@
     "pe": 71.8,
     "as_of": "2026-09-20T14:22:10.669Z",
     "source_url": "https://www.screener.in/company/533333/"
+  },
+  "533581": {
+    "company": "PG Electroplast Ltd",
+    "industry": "Consumer Electronics",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 14746,
+    "pe": 134,
+    "as_of": "2026-09-25T06:29:05.562Z",
+    "source_url": "https://www.screener.in/company/533581/"
   },
   "533758": {
     "company": "APL Apollo Tubes Ltd",
@@ -2820,9 +2901,9 @@
     "company": "Schneider Electric Infrastructure Ltd",
     "industry": "Heavy Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 28763,
-    "pe": 148,
-    "as_of": "2026-09-17T15:49:08.506Z",
+    "market_cap_cr": 28883,
+    "pe": 149,
+    "as_of": "2026-09-25T06:29:07.575Z",
     "source_url": "https://www.screener.in/company/534139/"
   },
   "534392": {
@@ -2838,9 +2919,9 @@
     "company": "JTL Industries Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 3334,
-    "pe": 32.9,
-    "as_of": "2026-09-17T19:22:53.487Z",
+    "market_cap_cr": 3483,
+    "pe": 34.4,
+    "as_of": "2026-09-25T06:29:09.597Z",
     "source_url": "https://www.screener.in/company/534600/"
   },
   "534618": {
@@ -2869,6 +2950,15 @@
     "pe": 7578,
     "as_of": "2026-09-22T21:25:57.886Z",
     "source_url": "https://www.screener.in/company/537392/"
+  },
+  "538476": {
+    "company": "Capital Trade Links Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 367,
+    "pe": 116,
+    "as_of": "2026-09-25T06:29:11.614Z",
+    "source_url": "https://www.screener.in/company/538476/"
   },
   "538546": {
     "company": "Bansal Roofing Products Ltd",
