@@ -84,9 +84,9 @@
     "company": "Arvind Ltd",
     "industry": "Garments & Apparels",
     "sector": "Textiles",
-    "market_cap_cr": 14734,
-    "pe": 54.2,
-    "as_of": "2026-09-18T00:55:17.884Z",
+    "market_cap_cr": 15389,
+    "pe": 56.6,
+    "as_of": "2026-09-25T02:02:53.557Z",
     "source_url": "https://www.screener.in/company/500101/"
   },
   "500104": {
@@ -124,6 +124,15 @@
     "pe": 27.2,
     "as_of": "2026-09-16T12:03:38.747Z",
     "source_url": "https://www.screener.in/company/500126/"
+  },
+  "500128": {
+    "company": "Electrosteel Castings Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4486,
+    "pe": 50.1,
+    "as_of": "2026-09-25T02:02:55.491Z",
+    "source_url": "https://www.screener.in/company/500128/"
   },
   "500165": {
     "company": "Kansai Nerolac Paints Ltd",
@@ -309,9 +318,9 @@
     "company": "Raymond Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 6597,
+    "market_cap_cr": 8014,
     "pe": 268,
-    "as_of": "2026-09-16T12:03:43.626Z",
+    "as_of": "2026-09-25T02:02:57.425Z",
     "source_url": "https://www.screener.in/company/500330/"
   },
   "500335": {
@@ -1097,6 +1106,15 @@
     "as_of": "2026-09-23T04:55:20.921Z",
     "source_url": "https://www.screener.in/company/513361/"
   },
+  "513375": {
+    "company": "Carborundum Universal Ltd",
+    "industry": "Abrasives & Bearings",
+    "sector": "Capital Goods",
+    "market_cap_cr": 24699,
+    "pe": 68.8,
+    "as_of": "2026-09-25T02:02:59.360Z",
+    "source_url": "https://www.screener.in/company/513375/"
+  },
   "513507": {
     "company": "Gujarat Containers Ltd",
     "industry": "Packaging",
@@ -1272,9 +1290,9 @@
     "company": "PVP Ventures Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 1486,
-    "pe": 51.1,
-    "as_of": "2026-09-18T00:55:19.873Z",
+    "market_cap_cr": 1698,
+    "pe": 58.4,
+    "as_of": "2026-09-25T02:03:01.296Z",
     "source_url": "https://www.screener.in/company/517556/"
   },
   "519183": {
@@ -1344,9 +1362,9 @@
     "company": "United Drilling Tools Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 463,
-    "pe": 23.2,
-    "as_of": "2026-09-18T00:55:21.862Z",
+    "market_cap_cr": 527,
+    "pe": 26.4,
+    "as_of": "2026-09-25T02:03:03.232Z",
     "source_url": "https://www.screener.in/company/522014/"
   },
   "522017": {
@@ -1551,9 +1569,9 @@
     "company": "Marksans Pharma Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 14488,
-    "pe": 45,
-    "as_of": "2026-09-18T00:55:23.856Z",
+    "market_cap_cr": 15290,
+    "pe": 47.5,
+    "as_of": "2026-09-25T02:03:05.171Z",
     "source_url": "https://www.screener.in/company/524404/"
   },
   "524542": {
@@ -1668,9 +1686,9 @@
     "company": "63 Moons Technologies Ltd",
     "industry": "Computers - Software & Consulting",
     "sector": "Information Technology",
-    "market_cap_cr": 4021,
-    "pe": 70.3,
-    "as_of": "2026-09-18T00:55:25.846Z",
+    "market_cap_cr": 3976,
+    "pe": 69.5,
+    "as_of": "2026-09-25T02:03:07.105Z",
     "source_url": "https://www.screener.in/company/526881/"
   },
   "530005": {
@@ -2456,6 +2474,15 @@
     "as_of": "2026-09-17T06:23:37.237Z",
     "source_url": "https://www.screener.in/company/532843/"
   },
+  "532856": {
+    "company": "Time Technoplast Ltd",
+    "industry": "Plastic Products - Industrial",
+    "sector": "Capital Goods",
+    "market_cap_cr": 8851,
+    "pe": 38.6,
+    "as_of": "2026-09-25T02:03:09.040Z",
+    "source_url": "https://www.screener.in/company/532856/"
+  },
   "532868": {
     "company": "DLF Ltd",
     "industry": "Residential, Commercial Projects",
@@ -2514,18 +2541,18 @@
     "company": "Adani Ports & Special Economic Zone Ltd",
     "industry": "Port & Port services",
     "sector": "Services",
-    "market_cap_cr": 400059,
-    "pe": 145,
-    "as_of": "2026-09-17T10:40:01.903Z",
+    "market_cap_cr": 411326,
+    "pe": 149,
+    "as_of": "2026-09-25T02:03:10.975Z",
     "source_url": "https://www.screener.in/company/532921/"
   },
   "532924": {
     "company": "Kolte Patil Developers Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 3848,
-    "pe": 22.5,
-    "as_of": "2026-09-17T19:22:45.540Z",
+    "market_cap_cr": 3831,
+    "pe": 22.4,
+    "as_of": "2026-09-25T02:03:12.912Z",
     "source_url": "https://www.screener.in/company/532924/"
   },
   "532928": {
@@ -2559,18 +2586,18 @@
     "company": "J Kumar Infraprojects Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 3619,
-    "pe": 9.34,
-    "as_of": "2026-09-17T10:40:03.866Z",
+    "market_cap_cr": 3618,
+    "pe": 9.33,
+    "as_of": "2026-09-25T02:03:14.854Z",
     "source_url": "https://www.screener.in/company/532940/"
   },
   "532945": {
     "company": "SEPC Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 1000,
+    "market_cap_cr": 980,
     "pe": 9.95,
-    "as_of": "2026-09-18T00:55:27.835Z",
+    "as_of": "2026-09-25T02:03:16.787Z",
     "source_url": "https://www.screener.in/company/532945/"
   },
   "532953": {
@@ -2595,9 +2622,9 @@
     "company": "Sejal Glass Ltd",
     "industry": "Glass - Industrial",
     "sector": "Capital Goods",
-    "market_cap_cr": 774,
+    "market_cap_cr": 779,
     "pe": 93.2,
-    "as_of": "2026-09-17T19:22:47.524Z",
+    "as_of": "2026-09-25T02:03:18.721Z",
     "source_url": "https://www.screener.in/company/532993/"
   },
   "533047": {
@@ -2640,9 +2667,9 @@
     "company": "Godrej Properties Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 50606,
+    "market_cap_cr": 50341,
     "pe": 139,
-    "as_of": "2026-09-17T10:40:05.827Z",
+    "as_of": "2026-09-25T02:03:20.669Z",
     "source_url": "https://www.screener.in/company/533150/"
   },
   "533151": {
