@@ -287,6 +287,15 @@
     "as_of": "2026-09-21T01:49:35.338Z",
     "source_url": "https://www.screener.in/company/500284/"
   },
+  "500294": {
+    "company": "NCC Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 8339,
+    "pe": 13.6,
+    "as_of": "2026-09-25T22:01:25.668Z",
+    "source_url": "https://www.screener.in/company/500294/"
+  },
   "500295": {
     "company": "Vedanta Ltd",
     "industry": "Diversified Metals",
@@ -453,9 +462,9 @@
     "company": "Larsen & Toubro Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 525608,
-    "pe": 39.1,
-    "as_of": "2026-09-16T12:03:46.132Z",
+    "market_cap_cr": 533324,
+    "pe": 39.7,
+    "as_of": "2026-09-25T22:01:27.644Z",
     "source_url": "https://www.screener.in/company/500510/"
   },
   "500520": {
@@ -574,6 +583,15 @@
     "pe": 17.8,
     "as_of": "2026-09-24T11:55:10.146Z",
     "source_url": "https://www.screener.in/company/500870/"
+  },
+  "500877": {
+    "company": "Apollo Tyres Ltd",
+    "industry": "Tyres & Rubber Products",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 25410,
+    "pe": 13.1,
+    "as_of": "2026-09-25T22:01:29.629Z",
+    "source_url": "https://www.screener.in/company/500877/"
   },
   "500878": {
     "company": "CEAT Ltd",
@@ -971,6 +989,15 @@
     "as_of": "2026-09-19T11:40:04.333Z",
     "source_url": "https://www.screener.in/company/509243/"
   },
+  "509635": {
+    "company": "Hindustan Composites Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 572,
+    "pe": 32.7,
+    "as_of": "2026-09-25T22:01:31.612Z",
+    "source_url": "https://www.screener.in/company/509635/"
+  },
   "509675": {
     "company": "BirlaNu Ltd",
     "industry": "Other Construction Materials",
@@ -1317,9 +1344,9 @@
     "company": "Samvardhana Motherson International Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 171584,
-    "pe": 95.7,
-    "as_of": "2026-09-18T21:23:40.544Z",
+    "market_cap_cr": 174898,
+    "pe": 97.6,
+    "as_of": "2026-09-25T22:01:33.599Z",
     "source_url": "https://www.screener.in/company/517334/"
   },
   "517354": {
@@ -1493,6 +1520,15 @@
     "as_of": "2026-09-19T06:16:16.117Z",
     "source_url": "https://www.screener.in/company/522275/"
   },
+  "522287": {
+    "company": "Kalpataru Projects International Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 23758,
+    "pe": 22.2,
+    "as_of": "2026-09-25T22:01:35.586Z",
+    "source_url": "https://www.screener.in/company/522287/"
+  },
   "523023": {
     "company": "Sinclairs Hotels Ltd",
     "industry": "Hotels & Resorts",
@@ -1524,9 +1560,9 @@
     "company": "Linde India Ltd",
     "industry": "Industrial Gases",
     "sector": "Chemicals",
-    "market_cap_cr": 53228,
-    "pe": 97,
-    "as_of": "2026-09-18T21:23:42.478Z",
+    "market_cap_cr": 52383,
+    "pe": 95.4,
+    "as_of": "2026-09-25T22:01:37.570Z",
     "source_url": "https://www.screener.in/company/523457/"
   },
   "523610": {
@@ -1569,9 +1605,9 @@
     "company": "D S Kulkarni Developers Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 22.7,
+    "market_cap_cr": 24.1,
     "pe": 129,
-    "as_of": "2026-09-18T21:23:44.412Z",
+    "as_of": "2026-09-25T22:01:39.552Z",
     "source_url": "https://www.screener.in/company/523890/"
   },
   "524046": {
@@ -1992,9 +2028,9 @@
     "company": "Swelect Energy Systems Ltd",
     "industry": "Heavy Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 844,
-    "pe": 23.9,
-    "as_of": "2026-09-18T21:23:46.345Z",
+    "market_cap_cr": 890,
+    "pe": 25.2,
+    "as_of": "2026-09-25T22:01:41.538Z",
     "source_url": "https://www.screener.in/company/532051/"
   },
   "532134": {
@@ -2555,6 +2591,15 @@
     "as_of": "2026-09-23T22:27:10.365Z",
     "source_url": "https://www.screener.in/company/532832/"
   },
+  "532834": {
+    "company": "Camlin Fine Sciences Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 1869,
+    "pe": 48.4,
+    "as_of": "2026-09-25T22:01:43.522Z",
+    "source_url": "https://www.screener.in/company/532834/"
+  },
   "532835": {
     "company": "ICRA Ltd",
     "industry": "Ratings",
@@ -2883,9 +2928,9 @@
     "company": "Kirloskar Oil Engines Ltd",
     "industry": "Compressors, Pumps & Diesel Engines",
     "sector": "Capital Goods",
-    "market_cap_cr": 31434,
-    "pe": 68.7,
-    "as_of": "2026-09-18T21:23:48.283Z",
+    "market_cap_cr": 31100,
+    "pe": 68,
+    "as_of": "2026-09-25T22:01:45.505Z",
     "source_url": "https://www.screener.in/company/533293/"
   },
   "533301": {
@@ -3063,9 +3108,9 @@
     "company": "Manaksia Coated Metals & Industries Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 1377,
-    "pe": 33.6,
-    "as_of": "2026-09-18T21:23:50.217Z",
+    "market_cap_cr": 1385,
+    "pe": 33.8,
+    "as_of": "2026-09-25T22:01:47.489Z",
     "source_url": "https://www.screener.in/company/539046/"
   },
   "539056": {
@@ -3238,6 +3283,15 @@
     "pe": 158,
     "as_of": "2026-09-23T19:12:05.274Z",
     "source_url": "https://www.screener.in/company/539787/"
+  },
+  "539807": {
+    "company": "AvenuesAI Ltd",
+    "industry": "Financial Technology (Fintech)",
+    "sector": "Financial Services",
+    "market_cap_cr": 5543,
+    "pe": 51.5,
+    "as_of": "2026-09-25T22:01:49.471Z",
+    "source_url": "https://www.screener.in/company/539807/"
   },
   "539837": {
     "company": "Raghav Productivity Enhancers Ltd",
@@ -3599,6 +3653,15 @@
     "as_of": "2026-09-25T18:35:03.029Z",
     "source_url": "https://www.screener.in/company/541167/"
   },
+  "541206": {
+    "company": "OBCL Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 121,
+    "pe": 38.9,
+    "as_of": "2026-09-25T22:01:51.455Z",
+    "source_url": "https://www.screener.in/company/541206/"
+  },
   "541233": {
     "company": "Lemon Tree Hotels Ltd",
     "industry": "Hotels & Resorts",
@@ -3724,6 +3787,15 @@
     "pe": 40.3,
     "as_of": "2026-09-21T01:49:49.203Z",
     "source_url": "https://www.screener.in/company/542920/"
+  },
+  "543064": {
+    "company": "Cohance Lifesciences Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 17571,
+    "pe": 91.9,
+    "as_of": "2026-09-25T22:01:53.447Z",
+    "source_url": "https://www.screener.in/company/543064/"
   },
   "543187": {
     "company": "Hitachi Energy India Ltd",
