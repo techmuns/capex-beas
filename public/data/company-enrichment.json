@@ -300,9 +300,9 @@
     "company": "Grasim Industries Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 218253,
-    "pe": 259,
-    "as_of": "2026-09-18T18:33:25.071Z",
+    "market_cap_cr": 216714,
+    "pe": 257,
+    "as_of": "2026-09-25T18:34:45.644Z",
     "source_url": "https://www.screener.in/company/500300/"
   },
   "500304": {
@@ -700,6 +700,15 @@
     "pe": 74.6,
     "as_of": "2026-09-20T20:55:16.016Z",
     "source_url": "https://www.screener.in/company/504036/"
+  },
+  "504212": {
+    "company": "Universal Cables Ltd",
+    "industry": "Cables - Electricals",
+    "sector": "Capital Goods",
+    "market_cap_cr": 5179,
+    "pe": 45.3,
+    "as_of": "2026-09-25T18:34:47.573Z",
+    "source_url": "https://www.screener.in/company/504212/"
   },
   "504341": {
     "company": "Ravindra Energy Ltd",
@@ -1686,9 +1695,9 @@
     "company": "Natco Pharma Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 14560,
-    "pe": 16.3,
-    "as_of": "2026-09-18T18:33:27.089Z",
+    "market_cap_cr": 15035,
+    "pe": 16.9,
+    "as_of": "2026-09-25T18:34:49.504Z",
     "source_url": "https://www.screener.in/company/524816/"
   },
   "526227": {
@@ -2055,9 +2064,9 @@
     "company": "HCL Technologies Ltd",
     "industry": "Computers - Software & Consulting",
     "sector": "Information Technology",
-    "market_cap_cr": 339639,
+    "market_cap_cr": 341036,
     "pe": 18.7,
-    "as_of": "2026-09-18T18:33:29.110Z",
+    "as_of": "2026-09-25T18:34:51.435Z",
     "source_url": "https://www.screener.in/company/532281/"
   },
   "532309": {
@@ -2127,9 +2136,9 @@
     "company": "Sigma Advanced System Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 16486,
-    "pe": 226,
-    "as_of": "2026-09-18T18:33:31.139Z",
+    "market_cap_cr": 17950,
+    "pe": 247,
+    "as_of": "2026-09-25T18:34:53.367Z",
     "source_url": "https://www.screener.in/company/532408/"
   },
   "532424": {
@@ -2613,9 +2622,9 @@
     "company": "VTM Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 479,
-    "pe": 43.5,
-    "as_of": "2026-09-18T15:03:21.577Z",
+    "market_cap_cr": 415,
+    "pe": 37.6,
+    "as_of": "2026-09-25T18:34:55.296Z",
     "source_url": "https://www.screener.in/company/532893/"
   },
   "532898": {
@@ -3513,9 +3522,9 @@
     "company": "IFGL Refractories Ltd",
     "industry": "Electrodes & Refractories",
     "sector": "Capital Goods",
-    "market_cap_cr": 1425,
-    "pe": 32.1,
-    "as_of": "2026-09-17T22:33:45.241Z",
+    "market_cap_cr": 1432,
+    "pe": 32.3,
+    "as_of": "2026-09-25T18:34:57.228Z",
     "source_url": "https://www.screener.in/company/540774/"
   },
   "540776": {
@@ -3540,9 +3549,9 @@
     "company": "Apollo Micro Systems Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 14075,
-    "pe": 109,
-    "as_of": "2026-09-17T15:49:18.511Z",
+    "market_cap_cr": 14710,
+    "pe": 114,
+    "as_of": "2026-09-25T18:34:59.163Z",
     "source_url": "https://www.screener.in/company/540879/"
   },
   "540902": {
@@ -3563,6 +3572,15 @@
     "as_of": "2026-09-24T06:21:47.442Z",
     "source_url": "https://www.screener.in/company/540975/"
   },
+  "541019": {
+    "company": "H.G. Infra Engineering Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 2943,
+    "pe": 13,
+    "as_of": "2026-09-25T18:35:01.094Z",
+    "source_url": "https://www.screener.in/company/541019/"
+  },
   "541096": {
     "company": "Bharat Parenterals Ltd",
     "industry": "Pharmaceuticals",
@@ -3576,10 +3594,19 @@
     "company": "Yasho Industries Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 4819,
-    "pe": 92.2,
-    "as_of": "2026-09-17T15:49:20.512Z",
+    "market_cap_cr": 5125,
+    "pe": 98,
+    "as_of": "2026-09-25T18:35:03.029Z",
     "source_url": "https://www.screener.in/company/541167/"
+  },
+  "541233": {
+    "company": "Lemon Tree Hotels Ltd",
+    "industry": "Hotels & Resorts",
+    "sector": "Consumer Services",
+    "market_cap_cr": 8403,
+    "pe": 65.6,
+    "as_of": "2026-09-25T18:35:04.959Z",
+    "source_url": "https://www.screener.in/company/541233/"
   },
   "541400": {
     "company": "Zim Laboratories Ltd",
@@ -3675,18 +3702,18 @@
     "company": "Prince Pipes & Fittings Ltd",
     "industry": "Plastic Products - Industrial",
     "sector": "Capital Goods",
-    "market_cap_cr": 2860,
-    "pe": 27.5,
-    "as_of": "2026-09-17T22:33:47.213Z",
+    "market_cap_cr": 2893,
+    "pe": 27.8,
+    "as_of": "2026-09-25T18:35:06.889Z",
     "source_url": "https://www.screener.in/company/542907/"
   },
   "542919": {
     "company": "Artemis Medicare Services Ltd",
     "industry": "Hospital",
     "sector": "Healthcare",
-    "market_cap_cr": 5223,
-    "pe": 45.3,
-    "as_of": "2026-09-17T15:49:22.511Z",
+    "market_cap_cr": 5661,
+    "pe": 49,
+    "as_of": "2026-09-25T18:35:08.828Z",
     "source_url": "https://www.screener.in/company/542919/"
   },
   "542920": {
@@ -3698,13 +3725,22 @@
     "as_of": "2026-09-21T01:49:49.203Z",
     "source_url": "https://www.screener.in/company/542920/"
   },
+  "543187": {
+    "company": "Hitachi Energy India Ltd",
+    "industry": "Heavy Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 137930,
+    "pe": 116,
+    "as_of": "2026-09-25T18:35:10.764Z",
+    "source_url": "https://www.screener.in/company/543187/"
+  },
   "543214": {
     "company": "NDR Auto Components Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 1667,
-    "pe": 29.5,
-    "as_of": "2026-09-17T22:33:49.184Z",
+    "market_cap_cr": 1781,
+    "pe": 31.5,
+    "as_of": "2026-09-25T18:35:12.695Z",
     "source_url": "https://www.screener.in/company/543214/"
   },
   "543218": {
