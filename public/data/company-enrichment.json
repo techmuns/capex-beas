@@ -597,9 +597,9 @@
     "company": "CEAT Ltd",
     "industry": "Tyres & Rubber Products",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 14032,
-    "pe": 16.9,
-    "as_of": "2026-09-19T01:42:01.078Z",
+    "market_cap_cr": 13560,
+    "pe": 16.3,
+    "as_of": "2026-09-26T05:43:24.931Z",
     "source_url": "https://www.screener.in/company/500878/"
   },
   "501261": {
@@ -898,6 +898,15 @@
     "pe": 65.6,
     "as_of": "2026-09-24T01:03:46.801Z",
     "source_url": "https://www.screener.in/company/507205/"
+  },
+  "507410": {
+    "company": "Walchandnagar Industries Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 1433,
+    "pe": 52.9,
+    "as_of": "2026-09-26T05:43:26.929Z",
+    "source_url": "https://www.screener.in/company/507410/"
   },
   "507526": {
     "company": "Associated Alcohols & Breweries Ltd",
@@ -1213,6 +1222,15 @@
     "pe": 10.4,
     "as_of": "2026-09-21T07:29:34.554Z",
     "source_url": "https://www.screener.in/company/513507/"
+  },
+  "513509": {
+    "company": "Kalyani Forge Ltd",
+    "industry": "Castings & Forgings",
+    "sector": "Capital Goods",
+    "market_cap_cr": 355,
+    "pe": 28.6,
+    "as_of": "2026-09-26T05:43:28.926Z",
+    "source_url": "https://www.screener.in/company/513509/"
   },
   "513517": {
     "company": "Steelcast Ltd",
@@ -1596,10 +1614,19 @@
     "company": "ITI Ltd",
     "industry": "Telecom - Equipment & Accessories",
     "sector": "Telecommunication",
-    "market_cap_cr": 24686,
+    "market_cap_cr": 24358,
     "pe": 19.2,
-    "as_of": "2026-09-19T01:42:03.057Z",
+    "as_of": "2026-09-26T05:43:30.932Z",
     "source_url": "https://www.screener.in/company/523610/"
+  },
+  "523642": {
+    "company": "P I Industries Ltd",
+    "industry": "Pesticides & Agrochemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 36412,
+    "pe": 25.8,
+    "as_of": "2026-09-26T05:43:32.929Z",
+    "source_url": "https://www.screener.in/company/523642/"
   },
   "523694": {
     "company": "Apcotex Industries Ltd",
@@ -1663,6 +1690,15 @@
     "pe": 34.9,
     "as_of": "2026-09-22T06:29:26.058Z",
     "source_url": "https://www.screener.in/company/524208/"
+  },
+  "524212": {
+    "company": "Wanbury Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 784,
+    "pe": 13.2,
+    "as_of": "2026-09-26T05:43:34.928Z",
+    "source_url": "https://www.screener.in/company/524212/"
   },
   "524226": {
     "company": "Gujarat Ambuja Exports Ltd",
@@ -2366,6 +2402,15 @@
     "as_of": "2026-09-24T23:37:39.127Z",
     "source_url": "https://www.screener.in/company/532548/"
   },
+  "532553": {
+    "company": "Welspun Enterprises Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 10443,
+    "pe": 35.6,
+    "as_of": "2026-09-26T05:43:36.930Z",
+    "source_url": "https://www.screener.in/company/532553/"
+  },
   "532555": {
     "company": "NTPC Ltd",
     "industry": "Power Generation",
@@ -2514,9 +2559,9 @@
     "company": "Tech Mahindra Ltd",
     "industry": "Computers - Software & Consulting",
     "sector": "Information Technology",
-    "market_cap_cr": 150656,
-    "pe": 37.7,
-    "as_of": "2026-09-19T01:42:05.040Z",
+    "market_cap_cr": 151729,
+    "pe": 38,
+    "as_of": "2026-09-26T05:43:38.928Z",
     "source_url": "https://www.screener.in/company/532755/"
   },
   "532756": {
@@ -2604,9 +2649,9 @@
     "company": "Oriental Trimex Ltd",
     "industry": "Granites & Marbles",
     "sector": "Consumer Durables",
-    "market_cap_cr": 36.5,
-    "pe": 14.5,
-    "as_of": "2026-09-19T01:42:07.018Z",
+    "market_cap_cr": 36.7,
+    "pe": 14.6,
+    "as_of": "2026-09-26T05:43:40.926Z",
     "source_url": "https://www.screener.in/company/532817/"
   },
   "532822": {
@@ -3927,10 +3972,19 @@
     "company": "Restaurant Brands Asia Ltd",
     "industry": "Restaurants",
     "sector": "Consumer Services",
-    "market_cap_cr": 6844,
+    "market_cap_cr": 6587,
     "pe": 36.2,
-    "as_of": "2026-09-18T00:55:33.804Z",
+    "as_of": "2026-09-26T05:43:42.925Z",
     "source_url": "https://www.screener.in/company/543248/"
+  },
+  "543249": {
+    "company": "TARC Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 3817,
+    "pe": 37.1,
+    "as_of": "2026-09-26T05:43:44.921Z",
+    "source_url": "https://www.screener.in/company/543249/"
   },
   "543254": {
     "company": "Antony Waste Handling Cell Ltd",
@@ -3940,6 +3994,15 @@
     "pe": 92.8,
     "as_of": "2026-09-21T07:29:38.431Z",
     "source_url": "https://www.screener.in/company/543254/"
+  },
+  "543270": {
+    "company": "MTAR Technologies Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 21224,
+    "pe": 155,
+    "as_of": "2026-09-26T05:43:46.922Z",
+    "source_url": "https://www.screener.in/company/543270/"
   },
   "543273": {
     "company": "Knowledge Marine & Engineering Works Ltd",
@@ -3999,9 +4062,9 @@
     "company": "Shyam Metalics & Energy Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 30704,
-    "pe": 58.6,
-    "as_of": "2026-09-19T01:42:08.995Z",
+    "market_cap_cr": 30303,
+    "pe": 57.8,
+    "as_of": "2026-09-26T05:43:48.919Z",
     "source_url": "https://www.screener.in/company/543299/"
   },
   "543300": {
@@ -4026,9 +4089,9 @@
     "company": "G R Infraprojects Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 8022,
-    "pe": 10.2,
-    "as_of": "2026-09-17T22:33:57.067Z",
+    "market_cap_cr": 7861,
+    "pe": 9.99,
+    "as_of": "2026-09-26T05:43:50.918Z",
     "source_url": "https://www.screener.in/company/543317/"
   },
   "543318": {
@@ -4057,6 +4120,15 @@
     "pe": 91.3,
     "as_of": "2026-09-19T22:38:41.028Z",
     "source_url": "https://www.screener.in/company/543321/"
+  },
+  "543322": {
+    "company": "Alivus Life Sciences Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 16766,
+    "pe": 27,
+    "as_of": "2026-09-26T05:43:52.916Z",
+    "source_url": "https://www.screener.in/company/543322/"
   },
   "543325": {
     "company": "Rolex Rings Ltd",
