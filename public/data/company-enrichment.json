@@ -134,6 +134,15 @@
     "as_of": "2026-09-25T02:02:55.491Z",
     "source_url": "https://www.screener.in/company/500128/"
   },
+  "500164": {
+    "company": "Godrej Industries Ltd",
+    "industry": "Diversified",
+    "sector": "Diversified",
+    "market_cap_cr": 37232,
+    "pe": 397,
+    "as_of": "2026-09-26T06:28:09.106Z",
+    "source_url": "https://www.screener.in/company/500164/"
+  },
   "500165": {
     "company": "Kansai Nerolac Paints Ltd",
     "industry": "Paints",
@@ -359,6 +368,15 @@
     "as_of": "2026-09-21T07:29:32.617Z",
     "source_url": "https://www.screener.in/company/500335/"
   },
+  "500338": {
+    "company": "Prism Johnson Ltd",
+    "industry": "Cement & Cement Products",
+    "sector": "Construction Materials",
+    "market_cap_cr": 5855,
+    "pe": 57.8,
+    "as_of": "2026-09-26T06:28:11.312Z",
+    "source_url": "https://www.screener.in/company/500338/"
+  },
   "500350": {
     "company": "RSWM Ltd",
     "industry": "Other Textile Products",
@@ -516,9 +534,9 @@
     "company": "Gujarat Narmada Valley Fertilizers & Chemicals Ltd",
     "industry": "Commodity Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 8653,
-    "pe": 8.41,
-    "as_of": "2026-09-19T06:16:14.105Z",
+    "market_cap_cr": 9262,
+    "pe": 9,
+    "as_of": "2026-09-26T06:28:13.299Z",
     "source_url": "https://www.screener.in/company/500670/"
   },
   "500672": {
@@ -1560,9 +1578,9 @@
     "company": "GE Vernova T&D India Ltd",
     "industry": "Heavy Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 112278,
-    "pe": 83.2,
-    "as_of": "2026-09-19T06:16:16.117Z",
+    "market_cap_cr": 109589,
+    "pe": 81.2,
+    "as_of": "2026-09-26T06:28:15.286Z",
     "source_url": "https://www.screener.in/company/522275/"
   },
   "522287": {
@@ -1708,6 +1726,15 @@
     "pe": 17.3,
     "as_of": "2026-09-16T12:04:11.000Z",
     "source_url": "https://www.screener.in/company/524226/"
+  },
+  "524230": {
+    "company": "Rashtriya Chemicals & Fertilizers Ltd",
+    "industry": "Fertilizers",
+    "sector": "Chemicals",
+    "market_cap_cr": 5990,
+    "pe": 14.3,
+    "as_of": "2026-09-26T06:28:17.271Z",
+    "source_url": "https://www.screener.in/company/524230/"
   },
   "524342": {
     "company": "Indo Borax & Chemicals Ltd",
@@ -2334,9 +2361,9 @@
     "company": "PTC India Ltd",
     "industry": "Power Trading",
     "sector": "Power",
-    "market_cap_cr": 4625,
-    "pe": 12.7,
-    "as_of": "2026-09-19T06:16:18.132Z",
+    "market_cap_cr": 4591,
+    "pe": 12.6,
+    "as_of": "2026-09-26T06:28:19.262Z",
     "source_url": "https://www.screener.in/company/532524/"
   },
   "532527": {
@@ -2433,9 +2460,9 @@
     "company": "Indoco Remedies Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 2298,
-    "pe": 107,
-    "as_of": "2026-09-19T06:16:20.143Z",
+    "market_cap_cr": 2349,
+    "pe": 109,
+    "as_of": "2026-09-26T06:28:21.461Z",
     "source_url": "https://www.screener.in/company/532612/"
   },
   "532626": {
@@ -2739,9 +2766,9 @@
     "company": "Puravankara Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 5061,
+    "market_cap_cr": 5072,
     "pe": 32.4,
-    "as_of": "2026-09-19T06:16:22.158Z",
+    "as_of": "2026-09-26T06:28:23.453Z",
     "source_url": "https://www.screener.in/company/532891/"
   },
   "532893": {
@@ -3540,9 +3567,9 @@
     "company": "Laurus Labs Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 105577,
-    "pe": 121,
-    "as_of": "2026-09-19T06:16:24.171Z",
+    "market_cap_cr": 108441,
+    "pe": 124,
+    "as_of": "2026-09-26T06:28:25.444Z",
     "source_url": "https://www.screener.in/company/540222/"
   },
   "540293": {
@@ -3774,9 +3801,9 @@
     "company": "Zim Laboratories Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 727,
-    "pe": 192,
-    "as_of": "2026-09-19T06:16:26.182Z",
+    "market_cap_cr": 743,
+    "pe": 197,
+    "as_of": "2026-09-26T06:28:27.433Z",
     "source_url": "https://www.screener.in/company/541400/"
   },
   "541402": {
@@ -3819,9 +3846,9 @@
     "company": "Dalmia Bharat Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 33038,
-    "pe": 247,
-    "as_of": "2026-09-19T06:16:28.206Z",
+    "market_cap_cr": 31890,
+    "pe": 238,
+    "as_of": "2026-09-26T06:28:29.419Z",
     "source_url": "https://www.screener.in/company/542216/"
   },
   "542399": {
@@ -4143,9 +4170,9 @@
     "company": "Windlas Biotech Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 2306,
-    "pe": 34.7,
-    "as_of": "2026-09-17T22:33:59.038Z",
+    "market_cap_cr": 2275,
+    "pe": 34.3,
+    "as_of": "2026-09-26T06:28:31.405Z",
     "source_url": "https://www.screener.in/company/543329/"
   },
   "543332": {
@@ -4179,9 +4206,9 @@
     "company": "Vijaya Diagnostic Centre Ltd",
     "industry": "Healthcare Service Provider",
     "sector": "Healthcare",
-    "market_cap_cr": 15512,
-    "pe": 80.4,
-    "as_of": "2026-09-17T22:34:01.007Z",
+    "market_cap_cr": 15590,
+    "pe": 80.8,
+    "as_of": "2026-09-26T06:28:33.398Z",
     "source_url": "https://www.screener.in/company/543350/"
   },
   "543384": {
@@ -4192,6 +4219,15 @@
     "pe": 1134,
     "as_of": "2026-09-24T01:04:00.531Z",
     "source_url": "https://www.screener.in/company/543384/"
+  },
+  "543387": {
+    "company": "S J S Enterprises Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 7474,
+    "pe": 51.7,
+    "as_of": "2026-09-26T06:28:35.385Z",
+    "source_url": "https://www.screener.in/company/543387/"
   },
   "543396": {
     "company": "One 97 Communications Ltd",
@@ -4224,9 +4260,9 @@
     "company": "Jet Freight Logistics Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 103,
-    "pe": 13.7,
-    "as_of": "2026-09-18T21:23:52.150Z",
+    "market_cap_cr": 99.4,
+    "pe": 13.2,
+    "as_of": "2026-09-26T06:28:37.372Z",
     "source_url": "https://www.screener.in/company/543420/"
   },
   "543427": {
