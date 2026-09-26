@@ -48,9 +48,9 @@
     "company": "Bhansali Engineering Polymers Ltd",
     "industry": "Petrochemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 3209,
-    "pe": 16.1,
-    "as_of": "2026-09-19T11:39:58.279Z",
+    "market_cap_cr": 3146,
+    "pe": 15.8,
+    "as_of": "2026-09-26T14:54:02.808Z",
     "source_url": "https://www.screener.in/company/500052/"
   },
   "500084": {
@@ -345,9 +345,9 @@
     "company": "Reliance Industries Ltd",
     "industry": "Refineries & Marketing",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 1659630,
+    "market_cap_cr": 1659089,
     "pe": 42.3,
-    "as_of": "2026-09-19T11:40:00.295Z",
+    "as_of": "2026-09-26T14:54:04.741Z",
     "source_url": "https://www.screener.in/company/500325/"
   },
   "500330": {
@@ -822,9 +822,9 @@
     "company": "Elecon Engineering Company Ltd",
     "industry": "Heavy Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 9452,
-    "pe": 31.9,
-    "as_of": "2026-09-19T11:40:02.315Z",
+    "market_cap_cr": 10283,
+    "pe": 34.7,
+    "as_of": "2026-09-26T14:54:06.680Z",
     "source_url": "https://www.screener.in/company/505700/"
   },
   "505714": {
@@ -1011,9 +1011,9 @@
     "company": "TVS Srichakra Ltd",
     "industry": "Tyres & Rubber Products",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 3711,
-    "pe": 35.3,
-    "as_of": "2026-09-19T11:40:04.333Z",
+    "market_cap_cr": 3531,
+    "pe": 33.6,
+    "as_of": "2026-09-26T14:54:08.614Z",
     "source_url": "https://www.screener.in/company/509243/"
   },
   "509635": {
@@ -1335,9 +1335,9 @@
     "company": "Sangam (India) Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 2914,
-    "pe": 23.2,
-    "as_of": "2026-09-19T11:40:06.352Z",
+    "market_cap_cr": 3115,
+    "pe": 24.8,
+    "as_of": "2026-09-26T14:54:10.550Z",
     "source_url": "https://www.screener.in/company/514234/"
   },
   "514448": {
@@ -1614,9 +1614,9 @@
     "company": "DCM Shriram Ltd",
     "industry": "Diversified",
     "sector": "Diversified",
-    "market_cap_cr": 15516,
-    "pe": 11.3,
-    "as_of": "2026-09-19T11:40:08.369Z",
+    "market_cap_cr": 15193,
+    "pe": 11.1,
+    "as_of": "2026-09-26T14:54:12.488Z",
     "source_url": "https://www.screener.in/company/523367/"
   },
   "523385": {
@@ -1807,6 +1807,15 @@
     "pe": 12.2,
     "as_of": "2026-09-19T22:38:33.129Z",
     "source_url": "https://www.screener.in/company/524592/"
+  },
+  "524735": {
+    "company": "Hikal Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 2683,
+    "pe": 62.8,
+    "as_of": "2026-09-26T14:54:14.423Z",
+    "source_url": "https://www.screener.in/company/524735/"
   },
   "524742": {
     "company": "Caplin Point Laboratories Ltd",
@@ -2514,9 +2523,9 @@
     "company": "J K Cements Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 39133,
-    "pe": 38.3,
-    "as_of": "2026-09-19T11:40:10.386Z",
+    "market_cap_cr": 38634,
+    "pe": 37.8,
+    "as_of": "2026-09-26T14:54:16.358Z",
     "source_url": "https://www.screener.in/company/532644/"
   },
   "532661": {
@@ -3387,9 +3396,9 @@
     "company": "Alkem Laboratories Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 65360,
-    "pe": 29.2,
-    "as_of": "2026-09-19T11:40:12.412Z",
+    "market_cap_cr": 63059,
+    "pe": 28.1,
+    "as_of": "2026-09-26T14:54:18.296Z",
     "source_url": "https://www.screener.in/company/539523/"
   },
   "539524": {
@@ -3607,6 +3616,15 @@
     "pe": 57.8,
     "as_of": "2026-09-22T13:36:11.666Z",
     "source_url": "https://www.screener.in/company/540205/"
+  },
+  "540212": {
+    "company": "TCI Express Ltd",
+    "industry": "Logistics Solution Provider",
+    "sector": "Services",
+    "market_cap_cr": 1928,
+    "pe": 21.2,
+    "as_of": "2026-09-26T14:54:20.231Z",
+    "source_url": "https://www.screener.in/company/540212/"
   },
   "540222": {
     "company": "Laurus Labs Ltd",
@@ -3887,6 +3905,15 @@
     "as_of": "2026-09-26T10:26:59.254Z",
     "source_url": "https://www.screener.in/company/541729/"
   },
+  "541956": {
+    "company": "Ircon International Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 9965,
+    "pe": 15.8,
+    "as_of": "2026-09-26T14:54:22.166Z",
+    "source_url": "https://www.screener.in/company/541956/"
+  },
   "542011": {
     "company": "Garden Reach Shipbuilders & Engineers Ltd",
     "industry": null,
@@ -4107,9 +4134,9 @@
     "company": "Anupam Rasayan India Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 13750,
-    "pe": 84,
-    "as_of": "2026-09-19T11:40:14.428Z",
+    "market_cap_cr": 13575,
+    "pe": 82.9,
+    "as_of": "2026-09-26T14:54:24.100Z",
     "source_url": "https://www.screener.in/company/543275/"
   },
   "543276": {
@@ -4386,18 +4413,18 @@
     "company": "Venus Pipes & Tubes Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 4416,
-    "pe": 42.5,
-    "as_of": "2026-09-17T22:34:04.948Z",
+    "market_cap_cr": 4481,
+    "pe": 43.1,
+    "as_of": "2026-09-26T14:54:26.034Z",
     "source_url": "https://www.screener.in/company/543528/"
   },
   "543529": {
     "company": "Delhivery Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 31916,
-    "pe": 100,
-    "as_of": "2026-09-18T00:55:35.797Z",
+    "market_cap_cr": 31673,
+    "pe": 99.4,
+    "as_of": "2026-09-26T14:54:27.970Z",
     "source_url": "https://www.screener.in/company/543529/"
   },
   "543530": {
@@ -4408,6 +4435,15 @@
     "pe": 14.8,
     "as_of": "2026-09-21T07:29:44.245Z",
     "source_url": "https://www.screener.in/company/543530/"
+  },
+  "543534": {
+    "company": "Aether Industries Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 23453,
+    "pe": 126,
+    "as_of": "2026-09-26T14:54:30.391Z",
+    "source_url": "https://www.screener.in/company/543534/"
   },
   "543542": {
     "company": "Kesar India Ltd",
