@@ -111,10 +111,19 @@
     "company": "Hindustan Petroleum Corporation Ltd",
     "industry": "Refineries & Marketing",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 76389,
-    "pe": 59.8,
-    "as_of": "2026-09-20T00:31:26.091Z",
+    "market_cap_cr": 74687,
+    "pe": 58.4,
+    "as_of": "2026-09-27T05:26:57.073Z",
     "source_url": "https://www.screener.in/company/500104/"
+  },
+  "500112": {
+    "company": "State Bank of India",
+    "industry": "Public Sector Bank",
+    "sector": "Financial Services",
+    "market_cap_cr": 907384,
+    "pe": 11.6,
+    "as_of": "2026-09-27T05:26:59.048Z",
+    "source_url": "https://www.screener.in/company/500112/"
   },
   "500113": {
     "company": "Steel Authority of India Ltd",
@@ -647,6 +656,15 @@
     "as_of": "2026-09-26T05:43:24.931Z",
     "source_url": "https://www.screener.in/company/500878/"
   },
+  "500940": {
+    "company": "Finolex Industries Ltd",
+    "industry": "Plastic Products - Industrial",
+    "sector": "Capital Goods",
+    "market_cap_cr": 9565,
+    "pe": 16.2,
+    "as_of": "2026-09-27T05:27:01.027Z",
+    "source_url": "https://www.screener.in/company/500940/"
+  },
   "501261": {
     "company": "Lords Mark Industries Limited",
     "industry": null,
@@ -723,9 +741,9 @@
     "company": "SRF Ltd",
     "industry": "Commodity Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 74462,
-    "pe": 37.8,
-    "as_of": "2026-09-20T00:31:28.049Z",
+    "market_cap_cr": 75292,
+    "pe": 38.2,
+    "as_of": "2026-09-27T05:27:03.003Z",
     "source_url": "https://www.screener.in/company/503806/"
   },
   "503811": {
@@ -1182,9 +1200,9 @@
     "company": "SG Mart Ltd",
     "industry": "Trading - Metals",
     "sector": "Metals & Mining",
-    "market_cap_cr": 9245,
+    "market_cap_cr": 9216,
     "pe": 101,
-    "as_of": "2026-09-20T00:31:30.011Z",
+    "as_of": "2026-09-27T05:27:04.978Z",
     "source_url": "https://www.screener.in/company/512329/"
   },
   "512455": {
@@ -2136,9 +2154,9 @@
     "company": "Trishakti Industries Ltd",
     "industry": "Diversified Commercial Services",
     "sector": "Services",
-    "market_cap_cr": 403,
+    "market_cap_cr": 402,
     "pe": 36.4,
-    "as_of": "2026-09-20T00:31:31.970Z",
+    "as_of": "2026-09-27T05:27:06.952Z",
     "source_url": "https://www.screener.in/company/531279/"
   },
   "531358": {
@@ -2595,9 +2613,9 @@
     "company": "Shoppers Stop Ltd",
     "industry": "Diversified Retail",
     "sector": "Consumer Services",
-    "market_cap_cr": 4405,
+    "market_cap_cr": 4668,
     "pe": 27.2,
-    "as_of": "2026-09-20T00:31:33.931Z",
+    "as_of": "2026-09-27T05:27:08.926Z",
     "source_url": "https://www.screener.in/company/532638/"
   },
   "532644": {
@@ -2987,6 +3005,15 @@
     "as_of": "2026-09-25T02:03:14.854Z",
     "source_url": "https://www.screener.in/company/532940/"
   },
+  "532942": {
+    "company": "KNR Constructions Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 3382,
+    "pe": 30.2,
+    "as_of": "2026-09-27T05:27:10.902Z",
+    "source_url": "https://www.screener.in/company/532942/"
+  },
   "532945": {
     "company": "SEPC Ltd",
     "industry": "Civil Construction",
@@ -3072,9 +3099,9 @@
     "company": "JSW Energy Ltd",
     "industry": "Power Generation",
     "sector": "Power",
-    "market_cap_cr": 96441,
-    "pe": 107,
-    "as_of": "2026-09-20T00:31:35.893Z",
+    "market_cap_cr": 92875,
+    "pe": 103,
+    "as_of": "2026-09-27T05:27:12.879Z",
     "source_url": "https://www.screener.in/company/533148/"
   },
   "533150": {
@@ -3311,6 +3338,15 @@
     "as_of": "2026-09-26T00:46:56.734Z",
     "source_url": "https://www.screener.in/company/538268/"
   },
+  "538273": {
+    "company": "Response Informatics Ltd",
+    "industry": "Software Products",
+    "sector": "Information Technology",
+    "market_cap_cr": 16.8,
+    "pe": 50.9,
+    "as_of": "2026-09-27T05:27:14.862Z",
+    "source_url": "https://www.screener.in/company/538273/"
+  },
   "538476": {
     "company": "Capital Trade Links Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
@@ -3481,6 +3517,15 @@
     "pe": 35.7,
     "as_of": "2026-09-26T18:46:06.783Z",
     "source_url": "https://www.screener.in/company/539334/"
+  },
+  "539399": {
+    "company": "Bella Casa Fashion & Retail Ltd",
+    "industry": "Garments & Apparels",
+    "sector": "Textiles",
+    "market_cap_cr": 368,
+    "pe": 20.5,
+    "as_of": "2026-09-27T05:27:16.838Z",
+    "source_url": "https://www.screener.in/company/539399/"
   },
   "539404": {
     "company": "Satin Creditcare Network Ltd",
@@ -4040,6 +4085,24 @@
     "as_of": "2026-09-26T14:54:22.166Z",
     "source_url": "https://www.screener.in/company/541956/"
   },
+  "541967": {
+    "company": "Sky Gold & Diamonds Ltd",
+    "industry": "Gems, Jewellery And Watches",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 12290,
+    "pe": 51,
+    "as_of": "2026-09-27T05:27:18.813Z",
+    "source_url": "https://www.screener.in/company/541967/"
+  },
+  "541974": {
+    "company": "Manorama Industries Ltd",
+    "industry": "Other Food Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 11822,
+    "pe": 44.7,
+    "as_of": "2026-09-27T05:27:20.786Z",
+    "source_url": "https://www.screener.in/company/541974/"
+  },
   "542011": {
     "company": "Garden Reach Shipbuilders & Engineers Ltd",
     "industry": null,
@@ -4075,6 +4138,15 @@
     "pe": 143,
     "as_of": "2026-09-20T17:49:07.782Z",
     "source_url": "https://www.screener.in/company/542665/"
+  },
+  "542684": {
+    "company": "Prakash Pipes Ltd",
+    "industry": "Plastic Products - Industrial",
+    "sector": "Capital Goods",
+    "market_cap_cr": 629,
+    "pe": 12.7,
+    "as_of": "2026-09-27T05:27:22.759Z",
+    "source_url": "https://www.screener.in/company/542684/"
   },
   "542726": {
     "company": "Indiamart Intermesh Ltd",
@@ -4246,6 +4318,15 @@
     "pe": 92.8,
     "as_of": "2026-09-21T07:29:38.431Z",
     "source_url": "https://www.screener.in/company/543254/"
+  },
+  "543258": {
+    "company": "Indigo Paints Ltd",
+    "industry": "Paints",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 5387,
+    "pe": 32.5,
+    "as_of": "2026-09-27T05:27:24.734Z",
+    "source_url": "https://www.screener.in/company/543258/"
   },
   "543270": {
     "company": "MTAR Technologies Ltd",
