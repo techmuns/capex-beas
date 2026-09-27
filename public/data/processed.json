@@ -73707,6 +73707,905 @@
       "scrip_cd": 539682,
       "status": "no_capex",
       "capex_found": 0
+    },
+    "b12d3848-7dec-418d-acce-cefef32432be": {
+      "at": "2026-09-26T23:53:22.627Z",
+      "scrip_cd": 544785,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "668259ff-c093-40e1-820d-1a5ed96dd32a": {
+      "at": "2026-09-26T23:53:31.381Z",
+      "scrip_cd": 522195,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "fe010601-54c2-4ae2-9d30-89aad69cd7e5": {
+      "at": "2026-09-26T23:53:33.705Z",
+      "scrip_cd": 544466,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "35b876dd-e00f-40bb-b24e-83e158b30b10": {
+      "at": "2026-09-26T23:53:36.786Z",
+      "scrip_cd": 508954,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "c9df0f3b-c875-4177-9ee7-2e498fe432c5": {
+      "at": "2026-09-26T23:53:39.860Z",
+      "scrip_cd": 538446,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f5471d7c-3694-4215-a5b3-91ed002439a8": {
+      "at": "2026-09-26T23:53:42.190Z",
+      "scrip_cd": 522205,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4da59b2f-7b39-490d-94a6-0d8ae608a8ee": {
+      "at": "2026-09-26T23:53:43.868Z",
+      "scrip_cd": 532454,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "161554e0-f34a-40dc-9806-61f7e87dc5e6": {
+      "at": "2026-09-26T23:53:46.109Z",
+      "scrip_cd": 530307,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "854d65ab-20d5-45a3-b05b-d9ab75a19c72": {
+      "at": "2026-09-26T23:53:48.000Z",
+      "scrip_cd": 532395,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4d246ace-7797-4008-93a5-84578a0c7a1c": {
+      "at": "2026-09-26T23:53:49.988Z",
+      "scrip_cd": 531592,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "48da0d6a-a7db-4e29-aa62-4bad755c3058": {
+      "at": "2026-09-26T23:53:54.907Z",
+      "scrip_cd": 543650,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "6e5d7dc9-6a8b-471c-bb60-78f8c4225086": {
+      "at": "2026-09-26T23:53:57.333Z",
+      "scrip_cd": 540212,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "3509446e-682b-41a8-9582-b0741c9e55b1": {
+      "at": "2026-09-26T23:53:59.557Z",
+      "scrip_cd": 500413,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ddcca26a-2bdf-4772-967a-8fdc336b624b": {
+      "at": "2026-09-26T23:54:01.884Z",
+      "scrip_cd": 500147,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f2ce2e4d-54f6-432e-b060-a56a2269d028": {
+      "at": "2026-09-26T23:54:04.194Z",
+      "scrip_cd": 544162,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "634e2895-1140-4093-903f-656963cb2b41": {
+      "at": "2026-09-26T23:54:06.436Z",
+      "scrip_cd": 500690,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "7d6b1f67-4f99-4398-b191-b37d6d3d49b7": {
+      "at": "2026-09-26T23:54:08.896Z",
+      "scrip_cd": 505890,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "3772b3bc-6d88-4506-a52a-22348c819ff9": {
+      "at": "2026-09-26T23:54:11.058Z",
+      "scrip_cd": 500117,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "afa03f62-3d7e-40d2-a336-68b0a8304af9": {
+      "at": "2026-09-26T23:54:13.321Z",
+      "scrip_cd": 544264,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "c7faa180-8f29-4d70-b334-357b08770c49": {
+      "at": "2026-09-26T23:54:15.611Z",
+      "scrip_cd": 544580,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "13fe4bfa-c0ae-47c6-a30c-d9631bf7116c": {
+      "at": "2026-09-26T23:54:19.163Z",
+      "scrip_cd": 532461,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4bca6afc-c586-48ed-8427-d2b3eda215d6": {
+      "at": "2026-09-26T23:54:22.102Z",
+      "scrip_cd": 544515,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "7e9a11bd-8658-43c7-991b-138769c8cf2f": {
+      "at": "2026-09-26T23:54:24.938Z",
+      "scrip_cd": 544181,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "bf702dc4-b1a5-4793-9aa6-4b1aa7b4c3a4": {
+      "at": "2026-09-26T23:54:26.614Z",
+      "scrip_cd": 513502,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "bac732a2-4a3d-40d2-98bc-a1e9096aea2c": {
+      "at": "2026-09-26T23:54:29.279Z",
+      "scrip_cd": 517467,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ec647606-2c14-4d1a-8896-a9f1bcbf98c8": {
+      "at": "2026-09-26T23:54:31.560Z",
+      "scrip_cd": 512626,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "348aca3e-8d17-427e-8fa3-a2baad0ac1ff": {
+      "at": "2026-09-26T23:54:39.548Z",
+      "scrip_cd": 544476,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "062013ba-dbbd-4334-b23d-65439976963d": {
+      "at": "2026-09-26T23:54:41.933Z",
+      "scrip_cd": 532772,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "06364ec8-4a13-40c1-a5e8-f45b36c0b9ef": {
+      "at": "2026-09-26T23:54:44.626Z",
+      "scrip_cd": 532509,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f2977084-6ca3-463a-8217-12ac91410d55": {
+      "at": "2026-09-26T23:54:47.316Z",
+      "scrip_cd": 543256,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b6cf96f2-63dd-4446-bd19-da4ca2d3a0a6": {
+      "at": "2026-09-26T23:54:50.552Z",
+      "scrip_cd": 511218,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "0b84cb18-9b4d-4606-9cb2-710f37eca120": {
+      "at": "2026-09-26T23:54:52.759Z",
+      "scrip_cd": 544226,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4de15a84-e2ff-427b-90e3-7785e11303d9": {
+      "at": "2026-09-26T23:54:56.841Z",
+      "scrip_cd": 543828,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "08458cad-83e8-49d3-b5e3-b6ca90b915fd": {
+      "at": "2026-09-26T23:54:59.143Z",
+      "scrip_cd": 532754,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "30632157-0056-441e-9ee4-ee4cae7e2bdd": {
+      "at": "2026-09-26T23:55:00.925Z",
+      "scrip_cd": 524164,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f4a2f966-e473-4068-ba18-d0acfd721f72": {
+      "at": "2026-09-26T23:55:03.365Z",
+      "scrip_cd": 522074,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "3ec2cfea-e597-4bff-929f-0f1c8674a362": {
+      "at": "2026-09-26T23:55:14.298Z",
+      "scrip_cd": 532923,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4054be76-f0b8-495e-b9ff-61441b784863": {
+      "at": "2026-09-26T23:55:19.766Z",
+      "scrip_cd": 535755,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "9a1f55dc-1db4-4c21-aa5e-7f459599c5fd": {
+      "at": "2026-09-26T23:55:22.451Z",
+      "scrip_cd": 543535,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "bded87ee-bb16-4a60-b64c-a64058d6c00c": {
+      "at": "2026-09-26T23:55:25.306Z",
+      "scrip_cd": 500530,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b3b64f99-e53c-421f-96d4-814412f99dec": {
+      "at": "2026-09-26T23:55:36.519Z",
+      "scrip_cd": 543416,
+      "status": "capex",
+      "capex_found": 4
+    },
+    "a525d6cb-e324-4031-b53c-aeac5da137f2": {
+      "at": "2026-09-26T23:55:44.435Z",
+      "scrip_cd": 544140,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "12a8e16f-9b12-4a5c-bb5e-ac98b7e05cea": {
+      "at": "2026-09-26T23:56:06.897Z",
+      "scrip_cd": 532889,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "61232602-4983-4619-be9f-5e01290c3ea5": {
+      "at": "2026-09-26T23:56:09.189Z",
+      "scrip_cd": 543194,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "2db2958e-baf3-430b-aa72-38dddc885f21": {
+      "at": "2026-09-26T23:56:11.734Z",
+      "scrip_cd": 530517,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "93948ba5-5be5-425f-97a8-64048e266800": {
+      "at": "2026-09-26T23:56:17.323Z",
+      "scrip_cd": 543828,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f56463e9-0ed9-4bd2-8134-fbf3c318a3f2": {
+      "at": "2026-09-26T23:56:21.542Z",
+      "scrip_cd": 544488,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "1f9a491a-fced-4a18-adac-ae2e17298260": {
+      "at": "2026-09-26T23:56:24.267Z",
+      "scrip_cd": 500108,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "28a92c6d-1650-49e5-a819-b4a0f439e2eb": {
+      "at": "2026-09-26T23:56:29.256Z",
+      "scrip_cd": 530199,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "66b67c7c-2480-40fc-b9d7-6ba50c756b9b": {
+      "at": "2026-09-26T23:56:31.897Z",
+      "scrip_cd": 544477,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "640dc9a1-8433-414e-b8ab-bc3eca60c5bc": {
+      "at": "2026-09-26T23:56:33.730Z",
+      "scrip_cd": 534742,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "1359f9d6-e9dd-416b-86b0-9d64b47826ce": {
+      "at": "2026-09-26T23:56:36.564Z",
+      "scrip_cd": 532889,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "770e2a39-9d8c-46a6-9f72-97f328064197": {
+      "at": "2026-09-26T23:56:50.943Z",
+      "scrip_cd": 530517,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "56baad21-644b-43d2-8113-6b383e4a3e65": {
+      "at": "2026-09-26T23:56:54.665Z",
+      "scrip_cd": 543411,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "c3a11ff5-bdc9-4d0d-bd3b-e21d53bb1645": {
+      "at": "2026-09-26T23:57:18.632Z",
+      "scrip_cd": 522163,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "80ecfc48-ab15-42ee-9ec0-085ba5e7dafc": {
+      "at": "2026-09-26T23:57:21.375Z",
+      "scrip_cd": 540078,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "8b909a73-ddcd-4996-a727-49cc1da5649e": {
+      "at": "2026-09-26T23:57:24.696Z",
+      "scrip_cd": 544545,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "5cbed38a-1e5b-46e6-845a-d25a5e64aaa7": {
+      "at": "2026-09-26T23:57:26.251Z",
+      "scrip_cd": 535789,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "d0ccb51d-c306-4c3a-81a1-ffb7b04dacd6": {
+      "at": "2026-09-26T23:57:33.357Z",
+      "scrip_cd": 526247,
+      "status": "capex",
+      "capex_found": 2
+    },
+    "28149e02-770c-4560-9bc8-4f6db35680b9": {
+      "at": "2026-09-26T23:57:39.395Z",
+      "scrip_cd": 530199,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "40a6c472-92cd-438f-8e8f-ca56ca0fb32a": {
+      "at": "2026-09-26T23:57:41.313Z",
+      "scrip_cd": 544202,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "099d8d56-bdca-4f4e-b00e-1cf0b4775c44": {
+      "at": "2026-09-26T23:57:43.221Z",
+      "scrip_cd": 504369,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "cc7892b2-78f7-4bd4-ba56-99f7ea6ab290": {
+      "at": "2026-09-26T23:57:49.675Z",
+      "scrip_cd": 544488,
+      "status": "capex",
+      "capex_found": 2
+    },
+    "2b979d8f-e052-4ed7-a7aa-888e88cdbca4": {
+      "at": "2026-09-26T23:57:51.828Z",
+      "scrip_cd": 541233,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "902c840e-7e4c-44cd-b697-1cdde8115432": {
+      "at": "2026-09-26T23:57:54.635Z",
+      "scrip_cd": 538979,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "38b975fe-d582-4d7f-bb34-78330c8c609d": {
+      "at": "2026-09-26T23:57:58.060Z",
+      "scrip_cd": 500147,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "e5ee65bf-3d82-4511-b7b3-26ae1815eaf7": {
+      "at": "2026-09-26T23:58:00.334Z",
+      "scrip_cd": 544525,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "5d3bba0e-6858-4e3d-a665-afb3a5093135": {
+      "at": "2026-09-26T23:58:04.091Z",
+      "scrip_cd": 500186,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "05a0b2a8-7f0d-436b-aaeb-c51cdd574512": {
+      "at": "2026-09-26T23:58:06.573Z",
+      "scrip_cd": 544226,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "861cf786-87df-47be-8181-1e32dcd93892": {
+      "at": "2026-09-26T23:58:17.274Z",
+      "scrip_cd": 544576,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "d902bd15-3278-4684-8881-72f77b468159": {
+      "at": "2026-09-26T23:58:21.218Z",
+      "scrip_cd": 544197,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ba457137-2a58-43df-af22-92a0960518f4": {
+      "at": "2026-09-26T23:58:23.067Z",
+      "scrip_cd": 504369,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ad0e1222-d513-40d0-aabe-8e8d839e8b62": {
+      "at": "2026-09-26T23:58:25.418Z",
+      "scrip_cd": 500520,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "125e8575-17c0-472a-96e1-9a1c9f5b0538": {
+      "at": "2026-09-26T23:58:27.244Z",
+      "scrip_cd": 544181,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ff306e5b-da7e-473d-a729-1d2c51e3ce70": {
+      "at": "2026-09-26T23:58:29.726Z",
+      "scrip_cd": 540153,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b0619836-ca12-459a-867a-d855efc754fd": {
+      "at": "2026-09-26T23:58:31.745Z",
+      "scrip_cd": 532856,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "6ce8ac82-02ec-481c-b342-e4ff2d4795db": {
+      "at": "2026-09-26T23:58:33.947Z",
+      "scrip_cd": 542867,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "102259f5-f4a9-4cab-bb8b-1736ab3eb36f": {
+      "at": "2026-09-26T23:58:37.297Z",
+      "scrip_cd": 500048,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "be7ccf73-d1ce-4899-8ded-42578efb6079": {
+      "at": "2026-09-26T23:58:43.790Z",
+      "scrip_cd": 524804,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "0884c928-8aba-416e-b71c-f51838591ff1": {
+      "at": "2026-09-26T23:58:47.660Z",
+      "scrip_cd": 530139,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "16e4d898-17db-4094-8aab-7479edaf89a0": {
+      "at": "2026-09-26T23:58:47.926Z",
+      "scrip_cd": 532893,
+      "status": "no_text"
+    },
+    "0b9ed803-03a8-46da-951f-58e1fcf3e5c2": {
+      "at": "2026-09-26T23:58:50.094Z",
+      "scrip_cd": 541302,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "159f4d8b-ac10-4e41-947e-238d7ef950b8": {
+      "at": "2026-09-26T23:59:02.359Z",
+      "scrip_cd": 500117,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "d278fac6-1b06-4e0b-a98e-5616f12942e2": {
+      "at": "2026-09-26T23:59:08.038Z",
+      "scrip_cd": 540497,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "afd3ecc7-e6c3-4165-a8d8-f24c17cdb0fb": {
+      "at": "2026-09-26T23:59:09.820Z",
+      "scrip_cd": 544587,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "033d6adb-f2fd-46b6-96d0-541210d13dac": {
+      "at": "2026-09-26T23:59:12.533Z",
+      "scrip_cd": 532187,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "34da1db5-2108-43cb-a983-c0ea91246846": {
+      "at": "2026-09-26T23:59:14.318Z",
+      "scrip_cd": 539528,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "654c2dcd-398a-434a-a676-cb5c325c533a": {
+      "at": "2026-09-26T23:59:16.161Z",
+      "scrip_cd": 500101,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "8846bfb9-4e23-494e-a553-d2e2cc70204b": {
+      "at": "2026-09-26T23:59:22.471Z",
+      "scrip_cd": 534425,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "e90dac7b-4592-494a-b899-74cb27f45da1": {
+      "at": "2026-09-26T23:59:30.788Z",
+      "scrip_cd": 544279,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "86aca0b1-7330-4031-9c93-3dfe59ce9921": {
+      "at": "2026-09-26T23:59:34.991Z",
+      "scrip_cd": 512599,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "b4c2eb67-2490-4aeb-bcc3-40a5af981b8b": {
+      "at": "2026-09-26T23:59:37.462Z",
+      "scrip_cd": 540173,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "a34e3321-934b-4bf3-9461-c2b78fe8851c": {
+      "at": "2026-09-26T23:59:40.538Z",
+      "scrip_cd": 542597,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "0039ab85-9625-472b-b751-8a0be260a663": {
+      "at": "2026-09-26T23:59:43.885Z",
+      "scrip_cd": 500147,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "1e1a3a85-1b2f-4d21-8a3f-d9f7ce3b6283": {
+      "at": "2026-09-26T23:59:51.759Z",
+      "scrip_cd": 540153,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "c0db4881-b0ea-45cc-a259-4f2f6d2a9b8c": {
+      "at": "2026-09-26T23:59:53.659Z",
+      "scrip_cd": 542649,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "98072a36-c458-448f-b414-911762f0cdae": {
+      "at": "2026-09-26T23:59:56.090Z",
+      "scrip_cd": 543389,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "a4da55ce-6d65-44b8-bbb2-744a65129549": {
+      "at": "2026-09-26T23:59:58.331Z",
+      "scrip_cd": 543258,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "401f0cde-84da-4d0e-9afb-f08b78925626": {
+      "at": "2026-09-27T00:00:00.643Z",
+      "scrip_cd": 544320,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "8756691f-a2ee-45b2-9a10-cc12f0ea7901": {
+      "at": "2026-09-27T00:00:02.593Z",
+      "scrip_cd": 544513,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ed16c4a0-8291-40ad-bb60-80711bfb09fa": {
+      "at": "2026-09-27T00:00:04.379Z",
+      "scrip_cd": 523329,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4af1904f-b4e5-4350-a9b1-0c73b9794651": {
+      "at": "2026-09-27T00:00:07.151Z",
+      "scrip_cd": 544226,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b092b1fd-f289-40ed-be9f-4afae4dc8567": {
+      "at": "2026-09-27T00:00:09.782Z",
+      "scrip_cd": 544613,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ef5f8853-84d5-4fb9-8927-4bf526c9b556": {
+      "at": "2026-09-27T00:00:14.748Z",
+      "scrip_cd": 505255,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "8d8ba644-9463-4955-91e8-46dd7dd89335": {
+      "at": "2026-09-27T00:00:16.853Z",
+      "scrip_cd": 544576,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "e5e94da2-2f99-4652-9c94-1018eef9c2fa": {
+      "at": "2026-09-27T00:00:19.132Z",
+      "scrip_cd": 542726,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b19af9b0-bbb9-477e-9ac0-704f1c5991d8": {
+      "at": "2026-09-27T00:00:21.555Z",
+      "scrip_cd": 538962,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f4a3c5d0-faf0-4207-8e52-d77ddaac36c6": {
+      "at": "2026-09-27T00:00:24.800Z",
+      "scrip_cd": 500780,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "1c48b135-5552-4a9c-8a00-ab8ba20a7101": {
+      "at": "2026-09-27T00:00:28.449Z",
+      "scrip_cd": 533155,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "6d53f4eb-8fee-4f50-9476-53bf1764d2fe": {
+      "at": "2026-09-27T00:00:32.792Z",
+      "scrip_cd": 531083,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ad9525c6-823a-423c-b2a0-fa6fb2229a5d": {
+      "at": "2026-09-27T00:00:34.982Z",
+      "scrip_cd": 500245,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ad252faf-02ed-4344-b51f-f9d20151569e": {
+      "at": "2026-09-27T00:00:38.048Z",
+      "scrip_cd": 507514,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "a283a6b0-26bc-454e-a92c-9fc3d0ee51c6": {
+      "at": "2026-09-27T00:00:42.242Z",
+      "scrip_cd": 530355,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ba99048c-225c-4b07-98e9-c527bfc794b3": {
+      "at": "2026-09-27T00:00:58.436Z",
+      "scrip_cd": 538567,
+      "status": "capex",
+      "capex_found": 4
+    },
+    "672c274a-bf36-46b6-aae6-e1c5e5dce07d": {
+      "at": "2026-09-27T00:01:07.572Z",
+      "scrip_cd": 530367,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "a49c6ff5-5a2d-48bc-a85a-10c6421d9654": {
+      "at": "2026-09-27T00:01:10.569Z",
+      "scrip_cd": 508954,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "9c9f40cf-f7b2-404c-8172-c8b6c6c5ebe1": {
+      "at": "2026-09-27T00:01:16.317Z",
+      "scrip_cd": 544459,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "44dd2479-4077-40c1-afa8-5537a739c1c9": {
+      "at": "2026-09-27T00:01:18.730Z",
+      "scrip_cd": 523642,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4a2bb8fe-f182-412e-b0e7-3f608248610b": {
+      "at": "2026-09-27T00:01:20.418Z",
+      "scrip_cd": 531179,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f3c2b91f-77c1-4f60-a6d1-977bd56fb648": {
+      "at": "2026-09-27T00:01:22.722Z",
+      "scrip_cd": 543482,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "e4cd2974-7248-4966-9611-ea29e9726cab": {
+      "at": "2026-09-27T00:01:25.118Z",
+      "scrip_cd": 531266,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "8151b492-5c4f-48ba-a5ff-32b88c9c6f90": {
+      "at": "2026-09-27T00:01:27.544Z",
+      "scrip_cd": 533181,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "d6b5f7cb-f1a2-4546-9830-c7a801fecca3": {
+      "at": "2026-09-27T00:01:29.926Z",
+      "scrip_cd": 534804,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "651f0308-f6cf-43a0-9327-d785024b6289": {
+      "at": "2026-09-27T00:01:34.797Z",
+      "scrip_cd": 532343,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "6b1716f4-6d1e-4467-9d46-2ee65b651caf": {
+      "at": "2026-09-27T00:01:37.313Z",
+      "scrip_cd": 533181,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "7cb35691-3cfc-4334-a1b4-f7dc739027e7": {
+      "at": "2026-09-27T00:01:41.260Z",
+      "scrip_cd": 530355,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "ea169749-474c-46b8-adc9-893e89c3fb84": {
+      "at": "2026-09-27T00:01:44.025Z",
+      "scrip_cd": 526640,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "0a459652-194e-444c-8c4e-0e25bdadf6da": {
+      "at": "2026-09-27T00:01:46.540Z",
+      "scrip_cd": 544617,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "75accf65-fddb-4845-bf46-85a2556d1cfc": {
+      "at": "2026-09-27T00:01:48.234Z",
+      "scrip_cd": 544304,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "2945b0af-b35d-410b-b37c-918758f32172": {
+      "at": "2026-09-27T00:01:50.576Z",
+      "scrip_cd": 523642,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "fc7e580f-848a-4188-a5ba-94192457526b": {
+      "at": "2026-09-27T00:01:54.003Z",
+      "scrip_cd": 508869,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "d739763e-b489-4835-938b-b510c0d43cd5": {
+      "at": "2026-09-27T00:01:56.063Z",
+      "scrip_cd": 544454,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "a0c59139-6be8-47be-8b36-055f09b8f6fa": {
+      "at": "2026-09-27T00:01:58.354Z",
+      "scrip_cd": 544028,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "49b2cad8-051c-44be-86bb-7417d5fbdaf6": {
+      "at": "2026-09-27T00:02:00.733Z",
+      "scrip_cd": 504380,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "7913ff3c-c4c3-49b7-a35b-6465d7f98399": {
+      "at": "2026-09-27T00:02:09.500Z",
+      "scrip_cd": 543441,
+      "status": "capex",
+      "capex_found": 2
+    },
+    "41e24d4a-2c95-4944-b9f0-10ad80097413": {
+      "at": "2026-09-27T00:02:12.885Z",
+      "scrip_cd": 544309,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b7f89b08-9419-4285-9995-8db6fa7ebc82": {
+      "at": "2026-09-27T00:02:23.512Z",
+      "scrip_cd": 531771,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b960bded-0592-40ca-9781-28f37b618062": {
+      "at": "2026-09-27T00:02:27.507Z",
+      "scrip_cd": 531771,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "754dec02-945f-485e-9e4e-f2b3763bd042": {
+      "at": "2026-09-27T00:02:29.732Z",
+      "scrip_cd": 544495,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "b00eebf4-810d-4e79-bf80-76e850468eea": {
+      "at": "2026-09-27T00:02:32.115Z",
+      "scrip_cd": 544309,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "4f3f405e-2896-47db-b42d-d595f3101b10": {
+      "at": "2026-09-27T00:02:34.463Z",
+      "scrip_cd": 500520,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "d0bb4340-aba0-4181-9265-4dd2c434033d": {
+      "at": "2026-09-27T00:02:36.992Z",
+      "scrip_cd": 535693,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "c246478c-dee1-49d5-a1d0-132ac5e3d07a": {
+      "at": "2026-09-27T00:02:43.917Z",
+      "scrip_cd": 514402,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "3fadd68c-bf46-4a08-b275-5d948f15ae60": {
+      "at": "2026-09-27T00:02:57.738Z",
+      "scrip_cd": 500067,
+      "status": "capex",
+      "capex_found": 1
+    },
+    "f7602028-2cdf-486a-9cb1-64e085b7dfc3": {
+      "at": "2026-09-27T00:03:02.129Z",
+      "scrip_cd": 543990,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "f2c94f14-6bcb-4646-b630-11870c8e620d": {
+      "at": "2026-09-27T00:03:06.391Z",
+      "scrip_cd": 500271,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "d1a6be33-6f9f-4ccc-b07a-0d82d849364c": {
+      "at": "2026-09-27T00:03:09.350Z",
+      "scrip_cd": 524404,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "57313ce6-f884-4b63-93d8-4067abb459d3": {
+      "at": "2026-09-27T00:03:12.713Z",
+      "scrip_cd": 532504,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "16931b65-98c9-44c4-af68-eb70192dc327": {
+      "at": "2026-09-27T00:03:18.011Z",
+      "scrip_cd": 544459,
+      "status": "no_capex",
+      "capex_found": 0
+    },
+    "2204485f-2403-4039-ab59-2dc08ccbd721": {
+      "at": "2026-09-27T00:03:21.200Z",
+      "scrip_cd": 543591,
+      "status": "no_capex",
+      "capex_found": 0
     }
   }
 }
