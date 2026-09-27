@@ -552,9 +552,9 @@
     "company": "Excel Industries Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 1205,
-    "pe": 17.5,
-    "as_of": "2026-09-20T10:13:13.552Z",
+    "market_cap_cr": 1168,
+    "pe": 16.9,
+    "as_of": "2026-09-27T10:57:39.917Z",
     "source_url": "https://www.screener.in/company/500650/"
   },
   "500655": {
@@ -1272,9 +1272,9 @@
     "company": "Belding India Ltd",
     "industry": "Aluminium, Copper & Zinc Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 1426,
+    "market_cap_cr": 1477,
     "pe": 726,
-    "as_of": "2026-09-20T10:13:15.512Z",
+    "as_of": "2026-09-27T10:57:41.891Z",
     "source_url": "https://www.screener.in/company/513307/"
   },
   "513361": {
@@ -2019,9 +2019,9 @@
     "company": "India Cements Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 10685,
-    "pe": 88,
-    "as_of": "2026-09-20T10:13:17.471Z",
+    "market_cap_cr": 10013,
+    "pe": 82.5,
+    "as_of": "2026-09-27T10:57:43.874Z",
     "source_url": "https://www.screener.in/company/530005/"
   },
   "530007": {
@@ -2122,6 +2122,15 @@
     "pe": 260,
     "as_of": "2026-09-23T06:14:22.527Z",
     "source_url": "https://www.screener.in/company/530843/"
+  },
+  "530919": {
+    "company": "Remsons Industries Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 407,
+    "pe": 30.9,
+    "as_of": "2026-09-27T10:57:45.846Z",
+    "source_url": "https://www.screener.in/company/530919/"
   },
   "530965": {
     "company": "Indian Oil Corporation Ltd",
@@ -2532,9 +2541,9 @@
     "company": "UltraTech Cement Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 324560,
-    "pe": 42.4,
-    "as_of": "2026-09-20T10:13:19.432Z",
+    "market_cap_cr": 328715,
+    "pe": 43,
+    "as_of": "2026-09-27T10:57:47.824Z",
     "source_url": "https://www.screener.in/company/532538/"
   },
   "532539": {
@@ -3032,6 +3041,15 @@
     "as_of": "2026-09-24T06:21:35.385Z",
     "source_url": "https://www.screener.in/company/532953/"
   },
+  "532966": {
+    "company": "Titagarh Rail Systems Ltd",
+    "industry": "Railway Wagons",
+    "sector": "Capital Goods",
+    "market_cap_cr": 11078,
+    "pe": 48.6,
+    "as_of": "2026-09-27T10:57:49.797Z",
+    "source_url": "https://www.screener.in/company/532966/"
+  },
   "532967": {
     "company": "Kiri Industries Ltd",
     "industry": "Dyes And Pigments",
@@ -3473,6 +3491,15 @@
     "as_of": "2026-09-25T07:55:40.895Z",
     "source_url": "https://www.screener.in/company/539118/"
   },
+  "539150": {
+    "company": "PNC Infratech Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 3475,
+    "pe": 6.55,
+    "as_of": "2026-09-27T10:57:51.771Z",
+    "source_url": "https://www.screener.in/company/539150/"
+  },
   "539221": {
     "company": "Sportking India Ltd",
     "industry": "Other Textile Products",
@@ -3648,9 +3675,9 @@
     "company": "Thyrocare Technologies Ltd",
     "industry": "Healthcare Service Provider",
     "sector": "Healthcare",
-    "market_cap_cr": 8846,
-    "pe": 52.9,
-    "as_of": "2026-09-20T10:13:21.390Z",
+    "market_cap_cr": 9022,
+    "pe": 54,
+    "as_of": "2026-09-27T10:57:53.745Z",
     "source_url": "https://www.screener.in/company/539871/"
   },
   "539872": {
@@ -3815,6 +3842,15 @@
     "as_of": "2026-09-23T22:27:18.263Z",
     "source_url": "https://www.screener.in/company/540361/"
   },
+  "540393": {
+    "company": "Sarthak Metals Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 81.2,
+    "pe": 16.6,
+    "as_of": "2026-09-27T10:57:55.718Z",
+    "source_url": "https://www.screener.in/company/540393/"
+  },
   "540395": {
     "company": "Chemcrux Enterprises Ltd",
     "industry": "Specialty Chemicals",
@@ -3963,9 +3999,9 @@
     "company": "Dynamic Cables Ltd",
     "industry": "Cables - Electricals",
     "sector": "Capital Goods",
-    "market_cap_cr": 2216,
+    "market_cap_cr": 2214,
     "pe": 24.3,
-    "as_of": "2026-09-20T10:13:23.350Z",
+    "as_of": "2026-09-27T10:57:57.691Z",
     "source_url": "https://www.screener.in/company/540795/"
   },
   "540879": {
@@ -4170,9 +4206,9 @@
     "company": "IIFL Capital Services Ltd",
     "industry": "Stockbroking & Allied",
     "sector": "Financial Services",
-    "market_cap_cr": 10877,
-    "pe": 19.4,
-    "as_of": "2026-09-20T10:13:25.310Z",
+    "market_cap_cr": 10933,
+    "pe": 19.5,
+    "as_of": "2026-09-27T10:57:59.664Z",
     "source_url": "https://www.screener.in/company/542773/"
   },
   "542803": {
@@ -4868,22 +4904,40 @@
     "as_of": "2026-09-27T06:42:55.344Z",
     "source_url": "https://www.screener.in/company/543910/"
   },
+  "543918": {
+    "company": "GHCL Textiles Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 1330,
+    "pe": 13.8,
+    "as_of": "2026-09-27T10:58:01.637Z",
+    "source_url": "https://www.screener.in/company/543918/"
+  },
   "543932": {
     "company": "Ideaforge Technology Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 3554,
-    "pe": 304,
-    "as_of": "2026-09-18T06:01:39.961Z",
+    "market_cap_cr": 3629,
+    "pe": 310,
+    "as_of": "2026-09-27T10:58:03.610Z",
     "source_url": "https://www.screener.in/company/543932/"
+  },
+  "543940": {
+    "company": "Jio Financial Services Ltd",
+    "industry": "Investment Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 149891,
+    "pe": 210,
+    "as_of": "2026-09-27T10:58:05.583Z",
+    "source_url": "https://www.screener.in/company/543940/"
   },
   "543950": {
     "company": "Yatharth Hospital & Trauma Care Services Ltd",
     "industry": "Hospital",
     "sector": "Healthcare",
-    "market_cap_cr": 10599,
-    "pe": 110,
-    "as_of": "2026-09-18T06:01:41.984Z",
+    "market_cap_cr": 10805,
+    "pe": 112,
+    "as_of": "2026-09-27T10:58:07.560Z",
     "source_url": "https://www.screener.in/company/543950/"
   },
   "543952": {
