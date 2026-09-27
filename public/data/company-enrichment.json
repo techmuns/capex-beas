@@ -885,9 +885,9 @@
     "company": "Schaeffler India Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 65923,
-    "pe": 51.1,
-    "as_of": "2026-09-20T05:31:49.847Z",
+    "market_cap_cr": 62642,
+    "pe": 48.5,
+    "as_of": "2026-09-27T06:42:27.516Z",
     "source_url": "https://www.screener.in/company/505790/"
   },
   "505854": {
@@ -2208,9 +2208,9 @@
     "company": "Jhaveri Credits & Capital Ltd",
     "industry": "Other Financial Services",
     "sector": "Financial Services",
-    "market_cap_cr": 226,
+    "market_cap_cr": 216,
     "pe": 127,
-    "as_of": "2026-09-20T06:27:43.216Z",
+    "as_of": "2026-09-27T06:42:29.491Z",
     "source_url": "https://www.screener.in/company/531550/"
   },
   "531676": {
@@ -2226,9 +2226,9 @@
     "company": "Apollo Pipes Ltd",
     "industry": "Plastic Products - Industrial",
     "sector": "Capital Goods",
-    "market_cap_cr": 2394,
+    "market_cap_cr": 2253,
     "pe": 192,
-    "as_of": "2026-09-20T06:27:45.201Z",
+    "as_of": "2026-09-27T06:42:31.467Z",
     "source_url": "https://www.screener.in/company/531761/"
   },
   "531859": {
@@ -2408,16 +2408,16 @@
     "sector": "Fast Moving Consumer Goods",
     "market_cap_cr": 90051,
     "pe": 57.4,
-    "as_of": "2026-09-20T05:31:51.838Z",
+    "as_of": "2026-09-27T06:42:33.445Z",
     "source_url": "https://www.screener.in/company/532424/"
   },
   "532432": {
     "company": "United Spirits Ltd",
     "industry": "Breweries & Distilleries",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 99720,
-    "pe": 47.8,
-    "as_of": "2026-09-20T05:31:53.829Z",
+    "market_cap_cr": 103560,
+    "pe": 49.6,
+    "as_of": "2026-09-27T06:42:35.421Z",
     "source_url": "https://www.screener.in/company/532432/"
   },
   "532443": {
@@ -3288,9 +3288,9 @@
     "company": "Vardhman Special Steels Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 3914,
-    "pe": 27.3,
-    "as_of": "2026-09-20T05:31:55.821Z",
+    "market_cap_cr": 3979,
+    "pe": 27.8,
+    "as_of": "2026-09-27T06:42:37.398Z",
     "source_url": "https://www.screener.in/company/534392/"
   },
   "534600": {
@@ -4053,9 +4053,9 @@
     "company": "Affordable Robotic & Automation Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 204,
-    "pe": 35.4,
-    "as_of": "2026-09-20T05:31:57.810Z",
+    "market_cap_cr": 226,
+    "pe": 39.1,
+    "as_of": "2026-09-27T06:42:39.374Z",
     "source_url": "https://www.screener.in/company/541402/"
   },
   "541450": {
@@ -4120,6 +4120,15 @@
     "pe": 238,
     "as_of": "2026-09-26T06:28:29.419Z",
     "source_url": "https://www.screener.in/company/542216/"
+  },
+  "542323": {
+    "company": "KPI Green Energy Ltd",
+    "industry": "Power Generation",
+    "sector": "Power",
+    "market_cap_cr": 6716,
+    "pe": 17.3,
+    "as_of": "2026-09-27T06:42:41.351Z",
+    "source_url": "https://www.screener.in/company/542323/"
   },
   "542399": {
     "company": "Chalet Hotels Ltd",
@@ -4796,49 +4805,67 @@
     "as_of": "2026-09-27T00:03:48.988Z",
     "source_url": "https://www.screener.in/company/543689/"
   },
+  "543711": {
+    "company": "Sula Vineyards Ltd",
+    "industry": "Breweries & Distilleries",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 1141,
+    "pe": 76.3,
+    "as_of": "2026-09-27T06:42:43.327Z",
+    "source_url": "https://www.screener.in/company/543711/"
+  },
   "543725": {
     "company": "Elin Electronics Ltd",
     "industry": "Household Appliances",
     "sector": "Consumer Durables",
-    "market_cap_cr": 447,
-    "pe": 25.1,
-    "as_of": "2026-09-18T00:55:43.763Z",
+    "market_cap_cr": 440,
+    "pe": 24.8,
+    "as_of": "2026-09-27T06:42:45.303Z",
     "source_url": "https://www.screener.in/company/543725/"
   },
   "543748": {
     "company": "Aarti Pharmalabs Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 7499,
-    "pe": 35.7,
-    "as_of": "2026-09-18T00:55:45.754Z",
+    "market_cap_cr": 8520,
+    "pe": 40.5,
+    "as_of": "2026-09-27T06:42:47.279Z",
     "source_url": "https://www.screener.in/company/543748/"
   },
   "543766": {
     "company": "Ashika Global Securities Ltd.",
     "industry": "Non Banking Financial Company (NBFC)",
     "sector": "Financial Services",
-    "market_cap_cr": 2968,
-    "pe": 49.1,
-    "as_of": "2026-09-18T06:01:37.932Z",
+    "market_cap_cr": 2939,
+    "pe": 48.7,
+    "as_of": "2026-09-27T06:42:49.417Z",
     "source_url": "https://www.screener.in/company/543766/"
+  },
+  "543812": {
+    "company": "Divgi Torqtransfer Systems Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 3531,
+    "pe": 55.8,
+    "as_of": "2026-09-27T06:42:51.392Z",
+    "source_url": "https://www.screener.in/company/543812/"
   },
   "543904": {
     "company": "Mankind Pharma Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 95236,
-    "pe": 42.1,
-    "as_of": "2026-09-18T15:03:23.556Z",
+    "market_cap_cr": 102225,
+    "pe": 45.2,
+    "as_of": "2026-09-27T06:42:53.368Z",
     "source_url": "https://www.screener.in/company/543904/"
   },
   "543910": {
     "company": "AVG Logistics Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 318,
-    "pe": 27,
-    "as_of": "2026-09-17T05:26:48.031Z",
+    "market_cap_cr": 307,
+    "pe": 26,
+    "as_of": "2026-09-27T06:42:55.344Z",
     "source_url": "https://www.screener.in/company/543910/"
   },
   "543932": {
