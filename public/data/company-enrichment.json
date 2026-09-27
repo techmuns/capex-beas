@@ -237,9 +237,9 @@
     "company": "Hindustan Zinc Ltd",
     "industry": "Zinc",
     "sector": "Metals & Mining",
-    "market_cap_cr": 251829,
-    "pe": 14.9,
-    "as_of": "2026-09-20T14:21:56.589Z",
+    "market_cap_cr": 248850,
+    "pe": 14.7,
+    "as_of": "2026-09-27T15:51:19.675Z",
     "source_url": "https://www.screener.in/company/500188/"
   },
   "500214": {
@@ -471,9 +471,9 @@
     "company": "ACC Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 23656,
-    "pe": 12.2,
-    "as_of": "2026-09-20T14:21:58.565Z",
+    "market_cap_cr": 23218,
+    "pe": 12,
+    "as_of": "2026-09-27T15:51:21.628Z",
     "source_url": "https://www.screener.in/company/500410/"
   },
   "500418": {
@@ -736,6 +736,15 @@
     "pe": 227,
     "as_of": "2026-09-23T04:55:16.971Z",
     "source_url": "https://www.screener.in/company/503100/"
+  },
+  "503101": {
+    "company": "Marathon Nextgen Realty Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 2777,
+    "pe": 15,
+    "as_of": "2026-09-27T15:51:23.567Z",
+    "source_url": "https://www.screener.in/company/503101/"
   },
   "503806": {
     "company": "SRF Ltd",
@@ -1007,6 +1016,15 @@
     "as_of": "2026-09-24T06:21:29.356Z",
     "source_url": "https://www.screener.in/company/507789/"
   },
+  "507910": {
+    "company": "Fiberweb (India) Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 76.4,
+    "pe": 14.6,
+    "as_of": "2026-09-27T15:51:25.506Z",
+    "source_url": "https://www.screener.in/company/507910/"
+  },
   "507984": {
     "company": "Desi Farms India Limited",
     "industry": "Road Transport",
@@ -1052,6 +1070,15 @@
     "as_of": "2026-09-24T20:39:09.956Z",
     "source_url": "https://www.screener.in/company/509055/"
   },
+  "509079": {
+    "company": "Gufic BioSciences Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 4249,
+    "pe": 57.8,
+    "as_of": "2026-09-27T15:51:27.444Z",
+    "source_url": "https://www.screener.in/company/509079/"
+  },
   "509152": {
     "company": "GRP Ltd",
     "industry": "Rubber",
@@ -1087,6 +1114,15 @@
     "pe": 24.1,
     "as_of": "2026-09-24T11:55:20.644Z",
     "source_url": "https://www.screener.in/company/509675/"
+  },
+  "509692": {
+    "company": "Indian Card Clothing Company Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 119,
+    "pe": 17.6,
+    "as_of": "2026-09-27T15:51:29.382Z",
+    "source_url": "https://www.screener.in/company/509692/"
   },
   "509930": {
     "company": "Supreme Industries Ltd",
@@ -1250,6 +1286,15 @@
     "as_of": "2026-09-16T19:12:26.532Z",
     "source_url": "https://www.screener.in/company/513119/"
   },
+  "513228": {
+    "company": "Pennar Industries Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 2505,
+    "pe": 24.9,
+    "as_of": "2026-09-27T15:51:31.322Z",
+    "source_url": "https://www.screener.in/company/513228/"
+  },
   "513262": {
     "company": "Steel Strips Wheels Ltd",
     "industry": "Auto Components & Equipments",
@@ -1403,6 +1448,15 @@
     "as_of": "2026-09-26T14:54:10.550Z",
     "source_url": "https://www.screener.in/company/514234/"
   },
+  "514386": {
+    "company": "Gujarat Cotex Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 23.2,
+    "pe": 0.67,
+    "as_of": "2026-09-27T15:51:33.260Z",
+    "source_url": "https://www.screener.in/company/514386/"
+  },
   "514448": {
     "company": "Jyoti Resins and Adhesives Ltd",
     "industry": "Specialty Chemicals",
@@ -1551,9 +1605,9 @@
     "company": "Jamna Auto Industries Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 5001,
-    "pe": 19.7,
-    "as_of": "2026-09-20T14:22:00.540Z",
+    "market_cap_cr": 5528,
+    "pe": 21.8,
+    "as_of": "2026-09-27T15:51:35.201Z",
     "source_url": "https://www.screener.in/company/520051/"
   },
   "520056": {
@@ -1650,9 +1704,9 @@
     "company": "Rajoo Engineers Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 947,
-    "pe": 22.7,
-    "as_of": "2026-09-20T14:22:02.514Z",
+    "market_cap_cr": 948,
+    "pe": 22.8,
+    "as_of": "2026-09-27T15:51:37.141Z",
     "source_url": "https://www.screener.in/company/522257/"
   },
   "522275": {
@@ -2051,6 +2105,15 @@
     "as_of": "2026-09-26T00:46:52.830Z",
     "source_url": "https://www.screener.in/company/530079/"
   },
+  "530343": {
+    "company": "Genus Power Infrastructures Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 9301,
+    "pe": 14.6,
+    "as_of": "2026-09-27T15:51:39.080Z",
+    "source_url": "https://www.screener.in/company/530343/"
+  },
   "530367": {
     "company": "NRB Bearings Ltd",
     "industry": "Auto Components & Equipments",
@@ -2280,9 +2343,9 @@
     "company": "Welspun Corp Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 70171,
-    "pe": 95.3,
-    "as_of": "2026-09-20T14:22:04.494Z",
+    "market_cap_cr": 74716,
+    "pe": 101,
+    "as_of": "2026-09-27T15:51:41.020Z",
     "source_url": "https://www.screener.in/company/532144/"
   },
   "532155": {
@@ -2325,9 +2388,9 @@
     "company": "Apar Industries Ltd",
     "industry": "Other Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 78963,
-    "pe": 66.2,
-    "as_of": "2026-09-20T14:22:06.476Z",
+    "market_cap_cr": 74432,
+    "pe": 62.4,
+    "as_of": "2026-09-27T15:51:42.960Z",
     "source_url": "https://www.screener.in/company/532259/"
   },
   "532281": {
@@ -2757,9 +2820,9 @@
     "company": "Action Construction Equipment Ltd",
     "industry": "Construction Vehicles",
     "sector": "Capital Goods",
-    "market_cap_cr": 14638,
+    "market_cap_cr": 14607,
     "pe": 32.7,
-    "as_of": "2026-09-20T14:22:08.690Z",
+    "as_of": "2026-09-27T15:51:44.899Z",
     "source_url": "https://www.screener.in/company/532762/"
   },
   "532777": {
@@ -2995,6 +3058,15 @@
     "pe": 56.6,
     "as_of": "2026-09-21T23:25:33.883Z",
     "source_url": "https://www.screener.in/company/532929/"
+  },
+  "532934": {
+    "company": "PPAP Automotive Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 349,
+    "pe": 34.2,
+    "as_of": "2026-09-27T15:51:46.838Z",
+    "source_url": "https://www.screener.in/company/532934/"
   },
   "532937": {
     "company": "Kuantum Papers Ltd",
