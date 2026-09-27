@@ -1083,9 +1083,9 @@
     "company": "GRP Ltd",
     "industry": "Rubber",
     "sector": "Capital Goods",
-    "market_cap_cr": 1071,
-    "pe": 90.9,
-    "as_of": "2026-09-20T17:49:01.906Z",
+    "market_cap_cr": 1066,
+    "pe": 90.5,
+    "as_of": "2026-09-27T19:26:59.763Z",
     "source_url": "https://www.screener.in/company/509152/"
   },
   "509243": {
@@ -1416,9 +1416,9 @@
     "company": "Welspun Living Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 20280,
-    "pe": 62.3,
-    "as_of": "2026-09-20T17:49:03.867Z",
+    "market_cap_cr": 21227,
+    "pe": 65.2,
+    "as_of": "2026-09-27T19:27:01.737Z",
     "source_url": "https://www.screener.in/company/514162/"
   },
   "514167": {
@@ -3333,9 +3333,9 @@
     "company": "Fineotex Chemical Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 6640,
-    "pe": 71.8,
-    "as_of": "2026-09-20T14:22:10.669Z",
+    "market_cap_cr": 7043,
+    "pe": 76.1,
+    "as_of": "2026-09-27T19:27:03.722Z",
     "source_url": "https://www.screener.in/company/533333/"
   },
   "533581": {
@@ -3401,6 +3401,15 @@
     "as_of": "2026-09-22T07:51:00.595Z",
     "source_url": "https://www.screener.in/company/534618/"
   },
+  "534675": {
+    "company": "Prozone Realty Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 866,
+    "pe": 105,
+    "as_of": "2026-09-27T19:27:05.701Z",
+    "source_url": "https://www.screener.in/company/534675/"
+  },
   "534976": {
     "company": "V-Mart Retail Ltd",
     "industry": "Diversified Retail",
@@ -3409,6 +3418,15 @@
     "pe": 45.9,
     "as_of": "2026-09-22T07:51:02.585Z",
     "source_url": "https://www.screener.in/company/534976/"
+  },
+  "535136": {
+    "company": "NIBE Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 1955,
+    "pe": 462,
+    "as_of": "2026-09-27T19:27:07.674Z",
+    "source_url": "https://www.screener.in/company/535136/"
   },
   "537392": {
     "company": "Keto Motors Ltd",
@@ -3549,9 +3567,9 @@
     "company": "Alan Scott Enterprises Ltd",
     "industry": "Film Production, Distribution & Exhibition",
     "sector": "Media, Entertainment & Publication",
-    "market_cap_cr": 172,
-    "pe": 1229,
-    "as_of": "2026-09-20T14:22:12.648Z",
+    "market_cap_cr": 186,
+    "pe": 1330,
+    "as_of": "2026-09-27T19:27:09.648Z",
     "source_url": "https://www.screener.in/company/539115/"
   },
   "539118": {
@@ -3571,6 +3589,15 @@
     "pe": 6.55,
     "as_of": "2026-09-27T10:57:51.771Z",
     "source_url": "https://www.screener.in/company/539150/"
+  },
+  "539195": {
+    "company": "POCL Enterprises Ltd",
+    "industry": "Commodity Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 447,
+    "pe": 13.2,
+    "as_of": "2026-09-27T19:27:11.621Z",
+    "source_url": "https://www.screener.in/company/539195/"
   },
   "539221": {
     "company": "Sportking India Ltd",
@@ -3598,6 +3625,15 @@
     "pe": 51.8,
     "as_of": "2026-09-21T23:25:37.902Z",
     "source_url": "https://www.screener.in/company/539268/"
+  },
+  "539300": {
+    "company": "Sunrakshakk Industries India Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 1135,
+    "pe": 54.8,
+    "as_of": "2026-09-27T19:27:13.595Z",
+    "source_url": "https://www.screener.in/company/539300/"
   },
   "539332": {
     "company": "Navkar Corporation Ltd",
@@ -3666,9 +3702,9 @@
     "company": "Dr Lal Pathlabs Ltd",
     "industry": "Healthcare Service Provider",
     "sector": "Healthcare",
-    "market_cap_cr": 31839,
-    "pe": 56.3,
-    "as_of": "2026-09-20T14:22:14.627Z",
+    "market_cap_cr": 32769,
+    "pe": 57.9,
+    "as_of": "2026-09-27T19:27:15.569Z",
     "source_url": "https://www.screener.in/company/539524/"
   },
   "539542": {
@@ -4035,9 +4071,9 @@
     "company": "Share India Securities Ltd",
     "industry": "Stockbroking & Allied",
     "sector": "Financial Services",
-    "market_cap_cr": 4992,
-    "pe": 15.6,
-    "as_of": "2026-09-20T17:49:05.825Z",
+    "market_cap_cr": 4587,
+    "pe": 14.3,
+    "as_of": "2026-09-27T19:27:17.540Z",
     "source_url": "https://www.screener.in/company/540725/"
   },
   "540743": {
@@ -4251,9 +4287,9 @@
     "company": "Neogen Chemicals Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 7476,
-    "pe": 143,
-    "as_of": "2026-09-20T17:49:07.782Z",
+    "market_cap_cr": 7166,
+    "pe": 137,
+    "as_of": "2026-09-27T19:27:19.517Z",
     "source_url": "https://www.screener.in/company/542665/"
   },
   "542684": {
@@ -4454,6 +4490,15 @@
     "as_of": "2026-09-26T05:43:46.922Z",
     "source_url": "https://www.screener.in/company/543270/"
   },
+  "543272": {
+    "company": "Easy Trip Planners Ltd",
+    "industry": "Tour, Travel Related Services",
+    "sector": "Consumer Services",
+    "market_cap_cr": 2359,
+    "pe": 2.26,
+    "as_of": "2026-09-27T19:27:21.490Z",
+    "source_url": "https://www.screener.in/company/543272/"
+  },
   "543273": {
     "company": "Knowledge Marine & Engineering Works Ltd",
     "industry": "Dredging",
@@ -4494,9 +4539,9 @@
     "company": "Lodha Developers Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 114394,
-    "pe": 34.4,
-    "as_of": "2026-09-20T17:49:09.739Z",
+    "market_cap_cr": 116428,
+    "pe": 35,
+    "as_of": "2026-09-27T19:27:23.464Z",
     "source_url": "https://www.screener.in/company/543287/"
   },
   "543288": {
@@ -4692,9 +4737,9 @@
     "company": "Medplus Health Services Ltd",
     "industry": "Pharmacy Retail",
     "sector": "Consumer Services",
-    "market_cap_cr": 7925,
+    "market_cap_cr": 7868,
     "pe": 119,
-    "as_of": "2026-09-20T17:49:11.697Z",
+    "as_of": "2026-09-27T19:27:25.438Z",
     "source_url": "https://www.screener.in/company/543427/"
   },
   "543428": {
@@ -4984,6 +5029,15 @@
     "pe": 13.8,
     "as_of": "2026-09-27T10:58:01.637Z",
     "source_url": "https://www.screener.in/company/543918/"
+  },
+  "543923": {
+    "company": "IKIO Technologies Ltd",
+    "industry": "Consumer Electronics",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 1588,
+    "pe": 99.2,
+    "as_of": "2026-09-27T19:27:27.414Z",
+    "source_url": "https://www.screener.in/company/543923/"
   },
   "543932": {
     "company": "Ideaforge Technology Ltd",
