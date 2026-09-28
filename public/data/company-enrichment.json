@@ -147,9 +147,9 @@
     "company": "Dr Reddys Laboratories Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 101207,
+    "market_cap_cr": 101762,
     "pe": 153,
-    "as_of": "2026-09-21T14:42:40.463Z",
+    "as_of": "2026-09-28T16:11:53.604Z",
     "source_url": "https://www.screener.in/company/500124/"
   },
   "500126": {
@@ -543,9 +543,9 @@
     "company": "Mahindra & Mahindra Ltd",
     "industry": "Passenger Cars & Utility Vehicles",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 379805,
-    "pe": 23.2,
-    "as_of": "2026-09-21T14:42:42.391Z",
+    "market_cap_cr": 372885,
+    "pe": 22.8,
+    "as_of": "2026-09-28T16:11:55.624Z",
     "source_url": "https://www.screener.in/company/500520/"
   },
   "500570": {
@@ -867,9 +867,9 @@
     "company": "SML Mahindra Ltd",
     "industry": "Commercial Vehicles",
     "sector": "Capital Goods",
-    "market_cap_cr": 9346,
-    "pe": 59.8,
-    "as_of": "2026-09-21T14:42:44.319Z",
+    "market_cap_cr": 9430,
+    "pe": 60.3,
+    "as_of": "2026-09-28T16:11:57.644Z",
     "source_url": "https://www.screener.in/company/505192/"
   },
   "505200": {
@@ -1245,9 +1245,9 @@
     "company": "Sunteck Realty Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 4256,
-    "pe": 250,
-    "as_of": "2026-09-21T14:42:46.250Z",
+    "market_cap_cr": 4067,
+    "pe": 239,
+    "as_of": "2026-09-28T16:11:59.663Z",
     "source_url": "https://www.screener.in/company/512179/"
   },
   "512296": {
@@ -1574,6 +1574,15 @@
     "as_of": "2026-09-26T10:26:39.581Z",
     "source_url": "https://www.screener.in/company/517354/"
   },
+  "517498": {
+    "company": "Websol Energy System Ltd",
+    "industry": "Other Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 3112,
+    "pe": 9.91,
+    "as_of": "2026-09-28T16:12:01.689Z",
+    "source_url": "https://www.screener.in/company/517498/"
+  },
   "517514": {
     "company": "D & H India Ltd",
     "industry": "Industrial Products",
@@ -1582,6 +1591,15 @@
     "pe": 23.1,
     "as_of": "2026-09-25T06:28:49.022Z",
     "source_url": "https://www.screener.in/company/517514/"
+  },
+  "517544": {
+    "company": "Centum Electronics Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 6752,
+    "pe": 82.5,
+    "as_of": "2026-09-28T16:12:03.709Z",
+    "source_url": "https://www.screener.in/company/517544/"
   },
   "517554": {
     "company": "NHC Foods Ltd",
@@ -2131,6 +2149,15 @@
     "pe": 17.8,
     "as_of": "2026-09-27T22:45:49.286Z",
     "source_url": "https://www.screener.in/company/526807/"
+  },
+  "526861": {
+    "company": "Rishi Laser Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 155,
+    "pe": 56.5,
+    "as_of": "2026-09-28T16:12:05.729Z",
+    "source_url": "https://www.screener.in/company/526861/"
   },
   "526881": {
     "company": "63 Moons Technologies Ltd",
@@ -2955,9 +2982,9 @@
     "company": "Tanla Platforms Ltd",
     "industry": "Software Products",
     "sector": "Information Technology",
-    "market_cap_cr": 6539,
-    "pe": 39.2,
-    "as_of": "2026-09-21T14:42:48.183Z",
+    "market_cap_cr": 6593,
+    "pe": 39.5,
+    "as_of": "2026-09-28T16:12:07.750Z",
     "source_url": "https://www.screener.in/company/532790/"
   },
   "532796": {
@@ -3261,9 +3288,9 @@
     "company": "RPG Life Sciences Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 4560,
-    "pe": 39.1,
-    "as_of": "2026-09-21T14:42:50.112Z",
+    "market_cap_cr": 4911,
+    "pe": 42.1,
+    "as_of": "2026-09-28T16:12:09.782Z",
     "source_url": "https://www.screener.in/company/532983/"
   },
   "532993": {
@@ -4197,9 +4224,9 @@
     "company": "ERIS Lifesciences Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 17951,
-    "pe": 87,
-    "as_of": "2026-09-21T14:42:52.038Z",
+    "market_cap_cr": 17128,
+    "pe": 83.1,
+    "as_of": "2026-09-28T16:12:11.806Z",
     "source_url": "https://www.screener.in/company/540596/"
   },
   "540602": {
@@ -4679,6 +4706,15 @@
     "as_of": "2026-09-26T05:43:46.922Z",
     "source_url": "https://www.screener.in/company/543270/"
   },
+  "543271": {
+    "company": "Jubilant Ingrevia Ltd",
+    "industry": "Specialty Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 10431,
+    "pe": 30.2,
+    "as_of": "2026-09-28T16:12:13.827Z",
+    "source_url": "https://www.screener.in/company/543271/"
+  },
   "543272": {
     "company": "Easy Trip Planners Ltd",
     "industry": "Tour, Travel Related Services",
@@ -5025,9 +5061,9 @@
     "company": "Kesar India Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 3885,
+    "market_cap_cr": 3888,
     "pe": 132,
-    "as_of": "2026-09-20T20:55:31.489Z",
+    "as_of": "2026-09-28T16:12:15.844Z",
     "source_url": "https://www.screener.in/company/543542/"
   },
   "543543": {
@@ -5065,6 +5101,15 @@
     "pe": 33.3,
     "as_of": "2026-09-26T18:46:14.499Z",
     "source_url": "https://www.screener.in/company/543593/"
+  },
+  "543600": {
+    "company": "Harsha Engineers International Ltd",
+    "industry": "Other Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4238,
+    "pe": 23.6,
+    "as_of": "2026-09-28T16:12:17.862Z",
+    "source_url": "https://www.screener.in/company/543600/"
   },
   "543620": {
     "company": "Insolation Energy Ltd",
@@ -5277,18 +5322,18 @@
     "company": "Allcargo Terminals Ltd",
     "industry": "Port & Port services",
     "sector": "Services",
-    "market_cap_cr": 718,
-    "pe": 14.8,
-    "as_of": "2026-09-18T06:01:44.008Z",
+    "market_cap_cr": 728,
+    "pe": 15,
+    "as_of": "2026-09-28T16:12:19.880Z",
     "source_url": "https://www.screener.in/company/543954/"
   },
   "543955": {
     "company": "TransIndia Real Estate Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 729,
-    "pe": 26.9,
-    "as_of": "2026-09-18T06:01:46.029Z",
+    "market_cap_cr": 705,
+    "pe": 26,
+    "as_of": "2026-09-28T16:12:21.897Z",
     "source_url": "https://www.screener.in/company/543955/"
   },
   "543960": {
