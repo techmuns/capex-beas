@@ -444,9 +444,9 @@
     "company": "Tata Power Company Ltd",
     "industry": "Integrated Power Utilities",
     "sector": "Power",
-    "market_cap_cr": 119761,
-    "pe": 136,
-    "as_of": "2026-09-20T23:21:27.908Z",
+    "market_cap_cr": 117429,
+    "pe": 133,
+    "as_of": "2026-09-28T01:21:26.424Z",
     "source_url": "https://www.screener.in/company/500400/"
   },
   "500403": {
@@ -620,6 +620,15 @@
     "as_of": "2026-09-23T10:17:00.575Z",
     "source_url": "https://www.screener.in/company/500790/"
   },
+  "500840": {
+    "company": "EIH Ltd",
+    "industry": "Hotels & Resorts",
+    "sector": "Consumer Services",
+    "market_cap_cr": 18429,
+    "pe": 28.6,
+    "as_of": "2026-09-28T01:21:28.432Z",
+    "source_url": "https://www.screener.in/company/500840/"
+  },
   "500850": {
     "company": "Indian Hotels Co Ltd",
     "industry": "Hotels & Resorts",
@@ -678,9 +687,9 @@
     "company": "Shaily Engineering Plastics Ltd",
     "industry": "Plastic Products - Consumer",
     "sector": "Consumer Durables",
-    "market_cap_cr": 14269,
-    "pe": 80.2,
-    "as_of": "2026-09-17T08:05:29.298Z",
+    "market_cap_cr": 14453,
+    "pe": 81.3,
+    "as_of": "2026-09-28T01:21:30.436Z",
     "source_url": "https://www.screener.in/company/501423/"
   },
   "501455": {
@@ -705,9 +714,9 @@
     "company": "Sagar Cements Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 1984,
-    "pe": 103,
-    "as_of": "2026-09-20T23:21:29.860Z",
+    "market_cap_cr": 1995,
+    "pe": 104,
+    "as_of": "2026-09-28T01:21:32.438Z",
     "source_url": "https://www.screener.in/company/502090/"
   },
   "502355": {
@@ -1515,9 +1524,9 @@
     "company": "Usha Martin Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 15456,
-    "pe": 37,
-    "as_of": "2026-09-20T23:21:31.812Z",
+    "market_cap_cr": 15810,
+    "pe": 37.9,
+    "as_of": "2026-09-28T01:21:34.441Z",
     "source_url": "https://www.screener.in/company/517146/"
   },
   "517206": {
@@ -1573,6 +1582,15 @@
     "pe": 58.4,
     "as_of": "2026-09-25T02:03:01.296Z",
     "source_url": "https://www.screener.in/company/517556/"
+  },
+  "519003": {
+    "company": "Modi Naturals Ltd",
+    "industry": "Other Agricultural Products",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 451,
+    "pe": 46.7,
+    "as_of": "2026-09-28T01:21:36.444Z",
+    "source_url": "https://www.screener.in/company/519003/"
   },
   "519097": {
     "company": "Ritesh International Ltd",
@@ -2397,9 +2415,9 @@
     "company": "JK Paper Ltd",
     "industry": "Paper & Paper Products",
     "sector": "Forest Materials",
-    "market_cap_cr": 7808,
-    "pe": 28.6,
-    "as_of": "2026-09-20T23:21:33.763Z",
+    "market_cap_cr": 7406,
+    "pe": 27.1,
+    "as_of": "2026-09-28T01:21:38.449Z",
     "source_url": "https://www.screener.in/company/532162/"
   },
   "532178": {
@@ -2613,9 +2631,9 @@
     "company": "Ramkrishna Forgings Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 13191,
-    "pe": 106,
-    "as_of": "2026-09-20T23:21:35.717Z",
+    "market_cap_cr": 13073,
+    "pe": 105,
+    "as_of": "2026-09-28T01:21:40.453Z",
     "source_url": "https://www.screener.in/company/532527/"
   },
   "532528": {
@@ -2626,6 +2644,15 @@
     "pe": 41.2,
     "as_of": "2026-09-22T17:58:57.959Z",
     "source_url": "https://www.screener.in/company/532528/"
+  },
+  "532529": {
+    "company": "New Delhi Television Ltd",
+    "industry": "TV Broadcasting & Software Production",
+    "sector": "Media, Entertainment & Publication",
+    "market_cap_cr": 791,
+    "pe": 2.58,
+    "as_of": "2026-09-28T01:21:42.455Z",
+    "source_url": "https://www.screener.in/company/532529/"
   },
   "532531": {
     "company": "Strides Pharma Science Ltd",
@@ -2685,9 +2712,9 @@
     "company": "NTPC Ltd",
     "industry": "Power Generation",
     "sector": "Power",
-    "market_cap_cr": 313833,
-    "pe": 13.2,
-    "as_of": "2026-09-20T23:21:37.671Z",
+    "market_cap_cr": 316693,
+    "pe": 13.4,
+    "as_of": "2026-09-28T01:21:44.458Z",
     "source_url": "https://www.screener.in/company/532555/"
   },
   "532605": {
@@ -2847,9 +2874,9 @@
     "company": "CIE Automotive India Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 14687,
-    "pe": 22.4,
-    "as_of": "2026-09-20T23:21:39.625Z",
+    "market_cap_cr": 14825,
+    "pe": 22.7,
+    "as_of": "2026-09-28T01:21:46.462Z",
     "source_url": "https://www.screener.in/company/532756/"
   },
   "532762": {
@@ -2883,9 +2910,9 @@
     "company": "Sobha Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 12994,
-    "pe": 41.4,
-    "as_of": "2026-09-20T23:21:41.577Z",
+    "market_cap_cr": 13116,
+    "pe": 41.8,
+    "as_of": "2026-09-28T01:21:48.464Z",
     "source_url": "https://www.screener.in/company/532784/"
   },
   "532790": {
@@ -3004,6 +3031,15 @@
     "pe": 38.6,
     "as_of": "2026-09-25T02:03:09.040Z",
     "source_url": "https://www.screener.in/company/532856/"
+  },
+  "532867": {
+    "company": "V2 Retail Ltd",
+    "industry": "Speciality Retail",
+    "sector": "Consumer Services",
+    "market_cap_cr": 7830,
+    "pe": 47.8,
+    "as_of": "2026-09-28T01:21:50.470Z",
+    "source_url": "https://www.screener.in/company/532867/"
   },
   "532868": {
     "company": "DLF Ltd",
@@ -3333,18 +3369,18 @@
     "company": "Coal India Ltd",
     "industry": "Coal",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 252610,
-    "pe": 13.4,
-    "as_of": "2026-09-20T23:21:43.529Z",
+    "market_cap_cr": 262594,
+    "pe": 13.9,
+    "as_of": "2026-09-28T01:21:52.476Z",
     "source_url": "https://www.screener.in/company/533278/"
   },
   "533282": {
     "company": "Gravita India Ltd",
     "industry": "Industrial Minerals",
     "sector": "Metals & Mining",
-    "market_cap_cr": 11798,
-    "pe": 39.7,
-    "as_of": "2026-09-20T23:21:45.481Z",
+    "market_cap_cr": 11037,
+    "pe": 37.2,
+    "as_of": "2026-09-28T01:21:54.483Z",
     "source_url": "https://www.screener.in/company/533282/"
   },
   "533293": {
