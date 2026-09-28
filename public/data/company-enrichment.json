@@ -170,6 +170,15 @@
     "as_of": "2026-09-25T02:02:55.491Z",
     "source_url": "https://www.screener.in/company/500128/"
   },
+  "500144": {
+    "company": "Finolex Cables Ltd",
+    "industry": "Cables - Electricals",
+    "sector": "Capital Goods",
+    "market_cap_cr": 21519,
+    "pe": 30.5,
+    "as_of": "2026-09-28T07:47:29.352Z",
+    "source_url": "https://www.screener.in/company/500144/"
+  },
   "500164": {
     "company": "Godrej Industries Ltd",
     "industry": "Diversified",
@@ -399,10 +408,19 @@
     "company": "Birla Corporation Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 6386,
-    "pe": 26,
-    "as_of": "2026-09-21T07:29:32.617Z",
+    "market_cap_cr": 6481,
+    "pe": 26.4,
+    "as_of": "2026-09-28T07:47:31.331Z",
     "source_url": "https://www.screener.in/company/500335/"
+  },
+  "500336": {
+    "company": "Surya Roshni Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4849,
+    "pe": 15.6,
+    "as_of": "2026-09-28T07:47:33.314Z",
+    "source_url": "https://www.screener.in/company/500336/"
   },
   "500338": {
     "company": "Prism Johnson Ltd",
@@ -1353,9 +1371,9 @@
     "company": "Gujarat Containers Ltd",
     "industry": "Packaging",
     "sector": "Capital Goods",
-    "market_cap_cr": 98.9,
-    "pe": 10.4,
-    "as_of": "2026-09-21T07:29:34.554Z",
+    "market_cap_cr": 96.1,
+    "pe": 10.2,
+    "as_of": "2026-09-28T07:47:35.290Z",
     "source_url": "https://www.screener.in/company/513507/"
   },
   "513509": {
@@ -2168,6 +2186,15 @@
     "as_of": "2026-09-27T15:51:39.080Z",
     "source_url": "https://www.screener.in/company/530343/"
   },
+  "530365": {
+    "company": "Orient Bell Ltd",
+    "industry": "Ceramics",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 594,
+    "pe": 28,
+    "as_of": "2026-09-28T07:47:37.268Z",
+    "source_url": "https://www.screener.in/company/530365/"
+  },
   "530367": {
     "company": "NRB Bearings Ltd",
     "industry": "Auto Components & Equipments",
@@ -2253,9 +2280,9 @@
     "company": "Indian Oil Corporation Ltd",
     "industry": "Refineries & Marketing",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 193108,
-    "pe": 6.79,
-    "as_of": "2026-09-21T07:29:36.492Z",
+    "market_cap_cr": 188377,
+    "pe": 6.67,
+    "as_of": "2026-09-28T07:47:39.249Z",
     "source_url": "https://www.screener.in/company/530965/"
   },
   "531112": {
@@ -2275,6 +2302,15 @@
     "pe": 5.29,
     "as_of": "2026-09-27T22:45:51.297Z",
     "source_url": "https://www.screener.in/company/531126/"
+  },
+  "531147": {
+    "company": "Alicon Castalloy Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 1178,
+    "pe": 27,
+    "as_of": "2026-09-28T07:47:41.230Z",
+    "source_url": "https://www.screener.in/company/531147/"
   },
   "531279": {
     "company": "Trishakti Industries Ltd",
@@ -3428,6 +3464,15 @@
     "as_of": "2026-09-27T22:45:59.341Z",
     "source_url": "https://www.screener.in/company/533470/"
   },
+  "533553": {
+    "company": "TD Power Systems Ltd",
+    "industry": "Heavy Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 22358,
+    "pe": 87,
+    "as_of": "2026-09-28T07:47:43.209Z",
+    "source_url": "https://www.screener.in/company/533553/"
+  },
   "533581": {
     "company": "PG Electroplast Ltd",
     "industry": "Consumer Electronics",
@@ -3517,6 +3562,15 @@
     "pe": 462,
     "as_of": "2026-09-27T19:27:07.674Z",
     "source_url": "https://www.screener.in/company/535136/"
+  },
+  "537259": {
+    "company": "Suyog Telematics Ltd",
+    "industry": "Telecom - Infrastructure",
+    "sector": "Telecommunication",
+    "market_cap_cr": 747,
+    "pe": 12.6,
+    "as_of": "2026-09-28T07:47:45.188Z",
+    "source_url": "https://www.screener.in/company/537259/"
   },
   "537392": {
     "company": "Keto Motors Ltd",
@@ -3742,6 +3796,15 @@
     "pe": 54.8,
     "as_of": "2026-09-27T19:27:13.595Z",
     "source_url": "https://www.screener.in/company/539300/"
+  },
+  "539302": {
+    "company": "Power Mech Projects Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 7554,
+    "pe": 21.9,
+    "as_of": "2026-09-28T07:47:47.170Z",
+    "source_url": "https://www.screener.in/company/539302/"
   },
   "539332": {
     "company": "Navkar Corporation Ltd",
@@ -4593,9 +4656,9 @@
     "company": "Antony Waste Handling Cell Ltd",
     "industry": "Waste Management",
     "sector": "Utilities",
-    "market_cap_cr": 1038,
-    "pe": 92.8,
-    "as_of": "2026-09-21T07:29:38.431Z",
+    "market_cap_cr": 1050,
+    "pe": 93.9,
+    "as_of": "2026-09-28T07:47:49.147Z",
     "source_url": "https://www.screener.in/company/543254/"
   },
   "543258": {
@@ -4782,18 +4845,18 @@
     "company": "Aashka Hospitals Ltd",
     "industry": "Hospital",
     "sector": "Healthcare",
-    "market_cap_cr": 187,
-    "pe": 65.9,
-    "as_of": "2026-09-21T07:29:40.369Z",
+    "market_cap_cr": 232,
+    "pe": 81.6,
+    "as_of": "2026-09-28T07:47:51.133Z",
     "source_url": "https://www.screener.in/company/543346/"
   },
   "543349": {
     "company": "Acutaas Chemicals Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 28409,
-    "pe": 71.5,
-    "as_of": "2026-09-21T07:29:42.308Z",
+    "market_cap_cr": 26208,
+    "pe": 66,
+    "as_of": "2026-09-28T07:47:53.115Z",
     "source_url": "https://www.screener.in/company/543349/"
   },
   "543350": {
@@ -4840,6 +4903,15 @@
     "pe": 30.2,
     "as_of": "2026-09-22T01:59:07.361Z",
     "source_url": "https://www.screener.in/company/543401/"
+  },
+  "543411": {
+    "company": "Hi-Tech Pipes Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 1502,
+    "pe": 24.4,
+    "as_of": "2026-09-28T07:47:55.094Z",
+    "source_url": "https://www.screener.in/company/543411/"
   },
   "543416": {
     "company": "Zodiac Energy Ltd",
@@ -4935,9 +5007,9 @@
     "company": "Paradeep Phosphates Ltd",
     "industry": "Fertilizers",
     "sector": "Chemicals",
-    "market_cap_cr": 16102,
-    "pe": 14.8,
-    "as_of": "2026-09-21T07:29:44.245Z",
+    "market_cap_cr": 16180,
+    "pe": 14.9,
+    "as_of": "2026-09-28T07:47:57.073Z",
     "source_url": "https://www.screener.in/company/543530/"
   },
   "543534": {
