@@ -512,6 +512,24 @@
     "as_of": "2026-09-24T17:16:56.373Z",
     "source_url": "https://www.screener.in/company/500470/"
   },
+  "500472": {
+    "company": "SKF India Ltd",
+    "industry": "Abrasives & Bearings",
+    "sector": "Capital Goods",
+    "market_cap_cr": 7474,
+    "pe": 50.3,
+    "as_of": "2026-09-28T22:04:29.210Z",
+    "source_url": "https://www.screener.in/company/500472/"
+  },
+  "500477": {
+    "company": "Ashok Leyland Ltd",
+    "industry": "Commercial Vehicles",
+    "sector": "Capital Goods",
+    "market_cap_cr": 91174,
+    "pe": 23.7,
+    "as_of": "2026-09-28T22:04:31.198Z",
+    "source_url": "https://www.screener.in/company/500477/"
+  },
   "500493": {
     "company": "Bharat Forge Ltd",
     "industry": "Auto Components & Equipments",
@@ -1160,6 +1178,15 @@
     "as_of": "2026-09-23T04:55:18.948Z",
     "source_url": "https://www.screener.in/company/509930/"
   },
+  "511018": {
+    "company": "Milgrey Finance & Investments Ltd",
+    "industry": "Diversified Commercial Services",
+    "sector": "Services",
+    "market_cap_cr": 87.1,
+    "pe": 15.2,
+    "as_of": "2026-09-28T22:04:33.336Z",
+    "source_url": "https://www.screener.in/company/511018/"
+  },
   "511034": {
     "company": "Jindal Drilling & Industries Ltd",
     "industry": "Offshore Support Solution Drilling",
@@ -1389,9 +1416,9 @@
     "company": "Steelcast Ltd",
     "industry": "Castings & Forgings",
     "sector": "Capital Goods",
-    "market_cap_cr": 3201,
-    "pe": 35.3,
-    "as_of": "2026-09-21T19:52:33.344Z",
+    "market_cap_cr": 3752,
+    "pe": 41.4,
+    "as_of": "2026-09-28T22:04:35.331Z",
     "source_url": "https://www.screener.in/company/513517/"
   },
   "513519": {
@@ -2312,6 +2339,15 @@
     "as_of": "2026-09-28T07:47:39.249Z",
     "source_url": "https://www.screener.in/company/530965/"
   },
+  "531092": {
+    "company": "Om Infra Ltd",
+    "industry": "Civil Construction",
+    "sector": "Construction",
+    "market_cap_cr": 758,
+    "pe": 23.2,
+    "as_of": "2026-09-28T22:04:37.319Z",
+    "source_url": "https://www.screener.in/company/531092/"
+  },
   "531112": {
     "company": "Balu Forge Industries Ltd",
     "industry": "Castings & Forgings",
@@ -2410,6 +2446,15 @@
     "pe": 322,
     "as_of": "2026-09-24T20:39:31.461Z",
     "source_url": "https://www.screener.in/company/531676/"
+  },
+  "531723": {
+    "company": "GACM Technologies Ltd",
+    "industry": "Other Financial Services",
+    "sector": "Financial Services",
+    "market_cap_cr": 117,
+    "pe": 18.5,
+    "as_of": "2026-09-28T22:04:39.307Z",
+    "source_url": "https://www.screener.in/company/531723/"
   },
   "531761": {
     "company": "Apollo Pipes Ltd",
@@ -3666,9 +3711,9 @@
     "company": "Sharda Cropchem Ltd",
     "industry": "Pesticides & Agrochemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 6729,
-    "pe": 9.55,
-    "as_of": "2026-09-21T19:52:35.361Z",
+    "market_cap_cr": 6578,
+    "pe": 9.34,
+    "as_of": "2026-09-28T22:04:41.303Z",
     "source_url": "https://www.screener.in/company/538666/"
   },
   "538715": {
@@ -4301,6 +4346,15 @@
     "as_of": "2026-09-24T06:21:45.436Z",
     "source_url": "https://www.screener.in/company/540743/"
   },
+  "540762": {
+    "company": "Tube Investments of India Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 47599,
+    "pe": 57,
+    "as_of": "2026-09-28T22:04:43.290Z",
+    "source_url": "https://www.screener.in/company/540762/"
+  },
   "540774": {
     "company": "IFGL Refractories Ltd",
     "industry": "Electrodes & Refractories",
@@ -4827,9 +4881,9 @@
     "company": "Eternal Ltd",
     "industry": "E-Retail/ E-Commerce",
     "sector": "Consumer Services",
-    "market_cap_cr": 324453,
-    "pe": 123,
-    "as_of": "2026-09-21T19:52:37.375Z",
+    "market_cap_cr": 319378,
+    "pe": 121,
+    "as_of": "2026-09-28T22:04:45.283Z",
     "source_url": "https://www.screener.in/company/543320/"
   },
   "543321": {
@@ -5102,6 +5156,15 @@
     "as_of": "2026-09-26T18:46:14.499Z",
     "source_url": "https://www.screener.in/company/543593/"
   },
+  "543597": {
+    "company": "Virtuoso Optoelectronics Ltd",
+    "industry": "Diversified consumer products",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 1704,
+    "pe": 96.8,
+    "as_of": "2026-09-28T22:04:47.267Z",
+    "source_url": "https://www.screener.in/company/543597/"
+  },
   "543600": {
     "company": "Harsha Engineers International Ltd",
     "industry": "Other Industrial Products",
@@ -5354,13 +5417,22 @@
     "as_of": "2026-09-17T05:26:49.992Z",
     "source_url": "https://www.screener.in/company/543963/"
   },
+  "543969": {
+    "company": "Pyramid Technoplast Ltd",
+    "industry": "Packaging",
+    "sector": "Capital Goods",
+    "market_cap_cr": 593,
+    "pe": 18.9,
+    "as_of": "2026-09-28T22:04:49.253Z",
+    "source_url": "https://www.screener.in/company/543969/"
+  },
   "543971": {
     "company": "Bondada Engineering Ltd",
     "industry": "Telecom - Infrastructure",
     "sector": "Telecommunication",
-    "market_cap_cr": 3011,
-    "pe": 15.6,
-    "as_of": "2026-09-20T20:55:33.423Z",
+    "market_cap_cr": 3050,
+    "pe": 15.8,
+    "as_of": "2026-09-28T22:04:51.371Z",
     "source_url": "https://www.screener.in/company/543971/"
   },
   "543980": {
@@ -5371,6 +5443,15 @@
     "pe": 47.7,
     "as_of": "2026-09-22T17:58:59.937Z",
     "source_url": "https://www.screener.in/company/543980/"
+  },
+  "543981": {
+    "company": "R R Kabel Ltd",
+    "industry": "Cables - Electricals",
+    "sector": "Capital Goods",
+    "market_cap_cr": 27822,
+    "pe": 46,
+    "as_of": "2026-09-28T22:04:53.363Z",
+    "source_url": "https://www.screener.in/company/543981/"
   },
   "543983": {
     "company": "EMS Ltd",
@@ -5385,18 +5466,18 @@
     "company": "Samhi Hotels Ltd",
     "industry": "Hotels & Resorts",
     "sector": "Consumer Services",
-    "market_cap_cr": 3564,
-    "pe": 700,
-    "as_of": "2026-09-18T06:01:48.221Z",
+    "market_cap_cr": 3339,
+    "pe": 656,
+    "as_of": "2026-09-28T22:04:55.350Z",
     "source_url": "https://www.screener.in/company/543984/"
   },
   "543985": {
     "company": "Zaggle Prepaid Ocean Services Ltd",
     "industry": "IT Enabled Services",
     "sector": "Information Technology",
-    "market_cap_cr": 2401,
-    "pe": 19.3,
-    "as_of": "2026-09-19T20:43:12.745Z",
+    "market_cap_cr": 2360,
+    "pe": 19,
+    "as_of": "2026-09-28T22:04:57.337Z",
     "source_url": "https://www.screener.in/company/543985/"
   },
   "543990": {
