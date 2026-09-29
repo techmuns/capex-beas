@@ -282,9 +282,9 @@
     "company": "Kajaria Ceramics Ltd",
     "industry": "Ceramics",
     "sector": "Consumer Durables",
-    "market_cap_cr": 18618,
-    "pe": 35.2,
-    "as_of": "2026-09-22T13:36:05.776Z",
+    "market_cap_cr": 18708,
+    "pe": 35.4,
+    "as_of": "2026-09-29T15:14:43.576Z",
     "source_url": "https://www.screener.in/company/500233/"
   },
   "500240": {
@@ -309,9 +309,9 @@
     "company": "LMW Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 18273,
-    "pe": 89,
-    "as_of": "2026-09-22T13:36:07.738Z",
+    "market_cap_cr": 18110,
+    "pe": 88.2,
+    "as_of": "2026-09-29T15:14:45.497Z",
     "source_url": "https://www.screener.in/company/500252/"
   },
   "500257": {
@@ -1020,9 +1020,9 @@
     "company": "Punjab Chemicals & Crop Protection Ltd",
     "industry": "Pesticides & Agrochemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 1285,
-    "pe": 19.8,
-    "as_of": "2026-09-22T13:36:09.707Z",
+    "market_cap_cr": 1283,
+    "pe": 19.7,
+    "as_of": "2026-09-29T15:14:47.422Z",
     "source_url": "https://www.screener.in/company/506618/"
   },
   "506655": {
@@ -1312,6 +1312,15 @@
     "pe": 239,
     "as_of": "2026-09-28T16:11:59.663Z",
     "source_url": "https://www.screener.in/company/512179/"
+  },
+  "512221": {
+    "company": "SPV Global Trading Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 2.83,
+    "pe": 1321,
+    "as_of": "2026-09-29T15:14:49.351Z",
+    "source_url": "https://www.screener.in/company/512221/"
   },
   "512296": {
     "company": "Bhagyanagar India Ltd",
@@ -4242,9 +4251,9 @@
     "company": "Aditya Vision Ltd",
     "industry": "Speciality Retail",
     "sector": "Consumer Services",
-    "market_cap_cr": 8095,
-    "pe": 57.8,
-    "as_of": "2026-09-22T13:36:11.666Z",
+    "market_cap_cr": 7527,
+    "pe": 53.7,
+    "as_of": "2026-09-29T15:14:51.271Z",
     "source_url": "https://www.screener.in/company/540205/"
   },
   "540212": {
@@ -5142,9 +5151,9 @@
     "company": "Data Patterns (India) Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 25129,
-    "pe": 93,
-    "as_of": "2026-09-22T13:36:13.625Z",
+    "market_cap_cr": 23624,
+    "pe": 87.4,
+    "as_of": "2026-09-29T15:14:53.197Z",
     "source_url": "https://www.screener.in/company/543428/"
   },
   "543441": {
@@ -5480,6 +5489,15 @@
     "as_of": "2026-09-27T10:58:05.583Z",
     "source_url": "https://www.screener.in/company/543940/"
   },
+  "543945": {
+    "company": "Netweb Technologies India Ltd",
+    "industry": "IT Enabled Services",
+    "sector": "Information Technology",
+    "market_cap_cr": 27446,
+    "pe": 105,
+    "as_of": "2026-09-29T15:14:55.117Z",
+    "source_url": "https://www.screener.in/company/543945/"
+  },
   "543950": {
     "company": "Yatharth Hospital & Trauma Care Services Ltd",
     "industry": "Hospital",
@@ -5633,6 +5651,33 @@
     "as_of": "2026-09-29T09:13:31.752Z",
     "source_url": "https://www.screener.in/company/543998/"
   },
+  "544004": {
+    "company": "IRM Energy Ltd",
+    "industry": "LPG/CNG/PNG/LNG Supplier",
+    "sector": "Oil, Gas & Consumable Fuels",
+    "market_cap_cr": 1098,
+    "pe": 14.3,
+    "as_of": "2026-09-29T15:14:57.036Z",
+    "source_url": "https://www.screener.in/company/544004/"
+  },
+  "544009": {
+    "company": "Blue Jet Healthcare Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 10407,
+    "pe": 44.3,
+    "as_of": "2026-09-29T15:14:58.962Z",
+    "source_url": "https://www.screener.in/company/544009/"
+  },
+  "544012": {
+    "company": "Cello World Ltd",
+    "industry": "Houseware",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 7514,
+    "pe": 95.8,
+    "as_of": "2026-09-29T15:15:00.883Z",
+    "source_url": "https://www.screener.in/company/544012/"
+  },
   "544014": {
     "company": "Honasa Consumer Ltd",
     "industry": "Personal Care",
@@ -5646,19 +5691,46 @@
     "company": "ASK Automotive Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 12615,
-    "pe": 53.3,
-    "as_of": "2026-09-18T06:01:54.297Z",
+    "market_cap_cr": 12211,
+    "pe": 51.6,
+    "as_of": "2026-09-29T15:15:02.805Z",
     "source_url": "https://www.screener.in/company/544022/"
+  },
+  "544030": {
+    "company": "Flair Writing Industries Ltd",
+    "industry": "Stationary",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 2428,
+    "pe": 21,
+    "as_of": "2026-09-29T15:15:04.728Z",
+    "source_url": "https://www.screener.in/company/544030/"
+  },
+  "544042": {
+    "company": "Bajel Projects Ltd",
+    "industry": "Heavy Electrical Equipment",
+    "sector": "Capital Goods",
+    "market_cap_cr": 1965,
+    "pe": 59.4,
+    "as_of": "2026-09-29T15:15:06.648Z",
+    "source_url": "https://www.screener.in/company/544042/"
   },
   "544045": {
     "company": "DOMS Industries Ltd",
     "industry": "Stationary",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 12788,
-    "pe": 61.8,
-    "as_of": "2026-09-18T06:01:56.326Z",
+    "market_cap_cr": 12451,
+    "pe": 60.2,
+    "as_of": "2026-09-29T15:15:08.569Z",
     "source_url": "https://www.screener.in/company/544045/"
+  },
+  "544054": {
+    "company": "Suraj Estate Developers Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 1001,
+    "pe": 13.5,
+    "as_of": "2026-09-29T15:15:10.490Z",
+    "source_url": "https://www.screener.in/company/544054/"
   },
   "544111": {
     "company": "Apeejay Surrendra Park Hotels Ltd",
