@@ -1034,6 +1034,15 @@
     "as_of": "2026-09-26T21:45:32.350Z",
     "source_url": "https://www.screener.in/company/506655/"
   },
+  "506687": {
+    "company": "Transpek Industry Ltd",
+    "industry": "Commodity Chemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 753,
+    "pe": 19.3,
+    "as_of": "2026-09-29T20:07:59.260Z",
+    "source_url": "https://www.screener.in/company/506687/"
+  },
   "506854": {
     "company": "Tanfac Industries Ltd",
     "industry": "Commodity Chemicals",
@@ -1371,9 +1380,9 @@
     "company": "Remi Edelstahl Tubulars Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 333,
-    "pe": 112,
-    "as_of": "2026-09-22T17:58:52.020Z",
+    "market_cap_cr": 318,
+    "pe": 107,
+    "as_of": "2026-09-29T20:08:01.246Z",
     "source_url": "https://www.screener.in/company/513043/"
   },
   "513119": {
@@ -1582,6 +1591,15 @@
     "pe": 31.3,
     "as_of": "2026-09-25T13:58:57.584Z",
     "source_url": "https://www.screener.in/company/515147/"
+  },
+  "516030": {
+    "company": "Pakka Ltd",
+    "industry": "Paper & Paper Products",
+    "sector": "Forest Materials",
+    "market_cap_cr": 350,
+    "pe": 17.9,
+    "as_of": "2026-09-29T20:08:03.237Z",
+    "source_url": "https://www.screener.in/company/516030/"
   },
   "516072": {
     "company": "Vishnu Chemicals Ltd",
@@ -1956,9 +1974,9 @@
     "company": "Viceroy Hotels Ltd",
     "industry": "Hotels & Resorts",
     "sector": "Consumer Services",
-    "market_cap_cr": 957,
-    "pe": 43,
-    "as_of": "2026-09-22T17:58:53.999Z",
+    "market_cap_cr": 998,
+    "pe": 44.9,
+    "as_of": "2026-09-29T20:08:05.226Z",
     "source_url": "https://www.screener.in/company/523796/"
   },
   "523828": {
@@ -2289,9 +2307,9 @@
     "company": "Sanghvi Movers Ltd",
     "industry": "Diversified Commercial Services",
     "sector": "Services",
-    "market_cap_cr": 3798,
-    "pe": 23.2,
-    "as_of": "2026-09-22T17:58:55.979Z",
+    "market_cap_cr": 3930,
+    "pe": 24,
+    "as_of": "2026-09-29T20:08:07.214Z",
     "source_url": "https://www.screener.in/company/530073/"
   },
   "530079": {
@@ -2820,9 +2838,9 @@
     "company": "Datamatics Global Services Ltd",
     "industry": "IT Enabled Services",
     "sector": "Information Technology",
-    "market_cap_cr": 4515,
-    "pe": 41.2,
-    "as_of": "2026-09-22T17:58:57.959Z",
+    "market_cap_cr": 4861,
+    "pe": 44.4,
+    "as_of": "2026-09-29T20:08:09.203Z",
     "source_url": "https://www.screener.in/company/532528/"
   },
   "532529": {
@@ -4760,6 +4778,15 @@
     "as_of": "2026-09-25T18:35:10.764Z",
     "source_url": "https://www.screener.in/company/543187/"
   },
+  "543212": {
+    "company": "Borosil Ltd",
+    "industry": "Houseware",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 3299,
+    "pe": 44.2,
+    "as_of": "2026-09-29T20:08:11.195Z",
+    "source_url": "https://www.screener.in/company/543212/"
+  },
   "543214": {
     "company": "NDR Auto Components Ltd",
     "industry": "Auto Components & Equipments",
@@ -5583,9 +5610,9 @@
     "company": "Jupiter Life Line Hospitals Ltd",
     "industry": "Hospital",
     "sector": "Healthcare",
-    "market_cap_cr": 8994,
-    "pe": 47.7,
-    "as_of": "2026-09-22T17:58:59.937Z",
+    "market_cap_cr": 8579,
+    "pe": 45.5,
+    "as_of": "2026-09-29T20:08:13.182Z",
     "source_url": "https://www.screener.in/company/543980/"
   },
   "543981": {
@@ -5601,9 +5628,9 @@
     "company": "EMS Ltd",
     "industry": "Waste Management",
     "sector": "Utilities",
-    "market_cap_cr": 2030,
-    "pe": 30.7,
-    "as_of": "2026-09-22T17:59:01.917Z",
+    "market_cap_cr": 1874,
+    "pe": 28.3,
+    "as_of": "2026-09-29T20:08:15.174Z",
     "source_url": "https://www.screener.in/company/543983/"
   },
   "543984": {
@@ -5687,6 +5714,15 @@
     "as_of": "2026-09-24T01:04:08.374Z",
     "source_url": "https://www.screener.in/company/544014/"
   },
+  "544015": {
+    "company": "Mish Designs Ltd",
+    "industry": "Garments & Apparels",
+    "sector": "Textiles",
+    "market_cap_cr": 12,
+    "pe": 52.6,
+    "as_of": "2026-09-29T20:08:17.162Z",
+    "source_url": "https://www.screener.in/company/544015/"
+  },
   "544022": {
     "company": "ASK Automotive Ltd",
     "industry": "Auto Components & Equipments",
@@ -5732,13 +5768,49 @@
     "as_of": "2026-09-29T15:15:10.490Z",
     "source_url": "https://www.screener.in/company/544054/"
   },
+  "544067": {
+    "company": "Innova Captab Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 7274,
+    "pe": 76.2,
+    "as_of": "2026-09-29T20:08:19.152Z",
+    "source_url": "https://www.screener.in/company/544067/"
+  },
+  "544081": {
+    "company": "Jyoti CNC Automation Ltd",
+    "industry": "Industrial Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 24107,
+    "pe": 59.3,
+    "as_of": "2026-09-29T20:08:21.140Z",
+    "source_url": "https://www.screener.in/company/544081/"
+  },
+  "544095": {
+    "company": "Epack Durable Ltd",
+    "industry": "Household Appliances",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 1711,
+    "pe": 109,
+    "as_of": "2026-09-29T20:08:23.126Z",
+    "source_url": "https://www.screener.in/company/544095/"
+  },
+  "544107": {
+    "company": "BLS E-Services Ltd",
+    "industry": "IT Enabled Services",
+    "sector": "Information Technology",
+    "market_cap_cr": 2922,
+    "pe": 172,
+    "as_of": "2026-09-29T20:08:25.112Z",
+    "source_url": "https://www.screener.in/company/544107/"
+  },
   "544111": {
     "company": "Apeejay Surrendra Park Hotels Ltd",
     "industry": "Hotels & Resorts",
     "sector": "Consumer Services",
-    "market_cap_cr": 2258,
-    "pe": 32.9,
-    "as_of": "2026-09-16T19:12:41.977Z",
+    "market_cap_cr": 2184,
+    "pe": 31.8,
+    "as_of": "2026-09-29T20:08:27.098Z",
     "source_url": "https://www.screener.in/company/544111/"
   },
   "544119": {
