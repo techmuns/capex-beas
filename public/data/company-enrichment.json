@@ -638,6 +638,15 @@
     "as_of": "2026-09-23T15:10:34.012Z",
     "source_url": "https://www.screener.in/company/500672/"
   },
+  "500674": {
+    "company": "Sanofi India Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 7111,
+    "pe": 20.8,
+    "as_of": "2026-09-29T07:10:52.235Z",
+    "source_url": "https://www.screener.in/company/500674/"
+  },
   "500696": {
     "company": "Hindustan Unilever Ltd",
     "industry": "Diversified FMCG",
@@ -700,6 +709,15 @@
     "pe": 17.8,
     "as_of": "2026-09-24T11:55:10.146Z",
     "source_url": "https://www.screener.in/company/500870/"
+  },
+  "500875": {
+    "company": "ITC Ltd",
+    "industry": "Diversified FMCG",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 332748,
+    "pe": 17.5,
+    "as_of": "2026-09-29T07:10:54.238Z",
+    "source_url": "https://www.screener.in/company/500875/"
   },
   "500877": {
     "company": "Apollo Tyres Ltd",
@@ -1880,6 +1898,15 @@
     "as_of": "2026-09-22T21:25:53.864Z",
     "source_url": "https://www.screener.in/company/523385/"
   },
+  "523405": {
+    "company": "JM Financial Ltd",
+    "industry": "Holding Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 12063,
+    "pe": 21.4,
+    "as_of": "2026-09-29T07:10:56.256Z",
+    "source_url": "https://www.screener.in/company/523405/"
+  },
   "523457": {
     "company": "Linde India Ltd",
     "industry": "Industrial Gases",
@@ -1965,9 +1992,9 @@
     "company": "Aarti Industries Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 18051,
-    "pe": 34.9,
-    "as_of": "2026-09-22T06:29:26.058Z",
+    "market_cap_cr": 17417,
+    "pe": 33.7,
+    "as_of": "2026-09-29T07:10:58.264Z",
     "source_url": "https://www.screener.in/company/524208/"
   },
   "524212": {
@@ -3531,9 +3558,9 @@
     "company": "Shekhawati Industries Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 83,
-    "pe": 6.72,
-    "as_of": "2026-09-22T06:29:27.999Z",
+    "market_cap_cr": 106,
+    "pe": 8.57,
+    "as_of": "2026-09-29T07:11:00.267Z",
     "source_url": "https://www.screener.in/company/533301/"
   },
   "533326": {
@@ -4026,9 +4053,9 @@
     "company": "Fredun Pharmaceuticals Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 2298,
-    "pe": 51.7,
-    "as_of": "2026-09-22T06:29:29.942Z",
+    "market_cap_cr": 2335,
+    "pe": 52.5,
+    "as_of": "2026-09-29T07:11:02.275Z",
     "source_url": "https://www.screener.in/company/539730/"
   },
   "539787": {
@@ -4080,9 +4107,9 @@
     "company": "Parag Milk Foods Ltd",
     "industry": "Dairy Products",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 3510,
-    "pe": 23.5,
-    "as_of": "2026-09-22T06:29:31.883Z",
+    "market_cap_cr": 3467,
+    "pe": 23.2,
+    "as_of": "2026-09-29T07:11:04.284Z",
     "source_url": "https://www.screener.in/company/539889/"
   },
   "539922": {
@@ -4566,9 +4593,9 @@
     "company": "Garden Reach Shipbuilders & Engineers Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 27500,
-    "pe": 34.4,
-    "as_of": "2026-09-22T06:29:33.827Z",
+    "market_cap_cr": 25356,
+    "pe": 31.7,
+    "as_of": "2026-09-29T07:11:06.288Z",
     "source_url": "https://www.screener.in/company/542011/"
   },
   "542216": {
@@ -4854,9 +4881,9 @@
     "company": "Craftsman Automation Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 28786,
-    "pe": 104,
-    "as_of": "2026-09-22T01:59:05.395Z",
+    "market_cap_cr": 27629,
+    "pe": 99.4,
+    "as_of": "2026-09-29T07:11:08.296Z",
     "source_url": "https://www.screener.in/company/543276/"
   },
   "543280": {
@@ -5043,10 +5070,19 @@
     "company": "Go Fashion (India) Ltd",
     "industry": "Speciality Retail",
     "sector": "Consumer Services",
-    "market_cap_cr": 1613,
-    "pe": 30.2,
-    "as_of": "2026-09-22T01:59:07.361Z",
+    "market_cap_cr": 1636,
+    "pe": 30.6,
+    "as_of": "2026-09-29T07:11:10.303Z",
     "source_url": "https://www.screener.in/company/543401/"
+  },
+  "543410": {
+    "company": "DMR Engineering Ltd",
+    "industry": "Consulting Services",
+    "sector": "Services",
+    "market_cap_cr": 30.7,
+    "pe": 31.9,
+    "as_of": "2026-09-29T07:11:12.309Z",
+    "source_url": "https://www.screener.in/company/543410/"
   },
   "543411": {
     "company": "Hi-Tech Pipes Ltd",
@@ -5124,9 +5160,9 @@
     "company": "Rainbow Childrens Medicare Ltd",
     "industry": "Hospital",
     "sector": "Healthcare",
-    "market_cap_cr": 14622,
-    "pe": 58,
-    "as_of": "2026-09-21T23:25:39.909Z",
+    "market_cap_cr": 13887,
+    "pe": 55.1,
+    "as_of": "2026-09-29T07:11:14.315Z",
     "source_url": "https://www.screener.in/company/543524/"
   },
   "543528": {
@@ -5304,9 +5340,9 @@
     "company": "Vinny Overseas Ltd",
     "industry": "Garments & Apparels",
     "sector": "Textiles",
-    "market_cap_cr": 42.8,
-    "pe": 50.4,
-    "as_of": "2026-09-22T06:29:35.775Z",
+    "market_cap_cr": 41.4,
+    "pe": 48.7,
+    "as_of": "2026-09-29T07:11:16.319Z",
     "source_url": "https://www.screener.in/company/543670/"
   },
   "543689": {
@@ -5538,18 +5574,18 @@
     "company": "SignatureGlobal India Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 10649,
+    "market_cap_cr": 10751,
     "pe": 69.3,
-    "as_of": "2026-09-20T05:31:59.800Z",
+    "as_of": "2026-09-29T07:11:18.322Z",
     "source_url": "https://www.screener.in/company/543990/"
   },
   "543994": {
     "company": "JSW Infrastructure Ltd",
     "industry": "Port & Port services",
     "sector": "Services",
-    "market_cap_cr": 78556,
-    "pe": 457,
-    "as_of": "2026-09-18T06:01:50.247Z",
+    "market_cap_cr": 80735,
+    "pe": 469,
+    "as_of": "2026-09-29T07:11:20.325Z",
     "source_url": "https://www.screener.in/company/543994/"
   },
   "543998": {
