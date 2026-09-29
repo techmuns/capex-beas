@@ -179,6 +179,15 @@
     "as_of": "2026-09-28T07:47:29.352Z",
     "source_url": "https://www.screener.in/company/500144/"
   },
+  "500148": {
+    "company": "Uflex Ltd",
+    "industry": "Packaging",
+    "sector": "Capital Goods",
+    "market_cap_cr": 4636,
+    "pe": 30.3,
+    "as_of": "2026-09-29T02:02:38.099Z",
+    "source_url": "https://www.screener.in/company/500148/"
+  },
   "500164": {
     "company": "Godrej Industries Ltd",
     "industry": "Diversified",
@@ -354,9 +363,9 @@
     "company": "Vedanta Ltd",
     "industry": "Diversified Metals",
     "sector": "Metals & Mining",
-    "market_cap_cr": 101866,
-    "pe": 57.4,
-    "as_of": "2026-09-22T01:59:01.457Z",
+    "market_cap_cr": 101279,
+    "pe": 57.1,
+    "as_of": "2026-09-29T02:02:40.042Z",
     "source_url": "https://www.screener.in/company/500295/"
   },
   "500300": {
@@ -503,6 +512,15 @@
     "as_of": "2026-09-24T11:55:04.179Z",
     "source_url": "https://www.screener.in/company/500418/"
   },
+  "500440": {
+    "company": "Hindalco Industries Ltd",
+    "industry": "Aluminium",
+    "sector": "Metals & Mining",
+    "market_cap_cr": 214812,
+    "pe": 16.5,
+    "as_of": "2026-09-29T02:02:41.986Z",
+    "source_url": "https://www.screener.in/company/500440/"
+  },
   "500470": {
     "company": "Tata Steel Ltd",
     "industry": "Iron & Steel",
@@ -579,9 +597,9 @@
     "company": "Deepak Fertilisers & Petrochemicals Corp Ltd",
     "industry": "Commodity Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 17243,
-    "pe": 68.8,
-    "as_of": "2026-09-22T01:59:03.427Z",
+    "market_cap_cr": 17048,
+    "pe": 68,
+    "as_of": "2026-09-29T02:02:43.928Z",
     "source_url": "https://www.screener.in/company/500645/"
   },
   "500650": {
@@ -759,9 +777,9 @@
     "company": "Balkrishna Industries Ltd",
     "industry": "Tyres & Rubber Products",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 42855,
-    "pe": 31.4,
-    "as_of": "2026-09-21T23:25:25.843Z",
+    "market_cap_cr": 41637,
+    "pe": 30.5,
+    "as_of": "2026-09-29T02:02:45.872Z",
     "source_url": "https://www.screener.in/company/502355/"
   },
   "502986": {
@@ -894,9 +912,9 @@
     "company": "Eicher Motors Ltd",
     "industry": "2/3 Wheelers",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 206234,
-    "pe": 39,
-    "as_of": "2026-09-21T23:25:27.854Z",
+    "market_cap_cr": 198026,
+    "pe": 37.5,
+    "as_of": "2026-09-29T02:02:47.814Z",
     "source_url": "https://www.screener.in/company/505200/"
   },
   "505283": {
@@ -1668,9 +1686,9 @@
     "company": "ADF Foods Ltd",
     "industry": "Packaged Foods",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 2943,
-    "pe": 28.5,
-    "as_of": "2026-09-21T23:25:29.863Z",
+    "market_cap_cr": 2929,
+    "pe": 28.3,
+    "as_of": "2026-09-29T02:02:49.756Z",
     "source_url": "https://www.screener.in/company/519183/"
   },
   "519287": {
@@ -1789,6 +1807,15 @@
     "pe": 80.1,
     "as_of": "2026-09-24T20:39:13.873Z",
     "source_url": "https://www.screener.in/company/522215/"
+  },
+  "522241": {
+    "company": "M M Forgings Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 2919,
+    "pe": 23,
+    "as_of": "2026-09-29T02:02:51.699Z",
+    "source_url": "https://www.screener.in/company/522241/"
   },
   "522257": {
     "company": "Rajoo Engineers Ltd",
@@ -3198,9 +3225,9 @@
     "company": "Power Grid Corporation of India Ltd",
     "industry": "Power - Transmission",
     "sector": "Power",
-    "market_cap_cr": 247489,
-    "pe": 15.8,
-    "as_of": "2026-09-21T23:25:31.872Z",
+    "market_cap_cr": 243536,
+    "pe": 15.5,
+    "as_of": "2026-09-29T02:02:53.642Z",
     "source_url": "https://www.screener.in/company/532898/"
   },
   "532921": {
@@ -3243,9 +3270,9 @@
     "company": "Brigade Enterprises Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 19861,
-    "pe": 56.6,
-    "as_of": "2026-09-21T23:25:33.883Z",
+    "market_cap_cr": 19050,
+    "pe": 54.3,
+    "as_of": "2026-09-29T02:02:55.583Z",
     "source_url": "https://www.screener.in/company/532929/"
   },
   "532934": {
@@ -3360,9 +3387,9 @@
     "company": "Adani Power Ltd",
     "industry": "Integrated Power Utilities",
     "sector": "Power",
-    "market_cap_cr": 398325,
-    "pe": 33.3,
-    "as_of": "2026-09-21T23:25:35.893Z",
+    "market_cap_cr": 378250,
+    "pe": 31.6,
+    "as_of": "2026-09-29T02:02:57.526Z",
     "source_url": "https://www.screener.in/company/533096/"
   },
   "533104": {
@@ -3855,9 +3882,9 @@
     "company": "Syngene International Ltd",
     "industry": "Healthcare Research, Analytics & Technology",
     "sector": "Healthcare",
-    "market_cap_cr": 15547,
-    "pe": 51.8,
-    "as_of": "2026-09-21T23:25:37.902Z",
+    "market_cap_cr": 15178,
+    "pe": 50.6,
+    "as_of": "2026-09-29T02:02:59.468Z",
     "source_url": "https://www.screener.in/company/539268/"
   },
   "539300": {
@@ -4337,6 +4364,15 @@
     "as_of": "2026-09-27T19:27:17.540Z",
     "source_url": "https://www.screener.in/company/540725/"
   },
+  "540735": {
+    "company": "IRIS Regtech Solutions Ltd",
+    "industry": "Software Products",
+    "sector": "Information Technology",
+    "market_cap_cr": 466,
+    "pe": 36,
+    "as_of": "2026-09-29T02:03:01.408Z",
+    "source_url": "https://www.screener.in/company/540735/"
+  },
   "540743": {
     "company": "Godrej Agrovet Ltd",
     "industry": "Animal Feed",
@@ -4435,6 +4471,15 @@
     "pe": 98,
     "as_of": "2026-09-25T18:35:03.029Z",
     "source_url": "https://www.screener.in/company/541167/"
+  },
+  "541195": {
+    "company": "Mishra Dhatu Nigam Ltd",
+    "industry": null,
+    "sector": "Capital Goods",
+    "market_cap_cr": 7793,
+    "pe": 58,
+    "as_of": "2026-09-29T02:03:03.349Z",
+    "source_url": "https://www.screener.in/company/541195/"
   },
   "541206": {
     "company": "OBCL Ltd",
@@ -4750,6 +4795,15 @@
     "pe": 32.5,
     "as_of": "2026-09-27T05:27:24.734Z",
     "source_url": "https://www.screener.in/company/543258/"
+  },
+  "543266": {
+    "company": "Heranba Industries Ltd",
+    "industry": "Pesticides & Agrochemicals",
+    "sector": "Chemicals",
+    "market_cap_cr": 720,
+    "pe": 18.8,
+    "as_of": "2026-09-29T02:03:05.290Z",
+    "source_url": "https://www.screener.in/company/543266/"
   },
   "543270": {
     "company": "MTAR Technologies Ltd",
