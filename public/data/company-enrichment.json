@@ -498,9 +498,9 @@
     "company": "Supreme Petrochem Ltd",
     "industry": "Petrochemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 16585,
-    "pe": 33.8,
-    "as_of": "2026-09-23T10:16:58.584Z",
+    "market_cap_cr": 15125,
+    "pe": 30.9,
+    "as_of": "2026-09-30T11:30:07.981Z",
     "source_url": "https://www.screener.in/company/500405/"
   },
   "500410": {
@@ -687,9 +687,9 @@
     "company": "Nestle India Ltd",
     "industry": "Packaged Foods",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 266493,
-    "pe": 71,
-    "as_of": "2026-09-23T10:17:00.575Z",
+    "market_cap_cr": 254832,
+    "pe": 67.9,
+    "as_of": "2026-09-30T11:30:09.933Z",
     "source_url": "https://www.screener.in/company/500790/"
   },
   "500840": {
@@ -907,6 +907,15 @@
     "pe": 20,
     "as_of": "2026-09-24T11:55:14.299Z",
     "source_url": "https://www.screener.in/company/504614/"
+  },
+  "504903": {
+    "company": "Rathi Steel & Power Ltd",
+    "industry": "Iron & Steel Products",
+    "sector": "Capital Goods",
+    "market_cap_cr": 187,
+    "pe": 13,
+    "as_of": "2026-09-30T11:30:11.887Z",
+    "source_url": "https://www.screener.in/company/504903/"
   },
   "505010": {
     "company": "Automotive Axles Ltd",
@@ -3486,9 +3495,9 @@
     "company": "Indian Metals & Ferro Alloys Ltd",
     "industry": "Ferro & Silica Manganese",
     "sector": "Metals & Mining",
-    "market_cap_cr": 6922,
-    "pe": 13.2,
-    "as_of": "2026-09-23T10:17:02.568Z",
+    "market_cap_cr": 6412,
+    "pe": 12.2,
+    "as_of": "2026-09-30T11:30:13.838Z",
     "source_url": "https://www.screener.in/company/533047/"
   },
   "533096": {
@@ -3594,9 +3603,9 @@
     "company": "Jupiter Wagons Ltd",
     "industry": "Railway Wagons",
     "sector": "Capital Goods",
-    "market_cap_cr": 9979,
-    "pe": 53.1,
-    "as_of": "2026-09-23T10:17:04.557Z",
+    "market_cap_cr": 9950,
+    "pe": 53,
+    "as_of": "2026-09-30T11:30:15.799Z",
     "source_url": "https://www.screener.in/company/533272/"
   },
   "533274": {
@@ -4057,6 +4066,15 @@
     "pe": 20.5,
     "as_of": "2026-09-27T05:27:16.838Z",
     "source_url": "https://www.screener.in/company/539399/"
+  },
+  "539401": {
+    "company": "Patdiam Jewellery Ltd",
+    "industry": "Gems, Jewellery And Watches",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 140,
+    "pe": 8.71,
+    "as_of": "2026-09-30T11:30:17.750Z",
+    "source_url": "https://www.screener.in/company/539401/"
   },
   "539404": {
     "company": "Satin Creditcare Network Ltd",
@@ -4989,9 +5007,9 @@
     "company": "Nazara Technologies Ltd",
     "industry": "Digital Entertainment",
     "sector": "Media, Entertainment & Publication",
-    "market_cap_cr": 14175,
+    "market_cap_cr": 15074,
     "pe": 60.5,
-    "as_of": "2026-09-23T10:17:06.550Z",
+    "as_of": "2026-09-30T11:30:19.701Z",
     "source_url": "https://www.screener.in/company/543280/"
   },
   "543287": {
@@ -6024,18 +6042,27 @@
     "company": "Ceigall India Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 6737,
-    "pe": 20.7,
-    "as_of": "2026-09-16T19:12:45.833Z",
+    "market_cap_cr": 6676,
+    "pe": 20.5,
+    "as_of": "2026-09-30T11:30:21.651Z",
     "source_url": "https://www.screener.in/company/544223/"
+  },
+  "544225": {
+    "company": "Ola Electric Mobility Ltd",
+    "industry": "2/3 Wheelers",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 17102,
+    "pe": 24.8,
+    "as_of": "2026-09-30T11:30:23.604Z",
+    "source_url": "https://www.screener.in/company/544225/"
   },
   "544232": {
     "company": "Interarch Building Solutions Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 2894,
-    "pe": 21.1,
-    "as_of": "2026-09-18T11:20:45.623Z",
+    "market_cap_cr": 2820,
+    "pe": 20.6,
+    "as_of": "2026-09-30T11:30:25.555Z",
     "source_url": "https://www.screener.in/company/544232/"
   },
   "544235": {
@@ -6051,45 +6078,45 @@
     "company": "Premier Energies Ltd",
     "industry": "Other Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 40724,
-    "pe": 275,
-    "as_of": "2026-09-16T19:12:49.686Z",
+    "market_cap_cr": 39641,
+    "pe": 267,
+    "as_of": "2026-09-30T11:30:27.505Z",
     "source_url": "https://www.screener.in/company/544238/"
   },
   "544256": {
     "company": "P N Gadgil Jewellers Ltd",
     "industry": "Gems, Jewellery And Watches",
     "sector": "Consumer Durables",
-    "market_cap_cr": 8902,
-    "pe": 20.3,
-    "as_of": "2026-09-20T06:27:47.184Z",
+    "market_cap_cr": 8655,
+    "pe": 19.8,
+    "as_of": "2026-09-30T11:30:29.458Z",
     "source_url": "https://www.screener.in/company/544256/"
   },
   "544258": {
     "company": "Western Carriers (India) Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 920,
-    "pe": 25,
-    "as_of": "2026-09-16T22:12:58.941Z",
+    "market_cap_cr": 950,
+    "pe": 25.8,
+    "as_of": "2026-09-30T11:30:31.409Z",
     "source_url": "https://www.screener.in/company/544258/"
   },
   "544261": {
     "company": "Arkade Developers Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 2149,
-    "pe": 12.1,
-    "as_of": "2026-09-16T22:13:00.893Z",
+    "market_cap_cr": 2236,
+    "pe": 12.6,
+    "as_of": "2026-09-30T11:30:33.358Z",
     "source_url": "https://www.screener.in/company/544261/"
   },
   "544262": {
     "company": "Manba Finance Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
     "sector": "Financial Services",
-    "market_cap_cr": 703,
-    "pe": 14.4,
-    "as_of": "2026-09-23T06:14:32.385Z",
+    "market_cap_cr": 691,
+    "pe": 14.1,
+    "as_of": "2026-09-30T11:30:35.308Z",
     "source_url": "https://www.screener.in/company/544262/"
   },
   "544277": {
