@@ -813,9 +813,9 @@
     "company": "Phoenix Mills Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 71067,
-    "pe": 227,
-    "as_of": "2026-09-23T04:55:16.971Z",
+    "market_cap_cr": 69060,
+    "pe": 220,
+    "as_of": "2026-09-30T05:38:48.681Z",
     "source_url": "https://www.screener.in/company/503100/"
   },
   "503101": {
@@ -1092,9 +1092,9 @@
     "company": "Dhanuka Agritech Ltd",
     "industry": "Pesticides & Agrochemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 4308,
-    "pe": 16.1,
-    "as_of": "2026-09-22T23:59:30.201Z",
+    "market_cap_cr": 4169,
+    "pe": 15.6,
+    "as_of": "2026-09-30T05:38:50.671Z",
     "source_url": "https://www.screener.in/company/507717/"
   },
   "507789": {
@@ -1218,9 +1218,9 @@
     "company": "Supreme Industries Ltd",
     "industry": "Plastic Products - Industrial",
     "sector": "Capital Goods",
-    "market_cap_cr": 44349,
-    "pe": 47.1,
-    "as_of": "2026-09-23T04:55:18.948Z",
+    "market_cap_cr": 44578,
+    "pe": 47.4,
+    "as_of": "2026-09-30T05:38:52.662Z",
     "source_url": "https://www.screener.in/company/509930/"
   },
   "511018": {
@@ -1434,9 +1434,9 @@
     "company": "India Homes Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 1082,
-    "pe": 64,
-    "as_of": "2026-09-23T04:55:20.921Z",
+    "market_cap_cr": 1068,
+    "pe": 63.1,
+    "as_of": "2026-09-30T05:38:54.654Z",
     "source_url": "https://www.screener.in/company/513361/"
   },
   "513375": {
@@ -1839,9 +1839,9 @@
     "company": "Praj Industries Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 5944,
-    "pe": 42.1,
-    "as_of": "2026-09-23T04:55:22.904Z",
+    "market_cap_cr": 5660,
+    "pe": 40.1,
+    "as_of": "2026-09-30T05:38:56.657Z",
     "source_url": "https://www.screener.in/company/522205/"
   },
   "522215": {
@@ -2217,9 +2217,9 @@
     "company": "Patel Integrated Logistics Ltd",
     "industry": "Logistics Solution Provider",
     "sector": "Services",
-    "market_cap_cr": 102,
-    "pe": 9.7,
-    "as_of": "2026-09-23T04:55:24.889Z",
+    "market_cap_cr": 95.3,
+    "pe": 9.1,
+    "as_of": "2026-09-30T05:38:58.655Z",
     "source_url": "https://www.screener.in/company/526381/"
   },
   "526530": {
@@ -3270,9 +3270,9 @@
     "company": "DLF Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 167158,
-    "pe": 46.5,
-    "as_of": "2026-09-23T04:55:26.867Z",
+    "market_cap_cr": 161811,
+    "pe": 45,
+    "as_of": "2026-09-30T05:39:00.668Z",
     "source_url": "https://www.screener.in/company/532868/"
   },
   "532880": {
@@ -4022,6 +4022,15 @@
     "as_of": "2026-09-28T07:04:10.901Z",
     "source_url": "https://www.screener.in/company/539336/"
   },
+  "539359": {
+    "company": "Pritika Auto Industries Ltd",
+    "industry": "Auto Components & Equipments",
+    "sector": "Automobile and Auto Components",
+    "market_cap_cr": 300,
+    "pe": 18.8,
+    "as_of": "2026-09-30T05:39:02.661Z",
+    "source_url": "https://www.screener.in/company/539359/"
+  },
   "539399": {
     "company": "Bella Casa Fashion & Retail Ltd",
     "industry": "Garments & Apparels",
@@ -4440,9 +4449,9 @@
     "company": "Prataap Snacks Ltd",
     "industry": "Packaged Foods",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 2609,
+    "market_cap_cr": 2608,
     "pe": 205,
-    "as_of": "2026-09-22T23:59:32.122Z",
+    "as_of": "2026-09-30T05:39:04.652Z",
     "source_url": "https://www.screener.in/company/540724/"
   },
   "540725": {
@@ -4980,9 +4989,9 @@
     "company": "Deep Industries Ltd",
     "industry": "Oil Equipment & Services",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 4996,
-    "pe": 15.9,
-    "as_of": "2026-09-23T04:55:28.848Z",
+    "market_cap_cr": 4902,
+    "pe": 15.6,
+    "as_of": "2026-09-30T05:39:06.651Z",
     "source_url": "https://www.screener.in/company/543288/"
   },
   "543299": {
@@ -5880,27 +5889,45 @@
     "company": "GPT Healthcare Ltd",
     "industry": "Hospital",
     "sector": "Healthcare",
-    "market_cap_cr": 1326,
-    "pe": 28.1,
-    "as_of": "2026-09-23T04:55:30.822Z",
+    "market_cap_cr": 1253,
+    "pe": 26.5,
+    "as_of": "2026-09-30T05:39:08.638Z",
     "source_url": "https://www.screener.in/company/544131/"
   },
   "544134": {
     "company": "Platinum Industries Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 1159,
-    "pe": 22.9,
-    "as_of": "2026-09-18T06:01:58.348Z",
+    "market_cap_cr": 1131,
+    "pe": 22.4,
+    "as_of": "2026-09-30T05:39:10.626Z",
     "source_url": "https://www.screener.in/company/544134/"
+  },
+  "544135": {
+    "company": "Mukka Proteins Ltd",
+    "industry": "Animal Feed",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 805,
+    "pe": 13.3,
+    "as_of": "2026-09-30T05:39:12.621Z",
+    "source_url": "https://www.screener.in/company/544135/"
+  },
+  "544149": {
+    "company": "Krystal Integrated Services Ltd",
+    "industry": "Diversified Commercial Services",
+    "sector": "Services",
+    "market_cap_cr": 867,
+    "pe": 14.6,
+    "as_of": "2026-09-30T05:39:14.611Z",
+    "source_url": "https://www.screener.in/company/544149/"
   },
   "544162": {
     "company": "Bharti Hexacom Ltd",
     "industry": "Telecom - Cellular & Fixed line services",
     "sector": "Telecommunication",
-    "market_cap_cr": 74942,
-    "pe": 40.6,
-    "as_of": "2026-09-18T06:02:00.375Z",
+    "market_cap_cr": 70588,
+    "pe": 38.2,
+    "as_of": "2026-09-30T05:39:16.608Z",
     "source_url": "https://www.screener.in/company/544162/"
   },
   "544184": {
