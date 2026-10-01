@@ -48,9 +48,9 @@
     "company": "Bharat Electronics Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 289504,
-    "pe": 47.2,
-    "as_of": "2026-09-23T22:26:56.548Z",
+    "market_cap_cr": 283839,
+    "pe": 46.3,
+    "as_of": "2026-10-01T00:57:19.149Z",
     "source_url": "https://www.screener.in/company/500049/"
   },
   "500052": {
@@ -408,9 +408,9 @@
     "company": "Oil & Natural Gas Corpn Ltd",
     "industry": "Oil Exploration & Production",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 298027,
-    "pe": 7.11,
-    "as_of": "2026-09-23T22:26:58.520Z",
+    "market_cap_cr": 284063,
+    "pe": 6.78,
+    "as_of": "2026-10-01T00:57:21.074Z",
     "source_url": "https://www.screener.in/company/500312/"
   },
   "500325": {
@@ -1839,9 +1839,9 @@
     "company": "Batliboi Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 398,
-    "pe": 54.8,
-    "as_of": "2026-09-23T22:27:00.492Z",
+    "market_cap_cr": 392,
+    "pe": 53.9,
+    "as_of": "2026-10-01T00:57:22.999Z",
     "source_url": "https://www.screener.in/company/522004/"
   },
   "522005": {
@@ -2028,9 +2028,9 @@
     "company": "Apcotex Industries Ltd",
     "industry": "Rubber",
     "sector": "Capital Goods",
-    "market_cap_cr": 3162,
-    "pe": 19.6,
-    "as_of": "2026-09-23T22:27:02.467Z",
+    "market_cap_cr": 3088,
+    "pe": 19.2,
+    "as_of": "2026-10-01T00:57:24.925Z",
     "source_url": "https://www.screener.in/company/523694/"
   },
   "523796": {
@@ -2204,6 +2204,15 @@
     "as_of": "2026-09-27T00:03:31.674Z",
     "source_url": "https://www.screener.in/company/524592/"
   },
+  "524715": {
+    "company": "Sun Pharmaceutical Industries Ltd",
+    "industry": "Pharmaceuticals",
+    "sector": "Healthcare",
+    "market_cap_cr": 435863,
+    "pe": 137,
+    "as_of": "2026-10-01T00:57:26.851Z",
+    "source_url": "https://www.screener.in/company/524715/"
+  },
   "524723": {
     "company": "Arvaya Healthcare Ltd",
     "industry": "Trading & Distributors",
@@ -2244,9 +2253,9 @@
     "company": "Aurobindo Pharma Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 99051,
-    "pe": 38,
-    "as_of": "2026-09-23T22:27:04.442Z",
+    "market_cap_cr": 96203,
+    "pe": 36.9,
+    "as_of": "2026-10-01T00:57:28.777Z",
     "source_url": "https://www.screener.in/company/524804/"
   },
   "524816": {
@@ -2307,9 +2316,9 @@
     "company": "TPL Plastech Ltd",
     "industry": "Packaging",
     "sector": "Capital Goods",
-    "market_cap_cr": 524,
-    "pe": 17.4,
-    "as_of": "2026-09-23T22:27:06.417Z",
+    "market_cap_cr": 555,
+    "pe": 18.4,
+    "as_of": "2026-10-01T00:57:30.719Z",
     "source_url": "https://www.screener.in/company/526582/"
   },
   "526612": {
@@ -2874,9 +2883,9 @@
     "company": "Radico Khaitan Ltd",
     "industry": "Breweries & Distilleries",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 61657,
-    "pe": 87.8,
-    "as_of": "2026-09-23T22:27:08.391Z",
+    "market_cap_cr": 58500,
+    "pe": 83.3,
+    "as_of": "2026-10-01T00:57:32.655Z",
     "source_url": "https://www.screener.in/company/532497/"
   },
   "532500": {
@@ -3288,9 +3297,9 @@
     "company": "Embassy Developments Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 8513,
+    "market_cap_cr": 8137,
     "pe": 81.3,
-    "as_of": "2026-09-23T22:27:10.365Z",
+    "as_of": "2026-10-01T00:57:34.580Z",
     "source_url": "https://www.screener.in/company/532832/"
   },
   "532834": {
@@ -3369,9 +3378,9 @@
     "company": "Refex Industries Ltd",
     "industry": "Waste Management",
     "sector": "Utilities",
-    "market_cap_cr": 3934,
-    "pe": 13.7,
-    "as_of": "2026-09-23T22:27:12.340Z",
+    "market_cap_cr": 3640,
+    "pe": 12.6,
+    "as_of": "2026-10-01T00:57:36.505Z",
     "source_url": "https://www.screener.in/company/532884/"
   },
   "532891": {
@@ -3459,9 +3468,9 @@
     "company": "Kuantum Papers Ltd",
     "industry": "Paper & Paper Products",
     "sector": "Forest Materials",
-    "market_cap_cr": 726,
-    "pe": 20.1,
-    "as_of": "2026-09-23T19:11:57.351Z",
+    "market_cap_cr": 666,
+    "pe": 18.4,
+    "as_of": "2026-10-01T00:57:38.430Z",
     "source_url": "https://www.screener.in/company/532937/"
   },
   "532940": {
@@ -3779,6 +3788,15 @@
     "as_of": "2026-09-25T06:29:07.575Z",
     "source_url": "https://www.screener.in/company/534139/"
   },
+  "534369": {
+    "company": "Tribhovandas Bhimji Zaveri Ltd",
+    "industry": "Gems, Jewellery And Watches",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 4238,
+    "pe": 20,
+    "as_of": "2026-10-01T00:57:40.358Z",
+    "source_url": "https://www.screener.in/company/534369/"
+  },
   "534392": {
     "company": "Vardhman Special Steels Ltd",
     "industry": "Iron & Steel Products",
@@ -3927,9 +3945,9 @@
     "company": "Niyogin Fintech Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
     "sector": "Financial Services",
-    "market_cap_cr": 593,
-    "pe": 111,
-    "as_of": "2026-09-23T19:11:59.331Z",
+    "market_cap_cr": 580,
+    "pe": 109,
+    "as_of": "2026-10-01T00:57:42.291Z",
     "source_url": "https://www.screener.in/company/538772/"
   },
   "538836": {
@@ -4134,9 +4152,9 @@
     "company": "Satin Creditcare Network Ltd",
     "industry": "Microfinance Institutions",
     "sector": "Financial Services",
-    "market_cap_cr": 2509,
-    "pe": 6.61,
-    "as_of": "2026-09-23T19:12:01.312Z",
+    "market_cap_cr": 2565,
+    "pe": 6.75,
+    "as_of": "2026-10-01T00:57:44.220Z",
     "source_url": "https://www.screener.in/company/539404/"
   },
   "539408": {
@@ -4188,9 +4206,9 @@
     "company": "Blue Cloud Softech Solutions Ltd",
     "industry": "Software Products",
     "sector": "Information Technology",
-    "market_cap_cr": 1816,
-    "pe": 43.2,
-    "as_of": "2026-09-23T19:12:03.292Z",
+    "market_cap_cr": 1837,
+    "pe": 43.7,
+    "as_of": "2026-10-01T00:57:46.143Z",
     "source_url": "https://www.screener.in/company/539607/"
   },
   "539636": {
