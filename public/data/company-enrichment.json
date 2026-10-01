@@ -471,9 +471,9 @@
     "company": "JK Lakshmi Cement Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 6346,
-    "pe": 15.9,
-    "as_of": "2026-09-24T01:03:44.839Z",
+    "market_cap_cr": 5934,
+    "pe": 14.8,
+    "as_of": "2026-10-01T07:18:30.210Z",
     "source_url": "https://www.screener.in/company/500380/"
   },
   "500387": {
@@ -867,9 +867,9 @@
     "company": "Siyaram Silk Mills Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 2432,
-    "pe": 10.4,
-    "as_of": "2026-09-24T06:21:23.341Z",
+    "market_cap_cr": 2418,
+    "pe": 10.3,
+    "as_of": "2026-10-01T07:18:32.223Z",
     "source_url": "https://www.screener.in/company/503811/"
   },
   "504000": {
@@ -1092,27 +1092,27 @@
     "company": "Tanfac Industries Ltd",
     "industry": "Commodity Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 7416,
-    "pe": 110,
-    "as_of": "2026-09-24T06:21:25.345Z",
+    "market_cap_cr": 7063,
+    "pe": 104,
+    "as_of": "2026-10-01T07:18:34.236Z",
     "source_url": "https://www.screener.in/company/506854/"
   },
   "506879": {
     "company": "Gujarat Themis Biosyn Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 5446,
-    "pe": 112,
-    "as_of": "2026-09-24T06:21:27.352Z",
+    "market_cap_cr": 4923,
+    "pe": 101,
+    "as_of": "2026-10-01T07:18:36.247Z",
     "source_url": "https://www.screener.in/company/506879/"
   },
   "507205": {
     "company": "Tilaknagar Industries Ltd",
     "industry": "Breweries & Distilleries",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 14911,
-    "pe": 65.6,
-    "as_of": "2026-09-24T01:03:46.801Z",
+    "market_cap_cr": 13522,
+    "pe": 59.5,
+    "as_of": "2026-10-01T07:18:38.259Z",
     "source_url": "https://www.screener.in/company/507205/"
   },
   "507410": {
@@ -1146,9 +1146,9 @@
     "company": "Jagsonpal Pharmaceuticals Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 1600,
-    "pe": 34,
-    "as_of": "2026-09-24T06:21:29.356Z",
+    "market_cap_cr": 1525,
+    "pe": 32.4,
+    "as_of": "2026-10-01T07:18:40.269Z",
     "source_url": "https://www.screener.in/company/507789/"
   },
   "507910": {
@@ -1353,9 +1353,9 @@
     "company": "Rose Merc. Ltd",
     "industry": "Trading & Distributors",
     "sector": "Services",
-    "market_cap_cr": 42.2,
-    "pe": 52,
-    "as_of": "2026-09-24T01:03:48.773Z",
+    "market_cap_cr": 28.4,
+    "pe": 35.1,
+    "as_of": "2026-10-01T07:18:42.278Z",
     "source_url": "https://www.screener.in/company/512115/"
   },
   "512179": {
@@ -1474,6 +1474,15 @@
     "pe": 726,
     "as_of": "2026-09-27T10:57:41.891Z",
     "source_url": "https://www.screener.in/company/513307/"
+  },
+  "513349": {
+    "company": "Ajmera Realty & Infra India Ltd",
+    "industry": "Residential, Commercial Projects",
+    "sector": "Realty",
+    "market_cap_cr": 2308,
+    "pe": 19.8,
+    "as_of": "2026-10-01T07:18:44.293Z",
+    "source_url": "https://www.screener.in/company/513349/"
   },
   "513361": {
     "company": "India Homes Ltd",
@@ -1866,9 +1875,9 @@
     "company": "Fluidomat Ltd",
     "industry": "Industrial Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 362,
-    "pe": 18.5,
-    "as_of": "2026-09-24T06:21:31.371Z",
+    "market_cap_cr": 360,
+    "pe": 18.3,
+    "as_of": "2026-10-01T07:18:46.303Z",
     "source_url": "https://www.screener.in/company/522017/"
   },
   "522029": {
@@ -2496,9 +2505,9 @@
     "company": "Sterling Tools Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 807,
-    "pe": 13.3,
-    "as_of": "2026-09-24T01:03:50.733Z",
+    "market_cap_cr": 814,
+    "pe": 13.5,
+    "as_of": "2026-10-01T07:18:48.328Z",
     "source_url": "https://www.screener.in/company/530759/"
   },
   "530843": {
@@ -2870,6 +2879,15 @@
     "as_of": "2026-09-24T23:37:33.344Z",
     "source_url": "https://www.screener.in/company/532454/"
   },
+  "532478": {
+    "company": "United Breweries Ltd",
+    "industry": "Breweries & Distilleries",
+    "sector": "Fast Moving Consumer Goods",
+    "market_cap_cr": 30411,
+    "pe": 87.9,
+    "as_of": "2026-10-01T07:18:50.338Z",
+    "source_url": "https://www.screener.in/company/532478/"
+  },
   "532482": {
     "company": "Granules India Ltd",
     "industry": "Pharmaceuticals",
@@ -2964,9 +2982,9 @@
     "company": "Strides Pharma Science Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 11304,
-    "pe": 62.8,
-    "as_of": "2026-09-24T06:21:33.378Z",
+    "market_cap_cr": 10023,
+    "pe": 55.6,
+    "as_of": "2026-10-01T07:18:52.350Z",
     "source_url": "https://www.screener.in/company/532531/"
   },
   "532538": {
@@ -3504,9 +3522,9 @@
     "company": "V-Guard Industries Ltd",
     "industry": "Household Appliances",
     "sector": "Consumer Durables",
-    "market_cap_cr": 13667,
-    "pe": 42.1,
-    "as_of": "2026-09-24T06:21:35.385Z",
+    "market_cap_cr": 12804,
+    "pe": 39.4,
+    "as_of": "2026-10-01T07:18:54.361Z",
     "source_url": "https://www.screener.in/company/532953/"
   },
   "532966": {
@@ -3621,9 +3639,9 @@
     "company": "Persistent Systems Ltd",
     "industry": "Computers - Software & Consulting",
     "sector": "Information Technology",
-    "market_cap_cr": 84048,
+    "market_cap_cr": 84024,
     "pe": 48.5,
-    "as_of": "2026-09-24T06:21:37.401Z",
+    "as_of": "2026-10-01T07:18:56.374Z",
     "source_url": "https://www.screener.in/company/533179/"
   },
   "533217": {
@@ -3634,6 +3652,15 @@
     "pe": 3.43,
     "as_of": "2026-09-25T06:28:57.272Z",
     "source_url": "https://www.screener.in/company/533217/"
+  },
+  "533252": {
+    "company": "Welspun Investments & Commercials Ltd",
+    "industry": "Investment Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 906,
+    "pe": 294,
+    "as_of": "2026-10-01T07:18:58.386Z",
+    "source_url": "https://www.screener.in/company/533252/"
   },
   "533259": {
     "company": "Health X Platform Ltd",
