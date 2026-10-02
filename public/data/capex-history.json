@@ -24656,6 +24656,36 @@
       "subcat": "General"
     }
   ],
+  "532175": [
+    {
+      "date": "2026-09-04T17:26:26.443",
+      "week": "31 Aug – 6 Sep 2026",
+      "news_id": "d4cc12e6-9de4-4cda-95a8-d0361362e3e0",
+      "company": "Cyient Ltd",
+      "scrip_cd": 532175,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "100% stake",
+      "currency": "INR",
+      "amount_cr": 100,
+      "amount_cr_low": 100,
+      "amount_cr_high": 100,
+      "comparable": true,
+      "metric": "margin",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Tao Digital Solutions Inc.",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "Cyient Limited has successfully completed the acquisition of 100% stake (on fully diluted basis) in Tao Digital Solutions Inc., a company incorporated in the USA.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/1b912655-c782-4ba4-bcda-5e2b1f55a489.pdf",
+      "category": "Company Update",
+      "subcat": "General"
+    }
+  ],
   "532178": [
     {
       "date": "2026-09-22T11:59:49.71",
@@ -38781,6 +38811,36 @@
       "subcat": "General"
     }
   ],
+  "540079": [
+    {
+      "date": "2026-09-04T21:21:35.073",
+      "week": "31 Aug – 6 Sep 2026",
+      "news_id": "2b1af179-9c4c-449e-80e0-6fa55caa3c86",
+      "company": "Sprayking Ltd",
+      "scrip_cd": 540079,
+      "fiscal_year": "FY26",
+      "type": "actual",
+      "event_type": "Quarterly capex",
+      "amount_text": "Rs. 130.99 lakhs",
+      "currency": "INR",
+      "amount_cr": 1.31,
+      "amount_cr_low": 1.31,
+      "amount_cr_high": 1.31,
+      "comparable": true,
+      "metric": "capex",
+      "scope": "company_total",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": null,
+      "direction": "unclear",
+      "reason": null,
+      "quote": "During the year the company incurred the capital expenditure of Rs. 130.99 lakhs on fixed assets.",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/e2d4b632-b8cd-44e9-8470-d3ff1e0a5487.pdf",
+      "category": "Others",
+      "subcat": "Reg. 34 (1) Annual Report"
+    }
+  ],
   "540153": [
     {
       "date": "2026-08-13T18:10:25.193",
@@ -39859,6 +39919,34 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/1b4ca73a-2010-4ee9-8a61-3a39153f8fd1.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
+    },
+    {
+      "date": "2026-09-04T20:51:51.64",
+      "week": "31 Aug – 6 Sep 2026",
+      "news_id": "99b6bcd9-ea3b-441c-ad87-1b461c1801e9",
+      "company": "SIS Ltd",
+      "scrip_cd": 540673,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "INR 28.54 crores",
+      "currency": "INR",
+      "amount_cr": 28.54,
+      "amount_cr_low": 28.54,
+      "amount_cr_high": 28.54,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Updater Services Limited",
+      "direction": "unclear",
+      "reason": "The acquisition has been made in accordance with the Company's investment policy.",
+      "quote": "cost of acquisition and/or the price at which the shares are acquired; INR 28.54 crores",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/2ec2183e-a344-41be-b1c2-8c2ca807deef.pdf",
+      "category": "Company Update",
+      "subcat": "General"
     }
   ],
   "540678": [
@@ -45730,6 +45818,34 @@
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/2dfea328-f2a7-4973-9eda-a87d22b3cd7e.pdf",
       "category": "Company Update",
       "subcat": "Press Release / Media Release"
+    },
+    {
+      "date": "2026-09-05T12:21:19.9",
+      "week": "31 Aug – 6 Sep 2026",
+      "news_id": "a92de16c-8fba-452c-9b62-31dd341728bf",
+      "company": "FSN E-Commerce Ventures Ltd",
+      "scrip_cd": 543384,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "24.2% equity shareholding",
+      "currency": "INR",
+      "amount_cr": 24.2,
+      "amount_cr_low": 24.2,
+      "amount_cr_high": 24.2,
+      "comparable": true,
+      "metric": "margin",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "Earth Rhythm Private Limited",
+      "direction": "unclear",
+      "reason": null,
+      "quote": "the Company has successfully executed all necessary transaction / procedural documents for the said increase. Consequently, an additional 24.2% equity shareholding has been secured in Earth Rhythm",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/2d88fd08-eb69-41f0-976b-5a4234ff536d.pdf",
+      "category": "Company Update",
+      "subcat": "General"
     }
   ],
   "543387": [
@@ -55394,6 +55510,34 @@
       "reason": "The entity is being incorporated as a Special Purpose Vehicle (SPV) for Development of Gems & Jewellery Park under Public Private Partnership (PPP) mode at Krishi Upaj Mandi, Mandi Road, Pandri, Raipur (Chhattisgarh)",
       "quote": "The Company shall subscribe 4,900/- (Four Thousand- Nine hundred only) equity shares of Rs. 10/- (Rupees Ten only) each aggregating to Rs. 49,000/- (Rupees Forty-Nine Thousand only) of Ashoka - RDB Infrastructure & Development Private Limited (proposed Company)",
       "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/6225eba8-2d51-48c1-99e4-85bfb21bc3db.pdf",
+      "category": "Company Update",
+      "subcat": "Acquisition"
+    },
+    {
+      "date": "2026-09-05T13:32:32.14",
+      "week": "31 Aug – 6 Sep 2026",
+      "news_id": "1bc605ad-e32c-4f52-910d-1fe16cbf36a6",
+      "company": "RDB Real Estate Constructions Ltd",
+      "scrip_cd": 544346,
+      "fiscal_year": null,
+      "type": "acquisition",
+      "event_type": "Acquisition (M&A)",
+      "amount_text": "Rs. 10,000/-",
+      "currency": "INR",
+      "amount_cr": 10000,
+      "amount_cr_low": 10000,
+      "amount_cr_high": 10000,
+      "comparable": true,
+      "metric": "other",
+      "scope": "unclear",
+      "is_revision": false,
+      "old_cr": null,
+      "new_cr": null,
+      "segment_or_project": "RDB Anekant Orbit Properties Private Limited",
+      "direction": "unclear",
+      "reason": "The acquisition is being undertaken as the objects and business activities of the Target Company are aligned with those of the Company & to expand its business market.",
+      "quote": "The Company has acquired additional 1,000 (One thousand) equity shares of Rs. 10/- (Rupees Ten only) each aggregating to Rs. 10,000/- (Rupees One Thousand only) of RDB Anekant Orbit Properties Private Limited",
+      "source_pdf": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/baeedb1e-b244-4c7c-8212-a522956244d4.pdf",
       "category": "Company Update",
       "subcat": "Acquisition"
     }
