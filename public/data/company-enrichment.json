@@ -381,9 +381,9 @@
     "company": "NCC Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 8339,
-    "pe": 13.6,
-    "as_of": "2026-09-25T22:01:25.668Z",
+    "market_cap_cr": 8166,
+    "pe": 13.3,
+    "as_of": "2026-10-02T22:41:16.351Z",
     "source_url": "https://www.screener.in/company/500294/"
   },
   "500295": {
@@ -606,9 +606,9 @@
     "company": "Larsen & Toubro Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 533324,
-    "pe": 39.7,
-    "as_of": "2026-09-25T22:01:27.644Z",
+    "market_cap_cr": 508173,
+    "pe": 37.8,
+    "as_of": "2026-10-02T22:41:18.276Z",
     "source_url": "https://www.screener.in/company/500510/"
   },
   "500520": {
@@ -768,9 +768,9 @@
     "company": "Apollo Tyres Ltd",
     "industry": "Tyres & Rubber Products",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 25410,
-    "pe": 13.1,
-    "as_of": "2026-09-25T22:01:29.629Z",
+    "market_cap_cr": 25706,
+    "pe": 13.3,
+    "as_of": "2026-10-02T22:41:20.202Z",
     "source_url": "https://www.screener.in/company/500877/"
   },
   "500878": {
@@ -1272,9 +1272,9 @@
     "company": "Hindustan Composites Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 572,
-    "pe": 32.7,
-    "as_of": "2026-09-25T22:01:31.612Z",
+    "market_cap_cr": 562,
+    "pe": 32.2,
+    "as_of": "2026-10-02T22:41:22.314Z",
     "source_url": "https://www.screener.in/company/509635/"
   },
   "509675": {
@@ -1749,9 +1749,9 @@
     "company": "Samvardhana Motherson International Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 174898,
-    "pe": 97.6,
-    "as_of": "2026-09-25T22:01:33.599Z",
+    "market_cap_cr": 165736,
+    "pe": 92.5,
+    "as_of": "2026-10-02T22:41:24.238Z",
     "source_url": "https://www.screener.in/company/517334/"
   },
   "517354": {
@@ -2019,9 +2019,9 @@
     "company": "Kalpataru Projects International Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 23758,
-    "pe": 22.2,
-    "as_of": "2026-09-25T22:01:35.586Z",
+    "market_cap_cr": 23164,
+    "pe": 21.7,
+    "as_of": "2026-10-02T22:41:26.163Z",
     "source_url": "https://www.screener.in/company/522287/"
   },
   "523023": {
@@ -2073,9 +2073,9 @@
     "company": "Linde India Ltd",
     "industry": "Industrial Gases",
     "sector": "Chemicals",
-    "market_cap_cr": 52383,
-    "pe": 95.4,
-    "as_of": "2026-09-25T22:01:37.570Z",
+    "market_cap_cr": 53279,
+    "pe": 97.1,
+    "as_of": "2026-10-02T22:41:28.089Z",
     "source_url": "https://www.screener.in/company/523457/"
   },
   "523610": {
@@ -2136,9 +2136,9 @@
     "company": "D S Kulkarni Developers Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 24.1,
+    "market_cap_cr": 26.1,
     "pe": 129,
-    "as_of": "2026-09-25T22:01:39.552Z",
+    "as_of": "2026-10-02T22:41:30.015Z",
     "source_url": "https://www.screener.in/company/523890/"
   },
   "524046": {
@@ -2784,9 +2784,9 @@
     "company": "Swelect Energy Systems Ltd",
     "industry": "Heavy Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 890,
-    "pe": 25.2,
-    "as_of": "2026-09-25T22:01:41.538Z",
+    "market_cap_cr": 899,
+    "pe": 25.5,
+    "as_of": "2026-10-02T22:41:31.938Z",
     "source_url": "https://www.screener.in/company/532051/"
   },
   "532134": {
@@ -3441,9 +3441,9 @@
     "company": "Camlin Fine Sciences Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 1869,
+    "market_cap_cr": 1748,
     "pe": 48.4,
-    "as_of": "2026-09-25T22:01:43.522Z",
+    "as_of": "2026-10-02T22:41:33.868Z",
     "source_url": "https://www.screener.in/company/532834/"
   },
   "532835": {
@@ -3554,13 +3554,22 @@
     "as_of": "2026-10-02T18:37:01.544Z",
     "source_url": "https://www.screener.in/company/532921/"
   },
+  "532923": {
+    "company": "Renaissance Global Ltd",
+    "industry": "Gems, Jewellery And Watches",
+    "sector": "Consumer Durables",
+    "market_cap_cr": 1745,
+    "pe": 60.9,
+    "as_of": "2026-10-02T22:41:35.792Z",
+    "source_url": "https://www.screener.in/company/532923/"
+  },
   "532924": {
     "company": "Kolte Patil Developers Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 3831,
-    "pe": 22.4,
-    "as_of": "2026-09-25T02:03:12.912Z",
+    "market_cap_cr": 3714,
+    "pe": 21.7,
+    "as_of": "2026-10-02T22:41:37.719Z",
     "source_url": "https://www.screener.in/company/532924/"
   },
   "532927": {
@@ -3612,9 +3621,9 @@
     "company": "J Kumar Infraprojects Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 3618,
-    "pe": 9.33,
-    "as_of": "2026-09-25T02:03:14.854Z",
+    "market_cap_cr": 3495,
+    "pe": 9.01,
+    "as_of": "2026-10-02T22:41:39.645Z",
     "source_url": "https://www.screener.in/company/532940/"
   },
   "532942": {
@@ -3630,9 +3639,9 @@
     "company": "SEPC Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 980,
+    "market_cap_cr": 973,
     "pe": 9.95,
-    "as_of": "2026-09-25T02:03:16.787Z",
+    "as_of": "2026-10-02T22:41:41.568Z",
     "source_url": "https://www.screener.in/company/532945/"
   },
   "532953": {
@@ -3666,9 +3675,9 @@
     "company": "Jai Balaji Industries Ltd",
     "industry": "Iron & Steel",
     "sector": "Metals & Mining",
-    "market_cap_cr": 5925,
-    "pe": 40.5,
-    "as_of": "2026-09-25T06:28:55.071Z",
+    "market_cap_cr": 5631,
+    "pe": 38.5,
+    "as_of": "2026-10-02T22:41:43.493Z",
     "source_url": "https://www.screener.in/company/532976/"
   },
   "532983": {
