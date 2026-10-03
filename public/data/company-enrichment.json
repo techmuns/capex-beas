@@ -3014,6 +3014,15 @@
     "as_of": "2026-10-02T13:17:39.791Z",
     "source_url": "https://www.screener.in/company/532454/"
   },
+  "532468": {
+    "company": "Kama Holdings Ltd",
+    "industry": "Holding Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 7262,
+    "pe": 55.3,
+    "as_of": "2026-10-03T07:12:34.012Z",
+    "source_url": "https://www.screener.in/company/532468/"
+  },
   "532478": {
     "company": "United Breweries Ltd",
     "industry": "Breweries & Distilleries",
@@ -3432,9 +3441,9 @@
     "company": "Oriental Trimex Ltd",
     "industry": "Granites & Marbles",
     "sector": "Consumer Durables",
-    "market_cap_cr": 36.7,
-    "pe": 14.6,
-    "as_of": "2026-09-26T05:43:40.926Z",
+    "market_cap_cr": 35.4,
+    "pe": 14.1,
+    "as_of": "2026-10-03T07:12:35.958Z",
     "source_url": "https://www.screener.in/company/532817/"
   },
   "532822": {
@@ -3549,9 +3558,9 @@
     "company": "Puravankara Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 5072,
-    "pe": 32.4,
-    "as_of": "2026-09-26T06:28:23.453Z",
+    "market_cap_cr": 4853,
+    "pe": 31,
+    "as_of": "2026-10-03T07:12:37.906Z",
     "source_url": "https://www.screener.in/company/532891/"
   },
   "532893": {
@@ -3810,9 +3819,9 @@
     "company": "Hindustan Media Ventures Ltd",
     "industry": "Print Media",
     "sector": "Media, Entertainment & Publication",
-    "market_cap_cr": 542,
-    "pe": 3.43,
-    "as_of": "2026-09-25T06:28:57.272Z",
+    "market_cap_cr": 571,
+    "pe": 3.61,
+    "as_of": "2026-10-03T07:12:39.855Z",
     "source_url": "https://www.screener.in/company/533217/"
   },
   "533252": {
@@ -3846,9 +3855,9 @@
     "company": "Ashoka Buildcon Ltd",
     "industry": "Civil Construction",
     "sector": "Construction",
-    "market_cap_cr": 3144,
-    "pe": 16.5,
-    "as_of": "2026-09-25T06:28:59.505Z",
+    "market_cap_cr": 2956,
+    "pe": 15.5,
+    "as_of": "2026-10-03T07:12:41.803Z",
     "source_url": "https://www.screener.in/company/533271/"
   },
   "533272": {
@@ -3864,9 +3873,9 @@
     "company": "Prestige Estates Projects Ltd",
     "industry": "Residential, Commercial Projects",
     "sector": "Realty",
-    "market_cap_cr": 63313,
-    "pe": 349,
-    "as_of": "2026-09-25T06:29:01.527Z",
+    "market_cap_cr": 64011,
+    "pe": 353,
+    "as_of": "2026-10-03T07:12:43.749Z",
     "source_url": "https://www.screener.in/company/533274/"
   },
   "533278": {
@@ -3891,9 +3900,9 @@
     "company": "Kirloskar Oil Engines Ltd",
     "industry": "Compressors, Pumps & Diesel Engines",
     "sector": "Capital Goods",
-    "market_cap_cr": 31100,
-    "pe": 68,
-    "as_of": "2026-09-25T22:01:45.505Z",
+    "market_cap_cr": 32646,
+    "pe": 71.3,
+    "as_of": "2026-10-03T07:12:45.697Z",
     "source_url": "https://www.screener.in/company/533293/"
   },
   "533301": {
@@ -3909,9 +3918,9 @@
     "company": "Texmaco Rail & Engineering Ltd",
     "industry": "Railway Wagons",
     "sector": "Capital Goods",
-    "market_cap_cr": 5082,
-    "pe": 23.9,
-    "as_of": "2026-09-25T06:29:03.541Z",
+    "market_cap_cr": 5161,
+    "pe": 24.3,
+    "as_of": "2026-10-03T07:12:47.643Z",
     "source_url": "https://www.screener.in/company/533326/"
   },
   "533333": {
@@ -3922,6 +3931,15 @@
     "pe": 76.1,
     "as_of": "2026-09-27T19:27:03.722Z",
     "source_url": "https://www.screener.in/company/533333/"
+  },
+  "533398": {
+    "company": "Muthoot Finance Ltd",
+    "industry": "Non Banking Financial Company (NBFC)",
+    "sector": "Financial Services",
+    "market_cap_cr": 108280,
+    "pe": 10.2,
+    "as_of": "2026-10-03T07:12:49.588Z",
+    "source_url": "https://www.screener.in/company/533398/"
   },
   "533470": {
     "company": "Rushil Decor Ltd",
@@ -3945,36 +3963,45 @@
     "company": "PG Electroplast Ltd",
     "industry": "Consumer Electronics",
     "sector": "Consumer Durables",
-    "market_cap_cr": 14746,
-    "pe": 134,
-    "as_of": "2026-09-25T06:29:05.562Z",
+    "market_cap_cr": 13796,
+    "pe": 125,
+    "as_of": "2026-10-03T07:12:51.534Z",
     "source_url": "https://www.screener.in/company/533581/"
   },
   "533758": {
     "company": "APL Apollo Tubes Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 60827,
-    "pe": 105,
-    "as_of": "2026-09-24T06:21:39.408Z",
+    "market_cap_cr": 58744,
+    "pe": 102,
+    "as_of": "2026-10-03T07:12:53.481Z",
     "source_url": "https://www.screener.in/company/533758/"
+  },
+  "533982": {
+    "company": "Tera Software Ltd",
+    "industry": "IT Enabled Services",
+    "sector": "Information Technology",
+    "market_cap_cr": 260,
+    "pe": 10.5,
+    "as_of": "2026-10-03T07:12:55.426Z",
+    "source_url": "https://www.screener.in/company/533982/"
   },
   "534076": {
     "company": "RHI Magnesita India Ltd",
     "industry": "Electrodes & Refractories",
     "sector": "Capital Goods",
-    "market_cap_cr": 8030,
-    "pe": 38.3,
-    "as_of": "2026-09-24T01:03:52.693Z",
+    "market_cap_cr": 7947,
+    "pe": 37.9,
+    "as_of": "2026-10-03T07:12:57.372Z",
     "source_url": "https://www.screener.in/company/534076/"
   },
   "534139": {
     "company": "Schneider Electric Infrastructure Ltd",
     "industry": "Heavy Electrical Equipment",
     "sector": "Capital Goods",
-    "market_cap_cr": 28883,
-    "pe": 149,
-    "as_of": "2026-09-25T06:29:07.575Z",
+    "market_cap_cr": 30495,
+    "pe": 157,
+    "as_of": "2026-10-03T07:12:59.320Z",
     "source_url": "https://www.screener.in/company/534139/"
   },
   "534369": {
@@ -3999,9 +4026,9 @@
     "company": "JTL Industries Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 3483,
-    "pe": 34.4,
-    "as_of": "2026-09-25T06:29:09.597Z",
+    "market_cap_cr": 3294,
+    "pe": 32.5,
+    "as_of": "2026-10-03T07:13:01.265Z",
     "source_url": "https://www.screener.in/company/534600/"
   },
   "534618": {
