@@ -1533,9 +1533,9 @@
     "company": "Man Industries (India) Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 7654,
-    "pe": 31.3,
-    "as_of": "2026-09-26T10:26:37.614Z",
+    "market_cap_cr": 6913,
+    "pe": 28.2,
+    "as_of": "2026-10-03T12:35:46.562Z",
     "source_url": "https://www.screener.in/company/513269/"
   },
   "513307": {
@@ -1727,6 +1727,15 @@
     "as_of": "2026-09-29T20:08:03.237Z",
     "source_url": "https://www.screener.in/company/516030/"
   },
+  "516038": {
+    "company": "KS Smart Technlogies Limited",
+    "industry": "IT Enabled Services",
+    "sector": "Information Technology",
+    "market_cap_cr": 1477,
+    "pe": 13.5,
+    "as_of": "2026-10-03T12:35:48.538Z",
+    "source_url": "https://www.screener.in/company/516038/"
+  },
   "516072": {
     "company": "Vishnu Chemicals Ltd",
     "industry": "Specialty Chemicals",
@@ -1785,9 +1794,9 @@
     "company": "Havells India Ltd",
     "industry": "Consumer Electronics",
     "sector": "Consumer Durables",
-    "market_cap_cr": 68812,
-    "pe": 40.8,
-    "as_of": "2026-09-26T10:26:39.581Z",
+    "market_cap_cr": 65266,
+    "pe": 38.7,
+    "as_of": "2026-10-03T12:35:50.511Z",
     "source_url": "https://www.screener.in/company/517354/"
   },
   "517423": {
@@ -2145,9 +2154,9 @@
     "company": "Menon Bearings Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 1671,
-    "pe": 49,
-    "as_of": "2026-09-26T10:26:41.546Z",
+    "market_cap_cr": 1616,
+    "pe": 47.4,
+    "as_of": "2026-10-03T12:35:52.480Z",
     "source_url": "https://www.screener.in/company/523828/"
   },
   "523874": {
@@ -2343,9 +2352,9 @@
     "company": "Caplin Point Laboratories Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 21550,
-    "pe": 51.3,
-    "as_of": "2026-09-26T10:26:43.512Z",
+    "market_cap_cr": 20006,
+    "pe": 47.7,
+    "as_of": "2026-10-03T12:35:54.451Z",
     "source_url": "https://www.screener.in/company/524742/"
   },
   "524774": {
@@ -2550,9 +2559,9 @@
     "company": "NRB Bearings Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 5183,
-    "pe": 39.4,
-    "as_of": "2026-09-26T10:26:45.479Z",
+    "market_cap_cr": 5259,
+    "pe": 40,
+    "as_of": "2026-10-03T12:35:56.422Z",
     "source_url": "https://www.screener.in/company/530367/"
   },
   "530475": {
@@ -2716,6 +2725,15 @@
     "pe": 33.5,
     "as_of": "2026-10-02T06:20:13.847Z",
     "source_url": "https://www.screener.in/company/531381/"
+  },
+  "531411": {
+    "company": "Tuni Textile Mills Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 133,
+    "pe": 133,
+    "as_of": "2026-10-03T12:35:58.391Z",
+    "source_url": "https://www.screener.in/company/531411/"
   },
   "531431": {
     "company": "Shakti Pumps (India) Ltd",
@@ -3000,9 +3018,9 @@
     "company": "Cera Sanitaryware Ltd",
     "industry": "Sanitary Ware",
     "sector": "Consumer Durables",
-    "market_cap_cr": 6960,
-    "pe": 33.7,
-    "as_of": "2026-09-26T10:26:47.445Z",
+    "market_cap_cr": 6573,
+    "pe": 31.8,
+    "as_of": "2026-10-03T12:36:00.360Z",
     "source_url": "https://www.screener.in/company/532443/"
   },
   "532454": {
@@ -3252,9 +3270,9 @@
     "company": "AIA Engineering Ltd",
     "industry": "Castings & Forgings",
     "sector": "Capital Goods",
-    "market_cap_cr": 36576,
-    "pe": 28.2,
-    "as_of": "2026-09-26T10:26:49.412Z",
+    "market_cap_cr": 35689,
+    "pe": 27.5,
+    "as_of": "2026-10-03T12:36:02.333Z",
     "source_url": "https://www.screener.in/company/532683/"
   },
   "532687": {
@@ -3459,9 +3477,9 @@
     "company": "Astral Ltd",
     "industry": "Plastic Products - Industrial",
     "sector": "Capital Goods",
-    "market_cap_cr": 37584,
-    "pe": 56.6,
-    "as_of": "2026-09-26T10:26:51.382Z",
+    "market_cap_cr": 36107,
+    "pe": 54.4,
+    "as_of": "2026-10-03T12:36:04.302Z",
     "source_url": "https://www.screener.in/company/532830/"
   },
   "532832": {
@@ -3950,6 +3968,15 @@
     "as_of": "2026-09-27T22:45:59.341Z",
     "source_url": "https://www.screener.in/company/533470/"
   },
+  "533520": {
+    "company": "Indiabulls Limited",
+    "industry": "Diversified Commercial Services",
+    "sector": "Services",
+    "market_cap_cr": 6864,
+    "pe": 27.3,
+    "as_of": "2026-10-03T12:36:06.271Z",
+    "source_url": "https://www.screener.in/company/533520/"
+  },
   "533553": {
     "company": "TD Power Systems Ltd",
     "industry": "Heavy Electrical Equipment",
@@ -4067,6 +4094,15 @@
     "as_of": "2026-09-27T19:27:07.674Z",
     "source_url": "https://www.screener.in/company/535136/"
   },
+  "535387": {
+    "company": "Lakhotia Polyesters (India) Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 55.5,
+    "pe": 9.77,
+    "as_of": "2026-10-03T12:36:08.252Z",
+    "source_url": "https://www.screener.in/company/535387/"
+  },
   "537259": {
     "company": "Suyog Telematics Ltd",
     "industry": "Telecom - Infrastructure",
@@ -4085,13 +4121,22 @@
     "as_of": "2026-09-29T23:48:08.308Z",
     "source_url": "https://www.screener.in/company/537392/"
   },
+  "538119": {
+    "company": "R&B Denims Ltd",
+    "industry": "Other Textile Products",
+    "sector": "Textiles",
+    "market_cap_cr": 244,
+    "pe": 17.4,
+    "as_of": "2026-10-03T12:36:10.223Z",
+    "source_url": "https://www.screener.in/company/538119/"
+  },
   "538268": {
     "company": "Wonderla Holidays Ltd",
     "industry": "Amusement Parks/ Other Recreation",
     "sector": "Consumer Services",
-    "market_cap_cr": 3238,
-    "pe": 30.6,
-    "as_of": "2026-09-26T00:46:56.734Z",
+    "market_cap_cr": 3142,
+    "pe": 29.7,
+    "as_of": "2026-10-03T12:36:12.196Z",
     "source_url": "https://www.screener.in/company/538268/"
   },
   "538273": {
@@ -4116,9 +4161,9 @@
     "company": "Capital Trade Links Ltd",
     "industry": "Non Banking Financial Company (NBFC)",
     "sector": "Financial Services",
-    "market_cap_cr": 367,
-    "pe": 116,
-    "as_of": "2026-09-25T06:29:11.614Z",
+    "market_cap_cr": 354,
+    "pe": 112,
+    "as_of": "2026-10-03T12:36:14.166Z",
     "source_url": "https://www.screener.in/company/538476/"
   },
   "538546": {
