@@ -1,8 +1,8 @@
 {
   "initialized": true,
-  "done": false,
+  "done": true,
   "start_date": "20260618",
   "end_date": "20260916",
-  "cursor_date": "20260915",
-  "updated_at": "2026-10-03T16:45:21.913Z"
+  "cursor_date": "20260917",
+  "updated_at": "2026-10-03T19:55:05.828Z"
 }
