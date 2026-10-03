@@ -1,10 +1,7 @@
 {
-  "last_run": "2026-10-03T19:55:35.811Z",
+  "last_run": "2026-10-03T22:51:32.282Z",
   "mode": "backfill",
   "window": {
-    "from": "20260618",
-    "to": "20260916",
-    "cursor": "20260917",
     "done": true
   },
   "counts": {
@@ -14,6 +11,6 @@
     "baselines": 150,
     "processed_news_ids": 18053
   },
-  "provider_used": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
-  "generated_at": "2026-10-03T19:55:35.813Z"
+  "provider_used": null,
+  "generated_at": "2026-10-03T22:51:32.284Z"
 }
