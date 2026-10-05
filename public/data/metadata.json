@@ -1,9 +1,8 @@
 {
-  "last_run": "2026-10-05T07:11:41.921Z",
-  "mode": "daily",
+  "last_run": "2026-10-05T15:56:44.605Z",
+  "mode": "backfill",
   "window": {
-    "from": "20261003",
-    "to": "20261005"
+    "done": true
   },
   "counts": {
     "companies_tracked": 838,
@@ -12,6 +11,6 @@
     "baselines": 150,
     "processed_news_ids": 18149
   },
-  "provider_used": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
-  "generated_at": "2026-10-05T07:11:41.923Z"
+  "provider_used": null,
+  "generated_at": "2026-10-05T15:56:44.607Z"
 }
