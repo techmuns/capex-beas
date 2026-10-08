@@ -48,18 +48,18 @@
     "company": "BASF India Ltd",
     "industry": "Specialty Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 14904,
-    "pe": 24.1,
-    "as_of": "2026-09-30T17:07:41.657Z",
+    "market_cap_cr": 14638,
+    "pe": 23.6,
+    "as_of": "2026-10-08T07:37:34.732Z",
     "source_url": "https://www.screener.in/company/500042/"
   },
   "500049": {
     "company": "Bharat Electronics Ltd",
     "industry": null,
     "sector": "Capital Goods",
-    "market_cap_cr": 283839,
-    "pe": 46.3,
-    "as_of": "2026-10-01T00:57:19.149Z",
+    "market_cap_cr": 269767,
+    "pe": 44,
+    "as_of": "2026-10-08T07:37:36.762Z",
     "source_url": "https://www.screener.in/company/500049/"
   },
   "500052": {
@@ -183,10 +183,19 @@
     "company": "EPL Ltd",
     "industry": "Packaging",
     "sector": "Capital Goods",
-    "market_cap_cr": 7590,
-    "pe": 24.7,
-    "as_of": "2026-09-30T17:07:43.631Z",
+    "market_cap_cr": 7422,
+    "pe": 24.2,
+    "as_of": "2026-10-08T07:37:38.798Z",
     "source_url": "https://www.screener.in/company/500135/"
+  },
+  "500143": {
+    "company": "P. H. Capital Ltd",
+    "industry": "Investment Company",
+    "sector": "Financial Services",
+    "market_cap_cr": 415,
+    "pe": 17.4,
+    "as_of": "2026-10-08T07:37:40.823Z",
+    "source_url": "https://www.screener.in/company/500143/"
   },
   "500144": {
     "company": "Finolex Cables Ltd",
@@ -255,18 +264,18 @@
     "company": "HFCL Ltd",
     "industry": "Telecom - Infrastructure",
     "sector": "Telecommunication",
-    "market_cap_cr": 34798,
-    "pe": 73.4,
-    "as_of": "2026-09-30T17:07:45.603Z",
+    "market_cap_cr": 39979,
+    "pe": 84.3,
+    "as_of": "2026-10-08T07:37:42.881Z",
     "source_url": "https://www.screener.in/company/500183/"
   },
   "500184": {
     "company": "Himadri Speciality Chemical Ltd",
     "industry": "Carbon Black",
     "sector": "Chemicals",
-    "market_cap_cr": 34200,
-    "pe": 43.3,
-    "as_of": "2026-09-30T21:33:51.859Z",
+    "market_cap_cr": 33294,
+    "pe": 42.1,
+    "as_of": "2026-10-08T07:37:45.123Z",
     "source_url": "https://www.screener.in/company/500184/"
   },
   "500186": {
@@ -417,9 +426,9 @@
     "company": "Oil & Natural Gas Corpn Ltd",
     "industry": "Oil Exploration & Production",
     "sector": "Oil, Gas & Consumable Fuels",
-    "market_cap_cr": 284063,
-    "pe": 6.78,
-    "as_of": "2026-10-01T00:57:21.074Z",
+    "market_cap_cr": 275256,
+    "pe": 6.55,
+    "as_of": "2026-10-08T07:37:47.198Z",
     "source_url": "https://www.screener.in/company/500312/"
   },
   "500325": {
@@ -480,9 +489,9 @@
     "company": "JK Lakshmi Cement Ltd",
     "industry": "Cement & Cement Products",
     "sector": "Construction Materials",
-    "market_cap_cr": 5934,
-    "pe": 14.8,
-    "as_of": "2026-10-01T07:18:30.210Z",
+    "market_cap_cr": 5737,
+    "pe": 14.4,
+    "as_of": "2026-10-08T07:37:49.230Z",
     "source_url": "https://www.screener.in/company/500380/"
   },
   "500387": {
@@ -516,9 +525,9 @@
     "company": "Supreme Petrochem Ltd",
     "industry": "Petrochemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 15125,
-    "pe": 30.9,
-    "as_of": "2026-09-30T11:30:07.981Z",
+    "market_cap_cr": 14834,
+    "pe": 30.3,
+    "as_of": "2026-10-08T07:37:51.259Z",
     "source_url": "https://www.screener.in/company/500405/"
   },
   "500410": {
@@ -669,9 +678,9 @@
     "company": "Novartis India Ltd",
     "industry": "Pharmaceuticals",
     "sector": "Healthcare",
-    "market_cap_cr": 4716,
-    "pe": 48.2,
-    "as_of": "2026-09-30T17:07:47.575Z",
+    "market_cap_cr": 4878,
+    "pe": 49.9,
+    "as_of": "2026-10-08T07:37:53.296Z",
     "source_url": "https://www.screener.in/company/500672/"
   },
   "500674": {
@@ -705,9 +714,9 @@
     "company": "Tata Chemicals Ltd",
     "industry": "Commodity Chemicals",
     "sector": "Chemicals",
-    "market_cap_cr": 15556,
-    "pe": 23.8,
-    "as_of": "2026-09-30T17:07:49.548Z",
+    "market_cap_cr": 15196,
+    "pe": 23.2,
+    "as_of": "2026-10-08T07:37:55.321Z",
     "source_url": "https://www.screener.in/company/500770/"
   },
   "500780": {
@@ -723,9 +732,9 @@
     "company": "Nestle India Ltd",
     "industry": "Packaged Foods",
     "sector": "Fast Moving Consumer Goods",
-    "market_cap_cr": 254832,
-    "pe": 67.9,
-    "as_of": "2026-09-30T11:30:09.933Z",
+    "market_cap_cr": 255502,
+    "pe": 68,
+    "as_of": "2026-10-08T07:37:57.383Z",
     "source_url": "https://www.screener.in/company/500790/"
   },
   "500840": {
@@ -894,9 +903,9 @@
     "company": "Siyaram Silk Mills Ltd",
     "industry": "Other Textile Products",
     "sector": "Textiles",
-    "market_cap_cr": 2418,
-    "pe": 10.3,
-    "as_of": "2026-10-01T07:18:32.223Z",
+    "market_cap_cr": 2476,
+    "pe": 10.6,
+    "as_of": "2026-10-08T07:37:59.581Z",
     "source_url": "https://www.screener.in/company/503811/"
   },
   "504000": {
@@ -957,9 +966,9 @@
     "company": "Rathi Steel & Power Ltd",
     "industry": "Iron & Steel Products",
     "sector": "Capital Goods",
-    "market_cap_cr": 187,
-    "pe": 13,
-    "as_of": "2026-09-30T11:30:11.887Z",
+    "market_cap_cr": 173,
+    "pe": 11.9,
+    "as_of": "2026-10-08T07:38:02.238Z",
     "source_url": "https://www.screener.in/company/504903/"
   },
   "505010": {
@@ -1074,9 +1083,9 @@
     "company": "Triton Valves Ltd",
     "industry": "Auto Components & Equipments",
     "sector": "Automobile and Auto Components",
-    "market_cap_cr": 555,
-    "pe": 35.5,
-    "as_of": "2026-09-30T17:07:51.520Z",
+    "market_cap_cr": 535,
+    "pe": 34.2,
+    "as_of": "2026-10-08T07:38:04.706Z",
     "source_url": "https://www.screener.in/company/505978/"
   },
   "506166": {
