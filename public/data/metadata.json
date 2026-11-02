@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-01T22:23:13.736Z",
+  "last_run": "2026-11-02T01:47:47.056Z",
   "mode": "backfill",
   "window": {
     "done": true
@@ -12,5 +12,5 @@
     "processed_news_ids": 18988
   },
   "provider_used": null,
-  "generated_at": "2026-11-01T22:23:13.739Z"
+  "generated_at": "2026-11-02T01:47:47.058Z"
 }
